@@ -1,0 +1,117 @@
+.boxes-design {
+  border: solid 1px #818181;
+  padding: 1%;
+  margin: 1%;
+}
+
+.boxes-design-over {
+  margin-top: 1%;
+  margin-bottom: 1%;
+  padding: 1%;
+}
+
+.carousel-control {
+  background: none;
+  opacity: 0.1;
+  width: 5%;
+  color: black;
+}
+
+.hidden-design {
+  width: 110px;
+  height: 110px;
+  border: thin solid black;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.box-cover {
+  border: solid 1px gray;
+  width: 5px;
+  height: auto;
+  font-size: 10px;
+  align-content: center;
+}
+
+.circle-cover {
+  font-size: 20px;
+  border-radius: 100%;
+  border: solid 2px #428047;
+  background-color: #428047;
+  color: white;
+}
+
+.img-design {
+  width: 100%;
+  height: auto;
+}
+
+.li-style {
+  padding: 2%;
+}
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+fieldset, label {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 20px;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin: 10px;
+}
+
+/****** Style Star Rating Widget *****/
+
+.rating {
+  border: none;
+  float: left;
+}
+
+.rating > input {
+  display: none;
+}
+
+.rating > label:before {
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before {
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label {
+  color: #ddd;
+  float: right;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label {
+  color: #FFD700;
+}
+
+/* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label {
+  color: #FFED85;
+}
+
+.contain {
+  width: 100%;
+}
