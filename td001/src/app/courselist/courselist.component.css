@@ -115,3 +115,8 @@ h1 {
 .contain {
   width: 100%;
 }
+
+.font-size {
+  font-size: 12px;
+  font-weight: 500;
+}

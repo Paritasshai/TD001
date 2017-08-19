@@ -42,11 +42,11 @@
 }
 
 .center {
-  margin-top: 50px;
+  margin-top: 5px;
 }
 
 .modal-header {
-  padding-bottom: 10px;
+  padding-bottom: 2px;
 }
 
 .modal-footer {
@@ -54,13 +54,41 @@
 }
 
 .modal-footer .btn-group button {
-  height: 40px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  height:40px;
+  border-top-left-radius : 0;
+  border-top-right-radius : 0;
   border: none;
   border-right: 1px solid #ddd;
 }
 
 .modal-footer .btn-group:last-child > button {
   border-right: 0;
+}
+
+.form-control{
+  height: 40px;
+}
+
+.modal {
+  text-align: center;
+}
+
+.modal-dialog {
+  display: inline-block;
+  width: auto;
+}
+
+hr.style15 {
+  border-top: 4px double #8c8b8b;
+  text-align: center;
+}
+hr.style15:after {
+  content: 'Or';
+  display: inline-block;
+  position: relative;
+  top: -15px;
+  padding: 0 10px;
+  background: white;
+  color: #8c8b8b;
+  font-size: 18px;
 }

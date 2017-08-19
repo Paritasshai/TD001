@@ -7,10 +7,16 @@ import {routing} from './app.routing';
 import {AppComponent} from './app.component';
 import {HomepageComponent} from './homepage/homepage.component';
 import {CoursepageComponent} from './coursepage/coursepage.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { LoginpageComponent } from './loginpage/loginpage.component';
-import { CourselistComponent } from './courselist/courselist.component';
+import {HeaderComponent} from './header/header.component';
+import {FooterComponent} from './footer/footer.component';
+import {LoginpageComponent} from './loginpage/loginpage.component';
+import {CourselistComponent} from './courselist/courselist.component';
+import { SignuppageComponent } from './signuppage/signuppage.component';
+
+//
+import {UserService} from './services/user.service';
+import {MemberService} from './services/member.service';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +26,8 @@ import { CourselistComponent } from './courselist/courselist.component';
     HeaderComponent,
     FooterComponent,
     LoginpageComponent,
-    CourselistComponent
+    CourselistComponent,
+    SignuppageComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +35,10 @@ import { CourselistComponent } from './courselist/courselist.component';
     HttpModule,
     routing
   ],
-  providers: [],
+  providers: [
+    UserService,
+    MemberService
+  ],
   bootstrap: [AppComponent],
   entryComponents: [AppComponent],
 })
