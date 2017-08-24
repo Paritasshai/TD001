@@ -2,55 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bae7473-a8d5-49bc-9d24-3d0dc9ac3770" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/e2e/app.e2e-spec.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/e2e/app.po.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/e2e/tsconfig.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/app.component.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/app.component.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/app.component.spec.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/app.component.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/app.module.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/app.routing.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/app.service.spec.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/app.service.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/courselist/courselist.component.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/courselist/courselist.component.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/courselist/courselist.component.spec.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/courselist/courselist.component.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/coursepage/coursepage.component.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/coursepage/coursepage.component.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/coursepage/coursepage.component.spec.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/coursepage/coursepage.component.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/footer/footer.component.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/footer/footer.component.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/footer/footer.component.spec.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/footer/footer.component.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/header/header.component.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/header/header.component.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/header/header.component.spec.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/header/header.component.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/homepage/homepage.component.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/homepage/homepage.component.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/homepage/homepage.component.spec.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/homepage/homepage.component.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/loginpage/loginpage.component.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/loginpage/loginpage.component.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/loginpage/loginpage.component.spec.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/loginpage/loginpage.component.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/assets/.gitkeep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/assets/images/001.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/assets/images/002.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/assets/images/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/environments/environment.prod.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/environments/environment.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/main.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/polyfills.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/styles.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/test.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/tsconfig.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/loginpage/pages/shared/member-mock.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/models/member.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/services/member.service.spec.ts" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/td001/src/app/services/member.service.ts" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/angular-cli.json" afterPath="$PROJECT_DIR$/td001/angular-cli.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/package-lock.json" afterPath="$PROJECT_DIR$/td001/package-lock.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/package.json" afterPath="$PROJECT_DIR$/td001/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/app.module.ts" afterPath="$PROJECT_DIR$/td001/src/app/app.module.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/header/header.component.css" afterPath="$PROJECT_DIR$/td001/src/app/header/header.component.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/header/header.component.html" afterPath="$PROJECT_DIR$/td001/src/app/header/header.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/header/header.component.ts" afterPath="$PROJECT_DIR$/td001/src/app/header/header.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/homepage/homepage.component.css" afterPath="$PROJECT_DIR$/td001/src/app/homepage/homepage.component.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/loginpage/loginpage.component.css" afterPath="$PROJECT_DIR$/td001/src/app/loginpage/loginpage.component.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/loginpage/loginpage.component.html" afterPath="$PROJECT_DIR$/td001/src/app/loginpage/loginpage.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/loginpage/loginpage.component.ts" afterPath="$PROJECT_DIR$/td001/src/app/loginpage/loginpage.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/models/user.ts" afterPath="$PROJECT_DIR$/td001/src/app/models/user.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/services/user.service.ts" afterPath="$PROJECT_DIR$/td001/src/app/services/user.service.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/signuppage/signuppage.component.css" afterPath="$PROJECT_DIR$/td001/src/app/signuppage/signuppage.component.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/signuppage/signuppage.component.html" afterPath="$PROJECT_DIR$/td001/src/app/signuppage/signuppage.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/signuppage/signuppage.component.ts" afterPath="$PROJECT_DIR$/td001/src/app/signuppage/signuppage.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/index.html" afterPath="$PROJECT_DIR$/td001/src/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -69,6 +42,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>heroes</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -81,24 +59,36 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/td001/src/styles.css" />
-        <option value="$PROJECT_DIR$/td001/src/index.html" />
         <option value="$PROJECT_DIR$/td001/src/app/app.component.ts" />
         <option value="$PROJECT_DIR$/td001/src/app/homepage/homepage.component.ts" />
         <option value="$PROJECT_DIR$/td001/.gitignore" />
         <option value="$PROJECT_DIR$/td001/src/app/app.module.ts___jb_tmp___" />
-        <option value="$PROJECT_DIR$/td001/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/td001/src/app/app.routing.ts" />
         <option value="$PROJECT_DIR$/td001/src/app/app.component.css" />
-        <option value="$PROJECT_DIR$/td001/src/app/header/header.component.css" />
         <option value="$PROJECT_DIR$/td001/src/app/app.component.html" />
-        <option value="$PROJECT_DIR$/td001/src/app/homepage/homepage.component.css" />
         <option value="$PROJECT_DIR$/td001/src/app/coursepage/coursepage.component.ts" />
-        <option value="$PROJECT_DIR$/td001/src/app/header/header.component.html" />
         <option value="$PROJECT_DIR$/td001/src/app/coursepage/coursepage.component.css" />
         <option value="$PROJECT_DIR$/td001/src/app/footer/footer.component.css" />
         <option value="$PROJECT_DIR$/td001/src/app/footer/footer.component.html" />
         <option value="$PROJECT_DIR$/td001/src/app/coursepage/coursepage.component.html" />
+        <option value="$PROJECT_DIR$/td001/src/app/loginpage/authentication/auth.guard.ts" />
+        <option value="$PROJECT_DIR$/td001/src/app/loginpage/authentication/authentication.service.ts" />
+        <option value="$PROJECT_DIR$/td001/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/td001/angular-cli.json" />
         <option value="$PROJECT_DIR$/td001/src/app/homepage/homepage.component.html" />
+        <option value="$PROJECT_DIR$/td001/src/app/homepage/homepage.component.css" />
+        <option value="$PROJECT_DIR$/td001/src/app/loginpage/loginpage.component.ts" />
+        <option value="$PROJECT_DIR$/td001/src/app/header/header.component.ts" />
+        <option value="$PROJECT_DIR$/td001/src/app/signuppage/signuppage.component.css" />
+        <option value="$PROJECT_DIR$/td001/src/app/loginpage/loginpage.component.css" />
+        <option value="$PROJECT_DIR$/td001/src/app/loginpage/loginpage.component.html" />
+        <option value="$PROJECT_DIR$/td001/src/app/models/user.ts" />
+        <option value="$PROJECT_DIR$/td001/src/index.html" />
+        <option value="$PROJECT_DIR$/td001/src/app/signuppage/signuppage.component.ts" />
+        <option value="$PROJECT_DIR$/td001/src/app/signuppage/signuppage.component.html" />
+        <option value="$PROJECT_DIR$/td001/src/app/header/header.component.html" />
+        <option value="$PROJECT_DIR$/td001/src/app/header/header.component.css" />
+        <option value="$PROJECT_DIR$/td001/src/app/services/user.service.ts" />
       </list>
     </option>
   </component>
@@ -116,11 +106,12 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/td001/functions/node_modules" />
     <handled-path value="$PROJECT_DIR$/td001/node_modules" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="-39" />
+    <option name="y" value="95" />
     <option name="width" value="1382" />
     <option name="height" value="754" />
   </component>
@@ -140,7 +131,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -153,12 +143,34 @@
               <item name="TD001" type="462c0819:PsiDirectoryNode" />
               <item name="td001" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="TD001" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TD001" type="462c0819:PsiDirectoryNode" />
+              <item name="td001" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TD001" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TD001" type="462c0819:PsiDirectoryNode" />
+              <item name="td001" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TD001" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TD001" type="462c0819:PsiDirectoryNode" />
+              <item name="td001" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -171,6 +183,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Film\Documents\TD001\td001\src\app\loginpage\authentication" />
+      <recent name="C:\Users\Film\Documents\TD001\td001\src\app\loginpage" />
       <recent name="C:\Users\Film\Documents\Tamdai\td001\src\assets\images" />
       <recent name="C:\Users\Film\Documents\Tamdai\td001\src\assets" />
       <recent name="C:\Users\Film\Documents\Tamdai\td001\node_modules" />
@@ -290,12 +304,19 @@
       <workItem from="1502687072270" duration="9172000" />
       <workItem from="1503136824000" duration="673000" />
       <workItem from="1503155843874" duration="498000" />
-      <workItem from="1503156362714" duration="653000" />
+      <workItem from="1503156362714" duration="1248000" />
+      <workItem from="1503208883264" duration="3814000" />
+      <workItem from="1503288850620" duration="5840000" />
+      <workItem from="1503298319968" duration="11620000" />
+      <workItem from="1503458802702" duration="10284000" />
+      <workItem from="1503498742199" duration="924000" />
+      <workItem from="1503538263564" duration="9017000" />
+      <workItem from="1503547321299" duration="20000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33515000" />
+    <option name="totallyTimeSpent" value="75629000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -313,7 +334,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22087745" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20045386" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -325,6 +346,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -336,7 +358,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -345,14 +367,15 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21197411" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16868381" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21197411" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19742814" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -360,6 +383,44 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/main.js" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/app.module.js.map" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/app.routing.js" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/app.component.js.map" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/app.component.js" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/main.js.map" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/app.routing.js.map" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/app.module.js" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/home/index.js" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/home/home.component.js" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/home/home.component.js.map" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/home/index.js.map" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/login/index.js" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/login/login.component.js" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/login/login.component.js.map" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/login/index.js.map" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/_guards/index.js" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/_guards/auth.guard.js.map" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/_guards/auth.guard.js" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/_guards/index.js.map" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/_models/index.js" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/_models/user.js.map" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/_models/user.js" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/_models/index.js.map" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/_helpers/fake-backend.js.map" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/_helpers/fake-backend.js" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/_helpers/index.js" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/_helpers/index.js.map" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/_services/authentication.service.js.map" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/_services/index.js" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/_services/user.service.js.map" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/_services/authentication.service.js" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/_services/index.js.map" />
+        <option value="$USER_HOME$/Downloads/Music/angular2-jwt-authentication-example-master/app/_services/user.service.js" />
+      </list>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -376,7 +437,6 @@
     <entry file="file://$PROJECT_DIR$/td001/src/app/homepage/homepage.component.html" />
     <entry file="file://$PROJECT_DIR$/td001/node_modules/bootstrap/js/tab.js" />
     <entry file="file://$PROJECT_DIR$/td001/src/styles.css" />
-    <entry file="file://$PROJECT_DIR$/td001/src/index.html" />
     <entry file="file://$PROJECT_DIR$/td001/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="335">
@@ -388,19 +448,201 @@
     <entry file="file://$PROJECT_DIR$/td001/src/app/app.module.ts___jb_tmp___" />
     <entry file="file://$PROJECT_DIR$/td001/src/app/app.component.ts" />
     <entry file="file://$PROJECT_DIR$/td001/src/app/coursepage/coursepage.component.spec.ts" />
-    <entry file="file://$PROJECT_DIR$/td001/src/app/app.module.ts" />
     <entry file="file://$PROJECT_DIR$/td001/src/app/app.routing.ts" />
     <entry file="file://$PROJECT_DIR$/td001/src/app/app.component.css" />
-    <entry file="file://$PROJECT_DIR$/td001/src/app/header/header.component.css" />
-    <entry file="file://$PROJECT_DIR$/td001/src/app/app.component.html" />
-    <entry file="file://$PROJECT_DIR$/td001/src/app/homepage/homepage.component.ts" />
     <entry file="file://$PROJECT_DIR$/td001/src/app/coursepage/coursepage.component.ts" />
     <entry file="file://$PROJECT_DIR$/td001/src/app/coursepage/coursepage.component.css" />
     <entry file="file://$PROJECT_DIR$/td001/src/app/footer/footer.component.css" />
-    <entry file="file://$PROJECT_DIR$/td001/src/app/homepage/homepage.component.css" />
     <entry file="file://$PROJECT_DIR$/td001/src/app/footer/footer.component.html" />
-    <entry file="file://$PROJECT_DIR$/td001/src/app/header/header.component.html" />
     <entry file="file://$PROJECT_DIR$/td001/src/app/coursepage/coursepage.component.html" />
-    <entry file="file://$PROJECT_DIR$/td001/src/app/homepage/homepage.component.html" />
+    <entry file="file://$PROJECT_DIR$/td001/src/app/loginpage/pages/shared/member-mock.ts" />
+    <entry file="file://$PROJECT_DIR$/td001/src/app/homepage/homepage.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/loginpage/login.component.js" />
+    <entry file="file://$PROJECT_DIR$/td001/src/app/services/user.service.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/loginpage/authentication/fake-backend.ts" />
+    <entry file="file://$PROJECT_DIR$/td001/src/app/loginpage/authentication/auth.guard.ts" />
+    <entry file="file://$PROJECT_DIR$/td001/src/app/loginpage/authentication/authentication.service.ts" />
+    <entry file="file://$PROJECT_DIR$/td001/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/angular-cli.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="8" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/courselist/courselist.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/app.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/environments/environment.prod.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/environments/environment.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/loginpage/loginpage.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/header/header.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="2" lean-forward="false" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/homepage/homepage.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="5" lean-forward="true" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/homepage/homepage.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="19" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/assets/images/signUp.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/loginpage/loginpage.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="26" column="52" lean-forward="false" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/loginpage/loginpage.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="67" column="13" lean-forward="false" selection-start-line="67" selection-start-column="1" selection-end-line="67" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/signuppage/signuppage.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="950">
+          <caret line="77" column="24" lean-forward="false" selection-start-line="77" selection-start-column="24" selection-end-line="77" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="76" lean-forward="false" selection-start-line="16" selection-start-column="76" selection-end-line="16" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/models/user.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/signuppage/signuppage.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="20" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/signuppage/signuppage.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="26" column="20" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/header/header.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="25" column="15" lean-forward="false" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/header/header.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="85" lean-forward="false" selection-start-line="8" selection-start-column="85" selection-end-line="8" selection-end-column="85" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/dist/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/firebase.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="23" lean-forward="true" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/services/user.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="22" column="4" lean-forward="false" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="116" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

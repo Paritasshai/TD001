@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {MemberService} from '../services/member.service';
-import {Member} from '../models/member';
-import {Router} from '@angular/router';
+import {UserService} from '../services/user.service';
+import {User} from '../models/user';
 
 @Component({
   selector: 'app-loginpage',
@@ -12,31 +11,31 @@ import {Router} from '@angular/router';
 export class LoginpageComponent implements OnInit {
   ImgLogo: string;
   ImgLogin: string;
-  username: string;
-  password: string;
-  members: Member[];
+  model: any = {};
+  loading = false;
+  users: User[] = [];
 
-  constructor(private memberService: MemberService, private router: Router) {
+  constructor(private userService: UserService) {
     this.ImgLogo = '../../assets/images/logo.png';
     this.ImgLogin = '../../assets/images/login.jpg';
   }
 
   ngOnInit() {
-    this.getMembers();
-  }
+    this.getUsers();
+  };
 
-  getMembers() {
-    this.members = this.memberService.getMembers();
-    console.log(this.members);
+  getUsers(){
+    this.userService.getUsers()
+      .subscribe(users => {
+        this.users = users;
+      });
   }
 
   clickLogin() {
-    console.log(this.username);
-    console.log(this.password);
-    if (this.username === this.members[length].firstName && this.password === this.members[length].password) {
-      alert('Success');
-      this.router.navigate(['course']);
-    }
+    console.log(this.users);
+    console.log(this.model.firstName);
+    console.log(this.model.password);
+    this.loading = true;
+    alert("Username or Password is incorrect");
   }
-
 }

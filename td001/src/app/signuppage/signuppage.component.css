@@ -46,7 +46,7 @@
 }
 
 .modal-header {
-  padding-bottom: 2px;
+  padding-bottom: 1px;
 }
 
 .modal-footer {
@@ -54,9 +54,9 @@
 }
 
 .modal-footer .btn-group button {
-  height:40px;
-  border-top-left-radius : 0;
-  border-top-right-radius : 0;
+  height: 40px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   border: none;
   border-right: 1px solid #ddd;
 }
@@ -65,23 +65,24 @@
   border-right: 0;
 }
 
-.form-control{
+.form-control {
   height: 40px;
 }
 
 .modal {
   text-align: center;
+  width: 95%;
 }
 
 .modal-dialog {
   display: inline-block;
-  width: auto;
 }
 
 hr.style15 {
   border-top: 4px double #8c8b8b;
   text-align: center;
 }
+
 hr.style15:after {
   content: 'Or';
   display: inline-block;

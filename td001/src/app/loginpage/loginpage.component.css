@@ -42,11 +42,11 @@
 }
 
 .center {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .modal-header {
-  padding-bottom: 10px;
+  padding-bottom: 1px;
 }
 
 .modal-footer {
@@ -63,4 +63,8 @@
 
 .modal-footer .btn-group:last-child > button {
   border-right: 0;
+}
+
+.label-design{
+  color: #818181;
 }

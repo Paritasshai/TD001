@@ -13,10 +13,7 @@ import {LoginpageComponent} from './loginpage/loginpage.component';
 import {CourselistComponent} from './courselist/courselist.component';
 import { SignuppageComponent } from './signuppage/signuppage.component';
 
-//
 import {UserService} from './services/user.service';
-import {MemberService} from './services/member.service';
-
 
 @NgModule({
   declarations: [
@@ -36,8 +33,7 @@ import {MemberService} from './services/member.service';
     routing
   ],
   providers: [
-    UserService,
-    MemberService
+    UserService
   ],
   bootstrap: [AppComponent],
   entryComponents: [AppComponent],

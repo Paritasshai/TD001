@@ -15,10 +15,18 @@ export class SignuppageComponent implements OnInit {
   ImgSignUp: string;
   ImgLogo: string;
 
+  // submitForm(form: any): void {
+  //   console.log('Form Data: ');
+  //   console.log(form);
+  // }
+
   constructor(private router: Router,
               private userService: UserService) {
     this.ImgLogo = '../../assets/images/logo.png';
     this.ImgSignUp = '../../assets/images/signUp.jpg';
+  }
+
+  ngOnInit() {
   }
 
   clickSignUp() {
@@ -28,14 +36,13 @@ export class SignuppageComponent implements OnInit {
     this.userService.createUsers(this.User)
       .subscribe(
         data => {
-          this.router.navigate(['/register']);
+          alert("Sign Up Success");
+          this.router.navigate(['/']);
         },
         error => {
+          alert("Sign Up Failed!");
           this.loading = false;
         });
-  }
-
-  ngOnInit() {
   }
 
 }
