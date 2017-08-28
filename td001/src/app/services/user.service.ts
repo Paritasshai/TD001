@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http, RequestOptions, Response} from '@angular/http';
+import {Http, Headers, RequestOptions, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {User} from '../models/user';
 import 'rxjs/add/operator/toPromise';
@@ -7,21 +7,49 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import {Observable} from "rxjs/Observable";
+import {AuthenticationService} from "../loginpage/directives/Authentication.service";
 
 @Injectable()
 export class UserService {
 
-  constructor(private http: Http) {
+  constructor(private http: Http,
+              private authenticationService: AuthenticationService) {
+  }
+
+  // getUsers(): Observable<User[]> {
+  //   return this.http.get('http://localhost:8080/user/list')
+  //     .map((response: Response) => response.json());
+  // }
+
+  getAll() {
+    return this.http.get('http://localhost:8080/user/list', this.jwt()).map((response: Response) => response.json());
   }
 
   getUsers(): Observable<User[]> {
-    return this.http.get('http://localhost:8080/user/list')
+    // add authorization header with jwt token
+    let headers = new Headers({'Authorization': 'Bearer ' + this.authenticationService.token});
+    let options = new RequestOptions({headers: headers});
+
+    // get users from api
+    return this.http.get('http://localhost:8080/user/list', options)
       .map((response: Response) => response.json());
   }
 
   createUsers(user: User) {
     return this.http.post('http://localhost:8080/user/register', user).map((response: Response) => response.json());
     // return this.http.post('https://tamdaiserver.herokuapp.com/user/register', user).map((response: Response) => response.json());
+    // return this.http.post('https://peaceful-reaches-52826.herokuapp.com/user/register', user).map((response: Response) => response.json());
   }
+
+  // private helper methods
+  private jwt() {
+    // create authorization header with jwt token
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser && currentUser.token) {
+      let headers = new Headers({ 'Authorization': 'Bearer ' + currentUser.token });
+      return new RequestOptions({ headers: headers });
+    }
+  }
+
 }
 

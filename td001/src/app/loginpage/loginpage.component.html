@@ -12,7 +12,10 @@
             <!--<img [src]="ImgLogo" class="img-responsive" style="width: 150px; padding: 2%"/>-->
           </div>
           <div class="modal-body">
-
+            <alert>
+              <div class="alert alert-success" ng-reflect-ng-class="[object Object]">Registration successful
+              </div>
+            </alert>
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-4">
@@ -20,7 +23,7 @@
                 </div>
                 <div class="col-sm-8">
                   <br>
-                  <form>
+                  <form name="form" (ngSubmit)="signIn()" #f="ngForm" novalidate>
                     <div class="col-sm-12">
                       <div class="row">
                         <div class="form-group">
@@ -34,9 +37,13 @@
                                  [(ngModel)]="model.password" name="password" id="password" required/>
                         </div>
                         <br>
-                        <input data-dismiss="modal" class="btn btn-lg btn-success btn-block" (click)="clickLogin()"
-                               type="submit" id="login"
-                               value="Login">
+                        <button [disabled]="loading" class="btn btn-primary">Sign In</button>
+                        <img *ngIf="loading"
+                             src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+                        <a data-dismiss="modal" type="reset" class="btn btn-link">Cancel</a>
+                        <!--<input data-dismiss="modal" class="btn btn-lg btn-success btn-block" (click)="clickLogin()"-->
+                        <!--type="submit" id="login"-->
+                        <!--value="Login">-->
                       </div>
                     </div>
                   </form>

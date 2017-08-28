@@ -24,35 +24,54 @@
                 <hr class="style15">
                 <div class="col-lg-12 well">
                   <div class="row">
-                    
-                    <form>
-                      <div class="col-sm-12">
-                        <div class="row">
-                          <div class="col-sm-6 form-group">
-                            <input type="text" placeholder="First Name.." class="form-control"
-                                   [(ngModel)]="User.firstName" name="firstName" id="firstName" required/>
+
+                    <div class="col-md-10 col-md-offset-1">
+                      <alert>
+                        <div class="alert alert-success" ng-reflect-ng-class="[object Object]">Registration successful
+                        </div>
+                      </alert>
+                      <form name="form" (ngSubmit)="f.form.valid && signUp()" #f="ngForm" novalidate>
+                        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                          <input type="text" class="form-control" name="firstName" placeholder="First Name.."
+                                 [(ngModel)]="User.firstName"
+                                 #firstName="ngModel" required/>
+                          <div align="left" *ngIf="f.submitted && !firstName.valid" class="help-block">First Name is
+                            required!
                           </div>
-                          <div class="col-sm-6 form-group">
-                            <input type="text" placeholder="Last Name.." class="form-control"
-                                   [(ngModel)]="User.lastName" name="lastName" id="lastName" required/>
+                        </div>
+                        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                          <input type="text" class="form-control" name="lastName" placeholder="Last Name.."
+                                 [(ngModel)]="User.lastName"
+                                 #lastName="ngModel" required/>
+                          <div align="left" *ngIf="f.submitted && !lastName.valid" class="help-block">Last Name is
+                            required!
                           </div>
                         </div>
-
-                        <div class="form-group">
-                          <input type="email" placeholder="Email.." class="form-control"
-                                 [(ngModel)]="User.email" name="email" id="email" required/>
+                        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                          <input type="email" class="form-control" name="email" placeholder="Email.."
+                                 [(ngModel)]="User.email"
+                                 #username="ngModel" required/>
+                          <div align="left" *ngIf="f.submitted && !username.valid" class="help-block">Email is
+                            required!
+                          </div>
                         </div>
-
-                        <div class="form-group">
-                          <input type="password" placeholder="Password.." class="form-control"
-                                 [(ngModel)]="User.password" name="password" id="password" required/>
+                        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                          <input type="password" class="form-control" name="password" placeholder="Password.."
+                                 [(ngModel)]="User.password"
+                                 #password="ngModel" required/>
+                          <div align="left" *ngIf="f.submitted && !password.valid" class="help-block">Password is
+                            required!
+                          </div>
                         </div>
+                        <div class="form-group">
+                          <button [disabled]="loading" class="btn btn-primary">Sign Up</button>
+                          <img *ngIf="loading"
+                               src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+                          <a data-dismiss="modal" type="reset" class="btn btn-link">Cancel</a>
+                        </div>
+                      </form>
+                    </div>
 
-                        <button type="submit" class="btn btn-lg btn-success btn-block" (click)="clickSignUp()">
-                          Submit
-                        </button>
-                      </div>
-                    </form>
                   </div>
                 </div>
 

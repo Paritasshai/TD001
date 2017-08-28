@@ -1,27 +1,26 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {UserService} from '../services/user.service';
+import {AlertService} from './directives/AlertService';
 
 @Component({
+  moduleId: module.id,
   selector: 'app-signuppage',
   templateUrl: './signuppage.component.html',
-  styleUrls: ['./signuppage.component.css'],
-  moduleId: module.id
+  styleUrls: ['./signuppage.component.css']
 })
 
 export class SignuppageComponent implements OnInit {
+
   User: any = {};
   loading = false;
   ImgSignUp: string;
   ImgLogo: string;
 
-  // submitForm(form: any): void {
-  //   console.log('Form Data: ');
-  //   console.log(form);
-  // }
-
   constructor(private router: Router,
-              private userService: UserService) {
+              private userService: UserService,
+              private alertService: AlertService) {
+
     this.ImgLogo = '../../assets/images/logo.png';
     this.ImgSignUp = '../../assets/images/signUp.jpg';
   }
@@ -29,18 +28,19 @@ export class SignuppageComponent implements OnInit {
   ngOnInit() {
   }
 
-  clickSignUp() {
+  signUp() {
     this.loading = true;
     console.log(this.User);
 
     this.userService.createUsers(this.User)
       .subscribe(
         data => {
-          alert("Sign Up Success");
-          this.router.navigate(['/']);
+          this.alertService.success('Registration successful', true);
+          this.router.navigate(['/activate']);
+          this.loading = false;
         },
         error => {
-          alert("Sign Up Failed!");
+          this.alertService.error('This email already exists', true);
           this.loading = false;
         });
   }

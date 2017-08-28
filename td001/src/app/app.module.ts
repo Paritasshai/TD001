@@ -11,9 +11,14 @@ import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {LoginpageComponent} from './loginpage/loginpage.component';
 import {CourselistComponent} from './courselist/courselist.component';
-import { SignuppageComponent } from './signuppage/signuppage.component';
-
+import {SignuppageComponent} from './signuppage/signuppage.component';
 import {UserService} from './services/user.service';
+import {AlertService} from './signuppage/directives/AlertService';
+import {AlertComponent} from './signuppage/directives/AlertComponent';
+import {ActivatepageComponent} from './activatepage/activatepage.component';
+import {LoginComponent} from './login/login.component';
+import {AuthenticationService} from './loginpage/directives/Authentication.service';
+import {AuthGuard} from './loginpage/directives/auth.guard';
 
 @NgModule({
   declarations: [
@@ -24,7 +29,10 @@ import {UserService} from './services/user.service';
     FooterComponent,
     LoginpageComponent,
     CourselistComponent,
-    SignuppageComponent
+    SignuppageComponent,
+    AlertComponent,
+    ActivatepageComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +41,9 @@ import {UserService} from './services/user.service';
     routing
   ],
   providers: [
+    AuthGuard,
+    AuthenticationService,
+    AlertService,
     UserService
   ],
   bootstrap: [AppComponent],
