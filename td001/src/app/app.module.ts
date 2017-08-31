@@ -13,12 +13,13 @@ import {LoginpageComponent} from './loginpage/loginpage.component';
 import {CourselistComponent} from './courselist/courselist.component';
 import {SignuppageComponent} from './signuppage/signuppage.component';
 import {UserService} from './services/user.service';
-import {AlertService} from './signuppage/directives/AlertService';
-import {AlertComponent} from './signuppage/directives/AlertComponent';
+import {AlertService} from './directives/AlertService';
+import {AlertComponent} from './directives/AlertComponent';
 import {ActivatepageComponent} from './activatepage/activatepage.component';
 import {LoginComponent} from './login/login.component';
-import {AuthenticationService} from './loginpage/directives/Authentication.service';
-import {AuthGuard} from './loginpage/directives/auth.guard';
+import {AuthenticationService} from './services/Authentication.service';
+import {AuthGuard} from './services/auth.guard';
+import { UserProfilePageComponent } from './user-profile-page/user-profile-page.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {AuthGuard} from './loginpage/directives/auth.guard';
     AlertComponent,
     ActivatepageComponent,
     LoginComponent,
+    UserProfilePageComponent,
   ],
   imports: [
     BrowserModule,

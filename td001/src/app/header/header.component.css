@@ -1,5 +1,5 @@
 .center {
-  margin-top:50px;
+  margin-top: 50px;
 }
 
 .modal-header {
@@ -11,9 +11,9 @@
 }
 
 .modal-footer .btn-group button {
-  height:40px;
-  border-top-left-radius : 0;
-  border-top-right-radius : 0;
+  height: 40px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   border: none;
   border-right: 1px solid #ddd;
 }
@@ -22,10 +22,11 @@
   border-right: 0;
 }
 
-.margin-design{
-  margin-top: 5px;
+.margin-design {
+  margin-top: 7px;
 }
 
-img{
+img {
   margin-top: -5px;
 }
+

@@ -11,4 +11,5 @@ export class AppComponent {
   constructor() {
     this.ImgLogo = '../../assets/images/logo.png';
   }
+
 }

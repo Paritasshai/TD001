@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import {Observable} from "rxjs/Observable";
-import {AuthenticationService} from "../loginpage/directives/Authentication.service";
+import {AuthenticationService} from "./Authentication.service";
 
 @Injectable()
 export class UserService {
@@ -27,7 +27,7 @@ export class UserService {
 
   getUsers(): Observable<User[]> {
     // add authorization header with jwt token
-    let headers = new Headers({'Authorization': 'Bearer ' + this.authenticationService.token});
+    let headers = new Headers({'Authorization': 'Bearer '});
     let options = new RequestOptions({headers: headers});
 
     // get users from api
@@ -45,8 +45,8 @@ export class UserService {
   private jwt() {
     // create authorization header with jwt token
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    if (currentUser && currentUser.token) {
-      let headers = new Headers({ 'Authorization': 'Bearer ' + currentUser.token });
+    if (currentUser && currentUser) {
+      let headers = new Headers({ 'Authorization': 'Bearer '});
       return new RequestOptions({ headers: headers });
     }
   }
