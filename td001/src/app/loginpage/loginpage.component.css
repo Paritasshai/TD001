@@ -68,3 +68,11 @@
 .label-design{
   color: #818181;
 }
+
+.label-design-right {
+  margin-right: 5%;
+}
+
+.btn{
+  width: 40%;
+}

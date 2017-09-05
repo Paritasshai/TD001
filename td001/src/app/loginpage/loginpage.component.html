@@ -28,19 +28,19 @@
                       <div class="row">
                         <div class="form-group">
                           <label class="label-design">Email</label>
-                          <input type="text" placeholder="" class="form-control"
+                          <input type="email" placeholder="" class="form-control"
                                  [(ngModel)]="model.email" name="email" id="email" required/>
                         </div>
                         <div class="form-group">
                           <label class="label-design">Password</label>
-                          <input type="text" placeholder="" class="form-control"
+                          <input type="password" placeholder="" class="form-control"
                                  [(ngModel)]="model.password" name="password" id="password" required/>
                         </div>
-                        <br>
-                        <button [disabled]="loading" class="btn btn-primary">Sign In</button>
+                        <button [disabled]="loading" class="btn btn-primary btn-md">Sign In</button>
                         <img *ngIf="loading"
                              src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
-                        <a data-dismiss="modal" type="reset" class="btn btn-link">Cancel</a>
+                        <p><a [routerLink]="['/forgotPassword']" data-dismiss="modal" style="cursor: pointer">forgot password ?</a></p>
+                        <!--<a data-dismiss="modal" type="reset" class="btn btn-link">Cancel</a>-->
                         <!--<input data-dismiss="modal" class="btn btn-lg btn-success btn-block" (click)="clickLogin()"-->
                         <!--type="submit" id="login"-->
                         <!--value="Login">-->
@@ -49,13 +49,6 @@
                   </form>
                 </div>
               </div>
-
-              <!--<h2>Members list</h2>-->
-              <!--<table align="center" class="table" *ngFor="let user of users;">-->
-              <!--<tr>-->
-              <!--<td>{{user.firstName}}</td>-->
-              <!--</tr>-->
-              <!--</table>-->
 
               <br>
             </div>

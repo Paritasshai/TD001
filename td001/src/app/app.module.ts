@@ -13,13 +13,22 @@ import {LoginpageComponent} from './loginpage/loginpage.component';
 import {CourselistComponent} from './courselist/courselist.component';
 import {SignuppageComponent} from './signuppage/signuppage.component';
 import {UserService} from './services/user.service';
-import {AlertService} from './directives/AlertService';
-import {AlertComponent} from './directives/AlertComponent';
-import {ActivatepageComponent} from './activatepage/activatepage.component';
+import {AlertService} from './alertContent/AlertService';
+import {AlertComponent} from './alertContent/AlertComponent';
 import {LoginComponent} from './login/login.component';
 import {AuthenticationService} from './services/Authentication.service';
 import {AuthGuard} from './services/auth.guard';
-import { UserProfilePageComponent } from './user-profile-page/user-profile-page.component';
+import {AuthenticationLoginTemaplateService} from "./services/AuthenticationLoginTemplate";
+import {UserProfileComponent} from './userProfile/user-profile.component';
+import {ManagementPageComponent} from './management-page/management-page.component';
+import {ForgotPasswordPageComponent} from './forgot-password-page/forgot-password-page.component';
+import {forgotPassword} from "./services/forgotPassword";
+import {TopUpBankPageComponent} from './top-up-bank-page/top-up-bank-page.component';
+import {TopUpOnlinePageComponent} from './top-up-online-page/top-up-online-page.component';
+import {MyDatePickerModule} from 'mydatepicker';
+import {PaymentService} from "app/services/PaymentService";
+import {NonTopUpComponent} from './non-top-up/non-top-up.component';
+import {BankStatementService} from "./services/BankStatementService";
 
 @NgModule({
   declarations: [
@@ -32,21 +41,30 @@ import { UserProfilePageComponent } from './user-profile-page/user-profile-page.
     CourselistComponent,
     SignuppageComponent,
     AlertComponent,
-    ActivatepageComponent,
     LoginComponent,
-    UserProfilePageComponent,
+    UserProfileComponent,
+    ManagementPageComponent,
+    ForgotPasswordPageComponent,
+    TopUpBankPageComponent,
+    TopUpOnlinePageComponent,
+    NonTopUpComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    MyDatePickerModule
   ],
   providers: [
     AuthGuard,
     AuthenticationService,
+    AuthenticationLoginTemaplateService,
     AlertService,
-    UserService
+    UserService,
+    forgotPassword,
+    PaymentService,
+    BankStatementService
   ],
   bootstrap: [AppComponent],
   entryComponents: [AppComponent],

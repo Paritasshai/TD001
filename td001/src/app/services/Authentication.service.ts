@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http, Headers, Response, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map'
 import {Router} from "@angular/router";
-import {AlertService} from "../directives/AlertService";
+import {AlertService} from "../alertContent/AlertService";
 
 @Injectable()
 export class AuthenticationService {
@@ -25,7 +25,7 @@ export class AuthenticationService {
         // console.log(user.statusUser[0].statusName);
 
         // if (localStorage.getItem('currentUser') === null) {
-        if (user.statusUser[0].statusName === "new") {
+        if (user.status === "new") {
           this.alertService.error("Please Activate Your Email Account");
           alert("Please Activate Your Email Account");
           this.router.navigate(['/home']);

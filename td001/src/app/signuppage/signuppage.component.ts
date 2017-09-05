@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {UserService} from '../services/user.service';
-import {AlertService} from '../directives/AlertService';
+import {AlertService} from '../alertContent/AlertService';
 
 @Component({
   moduleId: module.id,
@@ -36,7 +36,8 @@ export class SignuppageComponent implements OnInit {
       .subscribe(
         data => {
           this.alertService.success('Registration successful', true);
-          this.router.navigate(['/activate']);
+          location.reload();
+          this.router.navigate(['/home']);
           this.loading = false;
         },
         error => {

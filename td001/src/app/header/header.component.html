@@ -41,7 +41,8 @@
           <div *ngIf="currentUser != null">Welcome <b>{{currentUser.firstName}}</b></div>
         </a></li>
         <li><a class="smoothScroll" style="color: white">
-          <div [hidden]="!currentUser" style="cursor: pointer" [routerLink]="['/userProfile']"> Profile <span
+          <div [hidden]="!currentUser" style="cursor: pointer" [routerLink]="['/userProfile']"><span
+            class="glyphicon glyphicon-user"></span> Profile <span
             class=""></span>
           </div>
         </a></li>
@@ -51,6 +52,20 @@
               class="glyphicon glyphicon-log-out" data-toggle="modal"></span>
           </div>
         </a></li>
+        <li><a class="smoothScroll" style="color: white">
+          <div style="cursor: pointer"
+               [routerLink]="['/management']"><span
+            class="fa fa-cogs"></span> System Management <span
+            class=""></span>
+          </div>
+        </a></li>
+        <!--<li><a class="smoothScroll" style="color: white">-->
+        <!--<div [hidden]="currentUser == null" style="cursor: pointer"-->
+        <!--[routerLink]="['/management']"><span-->
+        <!--class="fa fa-cogs"></span> System Management <span-->
+        <!--class=""></span>-->
+        <!--</div>-->
+        <!--</a></li>-->
       </ul>
     </div>
   </div>
