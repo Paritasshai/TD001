@@ -4,7 +4,6 @@ import {HomepageComponent} from './homepage/homepage.component';
 import {CoursepageComponent} from './coursepage/coursepage.component';
 import {LoginpageComponent} from './loginpage/loginpage.component';
 import {SignuppageComponent} from './signuppage/signuppage.component';
-import {LoginComponent} from './login/login.component';
 import {ManagementPageComponent} from "./management-page/management-page.component";
 import {ForgotPasswordPageComponent} from "./forgot-password-page/forgot-password-page.component";
 import {TopUpBankPageComponent} from "./top-up-bank-page/top-up-bank-page.component";
@@ -17,11 +16,10 @@ const appRoutes: Routes = [
   {path: 'course', component: CoursepageComponent},
   {path: 'login', component: LoginpageComponent},
   {path: 'signUp', component: SignuppageComponent},
-  {path: 'loginTemplate', component: LoginComponent},
   {path: 'userProfile', component: UserProfileComponent},
   {path: 'management', component: ManagementPageComponent},
   {path: 'forgotPassword', component: ForgotPasswordPageComponent},
-  {path: 'topUpBank', component: TopUpBankPageComponent},
+  {path: 'topUpBank/:id', component: TopUpBankPageComponent},
   {path: 'topUpOnline', component: TopUpOnlinePageComponent},
   {path: 'nonTopUp', component: NonTopUpComponent},
 

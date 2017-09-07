@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from "../models/user";
 import {UserService} from "../services/user.service";
-import {Payment} from "../models/payment";
-import {PaymentService} from "../services/PaymentService";
+import {Order} from "../models/order";
+import {OrderService} from "../services/OrderService";
 import {BankStatement} from "../models/BankStatement";
 import {BankStatementService} from "../services/BankStatementService";
 
@@ -13,15 +13,16 @@ import {BankStatementService} from "../services/BankStatementService";
 })
 export class ManagementPageComponent implements OnInit {
   users: User[] = [];
-  payments: Payment[] = [];
+  orderPayments: Order[] = [];
   bankStatements: BankStatement[] = [];
   bankModel: any = {};
   bankStatement: any = {};
   userId: any;
   amount: any;
+  result: any;
 
   constructor(private userService: UserService,
-              private paymentService: PaymentService,
+              private orderService: OrderService,
               private bankStatementService: BankStatementService) {
   }
 
@@ -38,8 +39,8 @@ export class ManagementPageComponent implements OnInit {
   }
 
   private getPaymentList() {
-    this.paymentService.getPayments().subscribe(payments => {
-      this.payments = payments;
+    this.orderService.getPayments().subscribe(payments => {
+      this.orderPayments = payments;
     });
   }
 
@@ -51,14 +52,19 @@ export class ManagementPageComponent implements OnInit {
     });
   }
 
-  ConfirmPayment(id, firstName, statementAmount) {
+  ConfirmPayment(id, firstName, statementAmount, balance) {
     console.log(id);
     console.log(firstName);
     console.log(statementAmount);
-    this.bankStatementService.confirmBankStatements(id, firstName, this.bankStatement, this.userId, statementAmount)
+    console.log(balance);
+    this.result = parseFloat(statementAmount) + parseFloat(balance);
+    console.log(this.result);
+
+    this.bankStatementService.confirmBankStatements(id, firstName, this.bankStatement, this.userId, this.result)
       .subscribe(
         data => {
           alert("Success");
+          location.reload();
         },
         error => {
           alert("Error")

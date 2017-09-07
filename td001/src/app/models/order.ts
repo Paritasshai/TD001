@@ -1,4 +1,4 @@
-export class Payment {
+export class Order {
   public id: any;
   public accountId: any;
   public transType: any;

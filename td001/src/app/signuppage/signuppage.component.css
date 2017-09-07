@@ -93,3 +93,7 @@ hr.style15:after {
   color: #8c8b8b;
   font-size: 18px;
 }
+
+.style-height {
+  height: 300px;
+}

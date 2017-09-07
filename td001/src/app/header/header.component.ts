@@ -30,9 +30,9 @@ export class HeaderComponent implements OnInit {
 
   logOut() {
     this.loading = true;
-    this.authenticationService.logout();
     console.log("Log Out");
     setTimeout(() => {
+      this.authenticationService.logout();
       window.location.reload();
     }, 1000);
   }

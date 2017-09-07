@@ -14,12 +14,10 @@
                   <p>1.</p>
                   <label>ระบุจำนวนเงินที่ต้องการเติม</label>
                   <div class="form-group has-feedback">
-                    <span>
-                    <input #box type="text" class="form-control" name="transAmount" id="transAmount"
-                           [(ngModel)]="Payment.transAmount"
-                           #transAmount="ngModel"
-                           placeholder="0.00 Bath (Press Enter)"
-                           (keyup.enter)="onEnter(box.value)" required/> Press Enter</span>
+                    <input #box (keyup)="onKey(box.value)" type="text" class="form-control" name="transAmount"
+                           id="transAmount"
+                           [(ngModel)]="Order.transAmount"
+                           #transAmount="ngModel"/>
                   </div>
                 </div>
                 <div class="form-group">
@@ -29,14 +27,14 @@
                   <table class="table table-bordered">
                     <thead>
                     <tr>
-                      <th>จำนวนเงินคงเหลือใน account</th>
+                      <th>ยอดเงินคงเหลือ</th>
                       <th>จำนวนเงินที่ต้องการเติม</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
                       <td><p>{{currentUser.balance}} Bath.</p></td>
-                      <td><p [hidden]="!value" style="color: red; font-size: 14px">+ {{value}} Bath.</p></td>
+                      <td><p [hidden]="!values" style="color: red; font-size: 14px">+ {{values}} Bath.</p></td>
                     </tr>
                     </tbody>
                   </table>
@@ -44,46 +42,21 @@
                 <div class="form-group">
                   <hr>
                   <p>3.</p>
-                  <!--<p>User ID: {{currentUser.id}}</p>-->
-                  <!--<p>Username: {{currentUser.firstName}}</p>-->
-                  <!--<p>Lastname: {{currentUser.lastName}}</p>-->
-                  <!--<p>Email: {{currentUser.email}}</p>-->
                   <label>ตรวจสอบรายละเอียดอีกครั้งแล้วยืนยัน</label>
                   <div class="form-group">
                     <label for="transRemark">*หมายเหตุ</label>
                     <textarea class="form-control" name="transRemark" id="transRemark" rows="3"
-                              [(ngModel)]="Payment.transRemark"
+                              [(ngModel)]="Order.transRemark"
                               #transRemark="ngModel"></textarea>
                   </div>
                 </div>
                 <div class="form-group">
                   <hr>
                   <p>4.</p>
-                  <button type="button" class="btn btn-primary btn-md" (click)="Confirm()">Confirm</button>
+                  <button type="button" class="btn btn-primary btn-md" (click)="Confirm()">บันทึก</button>
                 </div>
-                <!--<select class="form-control" id="sel1">-->
-                <!--<option>0.00</option>-->
-                <!--<option>300</option>-->
-                <!--<option>500</option>-->
-                <!--<option>1000</option>-->
-                <!--<option>1500</option>-->
-                <!--</select>-->
-              </form>
 
-              <!--<div align="left" class="result-design">-->
-              <!--<div class="result-design-header">-->
-              <!--<div>-->
-              <!--<h1>Payment ID</h1>-->
-              <!--</div>-->
-              <!--</div>-->
-              <!--<p>Username: {{currentUser.firstName}}</p>-->
-              <!--<p>Lastname: {{currentUser.lastName}}</p>-->
-              <!--<p>Email: {{currentUser.email}}</p>-->
-              <!--<p>Your balance: {{currentUser.balance}}</p>-->
-              <!--<p></p>-->
-              <!--<p></p>-->
-              <!--<p></p>-->
-              <!--</div>-->
+              </form>
 
             </div>
           </div>

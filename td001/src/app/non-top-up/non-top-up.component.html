@@ -5,6 +5,31 @@
       <div class="col-sm-12">
         <div class="well">
           <h4>รายการที่ค้างชำระ</h4>
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Order Payment</th>
+              <th>Payment Date</th>
+              <th>User Email</th>
+              <th>Amount</th>
+              <th>แจ้งชำระเงิน</th>
+            </tr>
+            </thead>
+            <tbody *ngFor="let orderPayment of orderPayments">
+            <tr *ngIf="orderPayment.users[0].id == currentUser.id">
+              <td>{{orderPayment.transRef}}</td>
+              <td>{{orderPayment.users[0].createTime}}</td>
+              <td>{{orderPayment.users[0].email}}</td>
+              <td>{{orderPayment.transAmount}}</td>
+              <td>
+                <button class="btn btn-success btn-sm" (click)="Submit(orderPayment.id)">แจ้งชำระเงิน
+                  <!--[routerLink]="['/topUpBank', orderPayment.id]"-->
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
         </div>
       </div>
     </div>

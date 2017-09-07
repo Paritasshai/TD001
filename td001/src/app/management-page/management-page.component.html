@@ -9,7 +9,6 @@
 </div>
 
 <div id="London" class="tabcontent">
-  <h3>User Management</h3>
   <table class="table table-striped">
     <thead>
     <tr>
@@ -19,23 +18,27 @@
       <th>Email</th>
       <th>Status</th>
       <th>Balance</th>
+      <th>Manage</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let user of users">
+    <tr [hidden]="users == null" *ngFor="let user of users">
       <td>{{user.id}}</td>
       <td>{{user.firstName}}</td>
       <td>{{user.lastName}}</td>
       <td>{{user.email}}</td>
       <td>{{user.status}}</td>
       <td>{{user.balance}}</td>
+      <td>
+        <button class="btn btn-warning btn-sm">Change Status</button>
+        <button class="btn btn-danger btn-sm">Delete</button>
+      </td>
     </tr>
     </tbody>
   </table>
 </div>
 
 <div id="Paris" class="tabcontent">
-  <h3>Payment_Transaction Management</h3>
   <table class="table table-striped">
     <thead>
     <tr>
@@ -47,19 +50,18 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let payment of payments">
-      <td>{{payment.users[0].id}}</td>
-      <td>{{payment.transRef}}</td>
-      <td>{{payment.users[0].firstName}}</td>
-      <td>{{payment.users[0].email}}</td>
-      <td>{{payment.transAmount}}</td>
+    <tr [hidden]="orderPayments == null" *ngFor="let orderPayment of orderPayments">
+      <td>{{orderPayment.users[0].id}}</td>
+      <td>{{orderPayment.transRef}}</td>
+      <td>{{orderPayment.users[0].firstName}}</td>
+      <td>{{orderPayment.users[0].email}}</td>
+      <td>{{orderPayment.transAmount}}</td>
     </tr>
     </tbody>
   </table>
 </div>
 
 <div id="Tokyo" class="tabcontent">
-  <h3>Bank_Statement Management</h3>
   <table class="table table-striped">
     <thead>
     <tr>
@@ -74,7 +76,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let bankStatement of bankStatements">
+    <tr [hidden]="bankStatements == null" *ngFor="let bankStatement of bankStatements">
       <td>{{bankStatement.users[0].id}}</td>
       <td>{{bankStatement.paymentId}}</td>
       <td>{{bankStatement.users[0].firstName}}</td>
@@ -83,7 +85,7 @@
       <td>{{bankStatement.statementAmount}}</td>
       <td>
         <button class="btn btn-primary btn-md"
-                (click)="ConfirmPayment(bankStatement.id, bankStatement.users[0].firstName, bankStatement.statementAmount)">
+                (click)="ConfirmPayment(bankStatement.id, bankStatement.users[0].firstName, bankStatement.statementAmount, bankStatement.users[0].balance)">
           Confirm
         </button>
       </td>
@@ -95,86 +97,3 @@
   </table>
 </div>
 </body>
-
-<!--<div class="container">-->
-<!--<h1>User Management</h1>-->
-<!--<table class="table table-bordered" *ngFor="let user of users let i = index" [attr.data-index]="i">-->
-<!--<thead>-->
-<!--<tr>-->
-<!--<th>Index</th>-->
-<!--<th>Firstname</th>-->
-<!--<th>Lastname</th>-->
-<!--<th>Email</th>-->
-<!--<th>Status</th>-->
-<!--<th>Money</th>-->
-<!--</tr>-->
-<!--</thead>-->
-<!--<tbody>-->
-<!--<tr>-->
-<!--<td>{{i}}</td>-->
-<!--<td>{{user.firstName}}</td>-->
-<!--<td>{{user.lastName}}</td>-->
-<!--<td>{{user.email}}</td>-->
-<!--<td>{{user.status}}</td>-->
-<!--<td>{{user.balance}}฿</td>-->
-<!--</tr>-->
-<!--</tbody>-->
-<!--</table>-->
-
-<!--<h1>Payment Transaction Management</h1>-->
-<!--<table class="table table-bordered" *ngFor="let payment of payments">-->
-<!--<thead>-->
-<!--<tr>-->
-<!--<th>Payment Id</th>-->
-<!--<th>Username</th>-->
-<!--<th>Transaction Amount</th>-->
-<!--</tr>-->
-<!--</thead>-->
-<!--<tbody>-->
-<!--<tr>-->
-<!--<td>{{payment.transRef}}</td>-->
-<!--<td>{{payment.users[0].firstName}}</td>-->
-<!--<td>{{payment.transAmount}}</td>-->
-<!--</tr>-->
-<!--</tbody>-->
-<!--</table>-->
-
-<!--<h1>Bank Statement Management</h1>-->
-<!--<table class="table table-bordered" *ngFor="let bankStatement of bankStatements">-->
-<!--<thead>-->
-<!--<tr>-->
-<!--<th>Payment Id</th>-->
-<!--<th>User ID</th>-->
-<!--<th>Username</th>-->
-<!--<th>Statement Amount</th>-->
-<!--</tr>-->
-<!--</thead>-->
-<!--<tbody>-->
-<!--<tr>-->
-<!--<td>{{bankStatement.paymentId}}</td>-->
-<!--<td>{{bankStatement.users[0].id}}</td>-->
-<!--<td>{{bankStatement.users[0].firstName}}</td>-->
-<!--<td>{{bankStatement.statementAmount}}</td>-->
-<!--<td>-->
-<!--<form>-->
-<!--<div class="form-group">-->
-<!--<label>UserId</label>-->
-<!--<input type="text" placeholder="" class="form-control boxes-design" name="UserId" id="UserId"-->
-<!--[(ngModel)]="bankModel.UserId">-->
-<!--</div>-->
-<!--<div class="form-group">-->
-<!--<label>Amount</label>-->
-<!--<input type="text" placeholder="" class="form-control boxes-design" name="Balance" id="Balance"-->
-<!--[(ngModel)]="bankModel.Balance">-->
-<!--</div>-->
-<!--<div class="form-group">-->
-<!--<button class="btn btn-primary btn-lg" (click)="ConfirmPayment()">Confirm</button>-->
-<!--<button class="btn btn-primary btn-lg" (click)="DeletePayment()">Delete</button>-->
-<!--</div>-->
-<!--</form>-->
-<!--</td>-->
-<!--</tr>-->
-<!--</tbody>-->
-<!--</table>-->
-
-<!--</div>-->

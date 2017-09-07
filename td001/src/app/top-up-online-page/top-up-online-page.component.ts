@@ -1,20 +1,21 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from "../models/user";
-import {PaymentService} from "../services/PaymentService";
+import {OrderService} from "../services/OrderService";
 import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-top-up-online-page',
   templateUrl: './top-up-online-page.component.html',
-  styleUrls: ['./top-up-online-page.component.css']
+  styleUrls: ['./top-up-online-page.component.css'],
 })
 export class TopUpOnlinePageComponent implements OnInit {
   currentUser: User;
   value = '';
-  Payment: any = {};
+  Order: any = {};
   userId: any;
+  values = '';
 
-  constructor(private paymentService: PaymentService,
+  constructor(private orderService: OrderService,
               private router: Router) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.userId = this.currentUser.id;
@@ -27,14 +28,22 @@ export class TopUpOnlinePageComponent implements OnInit {
     this.value = value;
   }
 
+
+  onKey(value: string) {
+    this.values = value;
+  }
+
   Confirm() {
-    console.log(this.Payment);
+    console.log(this.Order);
     console.log(this.currentUser.id);
-    this.paymentService.createPayments(this.Payment, this.userId)
+    this.orderService.createOrders(this.Order, this.userId)
       .subscribe(
         data => {
-          alert("Success");
+          setTimeout(function () {
+            location.reload();
+          }, 1000);
           this.router.navigate(['/userProfile']);
+          alert("Success");
         },
         error => {
           alert("Error")

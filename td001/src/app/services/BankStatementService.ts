@@ -22,8 +22,8 @@ export class BankStatementService {
       .map((response: Response) => response.json());
   }
 
-  confirmBankStatements(id, firstName, bankStatement: BankStatement, userId: string, statementAmount) {
-    return this.http.put('http://localhost:8080/update/bankStatement/' + id + "?UserId=" + userId + "&" + "Balance=" + statementAmount + "&" + "FirstName=" + firstName, bankStatement).map((response: Response) => response.json());
+  confirmBankStatements(id, firstName, bankStatement: BankStatement, userId: string, result: any) {
+    return this.http.put('http://localhost:8080/update/bankStatement/' + id + "?UserId=" + userId + "&" + "Balance=" + result + "&" + "FirstName=" + firstName, bankStatement).map((response: Response) => response.json());
   }
 
   getBankStatementsById(): Observable<BankStatement[]> {
