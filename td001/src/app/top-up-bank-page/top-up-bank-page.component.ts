@@ -2,8 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {BankStatementService} from "../services/BankStatementService";
 import {User} from "../models/user";
 import {ActivatedRoute, Router} from "@angular/router";
-import {Order} from "app/models/order";
 import {OrderService} from "../services/OrderService";
+import {IMyDpOptions} from 'mydatepicker';
 
 @Component({
   selector: 'app-top-up-bank-page',
@@ -12,12 +12,27 @@ import {OrderService} from "../services/OrderService";
 })
 
 export class TopUpBankPageComponent implements OnInit {
+
+  private myDatePickerOptions: IMyDpOptions = {
+    // other options...
+    dateFormat: 'dd-mm-yyyy',
+  };
+
+  // Initialized to specific date (09.10.2018).
+  //private modelDate: Object = { date: { year: 2018, month: 10, day: 9 } };
+
   bankStatement: any = {};
   currentUser: User;
   userId: any;
-  // orderPayments: Order[] = [];
   public orderDetail;
   orderPaymentsIds: any = {};
+  radioItems = 'KBANK KTB BBK SCB'.split(' ');
+  model = {options: ''};
+  modelDate: any;
+
+  get debug() {
+    return JSON.stringify(this.model);
+  }
 
   constructor(private bankStatementService: BankStatementService,
               private router: Router,
@@ -25,6 +40,7 @@ export class TopUpBankPageComponent implements OnInit {
               private route: ActivatedRoute) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.userId = this.currentUser.id;
+    console.clear();
   }
 
   ngOnInit() {
@@ -48,11 +64,16 @@ export class TopUpBankPageComponent implements OnInit {
   }
 
   Submit() {
-    console.log(this.bankStatement);
 
+    //console.log(this.modelDate.formatted);
+    this.bankStatement.bankName = this.model.options;
     this.bankStatement.statementAmount = this.orderPaymentsIds.transAmount;
     this.bankStatement.paymentId = this.orderPaymentsIds.transRef;
-    console.log(this.bankStatement.statementAmount);
+    this.bankStatement.statementDate = this.modelDate.formatted;
+    //console.log(this.bankStatement.statementAmount);
+    console.log(this.bankStatement.statementTime);
+
+
     this.bankStatementService.createBankStatements(this.bankStatement, this.userId)
       .subscribe(
         data => {

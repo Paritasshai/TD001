@@ -23,10 +23,15 @@ import {ForgotPasswordPageComponent} from './forgot-password-page/forgot-passwor
 import {forgotPassword} from "./services/forgotPassword";
 import {TopUpBankPageComponent} from './top-up-bank-page/top-up-bank-page.component';
 import {TopUpOnlinePageComponent} from './top-up-online-page/top-up-online-page.component';
-import {MyDatePickerModule} from 'mydatepicker';
 import {OrderService} from "app/services/OrderService";
 import {NonTopUpComponent} from './non-top-up/non-top-up.component';
 import {BankStatementService} from "./services/BankStatementService";
+import {PaymentHistoryDetailsComponent} from './payment-history-details/payment-history-details.component';
+import {PaymentHistoryListComponent} from './payment-history-list/payment-history-list.component';
+import {MyDatePickerModule} from "mydatepicker";
+import {VideoListPageComponent} from './video-list-page/video-list-page.component';
+import {FileUploadModule} from 'ng2-file-upload';
+import {PaymentTransService} from "./services/PaymentTransService";
 
 @NgModule({
   declarations: [
@@ -44,14 +49,18 @@ import {BankStatementService} from "./services/BankStatementService";
     ForgotPasswordPageComponent,
     TopUpBankPageComponent,
     TopUpOnlinePageComponent,
-    NonTopUpComponent
+    NonTopUpComponent,
+    PaymentHistoryDetailsComponent,
+    PaymentHistoryListComponent,
+    VideoListPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     routing,
-    MyDatePickerModule
+    MyDatePickerModule,
+    FileUploadModule
   ],
   providers: [
     AuthGuard,
@@ -60,7 +69,8 @@ import {BankStatementService} from "./services/BankStatementService";
     UserService,
     forgotPassword,
     OrderService,
-    BankStatementService
+    BankStatementService,
+    PaymentTransService
   ],
   bootstrap: [AppComponent],
   entryComponents: [AppComponent],

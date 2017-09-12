@@ -5,6 +5,8 @@ import {Order} from "../models/order";
 import {OrderService} from "../services/OrderService";
 import {BankStatement} from "../models/BankStatement";
 import {BankStatementService} from "../services/BankStatementService";
+import {PaymentTransService} from "../services/PaymentTransService";
+import {isNullOrUndefined, isUndefined} from "util";
 
 @Component({
   selector: 'app-management-page',
@@ -20,6 +22,7 @@ export class ManagementPageComponent implements OnInit {
   userId: any;
   amount: any;
   result: any;
+  paymentId: any;
 
   constructor(private userService: UserService,
               private orderService: OrderService,
@@ -52,15 +55,17 @@ export class ManagementPageComponent implements OnInit {
     });
   }
 
-  ConfirmPayment(id, firstName, statementAmount, balance) {
+  ConfirmPayment(id, email, paymentId, statementAmount, balance) {
     console.log(id);
-    console.log(firstName);
+    console.log(email);
     console.log(statementAmount);
     console.log(balance);
+    console.log(paymentId);
+
     this.result = parseFloat(statementAmount) + parseFloat(balance);
     console.log(this.result);
 
-    this.bankStatementService.confirmBankStatements(id, firstName, this.bankStatement, this.userId, this.result)
+    this.bankStatementService.confirmBankStatements(id, email, paymentId, this.bankStatement, this.userId, this.result)
       .subscribe(
         data => {
           alert("Success");

@@ -8,14 +8,14 @@
       </div>
     </nav>
 
-    <div class="margin-design-top">
-      <div class="container-fluid margin-design">
+    <div class="margin-design-top" *ngFor="let user of users">
+      <div class="container-fluid margin-design" *ngIf="user.id == currentUser.id">
         <div class="row content">
           <br>
           <div class="col-sm-12">
             <div id="section1" class="well">
-              <h4>{{currentUser.firstName}} ยอดเงินของคุณ</h4>
-              <p>คงเหลือในบัญชี {{currentUser.balance}} บาท</p>
+              <h4>{{user.firstName}} ยอดเงินของคุณ</h4>
+              <p>คงเหลือในบัญชี {{user.balance}} บาท</p>
             </div>
             <div class="row">
               <div class="col-sm-4 ex1" [routerLink]="['/topUpOnline']">
@@ -30,10 +30,10 @@
                   <p>ค้างชำระ</p>
                 </div>
               </div>
-              <div class="col-sm-4 ex1" [routerLink]="['/topUpBank']">
+              <div class="col-sm-4 ex1" [routerLink]="['/PaymentLists']">
                 <div class="well">
-                  <p>แจ้งการ</p>
-                  <p>ชำระเงิน</p>
+                  <p>ประวัติ</p>
+                  <p>ฝาก-ถอน</p>
                 </div>
               </div>
             </div>

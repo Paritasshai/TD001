@@ -5,7 +5,7 @@
       <div class="col-sm-12">
         <div class="well">
           <h2>แจ้งการชำระเงิน</h2>
-          <h4>ใบเสร็จ {{orderDetail}}</h4>
+          <!--<h4>ใบเสร็จ {{orderDetail}}</h4>-->
           <!--<table class="table table-striped">-->
           <!--<thead>-->
           <!--<tr>-->
@@ -38,67 +38,145 @@
                          #amount="ngModel" name="amount" id="amount">
                 </div>
                 <div class="form-group" align="left">
-                  <label for="accountId">เลขที่ใบสั่งซื้อ</label>
+                  <label for="paymentId">เลขที่ใบสั่งซื้อ</label>
                   <input disabled type="text" class="form-control" [(ngModel)]="orderPaymentsIds.transRef"
-                         #accountId="ngModel" name="accountId" id="accountId">
+                         #paymentId="ngModel" name="paymentId" id="paymentId">
                   <!--orderPaymentsIds.transAmount-->
                 </div>
               </div>
+
+              <div class="form-group" align="left">
+                <label for="mydate">วัน/เดือน/ปี:</label>
+                <my-date-picker name="mydate" [options]="myDatePickerOptions" id="mydate"
+                                [(ngModel)]="modelDate" required></my-date-picker>
+              </div>
+
               <div class="form-group" align="left">
                 <div class="form-inline">
+                  <!--<div class="form-group">-->
+                  <!--<label for="date">วัน/เดือน/ปี:</label>-->
+                  <!--<input type="text" class="form-control" [(ngModel)]="bankStatement.statementDate"-->
+                  <!--#date="ngModel" name="date" id="date">-->
+                  <!--</div>-->
                   <div class="form-group">
-                    <label for="date">วัน/เดือน/ปี:</label>
-                    <input type="text" class="form-control" [(ngModel)]="bankStatement.statementDate"
-                           #date="ngModel" name="date" id="date">
-                  </div>
-                  <div class="form-group">
-                    <label for="time">เวลาที่โอน:</label>
+                    <label for="statementTime">เวลาที่โอน:</label>
                     <input type="text" class="form-control" [(ngModel)]="bankStatement.statementTime"
-                           #time="ngModel" name="time" id="time">
+                           #statementTime="ngModel" name="statementTime" id="statementTime">
                   </div>
                 </div>
-                <div class="checkbox-container navbar-default">
-                  <h4 align="left">บัญชีที่โอน</h4>
-                  <div class="checkbox" align="left">
-          <span>
-          <label><input type="checkbox" value="1" [(ngModel)]="bankStatement.KBANK"
-                        #KBANK="ngModel" name="KBANK" id="1">  <img class=""
-                                                                    src="http://www.store.tamdai.net/images/banks/KBANK.jpg"
-                                                                    width="24" height="24"> ธ.กสิกรไทย 0092831612 สาขา เชียงใหม่</label>
-          </span>
-                  </div>
-                  <div class="checkbox" align="left">
-          <span>
-          <label><input type="checkbox" value="2" [(ngModel)]="bankStatement.KTB"
-                        #KTB="ngModel" name="KTB" id="2">  <img class="gateway_img "
-                                                                src="http://www.store.tamdai.net/images/banks/KTB.jpg"
-                                                                width="24"
-                                                                height="24"> ธ.กรุงไทย 9842817679 สาขา นิมมานเหมินท์</label>
-          </span>
-                  </div>
-                  <div class="checkbox" align="left">
-          <span>
-          <label><input type="checkbox" value="3" [(ngModel)]="bankStatement.BBK"
-                        #BBK="ngModel" name="BBK" id="3">  <img class="gateway_img "
-                                                                src="http://www.store.tamdai.net/images/banks/BBL.jpg"
-                                                                width="24"
-                                                                height="24"> ธ.กรุงเทพ 9670103432 สาขา นิมมานเหมินทร์</label>
-          </span>
-                  </div>
-                  <div class="checkbox" align="left">
-          <span>
-          <label><input type="checkbox" value="4" [(ngModel)]="bankStatement.SCB"
-                        #SCB="ngModel" name="SCB" id="4">  <img class="gateway_img "
-                                                                src="http://www.store.tamdai.net/images/banks/SCB.jpg"
-                                                                width="24"
-                                                                height="24"> ธ.ไทยพาณิชย์ 8392154995 สาขา นิมมานเหมินทร์</label>
-          </span>
+
+                <div class="form-group ">
+                  <h4>เลือกธนาคาร</h4>
+                  <div class="row col-sm-12">
+                    <div class="col-sm-1">
+                      <table class="">
+                        <thead>
+                        <tr>
+                        </tr>
+                        </thead>
+                        <tbody *ngFor="let item of radioItems">
+                        <tr>
+                          <td>
+                            <br>
+                            <input type="radio" name="options" (click)="model.options = item"
+                                   [checked]="item === model.options">
+                            <!--{{item}}-->
+                          </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="col-sm-11">
+                      <table class="">
+                        <thead>
+                        <tr>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>
+                            <br>
+                            <img class="gateway_img" src="http://www.store.tamdai.net/images/banks/KBANK.jpg"
+                                 width="24" height="24">
+                            ธ.กสิกรไทย 0092831612 สาขา เชียงใหม่
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <br>
+                            <img class="gateway_img"
+                                 src="http://www.store.tamdai.net/images/banks/KTB.jpg"
+                                 width="24"
+                                 height="24"> ธ.กรุงไทย 9842817679 สาขา นิมมานเหมินท์
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <br>
+                            <img class="gateway_img " src="http://www.store.tamdai.net/images/banks/BBL.jpg" width="24"
+                                 height="24"> ธ.กรุงเทพ 9670103432 สาขา นิมมานเหมินทร์
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <br>
+                            <img class="gateway_img " src="http://www.store.tamdai.net/images/banks/SCB.jpg"
+                                 width="24"
+                                 height="24"> ธ.ไทยพาณิชย์ 8392154995 สาขา นิมมานเหมินทร์
+                          </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
+
+                <!--<div class="checkbox-container navbar-default">-->
+                <!--<h4 align="left">บัญชีที่โอน</h4>-->
+                <!--<div class="checkbox" align="left">-->
+                <!--<span>-->
+                <!--<label><input type="checkbox" value="KBANK" [(ngModel)]="bankStatement.KBANK"-->
+                <!--#bankName="ngModel" name="KBANK" id="1">  <img class=""-->
+                <!--src="http://www.store.tamdai.net/images/banks/KBANK.jpg"-->
+                <!--width="24" height="24"> ธ.กสิกรไทย 0092831612 สาขา เชียงใหม่</label>-->
+                <!--</span>-->
+                <!--</div>-->
+                <!--<div class="checkbox" align="left">-->
+                <!--<span>-->
+                <!--<label><input type="checkbox" value="KTB" [(ngModel)]="bankStatement.KTB"-->
+                <!--#bankName="ngModel" name="KTB" id="2">  <img class="gateway_img "-->
+                <!--src="http://www.store.tamdai.net/images/banks/KTB.jpg"-->
+                <!--width="24"-->
+                <!--height="24"> ธ.กรุงไทย 9842817679 สาขา นิมมานเหมินท์</label>-->
+                <!--</span>-->
+                <!--</div>-->
+                <!--<div class="checkbox" align="left">-->
+                <!--<span>-->
+                <!--<label><input type="checkbox" value="BBK" [(ngModel)]="bankStatement.BBK"-->
+                <!--#bankName="ngModel" name="BBK" id="3">  <img class="gateway_img "-->
+                <!--src="http://www.store.tamdai.net/images/banks/BBL.jpg"-->
+                <!--width="24"-->
+                <!--height="24"> ธ.กรุงเทพ 9670103432 สาขา นิมมานเหมินทร์</label>-->
+                <!--</span>-->
+                <!--</div>-->
+                <!--<div class="checkbox" align="left">-->
+                <!--<span>-->
+                <!--<label><input type="checkbox" value="SCB" [(ngModel)]="bankStatement.SCB"-->
+                <!--#bankName="ngModel" name="SCB" id="4">  <img class="gateway_img "-->
+                <!--src="http://www.store.tamdai.net/images/banks/SCB.jpg"-->
+                <!--width="24"-->
+                <!--height="24"> ธ.ไทยพาณิชย์ 8392154995 สาขา นิมมานเหมินทร์</label>-->
+                <!--</span>-->
+                <!--</div>-->
+                <!--</div>-->
+              </div>
+
+              <div class="form-group" style="margin-top: 35%">
                 <div align="left">
                   <button type="button" class="btn btn-primary btn-md" (click)="Submit()">Confirm</button>
                 </div>
               </div>
+
             </div>
           </form>
 

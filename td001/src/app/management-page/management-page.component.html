@@ -3,12 +3,13 @@
 <p>Click on the buttons inside the tabbed menu:</p>
 
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">User Management</button>
-  <button class="tablinks" onclick="openCity(event, 'Paris')">Payment Management</button>
-  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Bank Management</button>
+  <button class="tablinks" onclick="openCity(event, '1')" id="defaultOpen">User Management</button>
+  <button class="tablinks" onclick="openCity(event, '2')">Payment Management</button>
+  <button class="tablinks" onclick="openCity(event, '3')">Bank Management</button>
+  <button class="tablinks" onclick="openCity(event, '4')">Video Upload</button>
 </div>
 
-<div id="London" class="tabcontent">
+<div id="1" class="tabcontent">
   <table class="table table-striped">
     <thead>
     <tr>
@@ -22,7 +23,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr [hidden]="users == null" *ngFor="let user of users">
+    <tr [hidden]="users == undefined" *ngFor="let user of users">
       <td>{{user.id}}</td>
       <td>{{user.firstName}}</td>
       <td>{{user.lastName}}</td>
@@ -31,14 +32,13 @@
       <td>{{user.balance}}</td>
       <td>
         <button class="btn btn-warning btn-sm">Change Status</button>
-        <button class="btn btn-danger btn-sm">Delete</button>
       </td>
     </tr>
     </tbody>
   </table>
 </div>
 
-<div id="Paris" class="tabcontent">
+<div id="2" class="tabcontent">
   <table class="table table-striped">
     <thead>
     <tr>
@@ -50,7 +50,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr [hidden]="orderPayments == null" *ngFor="let orderPayment of orderPayments">
+    <tr [hidden]="orderPayments == undefined" *ngFor="let orderPayment of orderPayments">
       <td>{{orderPayment.users[0].id}}</td>
       <td>{{orderPayment.transRef}}</td>
       <td>{{orderPayment.users[0].firstName}}</td>
@@ -61,7 +61,7 @@
   </table>
 </div>
 
-<div id="Tokyo" class="tabcontent">
+<div id="3" class="tabcontent">
   <table class="table table-striped">
     <thead>
     <tr>
@@ -69,31 +69,38 @@
       <th>Payment Id</th>
       <th>Username</th>
       <th>Email</th>
+      <th>Bank</th>
+      <th>Date</th>
+      <th>Time</th>
       <th>Status</th>
-      <th>Statement</th>
+      <th>Amount</th>
       <th>Confirm</th>
-      <th>Delete</th>
     </tr>
     </thead>
     <tbody>
-    <tr [hidden]="bankStatements == null" *ngFor="let bankStatement of bankStatements">
+    <tr [hidden]="bankStatements == undefined" *ngFor="let bankStatement of bankStatements">
       <td>{{bankStatement.users[0].id}}</td>
       <td>{{bankStatement.paymentId}}</td>
       <td>{{bankStatement.users[0].firstName}}</td>
       <td>{{bankStatement.users[0].email}}</td>
+      <td>{{bankStatement.bankName}}</td>
+      <td>{{bankStatement.statementDate}}</td>
+      <td>{{bankStatement.statementTime}}</td>
       <td>{{bankStatement.statusBank}}</td>
       <td>{{bankStatement.statementAmount}}</td>
       <td>
         <button class="btn btn-primary btn-md"
-                (click)="ConfirmPayment(bankStatement.id, bankStatement.users[0].firstName, bankStatement.statementAmount, bankStatement.users[0].balance)">
+                (click)="ConfirmPayment(bankStatement.id, bankStatement.users[0].email, bankStatement.paymentId, bankStatement.statementAmount, bankStatement.users[0].balance)">
           Confirm
         </button>
-      </td>
-      <td>
-        <button class="btn btn-primary btn-md" (click)="DeletePayment()">Delete</button>
       </td>
     </tr>
     </tbody>
   </table>
 </div>
+
+<div id="4" class="tabcontent">
+  <app-video-list-page></app-video-list-page>
+</div>
+
 </body>

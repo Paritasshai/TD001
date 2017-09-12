@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <div align="center">
+    <div class="row content">
+      <div class="col-sm-12">
+        <div class="well">
+          <h4>รายการ ฝาก-ถอน</h4>
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>Transaction Flq</th>
+              <th>Payment ID</th>
+              <th>Payment Date</th>
+              <th>Payment Time</th>
+              <th>User Email</th>
+              <th>Amount</th>
+            </tr>
+            </thead>
+            <tbody *ngFor="let paymentTran of paymentTrans">
+            <tr *ngIf="paymentTran.users[0].id == currentUser.id">
+              <td>{{paymentTran.transFlq}}</td>
+              <td>{{paymentTran.transRef}}</td>
+              <td>{{paymentTran.updateDate}}</td>
+              <td>{{paymentTran.updateTime}}</td>
+              <td>{{paymentTran.users[0].email}}</td>
+              <td>{{paymentTran.transAmount}}</td>
+            </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
