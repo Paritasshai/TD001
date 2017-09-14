@@ -6,8 +6,8 @@
         <div class="well">
           <h2>เติมเงินออนไลน์</h2>
 
-          <div class="checkbox-container navbar-default">
-            <div align="left">
+          <div class="checkbox-container navbar-default" *ngFor="let user of users">
+            <div align="left" *ngIf="user.id == currentUser.id">
 
               <form name="form" #f="ngForm" novalidate>
                 <div class="form-group" style="width: 70%">
@@ -23,7 +23,7 @@
                 <div class="form-group">
                   <hr>
                   <p>2.</p>
-                  <label>ระบุรายการเติมเงิน</label>
+                  <label>รายการเติมเงิน</label>
                   <table class="table table-bordered">
                     <thead>
                     <tr>
@@ -33,7 +33,7 @@
                     </thead>
                     <tbody>
                     <tr>
-                      <td><p>{{currentUser.balance}} Bath.</p></td>
+                      <td><p>{{user.balance}} Bath.</p></td>
                       <td><p [hidden]="!values" style="color: red; font-size: 14px">+ {{values}} Bath.</p></td>
                     </tr>
                     </tbody>

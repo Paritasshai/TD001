@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {UserService} from '../services/user.service';
+import {UserService} from '../services/User.service';
 import {AlertService} from '../alertContent/AlertService';
 
 @Component({
@@ -30,8 +30,7 @@ export class SignuppageComponent implements OnInit {
 
   signUp() {
     this.loading = true;
-    console.log(this.User);
-
+    //console.log(this.User);
     this.userService.createUsers(this.User)
       .subscribe(
         data => {

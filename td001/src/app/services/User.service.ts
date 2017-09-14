@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers, RequestOptions, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
-import {User} from '../models/user';
+import {User} from '../models/User';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';

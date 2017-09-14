@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {User} from "../models/user";
+import {User} from "../models/User";
 import {OrderService} from "../services/OrderService";
 import {Router} from "@angular/router";
+import {UserService} from "../services/User.service";
 
 @Component({
   selector: 'app-top-up-online-page',
@@ -14,14 +15,23 @@ export class TopUpOnlinePageComponent implements OnInit {
   Order: any = {};
   userId: any;
   values = '';
+  users: User[] = [];
 
   constructor(private orderService: OrderService,
-              private router: Router) {
+              private router: Router,
+              private userService: UserService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.userId = this.currentUser.id;
   }
 
   ngOnInit() {
+    this.getUserList();
+  }
+
+  private getUserList() {
+    this.userService.getAll().subscribe(users => {
+      this.users = users;
+    });
   }
 
   onEnter(value: string) {
@@ -34,15 +44,14 @@ export class TopUpOnlinePageComponent implements OnInit {
   }
 
   Confirm() {
-    console.log(this.Order);
-    console.log(this.currentUser.id);
+    //console.log(this.Order);
+    //console.log(this.currentUser.id);
     this.orderService.createOrders(this.Order, this.userId)
       .subscribe(
         data => {
           setTimeout(function () {
-            location.reload();
           }, 1000);
-          this.router.navigate(['/userProfile']);
+          this.router.navigate(['/nonTopUp']);
           alert("Success");
         },
         error => {

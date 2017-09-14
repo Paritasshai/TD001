@@ -1,0 +1,30 @@
+.bg {
+  position: relative;
+  background: linear-gradient(to bottom, #5f6d7e 0%, #7f91a9 100%);
+  width: 100%;
+  min-height: 100vh;
+}
+
+.container-design {
+  margin-top: 5%;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.font-design{
+  padding: 2%;
+}
+
+.br{
+  margin-top: 5%;
+  padding: 2%;
+}
+
+body {
+  position: relative;
+}
+#section1 {padding-top:50px;height:500px;color: #fff; background-color: #1E88E5;}
+#section2 {padding-top:50px;height:500px;color: #fff; background-color: #673ab7;}
+#section3 {padding-top:50px;height:500px;color: #fff; background-color: #ff9800;}
+#section41 {padding-top:50px;height:500px;color: #fff; background-color: #00bcd4;}
+#section42 {padding-top:50px;height:500px;color: #fff; background-color: #009688;}

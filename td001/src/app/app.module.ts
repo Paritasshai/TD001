@@ -12,26 +12,31 @@ import {FooterComponent} from './footer/footer.component';
 import {LoginpageComponent} from './loginpage/loginpage.component';
 import {CourselistComponent} from './courselist/courselist.component';
 import {SignuppageComponent} from './signuppage/signuppage.component';
-import {UserService} from './services/user.service';
+import {UserService} from './services/User.service';
 import {AlertService} from './alertContent/AlertService';
 import {AlertComponent} from './alertContent/AlertComponent';
 import {AuthenticationService} from './services/Authentication.service';
-import {AuthGuard} from './services/auth.guard';
+import {AuthGuard} from './services/Auth.guard';
 import {UserProfileComponent} from './userProfile/user-profile.component';
 import {ManagementPageComponent} from './management-page/management-page.component';
 import {ForgotPasswordPageComponent} from './forgot-password-page/forgot-password-page.component';
-import {forgotPassword} from "./services/forgotPassword";
+import {forgotPassword} from "./services/ForgotPassword";
 import {TopUpBankPageComponent} from './top-up-bank-page/top-up-bank-page.component';
 import {TopUpOnlinePageComponent} from './top-up-online-page/top-up-online-page.component';
 import {OrderService} from "app/services/OrderService";
 import {NonTopUpComponent} from './non-top-up/non-top-up.component';
 import {BankStatementService} from "./services/BankStatementService";
-import {PaymentHistoryDetailsComponent} from './payment-history-details/payment-history-details.component';
 import {PaymentHistoryListComponent} from './payment-history-list/payment-history-list.component';
 import {MyDatePickerModule} from "mydatepicker";
-import {VideoListPageComponent} from './video-list-page/video-list-page.component';
+import {VideoListPageComponent} from './course-video-list-page/video-list-page.component';
 import {FileUploadModule} from 'ng2-file-upload';
 import {PaymentTransService} from "./services/PaymentTransService";
+import {CourseListsComponent} from './course-lists/course-lists.component';
+import {CourseService} from "./services/CourseService";
+import {UserManagementComponent} from './user-management/user-management.component';
+import {OrderManagementComponent} from './order-management/order-management.component';
+import {EditCourseComponent} from './edit-course/edit-course.component';
+import { EditCourstIdComponent } from './edit-courst-id/edit-courst-id.component';
 
 @NgModule({
   declarations: [
@@ -50,9 +55,13 @@ import {PaymentTransService} from "./services/PaymentTransService";
     TopUpBankPageComponent,
     TopUpOnlinePageComponent,
     NonTopUpComponent,
-    PaymentHistoryDetailsComponent,
     PaymentHistoryListComponent,
-    VideoListPageComponent
+    VideoListPageComponent,
+    CourseListsComponent,
+    UserManagementComponent,
+    OrderManagementComponent,
+    EditCourseComponent,
+    EditCourstIdComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +79,8 @@ import {PaymentTransService} from "./services/PaymentTransService";
     forgotPassword,
     OrderService,
     BankStatementService,
-    PaymentTransService
+    PaymentTransService,
+    CourseService
   ],
   bootstrap: [AppComponent],
   entryComponents: [AppComponent],

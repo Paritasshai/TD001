@@ -3,20 +3,20 @@ import {User} from "../models/User";
 import {UserService} from "../services/User.service";
 
 @Component({
-  selector: 'app-top-up-page',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
+  selector: 'app-user-management',
+  templateUrl: './user-management.component.html',
+  styleUrls: ['./user-management.component.css']
 })
-export class UserProfileComponent implements OnInit {
-  currentUser: User;
+export class UserManagementComponent implements OnInit {
   users: User[] = [];
 
   constructor(private userService: UserService) {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
-    this.getUserList();
+    if (this.users != undefined) {
+      this.getUserList();
+    }
   }
 
   private getUserList() {

@@ -51,14 +51,16 @@
             <div class="carousel-inner">
               <div class="item active">
 
-                <div class="col-sm-2 boxes-design">
+                <div class="col-sm-2 boxes-design" *ngFor="let course of courses">
                   <div routerLink='/course' style="cursor:pointer">
                     <img class="card-img-top img-design" [src]="Img1" alt="Card image cap">
                   </div>
                   <div class="card">
                     <div class="card-block">
-                      <h4 class="card-title" align="left">Topic_name</h4>
-                      <p class="card-text" align="left" routerLink='/course' style="cursor:pointer">ดูรายละเอียด</p>
+                      <h4 class="card-title" align="left">{{course.name}}</h4>
+                      <!--<p class="card-text" align="left" routerLink='/CourseLists' style="cursor: pointer">-->
+                      <!--ดูรายละเอียด</p>-->
+                      <button class="btn btn-success btn-sm" (click)="click(course.id)">ดูรายละเอียด</button>
                       <fieldset class="rating">
                         <input type="radio" name="rating" value="5"/><label class="full"
                                                                             title="Awesome - 5 stars"></label>
@@ -81,146 +83,146 @@
                         <input type="radio" name="rating" value="half"/><label class="half"
                                                                                title="Sucks big time - 0.5 stars"></label>
                       </fieldset>
-                      <b><p style="margin-left: 40%; color: #279528; font-size: large">B2,500</p></b>
+                      <b><p style="margin-left: 40%; color: #279528; font-size: large">B{{course.price}}</p></b>
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-2 boxes-design">
-                  <div routerLink='/course' style="cursor:pointer">
-                    <img class="card-img-top img-design" [src]="Img1" alt="Card image cap">
-                  </div>
-                  <div class="card">
-                    <div class="card-block">
-                      <h4 class="card-title" align="left">Topic_name</h4>
-                      <p class="card-text" align="left" routerLink='/course' style="cursor:pointer">ดูรายละเอียด</p>
-                      <fieldset class="rating">
-                        <input type="radio" name="rating" value="5"/><label class="full"
-                                                                            title="Awesome - 5 stars"></label>
-                        <input type="radio" name="rating" value="4 and a half"/><label class="half"
-                                                                                       title="Pretty good - 4.5 stars"></label>
-                        <input type="radio" name="rating" value="4"/><label class="full"
-                                                                            title="Pretty good - 4 stars"></label>
-                        <input type="radio" name="rating" value="3 and a half"/><label class="half"
-                                                                                       title="Meh - 3.5 stars"></label>
-                        <input type="radio" name="rating" value="3"/><label class="full"
-                                                                            title="Meh - 3 stars"></label>
-                        <input type="radio" name="rating" value="2 and a half"/><label class="half"
-                                                                                       title="Kinda bad - 2.5 stars"></label>
-                        <input type="radio" name="rating" value="2"/><label class="full"
-                                                                            title="Kinda bad - 2 stars"></label>
-                        <input type="radio" name="rating" value="1 and a half"/><label class="half"
-                                                                                       title="Meh - 1.5 stars"></label>
-                        <input type="radio" name="rating" value="1"/><label class="full"
-                                                                            title="Sucks big time - 1 star"></label>
-                        <input type="radio" name="rating" value="half"/><label class="half"
-                                                                               title="Sucks big time - 0.5 stars"></label>
-                      </fieldset>
-                      <b><p style="margin-left: 40%; color: #279528; font-size: large">B2,500</p></b>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-2 boxes-design">
-                  <div routerLink='/course' style="cursor:pointer">
-                    <img class="card-img-top img-design" [src]="Img1" alt="Card image cap">
-                  </div>
-                  <div class="card">
-                    <div class="card-block">
-                      <h4 class="card-title" align="left">Topic_name</h4>
-                      <p class="card-text" align="left" routerLink='/course' style="cursor:pointer">ดูรายละเอียด</p>
-                      <fieldset class="rating">
-                        <input type="radio" name="rating" value="5"/><label class="full"
-                                                                            title="Awesome - 5 stars"></label>
-                        <input type="radio" name="rating" value="4 and a half"/><label class="half"
-                                                                                       title="Pretty good - 4.5 stars"></label>
-                        <input type="radio" name="rating" value="4"/><label class="full"
-                                                                            title="Pretty good - 4 stars"></label>
-                        <input type="radio" name="rating" value="3 and a half"/><label class="half"
-                                                                                       title="Meh - 3.5 stars"></label>
-                        <input type="radio" name="rating" value="3"/><label class="full"
-                                                                            title="Meh - 3 stars"></label>
-                        <input type="radio" name="rating" value="2 and a half"/><label class="half"
-                                                                                       title="Kinda bad - 2.5 stars"></label>
-                        <input type="radio" name="rating" value="2"/><label class="full"
-                                                                            title="Kinda bad - 2 stars"></label>
-                        <input type="radio" name="rating" value="1 and a half"/><label class="half"
-                                                                                       title="Meh - 1.5 stars"></label>
-                        <input type="radio" name="rating" value="1"/><label class="full"
-                                                                            title="Sucks big time - 1 star"></label>
-                        <input type="radio" name="rating" value="half"/><label class="half"
-                                                                               title="Sucks big time - 0.5 stars"></label>
-                      </fieldset>
-                      <b><p style="margin-left: 40%; color: #279528; font-size: large">B2,500</p></b>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-2 boxes-design">
-                  <div routerLink='/course' style="cursor:pointer">
-                    <img class="card-img-top img-design" [src]="Img1" alt="Card image cap">
-                  </div>
-                  <div class="card">
-                    <div class="card-block">
-                      <h4 class="card-title" align="left">Topic_name</h4>
-                      <p class="card-text" align="left" routerLink='/course' style="cursor:pointer">ดูรายละเอียด</p>
-                      <fieldset class="rating">
-                        <input type="radio" name="rating" value="5"/><label class="full"
-                                                                            title="Awesome - 5 stars"></label>
-                        <input type="radio" name="rating" value="4 and a half"/><label class="half"
-                                                                                       title="Pretty good - 4.5 stars"></label>
-                        <input type="radio" name="rating" value="4"/><label class="full"
-                                                                            title="Pretty good - 4 stars"></label>
-                        <input type="radio" name="rating" value="3 and a half"/><label class="half"
-                                                                                       title="Meh - 3.5 stars"></label>
-                        <input type="radio" name="rating" value="3"/><label class="full"
-                                                                            title="Meh - 3 stars"></label>
-                        <input type="radio" name="rating" value="2 and a half"/><label class="half"
-                                                                                       title="Kinda bad - 2.5 stars"></label>
-                        <input type="radio" name="rating" value="2"/><label class="full"
-                                                                            title="Kinda bad - 2 stars"></label>
-                        <input type="radio" name="rating" value="1 and a half"/><label class="half"
-                                                                                       title="Meh - 1.5 stars"></label>
-                        <input type="radio" name="rating" value="1"/><label class="full"
-                                                                            title="Sucks big time - 1 star"></label>
-                        <input type="radio" name="rating" value="half"/><label class="half"
-                                                                               title="Sucks big time - 0.5 stars"></label>
-                      </fieldset>
-                      <b><p style="margin-left: 40%; color: #279528; font-size: large">B2,500</p></b>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-2 boxes-design">
-                  <div routerLink='/course' style="cursor:pointer">
-                    <img class="card-img-top img-design" [src]="Img1" alt="Card image cap">
-                  </div>
-                  <div class="card">
-                    <div class="card-block">
-                      <h4 class="card-title" align="left">Topic_name</h4>
-                      <p class="card-text" align="left" routerLink='/course' style="cursor:pointer">ดูรายละเอียด</p>
-                      <fieldset class="rating">
-                        <input type="radio" name="rating" value="5"/><label class="full"
-                                                                            title="Awesome - 5 stars"></label>
-                        <input type="radio" name="rating" value="4 and a half"/><label class="half"
-                                                                                       title="Pretty good - 4.5 stars"></label>
-                        <input type="radio" name="rating" value="4"/><label class="full"
-                                                                            title="Pretty good - 4 stars"></label>
-                        <input type="radio" name="rating" value="3 and a half"/><label class="half"
-                                                                                       title="Meh - 3.5 stars"></label>
-                        <input type="radio" name="rating" value="3"/><label class="full"
-                                                                            title="Meh - 3 stars"></label>
-                        <input type="radio" name="rating" value="2 and a half"/><label class="half"
-                                                                                       title="Kinda bad - 2.5 stars"></label>
-                        <input type="radio" name="rating" value="2"/><label class="full"
-                                                                            title="Kinda bad - 2 stars"></label>
-                        <input type="radio" name="rating" value="1 and a half"/><label class="half"
-                                                                                       title="Meh - 1.5 stars"></label>
-                        <input type="radio" name="rating" value="1"/><label class="full"
-                                                                            title="Sucks big time - 1 star"></label>
-                        <input type="radio" name="rating" value="half"/><label class="half"
-                                                                               title="Sucks big time - 0.5 stars"></label>
-                      </fieldset>
-                      <b><p style="margin-left: 40%; color: #279528; font-size: large">B2,500</p></b>
-                    </div>
-                  </div>
-                </div>
+                <!--<div class="col-sm-2 boxes-design">-->
+                <!--<div routerLink='/course' style="cursor:pointer">-->
+                <!--<img class="card-img-top img-design" [src]="Img1" alt="Card image cap">-->
+                <!--</div>-->
+                <!--<div class="card">-->
+                <!--<div class="card-block">-->
+                <!--<h4 class="card-title" align="left">Topic_name</h4>-->
+                <!--<p class="card-text" align="left" routerLink='/course' style="cursor:pointer">ดูรายละเอียด</p>-->
+                <!--<fieldset class="rating">-->
+                <!--<input type="radio" name="rating" value="5"/><label class="full"-->
+                <!--title="Awesome - 5 stars"></label>-->
+                <!--<input type="radio" name="rating" value="4 and a half"/><label class="half"-->
+                <!--title="Pretty good - 4.5 stars"></label>-->
+                <!--<input type="radio" name="rating" value="4"/><label class="full"-->
+                <!--title="Pretty good - 4 stars"></label>-->
+                <!--<input type="radio" name="rating" value="3 and a half"/><label class="half"-->
+                <!--title="Meh - 3.5 stars"></label>-->
+                <!--<input type="radio" name="rating" value="3"/><label class="full"-->
+                <!--title="Meh - 3 stars"></label>-->
+                <!--<input type="radio" name="rating" value="2 and a half"/><label class="half"-->
+                <!--title="Kinda bad - 2.5 stars"></label>-->
+                <!--<input type="radio" name="rating" value="2"/><label class="full"-->
+                <!--title="Kinda bad - 2 stars"></label>-->
+                <!--<input type="radio" name="rating" value="1 and a half"/><label class="half"-->
+                <!--title="Meh - 1.5 stars"></label>-->
+                <!--<input type="radio" name="rating" value="1"/><label class="full"-->
+                <!--title="Sucks big time - 1 star"></label>-->
+                <!--<input type="radio" name="rating" value="half"/><label class="half"-->
+                <!--title="Sucks big time - 0.5 stars"></label>-->
+                <!--</fieldset>-->
+                <!--<b><p style="margin-left: 40%; color: #279528; font-size: large">B2,500</p></b>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-sm-2 boxes-design">-->
+                <!--<div routerLink='/course' style="cursor:pointer">-->
+                <!--<img class="card-img-top img-design" [src]="Img1" alt="Card image cap">-->
+                <!--</div>-->
+                <!--<div class="card">-->
+                <!--<div class="card-block">-->
+                <!--<h4 class="card-title" align="left">Topic_name</h4>-->
+                <!--<p class="card-text" align="left" routerLink='/course' style="cursor:pointer">ดูรายละเอียด</p>-->
+                <!--<fieldset class="rating">-->
+                <!--<input type="radio" name="rating" value="5"/><label class="full"-->
+                <!--title="Awesome - 5 stars"></label>-->
+                <!--<input type="radio" name="rating" value="4 and a half"/><label class="half"-->
+                <!--title="Pretty good - 4.5 stars"></label>-->
+                <!--<input type="radio" name="rating" value="4"/><label class="full"-->
+                <!--title="Pretty good - 4 stars"></label>-->
+                <!--<input type="radio" name="rating" value="3 and a half"/><label class="half"-->
+                <!--title="Meh - 3.5 stars"></label>-->
+                <!--<input type="radio" name="rating" value="3"/><label class="full"-->
+                <!--title="Meh - 3 stars"></label>-->
+                <!--<input type="radio" name="rating" value="2 and a half"/><label class="half"-->
+                <!--title="Kinda bad - 2.5 stars"></label>-->
+                <!--<input type="radio" name="rating" value="2"/><label class="full"-->
+                <!--title="Kinda bad - 2 stars"></label>-->
+                <!--<input type="radio" name="rating" value="1 and a half"/><label class="half"-->
+                <!--title="Meh - 1.5 stars"></label>-->
+                <!--<input type="radio" name="rating" value="1"/><label class="full"-->
+                <!--title="Sucks big time - 1 star"></label>-->
+                <!--<input type="radio" name="rating" value="half"/><label class="half"-->
+                <!--title="Sucks big time - 0.5 stars"></label>-->
+                <!--</fieldset>-->
+                <!--<b><p style="margin-left: 40%; color: #279528; font-size: large">B2,500</p></b>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-sm-2 boxes-design">-->
+                <!--<div routerLink='/course' style="cursor:pointer">-->
+                <!--<img class="card-img-top img-design" [src]="Img1" alt="Card image cap">-->
+                <!--</div>-->
+                <!--<div class="card">-->
+                <!--<div class="card-block">-->
+                <!--<h4 class="card-title" align="left">Topic_name</h4>-->
+                <!--<p class="card-text" align="left" routerLink='/course' style="cursor:pointer">ดูรายละเอียด</p>-->
+                <!--<fieldset class="rating">-->
+                <!--<input type="radio" name="rating" value="5"/><label class="full"-->
+                <!--title="Awesome - 5 stars"></label>-->
+                <!--<input type="radio" name="rating" value="4 and a half"/><label class="half"-->
+                <!--title="Pretty good - 4.5 stars"></label>-->
+                <!--<input type="radio" name="rating" value="4"/><label class="full"-->
+                <!--title="Pretty good - 4 stars"></label>-->
+                <!--<input type="radio" name="rating" value="3 and a half"/><label class="half"-->
+                <!--title="Meh - 3.5 stars"></label>-->
+                <!--<input type="radio" name="rating" value="3"/><label class="full"-->
+                <!--title="Meh - 3 stars"></label>-->
+                <!--<input type="radio" name="rating" value="2 and a half"/><label class="half"-->
+                <!--title="Kinda bad - 2.5 stars"></label>-->
+                <!--<input type="radio" name="rating" value="2"/><label class="full"-->
+                <!--title="Kinda bad - 2 stars"></label>-->
+                <!--<input type="radio" name="rating" value="1 and a half"/><label class="half"-->
+                <!--title="Meh - 1.5 stars"></label>-->
+                <!--<input type="radio" name="rating" value="1"/><label class="full"-->
+                <!--title="Sucks big time - 1 star"></label>-->
+                <!--<input type="radio" name="rating" value="half"/><label class="half"-->
+                <!--title="Sucks big time - 0.5 stars"></label>-->
+                <!--</fieldset>-->
+                <!--<b><p style="margin-left: 40%; color: #279528; font-size: large">B2,500</p></b>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-sm-2 boxes-design">-->
+                <!--<div routerLink='/course' style="cursor:pointer">-->
+                <!--<img class="card-img-top img-design" [src]="Img1" alt="Card image cap">-->
+                <!--</div>-->
+                <!--<div class="card">-->
+                <!--<div class="card-block">-->
+                <!--<h4 class="card-title" align="left">Topic_name</h4>-->
+                <!--<p class="card-text" align="left" routerLink='/course' style="cursor:pointer">ดูรายละเอียด</p>-->
+                <!--<fieldset class="rating">-->
+                <!--<input type="radio" name="rating" value="5"/><label class="full"-->
+                <!--title="Awesome - 5 stars"></label>-->
+                <!--<input type="radio" name="rating" value="4 and a half"/><label class="half"-->
+                <!--title="Pretty good - 4.5 stars"></label>-->
+                <!--<input type="radio" name="rating" value="4"/><label class="full"-->
+                <!--title="Pretty good - 4 stars"></label>-->
+                <!--<input type="radio" name="rating" value="3 and a half"/><label class="half"-->
+                <!--title="Meh - 3.5 stars"></label>-->
+                <!--<input type="radio" name="rating" value="3"/><label class="full"-->
+                <!--title="Meh - 3 stars"></label>-->
+                <!--<input type="radio" name="rating" value="2 and a half"/><label class="half"-->
+                <!--title="Kinda bad - 2.5 stars"></label>-->
+                <!--<input type="radio" name="rating" value="2"/><label class="full"-->
+                <!--title="Kinda bad - 2 stars"></label>-->
+                <!--<input type="radio" name="rating" value="1 and a half"/><label class="half"-->
+                <!--title="Meh - 1.5 stars"></label>-->
+                <!--<input type="radio" name="rating" value="1"/><label class="full"-->
+                <!--title="Sucks big time - 1 star"></label>-->
+                <!--<input type="radio" name="rating" value="half"/><label class="half"-->
+                <!--title="Sucks big time - 0.5 stars"></label>-->
+                <!--</fieldset>-->
+                <!--<b><p style="margin-left: 40%; color: #279528; font-size: large">B2,500</p></b>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
 
               </div>
 

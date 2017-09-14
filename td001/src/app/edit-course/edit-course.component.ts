@@ -4,17 +4,15 @@ import {CourseService} from "../services/CourseService";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-courselist',
-  templateUrl: './courselist.component.html',
-  styleUrls: ['./courselist.component.css']
+  selector: 'app-edit-course',
+  templateUrl: './edit-course.component.html',
+  styleUrls: ['./edit-course.component.css']
 })
-export class CourselistComponent implements OnInit {
-  Img1: string;
+export class EditCourseComponent implements OnInit {
   courses: Course[] = [];
 
   constructor(private courseService: CourseService,
               private router: Router) {
-    this.Img1 = '../../assets/images/001.jpg';
   }
 
   ngOnInit() {
@@ -27,8 +25,9 @@ export class CourselistComponent implements OnInit {
     });
   }
 
-  click(id) {
-    this.router.navigate(['/CourseLists', id])
+  EditCourse(id) {
+    console.log("Edit");
+    this.router.navigate(['/EditCourse', id])
   }
 
 }

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Http} from "@angular/http";
 import {FileUploader} from 'ng2-file-upload';
-import {VideoService} from "../services/CourseService";
+import {CourseService} from "../services/CourseService";
 import {AlertService} from "../alertContent/AlertService";
 
 // const URL = '/api/';
@@ -28,7 +28,7 @@ export class VideoListPageComponent implements OnInit {
   }
 
   constructor(public http: Http,
-              private videoService: VideoService,
+              private courseService: CourseService,
               private alertService: AlertService) {
   }
 
@@ -36,10 +36,11 @@ export class VideoListPageComponent implements OnInit {
   }
 
   upLoad() {
-    this.videoService.createCourse(this.Course)
+    this.courseService.createCourse(this.Course)
       .subscribe(
         data => {
           this.alertService.success('Upload Successful', true);
+          location.reload();
         },
         error => {
           this.alertService.error('Upload Failed', true);

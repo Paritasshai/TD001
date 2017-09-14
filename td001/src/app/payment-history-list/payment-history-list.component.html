@@ -13,6 +13,7 @@
               <th>Payment Time</th>
               <th>User Email</th>
               <th>Amount</th>
+              <th>Balance</th>
             </tr>
             </thead>
             <tbody *ngFor="let paymentTran of paymentTrans">
@@ -23,6 +24,7 @@
               <td>{{paymentTran.updateTime}}</td>
               <td>{{paymentTran.users[0].email}}</td>
               <td>{{paymentTran.transAmount}}</td>
+              <td>{{paymentTran.transRemark}}</td>
             </tr>
             </tbody>
           </table>

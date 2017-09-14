@@ -1,6 +1,6 @@
-export class Video {
+export class Course {
   public id: number;
-  public name: string;
-  public content: any;
+  public name: any;
+  public description: any;
   public price: any;
 }

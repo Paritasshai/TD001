@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {forgotPassword} from "../services/forgotPassword";
+import {forgotPassword} from "../services/ForgotPassword";
 
 @Component({
   selector: 'app-forgot-password-page',

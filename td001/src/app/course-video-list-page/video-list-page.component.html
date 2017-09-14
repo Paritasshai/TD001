@@ -2,47 +2,48 @@
 <form name="form" novalidate (ngSubmit)="upLoad()">
   <div class="container-default">
 
-    <nav class="navbar navbar-default bg-faded">
-  <span class="navbar-text">
-    <h4>Upload Course Details</h4>
-  </span>
-    </nav>
+    <!--<nav class="navbar navbar-default bg-faded">-->
+    <!--<span class="navbar-text">-->
+    <!--<h4>Upload Course Details</h4>-->
+    <!--</span>-->
+    <!--</nav>-->
 
     <div class="row">
-      <div class="col-sm-12">
-        <div class="form-group">
-          <input type="text" class="form-control" name="name" placeholder="Name Course.."
-                 [(ngModel)]="Course.name"
-                 #name="ngModel" required/>
-        </div>
 
-        <div class="form-group">
-          <input type="text" class="form-control" name="description" placeholder="Course description.."
-                 [(ngModel)]="Course.description"
-                 #name="ngModel" required/>
-        </div>
+      <!--<div class="col-sm-12">-->
+      <!--<div class="form-group">-->
+      <!--<input type="text" class="form-control" name="name" placeholder="Name Course.."-->
+      <!--[(ngModel)]="Course.name"-->
+      <!--#name="ngModel" required/>-->
+      <!--</div>-->
 
-        <div class="form-group">
-          <input type="text" class="form-control" name="price" placeholder="price.."
-                 [(ngModel)]="Course.price"
-                 #price="ngModel" required/>
-        </div>
+      <!--<div class="form-group">-->
+      <!--<textarea class="form-control" name="description" placeholder="Course description.."-->
+      <!--[(ngModel)]="Course.description"-->
+      <!--#name="ngModel"></textarea>-->
+      <!--</div>-->
 
-        <div class="form-group">
-          <button class="btn btn-primary">Upload Course</button>
-        </div>
-        <alert>
-          <div class="alert alert-success" ng-reflect-ng-class="[object Object]">Registration successful
-          </div>
-        </alert>
-        <hr class="style1">
-      </div>
+      <!--<div class="form-group">-->
+      <!--<input type="text" class="form-control" name="price" placeholder="price.."-->
+      <!--[(ngModel)]="Course.price"-->
+      <!--#price="ngModel" required/>-->
+      <!--</div>-->
+
+      <!--<div class="form-group">-->
+      <!--<button class="btn btn-primary">Upload Course</button>-->
+      <!--</div>-->
+      <!--<alert>-->
+      <!--<div class="alert alert-success" ng-reflect-ng-class="[object Object]">Registration successful-->
+      <!--</div>-->
+      <!--</alert>-->
+      <!--<hr class="style1">-->
+      <!--</div>-->
 
       <div class="col-sm-12">
         <nav class="navbar navbar-default bg-faded">
-  <span class="navbar-text">
-    <h4>Upload Video Clip</h4>
-  </span>
+      <span class="navbar-text">
+      <h4>Upload Video Clip</h4>
+      </span>
         </nav>
         <div class="col-md-12">
           <input class="btn btn-default" type="file" ng2FileSelect [uploader]="uploader"/>
@@ -118,8 +119,8 @@
           </div>
 
         </div>
-
       </div>
+
     </div>
   </div>
 </form>

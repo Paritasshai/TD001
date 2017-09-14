@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {User} from "../models/user";
-import {UserService} from "../services/user.service";
+import {User} from "../models/User";
+import {UserService} from "../services/User.service";
 import {PaymentTransService} from "../services/PaymentTransService";
 
 @Component({
@@ -12,7 +12,6 @@ export class PaymentHistoryListComponent implements OnInit {
   currentUser: User;
   users: User[] = [];
   paymentTrans: any;
-
 
   constructor(private userService: UserService,
               private paymentTransService: PaymentTransService) {

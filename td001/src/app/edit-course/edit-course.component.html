@@ -1,0 +1,25 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Course ID</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Edit</th>
+  </tr>
+  </thead>
+  <tbody *ngFor="let course of courses">
+  <tr>
+    <td>{{course.id}}</td>
+    <td>{{course.name}}</td>
+    <td>{{course.description}}</td>
+    <td>{{course.price}}</td>
+    <td>
+      <button class="btn btn-primary btn-md"
+              (click)="EditCourse(course.id)">
+        Edit Course
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>

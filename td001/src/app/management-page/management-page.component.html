@@ -1,64 +1,20 @@
 <body>
-
 <p>Click on the buttons inside the tabbed menu:</p>
 
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, '1')" id="defaultOpen">User Management</button>
-  <button class="tablinks" onclick="openCity(event, '2')">Payment Management</button>
-  <button class="tablinks" onclick="openCity(event, '3')">Bank Management</button>
-  <button class="tablinks" onclick="openCity(event, '4')">Video Upload</button>
+  <button class="tablinks" onclick="openCity(event, '2')">Order Payment</button>
+  <button class="tablinks" onclick="openCity(event, '3')">Confirm Payment</button>
+  <button class="tablinks" onclick="openCity(event, '4')">Upload Course</button>
+  <button class="tablinks" onclick="openCity(event, '5')">Edit Course</button>
 </div>
 
 <div id="1" class="tabcontent">
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th>User ID</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Status</th>
-      <th>Balance</th>
-      <th>Manage</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr [hidden]="users == undefined" *ngFor="let user of users">
-      <td>{{user.id}}</td>
-      <td>{{user.firstName}}</td>
-      <td>{{user.lastName}}</td>
-      <td>{{user.email}}</td>
-      <td>{{user.status}}</td>
-      <td>{{user.balance}}</td>
-      <td>
-        <button class="btn btn-warning btn-sm">Change Status</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+  <app-user-management></app-user-management>
 </div>
 
 <div id="2" class="tabcontent">
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th>User ID</th>
-      <th>Payment ID</th>
-      <th>Username</th>
-      <th>Email</th>
-      <th>Payment</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr [hidden]="orderPayments == undefined" *ngFor="let orderPayment of orderPayments">
-      <td>{{orderPayment.users[0].id}}</td>
-      <td>{{orderPayment.transRef}}</td>
-      <td>{{orderPayment.users[0].firstName}}</td>
-      <td>{{orderPayment.users[0].email}}</td>
-      <td>{{orderPayment.transAmount}}</td>
-    </tr>
-    </tbody>
-  </table>
+  <app-order-management></app-order-management>
 </div>
 
 <div id="3" class="tabcontent">
@@ -101,6 +57,10 @@
 
 <div id="4" class="tabcontent">
   <app-video-list-page></app-video-list-page>
+</div>
+
+<div id="5" class="tabcontent">
+  <app-edit-course></app-edit-course>
 </div>
 
 </body>

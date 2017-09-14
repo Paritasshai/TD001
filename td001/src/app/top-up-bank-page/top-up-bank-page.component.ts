@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {BankStatementService} from "../services/BankStatementService";
-import {User} from "../models/user";
+import {User} from "../models/User";
 import {ActivatedRoute, Router} from "@angular/router";
 import {OrderService} from "../services/OrderService";
 import {IMyDpOptions} from 'mydatepicker';
@@ -59,7 +59,7 @@ export class TopUpBankPageComponent implements OnInit {
   private getPaymentId(orderDetail) {
     this.orderService.getPaymentsById(orderDetail).subscribe(payments => {
       this.orderPaymentsIds = payments;
-      console.log(this.orderPaymentsIds);
+      //console.log(this.orderPaymentsIds);
     });
   }
 
@@ -71,7 +71,7 @@ export class TopUpBankPageComponent implements OnInit {
     this.bankStatement.paymentId = this.orderPaymentsIds.transRef;
     this.bankStatement.statementDate = this.modelDate.formatted;
     //console.log(this.bankStatement.statementAmount);
-    console.log(this.bankStatement.statementTime);
+    //console.log(this.bankStatement.statementTime);
 
 
     this.bankStatementService.createBankStatements(this.bankStatement, this.userId)
