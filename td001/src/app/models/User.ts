@@ -5,4 +5,5 @@ export class User {
   public email: string;
   public password: string;
   public balance: string;
+  public status: string;
 }

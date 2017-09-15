@@ -3,37 +3,55 @@
     <nav class="navbar navbar-default margin-design">
       <div class="container-fluid nav-design">
         <div class="navbar-header">
-          <p class="navbar-brand">บัญชีของ {{currentUser.firstName}}</p>
+          <p class="navbar-brand">สถานะ: {{currentUser.status}}</p>
+          <p class="navbar-brand">ชื่อ: {{currentUser.firstName}}</p>
         </div>
       </div>
     </nav>
-
+    <br>
     <div class="margin-design-top" *ngFor="let user of users">
       <div class="container-fluid margin-design" *ngIf="user.id == currentUser.id">
         <div class="row content">
           <br>
           <div class="col-sm-12">
-            <div id="section1" class="well">
+            <div id="section1" class="well" [hidden]="user.status != active">
               <h4>{{user.firstName}} ยอดเงินของคุณ</h4>
               <p>คงเหลือในบัญชี {{user.balance}} บาท</p>
             </div>
             <div class="row">
               <div class="col-sm-4 ex1" [routerLink]="['/topUpOnline']">
-                <div class="well">
+                <div class="well" [hidden]="user.status != active">
                   <p>เติมเงิน</p>
                   <p>ONLINE</p>
                 </div>
               </div>
               <div class="col-sm-4 ex1" [routerLink]="['/nonTopUp']">
-                <div class="well">
+                <div class="well" [hidden]="user.status != active">
                   <p>รายการ</p>
                   <p>ค้างชำระ</p>
                 </div>
               </div>
               <div class="col-sm-4 ex1" [routerLink]="['/PaymentLists']">
-                <div class="well">
+                <div class="well" [hidden]="user.status != active">
                   <p>บัญชี</p>
                   <p>ของคุณ</p>
+                </div>
+              </div>
+              <div class="col-sm-4 ex1" [routerLink]="['/createCourse']">
+                <div class="well" [hidden]="user.status != instructor">
+                  <p>สร้าง</p>
+                  <p>คอร์สเรียน</p>
+                </div>
+              </div>
+              <div class="col-sm-4 ex1" [routerLink]="['/EditCourse']">
+                <div class="well" [hidden]="user.status != instructor">
+                  <p>แก้ไข</p>
+                  <p>คอร์สเรียน</p>
+                </div>
+              </div>
+              <div class="col-sm-4 ex1" [routerLink]="['/management']">
+                <div class="well" [hidden]="user.status != admin">
+                  <p>จัดการระบบ</p>
                 </div>
               </div>
             </div>

@@ -12,8 +12,8 @@ export class CourseService {
   constructor(private http: Http) {
   }
 
-  createCourse(course: Course) {
-    return this.http.post('http://localhost:8080/add/courseDetail', course).map((response: Response) => response.json());
+  createCourse(id, course: Course) {
+    return this.http.post('http://localhost:8080/add/courseDetail/' + "?userId=" + id, course).map((response: Response) => response.json());
   }
 
   getCourses(): Observable<Course[]> {

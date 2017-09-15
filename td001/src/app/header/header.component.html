@@ -1,13 +1,15 @@
 <section class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color: #5f6d7e">
+
   <div class="container">
     <div class="navbar-header">
-      <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="margin-top: 5%">
+      <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="margin-top: 3%">
         <span class="icon icon-bar"></span>
         <span class="icon icon-bar"></span>
         <span class="icon icon-bar"></span>
       </button>
       <!--<img [src]="ImgLogo" [routerLink]="['/']" class="img-responsive" style="width: 100px; margin-top: 5%"/>-->
-      <a style="color: white; margin-top: 5%" [routerLink]="['/home']" class="navbar-brand">TamDai D.I.Y LOGO</a>
+      <p style="color: white; margin-top: 3%; cursor: pointer" [routerLink]="['/home']" class="navbar-brand">TamDai
+        D.I.Y LOGO</p>
     </div>
 
     <div class="collapse navbar-collapse">
@@ -52,13 +54,6 @@
               class="glyphicon glyphicon-log-out" data-toggle="modal"></span>
           </div>
         </a></li>
-        <!--<li><a class="smoothScroll" style="color: white">-->
-          <!--<div [hidden]="currentUser != null" style="cursor: pointer"-->
-               <!--[routerLink]="['/management']"><span-->
-            <!--class="fa fa-cogs"></span> System Management <span-->
-            <!--class=""></span>-->
-          <!--</div>-->
-        <!--</a></li>-->
         <li><a class="smoothScroll" style="color: white">
           <div style="cursor: pointer"
                [routerLink]="['/management']"><span
@@ -66,6 +61,14 @@
             class=""></span>
           </div>
         </a></li>
+
+        <!--<li><a class="smoothScroll" style="color: white">-->
+        <!--<div style="cursor: pointer"-->
+        <!--[routerLink]="['/management']"><span-->
+        <!--class="fa fa-cogs"></span> System Management <span-->
+        <!--class=""></span>-->
+        <!--</div>-->
+        <!--</a></li>-->
         <!--<li><a class="smoothScroll" style="color: white">-->
         <!--<div [hidden]="currentUser == null" style="cursor: pointer"-->
         <!--[routerLink]="['/management']"><span-->
@@ -75,7 +78,9 @@
         <!--</a></li>-->
       </ul>
     </div>
+
   </div>
+
 </section>
 
 <app-loginpage></app-loginpage>

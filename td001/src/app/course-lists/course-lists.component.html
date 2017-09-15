@@ -1,13 +1,18 @@
 <div class="bg">
   <div class="container-fluid">
     <div class="container-design">
-      <div class="row col-sm-12">
+      <div class="row">
+
         <div class="col-sm-4">
-          <video width="360" height="200" controls>
-            <source src="{{videoSource}}" type="video/mp4">
-            <source src="{{videoSource}}" type="video/ogg">
-            Your browser does not support HTML5 video.
-          </video>
+          <div class="panel panel-default brr">
+            <div align="center">
+              <video class="img-responsive" controls>
+                <source src="{{videoSource}}" type="video/mp4">
+                <source src="{{videoSource}}" type="video/ogg">
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+          </div>
           <div class="panel panel-default br">
             <div class="panel-heading">เกี่ยวกับคอร์สนี้</div>
             <div class="panel-body"><span> <p class="glyphicon glyphicon-calendar"></p></span> เรียนคอร์สนี้ได้อีก 30
@@ -29,6 +34,7 @@
             </div>
           </div>
         </div>
+        <br>
         <div class="col-sm-8">
           <div class="panel panel-default">
             <div class="panel-heading">คำอธิบายคอร์สเรียน</div>
@@ -70,8 +76,9 @@
             </body>
           </div>
         </div>
+
       </div>
     </div>
   </div>
 </div>
-
+<app-footer></app-footer>

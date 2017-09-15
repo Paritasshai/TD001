@@ -10,6 +10,9 @@ import {UserService} from "../services/User.service";
 export class UserProfileComponent implements OnInit {
   currentUser: User;
   users: User[] = [];
+  admin = "admin";
+  active = "active";
+  instructor = "instructor";
 
   constructor(private userService: UserService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));

@@ -10,7 +10,7 @@ export class CourseListsComponent implements OnInit {
   ImgUser: string;
 
   constructor() {
-    this.videoSource = '../../assets/images/a.mp4';
+    this.videoSource = '../../assets/images/test.MP4';
     this.ImgUser = '../../assets/images/002.jpg';
   }
 

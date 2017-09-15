@@ -4,15 +4,17 @@
 
 body {
   font-family: "Lato", sans-serif;
+  margin-top: 2%;
 }
 
 /* Style the tab */
 div.tab {
   float: left;
+  margin-top: -1%;
   border: 1px solid #ccc;
   background-color: #f1f1f1;
-  width: 20%;
-  height: 700px;
+  width: 10%;
+  height: 1000px;
 }
 
 /* Style the buttons inside the tab */
@@ -43,8 +45,9 @@ div.tab button.active {
 /* Style the tab content */
 .tabcontent {
   float: left;
-  padding: 0px 12px;
-  width: 80%;
+  padding: 0px 10px;
+  width: 90%;
   border-left: none;
   height: auto;
 }
+

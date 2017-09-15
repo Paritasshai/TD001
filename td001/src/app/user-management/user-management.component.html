@@ -19,7 +19,10 @@
     <td>{{user.status}}</td>
     <td>{{user.balance}}</td>
     <td>
-      <button class="btn btn-warning btn-sm">Change Status</button>
+      <select #categoriesCtrl (change)='SelectedValue = categoriesCtrl.value'>
+        <option *ngFor="let category of categories" [value]="category.status">{{category.status}}</option>
+      </select>
+      <button class="btn btn-warning btn-sm" (click)="getValueFromSelect(user.id)">Change Status</button>
     </td>
   </tr>
   </tbody>

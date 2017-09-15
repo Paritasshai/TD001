@@ -14,9 +14,8 @@
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  height: 500px;
+  height: 400px;
   text-align: left;
-  margin-top: -10px;
 }
 
 #home h1 {
@@ -34,4 +33,8 @@
     border: 0;
     border-bottom: 1px solid #000;
   }
+}
+
+.container-fluid {
+  width: 80%;
 }

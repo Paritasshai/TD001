@@ -44,5 +44,9 @@ export class UserService {
     }
   }
 
+  updateUserStatus(id, statusName, user: User) {
+    return this.http.put('http://localhost:8080/update/userStatus/' + id + "/" + "?statusName=" + statusName, user).map((response: Response) => response.json());
+  }
+
 }
 

@@ -13,6 +13,9 @@ import {NonTopUpComponent} from "./non-top-up/non-top-up.component";
 import {PaymentHistoryListComponent} from "app/payment-history-list/payment-history-list.component";
 import {CourseListsComponent} from "./course-lists/course-lists.component";
 import {EditCourstIdComponent} from "./edit-courst-id/edit-courst-id.component";
+import {VideoListPageComponent} from "./course-video-list-page/video-list-page.component";
+import {CourselistComponent} from "./courselist/courselist.component";
+import {EditCourseComponent} from "./edit-course/edit-course.component";
 
 const appRoutes: Routes = [
   {path: 'home', component: HomepageComponent},
@@ -28,6 +31,9 @@ const appRoutes: Routes = [
   {path: 'PaymentLists', component: PaymentHistoryListComponent},
   {path: 'CourseLists/:id', component: CourseListsComponent},
   {path: 'EditCourse/:id', component: EditCourstIdComponent},
+  {path: 'createCourse', component: VideoListPageComponent},
+  {path: 'courseCreateList', component: CourselistComponent},
+  {path: 'EditCourse', component: EditCourseComponent},
 
 
   // otherwise redirect to home

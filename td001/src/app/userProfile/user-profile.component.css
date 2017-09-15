@@ -22,6 +22,7 @@
 
 .navbar-brand {
   color: white;
+  font-size: 14px;
   border: solid 5px #5f6d7e;
   height: 100px;
 }

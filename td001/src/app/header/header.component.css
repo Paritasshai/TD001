@@ -3,11 +3,15 @@
 }
 
 .modal-header {
-  padding-bottom: 5px;
+  padding-bottom: 3px;
 }
 
 .modal-footer {
   padding: 0;
+}
+
+.navbar-default{
+  border: solid 1px #5f6d7e;
 }
 
 .modal-footer .btn-group button {
@@ -30,6 +34,10 @@ img {
   margin-top: -5px;
 }
 
-li{
+li {
   margin-right: -15px;
+}
+
+.navbar {
+  height: 40px;
 }

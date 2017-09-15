@@ -43,7 +43,7 @@ export class ManagementPageComponent implements OnInit {
     this.result = parseFloat(statementAmount) + parseFloat(balance);
     //console.log(this.result);
 
-    this.bankStatementService.confirmBankStatements(id, email, paymentId,statementAmount, this.bankStatement, this.userId, this.result)
+    this.bankStatementService.confirmBankStatements(id, email, paymentId, statementAmount, this.bankStatement, this.userId, this.result)
       .subscribe(
         data => {
           alert("Success");

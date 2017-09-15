@@ -9,6 +9,17 @@ import {UserService} from "../services/User.service";
 })
 export class UserManagementComponent implements OnInit {
   users: User[] = [];
+  SelectedValue: string = null;
+  statusName: any;
+  User: any = {};
+
+  categories: any[] = [
+    {id: 1, status: 'active'},
+    {id: 2, status: 'instructor'},
+    {id: 3, status: 'lock'},
+    {id: 4, status: 'inactive'},
+    {id: 5, status: 'admin'}
+  ];
 
   constructor(private userService: UserService) {
   }
@@ -24,5 +35,22 @@ export class UserManagementComponent implements OnInit {
       this.users = users;
     });
   }
+
+  getValueFromSelect(id) {
+    // console.log(this.SelectedValue);
+    // console.log(id);
+
+    this.statusName = this.SelectedValue;
+    this.userService.updateUserStatus(id, this.statusName, this.User).subscribe(
+      data => {
+        alert("Success");
+        location.reload();
+      },
+      error => {
+        alert("Error")
+      });
+
+  }
+
 
 }
