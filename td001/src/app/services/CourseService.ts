@@ -5,6 +5,7 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/catch';
 import {Course} from "../models/Course";
 import {Observable} from "rxjs/Observable";
+import {Video} from "../models/Video";
 
 @Injectable()
 export class CourseService {
@@ -25,7 +26,16 @@ export class CourseService {
       .map((response: Response) => response.json());
   }
 
-  getCoursesById(id): Observable<Course[]> {
+  getVideoList(): Observable<Video[]> {
+    let headers = new Headers({'Authorization': 'Bearer '});
+    let options = new RequestOptions({headers: headers});
+
+    // get users from api
+    return this.http.get('http://localhost:8080/get/videoList', options)
+      .map((response: Response) => response.json());
+  }
+
+  getCoursesById(id): Observable<Course> {
     let headers = new Headers({'Authorization': 'Bearer '});
     let options = new RequestOptions({headers: headers});
 
@@ -36,6 +46,15 @@ export class CourseService {
 
   updateCourse(id, name, description, price, course: Course) {
     return this.http.put('http://localhost:8080/update/course/' + id + "?name=" + name + "&" + "description=" + description + "&" + "price=" + price, course).map((response: Response) => response.json());
+  }
+
+  getCourseVideoById(id): Observable<Course[]> {
+    let headers = new Headers({'Authorization': 'Bearer '});
+    let options = new RequestOptions({headers: headers});
+
+    // get users from api
+    return this.http.get('http://localhost:8080/playVideo/' + id, options)
+      .map((response: Response) => response.json());
   }
 
 }

@@ -5,7 +5,7 @@ import {FileUploader} from "ng2-file-upload";
 import {AlertService} from "../alertContent/AlertService";
 
 // const URL = '/api/';
-const URL = 'http://localhost:8080/add/video';
+//const URL = 'http://localhost:8080/add/video';
 
 @Component({
   selector: 'app-edit-courst-id',
@@ -36,7 +36,7 @@ export class EditCourstIdComponent implements OnInit {
     });
   }
 
-  public uploader: FileUploader = new FileUploader({url: URL});
+  public uploader: FileUploader = new FileUploader({url: 'http://localhost:8080/add/video/' + "?id=" + this.route.snapshot.params['id']});
   public hasBaseDropZoneOver: boolean = false;
   public hasAnotherDropZoneOver: boolean = false;
 

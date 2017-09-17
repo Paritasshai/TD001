@@ -28,7 +28,7 @@ export class CourselistComponent implements OnInit {
   }
 
   click(id) {
-    this.router.navigate(['/CourseLists', id])
+    this.router.navigate(['/CourseLists', id]);
   }
 
 }

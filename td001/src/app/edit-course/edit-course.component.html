@@ -9,8 +9,8 @@
       <th>Edit</th>
     </tr>
     </thead>
-    <tbody *ngFor="let userCourse of users">
-    <tr>
+    <tbody *ngFor="let userCourse of courses">
+    <tr *ngIf="userCourse.users[0].id == currentUser.id">
       <td>{{userCourse.id}}</td>
       <td>{{userCourse.name}}</td>
       <td>{{userCourse.description}}</td>

@@ -6,11 +6,7 @@
         <div class="col-sm-4">
           <div class="panel panel-default brr">
             <div align="center">
-              <video class="img-responsive" controls>
-                <source src="{{videoSource}}" type="video/mp4">
-                <source src="{{videoSource}}" type="video/ogg">
-                Your browser does not support HTML5 video.
-              </video>
+              <img src="{{ImgCourse}}" class="img-responsive">
             </div>
           </div>
           <div class="panel panel-default br">
@@ -37,12 +33,12 @@
         <br>
         <div class="col-sm-8">
           <div class="panel panel-default">
-            <div class="panel-heading">คำอธิบายคอร์สเรียน</div>
-            <div class="panel-body">Panel Content</div>
-            <div class="panel-body">Panel Content</div>
-            <div class="panel-body">Panel Content</div>
-            <div class="panel-body">Panel Content</div>
+            <div class="panel-heading">Course Name: {{courses.name}}</div>
+            <div class="panel-body">Course Description: {{courses.description}}</div>
           </div>
+          <!--<div class="panel panel-default" *ngFor="let video of videos">-->
+          <!--<div class="panel-heading">Course Name: {{video.id}}</div>-->
+          <!--</div>-->
           <div class="panel panel-default">
             <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
@@ -53,24 +49,42 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">เนื้อหาคอร์ส</a>
+                <a class="navbar-brand">คอร์สเรียน</a>
               </div>
               <div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                   <ul class="nav navbar-nav">
-                    <li><a href="#section1">เอกสารประกอบ</a></li>
-                    <li><a href="#section2">ถามตอบ</a></li>
+                    <li><a>เอกสารประกอบ</a></li>
+                    <li><a>ถามตอบ</a></li>
                   </ul>
                 </div>
               </div>
             </div>
 
-            <div id="section1" class="container-fluid">
-              <h1>Section 1</h1>
-              <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section
-                and look at the navigation bar while scrolling!</p>
-              <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section
-                and look at the navigation bar while scrolling!</p>
+            <div class="container-fluid">
+              <div>
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th>Video name</th>
+                    <th>Video</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let course of courses?.videoClips">
+                    <td>{{course.fileName}}</td>
+                    <td>
+                      <div align="center">
+                        <video class="img-responsive" controls>
+                          <source src="{{'http://localhost:8080/playVideo/' + course.id}}" type="video/mp4">
+                          Your browser does not support HTML5 video.
+                        </video>
+                      </div>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
 
             </body>

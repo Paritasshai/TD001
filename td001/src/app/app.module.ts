@@ -37,6 +37,7 @@ import {UserManagementComponent} from './user-management/user-management.compone
 import {OrderManagementComponent} from './order-management/order-management.component';
 import {EditCourseComponent} from './edit-course/edit-course.component';
 import { EditCourstIdComponent } from './edit-courst-id/edit-courst-id.component';
+import { CourseImageUploadComponent } from './course-image-upload/course-image-upload.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { EditCourstIdComponent } from './edit-courst-id/edit-courst-id.component
     UserManagementComponent,
     OrderManagementComponent,
     EditCourseComponent,
-    EditCourstIdComponent
+    EditCourstIdComponent,
+    CourseImageUploadComponent
   ],
   imports: [
     BrowserModule,
