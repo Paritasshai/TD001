@@ -6,7 +6,6 @@ import {routing} from './app.routing';
 
 import {AppComponent} from './app.component';
 import {HomepageComponent} from './homepage/homepage.component';
-import {CoursepageComponent} from './coursepage/coursepage.component';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {LoginpageComponent} from './loginpage/loginpage.component';
@@ -36,15 +35,14 @@ import {CourseService} from "./services/CourseService";
 import {UserManagementComponent} from './user-management/user-management.component';
 import {OrderManagementComponent} from './order-management/order-management.component';
 import {EditCourseComponent} from './edit-course/edit-course.component';
-import { EditCourstIdComponent } from './edit-courst-id/edit-courst-id.component';
-import { CourseImageUploadComponent } from './course-image-upload/course-image-upload.component';
+import {EditCourstIdComponent} from './edit-courst-id/edit-courst-id.component';
 import {ImageUploadModule} from "angular2-image-upload";
+import {AddVideoItemComponent} from "./add-video-item/add-video-item.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
-    CoursepageComponent,
     HeaderComponent,
     FooterComponent,
     LoginpageComponent,
@@ -64,7 +62,7 @@ import {ImageUploadModule} from "angular2-image-upload";
     OrderManagementComponent,
     EditCourseComponent,
     EditCourstIdComponent,
-    CourseImageUploadComponent
+    AddVideoItemComponent
   ],
   imports: [
     BrowserModule,

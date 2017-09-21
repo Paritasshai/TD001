@@ -3,5 +3,6 @@
 }
 
 .img-responsive {
-  width: 10%;
+  width: 50%;
+  height: auto;
 }

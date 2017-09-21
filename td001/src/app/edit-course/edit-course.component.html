@@ -5,8 +5,7 @@
       <th>Course ID</th>
       <th>Name</th>
       <th>Description</th>
-      <th>Price</th>
-      <th>Edit</th>
+      <th>Upload CourseItem</th>
     </tr>
     </thead>
     <tbody *ngFor="let userCourse of courses">
@@ -14,11 +13,10 @@
       <td>{{userCourse.id}}</td>
       <td>{{userCourse.name}}</td>
       <td>{{userCourse.description}}</td>
-      <td>{{userCourse.price}}</td>
       <td>
         <button class="btn btn-primary btn-md"
                 (click)="EditCourse(userCourse.id)">
-          Edit Course
+          Edit CourseItem
         </button>
       </td>
     </tr>

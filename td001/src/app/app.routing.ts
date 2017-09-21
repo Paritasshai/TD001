@@ -1,7 +1,6 @@
 import {ModuleWithProviders} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {HomepageComponent} from './homepage/homepage.component';
-import {CoursepageComponent} from './coursepage/coursepage.component';
 import {LoginpageComponent} from './loginpage/loginpage.component';
 import {SignuppageComponent} from './signuppage/signuppage.component';
 import {ManagementPageComponent} from "./management-page/management-page.component";
@@ -16,10 +15,10 @@ import {EditCourstIdComponent} from "./edit-courst-id/edit-courst-id.component";
 import {VideoListPageComponent} from "./course-video-list-page/video-list-page.component";
 import {CourselistComponent} from "./courselist/courselist.component";
 import {EditCourseComponent} from "./edit-course/edit-course.component";
+import {AddVideoItemComponent} from "./add-video-item/add-video-item.component";
 
 const appRoutes: Routes = [
   {path: 'home', component: HomepageComponent},
-  {path: 'course', component: CoursepageComponent},
   {path: 'login', component: LoginpageComponent},
   {path: 'signUp', component: SignuppageComponent},
   {path: 'userProfile', component: UserProfileComponent},
@@ -34,6 +33,7 @@ const appRoutes: Routes = [
   {path: 'createCourse', component: VideoListPageComponent},
   {path: 'courseCreateList', component: CourselistComponent},
   {path: 'EditCourse', component: EditCourseComponent},
+  {path: 'addItem/:id', component: AddVideoItemComponent},
 
 
   // otherwise redirect to home

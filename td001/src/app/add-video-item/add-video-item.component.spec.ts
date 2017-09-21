@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { CourseImageUploadComponent } from './course-image-upload.component';
+import { AddVideoItemComponent } from './add-video-item.component';
 
-describe('CourseImageUploadComponent', () => {
-  let component: CourseImageUploadComponent;
-  let fixture: ComponentFixture<CourseImageUploadComponent>;
+describe('AddVideoItemComponent', () => {
+  let component: AddVideoItemComponent;
+  let fixture: ComponentFixture<AddVideoItemComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CourseImageUploadComponent ]
+      declarations: [ AddVideoItemComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CourseImageUploadComponent);
+    fixture = TestBed.createComponent(AddVideoItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

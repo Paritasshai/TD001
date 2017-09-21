@@ -1,64 +1,140 @@
 <div class="bg">
-  <div class="container-fluid" align="center">
-    <nav class="navbar navbar-default margin-design">
-      <div class="container-fluid nav-design">
-        <div class="navbar-header">
-          <p class="navbar-brand">สถานะ: {{currentUser.status}}</p>
-          <p class="navbar-brand">ชื่อ: {{currentUser.firstName}}</p>
+  <div class="container-fluid" *ngFor="let user of users">
+    <div class="container" *ngIf="user.id == currentUser.id">
+      <div class="fb-profile">
+        <img align="left" class="fb-image-lg" [src]="ImageUserCover"
+             alt="Profile image example"/>
+        <img align="left" class="fb-image-profile thumbnail" [src]="ImageUserProfile"
+             alt="Profile image example"/>
+        <div class="fb-profile-text">
+          <h2>{{currentUser.firstName}} {{currentUser.lastName}}</h2>
+          <p>You are "{{currentUser.status}}"</p>
+          <p>Your balance {{user.balance}} Bath.</p>
         </div>
-      </div>
-    </nav>
-    <br>
-    <div class="margin-design-top" *ngFor="let user of users">
-      <div class="container-fluid margin-design" *ngIf="user.id == currentUser.id">
-        <div class="row content">
-          <br>
-          <div class="col-sm-12">
-            <div id="section1" class="well" [hidden]="user.status != active">
-              <h4>{{user.firstName}} ยอดเงินของคุณ</h4>
-              <p>คงเหลือในบัญชี {{user.balance}} บาท</p>
-            </div>
-            <div class="row">
-              <div class="col-sm-4 ex1" [routerLink]="['/topUpOnline']">
-                <div class="well" [hidden]="user.status != active">
-                  <p>เติมเงิน</p>
-                  <p>ONLINE</p>
-                </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <ul class="nav navbar-nav">
+
+              <!--<li>-->
+              <!--<div [hidden]="user.status != active"><p style="cursor: pointer; color: white;"-->
+              <!--[routerLink]="['/topUpOnline']">เติมเงิน &nbsp;&nbsp;&nbsp;</p>-->
+              <!--</div>-->
+              <!--</li>-->
+
+              <!--<li>-->
+              <!--<div [hidden]="user.status != active"><p style="cursor: pointer; color: white;"-->
+              <!--[routerLink]="['/nonTopUp']">รายการค้างชำระ-->
+              <!--&nbsp;&nbsp;&nbsp;</p></div>-->
+              <!--</li>-->
+
+              <!--<li>-->
+              <!--<div [hidden]="user.status != active"><p style="cursor: pointer; color: white;"-->
+              <!--[routerLink]="['/PaymentLists']">รายการบัญชีย้อนหลัง &nbsp;&nbsp;&nbsp;</p>-->
+              <!--</div>-->
+              <!--</li>-->
+
+              <!--<li>-->
+              <!--<div [hidden]="user.status != instructor"><p style="cursor: pointer; color: white;"-->
+              <!--[routerLink]="['/createCourse']">สร้างคอร์สเรียน &nbsp;&nbsp;&nbsp;</p>-->
+              <!--</div>-->
+              <!--</li>-->
+
+              <!--<li>-->
+              <!--<div [hidden]="user.status != instructor"><p style="cursor: pointer; color: white;"-->
+              <!--[routerLink]="['/EditCourse']">แก้ไขคอร์สเรียน &nbsp;&nbsp;&nbsp;</p>-->
+              <!--</div>-->
+              <!--</li>-->
+
+              <!--<li>-->
+              <!--<div [hidden]="user.status != admin"><p style="cursor: pointer; color: white;"-->
+              <!--[routerLink]="['/management']">จัดการระบบ &nbsp;&nbsp;&nbsp;</p>-->
+              <!--</div>-->
+              <!--</li>-->
+              <div [hidden]="user.status != active">
+                <button class="btn btn-danger navbar-btn" [routerLink]="['/topUpOnline']">เติมเงิน</button>
+                <button class="btn btn-danger navbar-btn" [routerLink]="['/nonTopUp']">รายการค้างชำระ</button>
+                <button class="btn btn-danger navbar-btn" [routerLink]="['/PaymentLists']">รายการบัญชีย้อนหลัง</button>
               </div>
-              <div class="col-sm-4 ex1" [routerLink]="['/nonTopUp']">
-                <div class="well" [hidden]="user.status != active">
-                  <p>รายการ</p>
-                  <p>ค้างชำระ</p>
-                </div>
+              <div [hidden]="user.status != instructor">
+                <button class="btn btn-danger navbar-btn" [routerLink]="['/createCourse']">สร้างคอร์สเรียน</button>
+                <button class="btn btn-danger navbar-btn" [routerLink]="['/EditCourse']">แก้ไขคอร์สเรียน</button>
               </div>
-              <div class="col-sm-4 ex1" [routerLink]="['/PaymentLists']">
-                <div class="well" [hidden]="user.status != active">
-                  <p>บัญชี</p>
-                  <p>ของคุณ</p>
-                </div>
+              <div [hidden]="user.status != admin">
+                <button class="btn btn-danger navbar-btn" [routerLink]="['/management']">จัดการระบบ</button>
               </div>
-              <div class="col-sm-4 ex1" [routerLink]="['/createCourse']">
-                <div class="well" [hidden]="user.status != instructor">
-                  <p>สร้าง</p>
-                  <p>คอร์สเรียน</p>
-                </div>
-              </div>
-              <div class="col-sm-4 ex1" [routerLink]="['/EditCourse']">
-                <div class="well" [hidden]="user.status != instructor">
-                  <p>แก้ไข</p>
-                  <p>คอร์สเรียน</p>
-                </div>
-              </div>
-              <div class="col-sm-4 ex1" [routerLink]="['/management']">
-                <div class="well" [hidden]="user.status != admin">
-                  <p>จัดการระบบ</p>
-                </div>
-              </div>
-            </div>
+
+            </ul>
           </div>
-        </div>
+        </nav>
       </div>
-    </div>
+    </div> <!-- /container -->
+    <!--<nav class="navbar navbar-default margin-design">-->
+    <!--<div class="container-fluid nav-design">-->
+    <!--<div class="navbar-header">-->
+    <!--<p class="navbar-brand">สถานะ: {{currentUser.status}}</p>-->
+    <!--<p class="navbar-brand">ชื่อ: </p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</nav>-->
+    <br>
+
+    <!--<div class="margin-design-top" *ngFor="let user of users">-->
+    <!--<div class="container-fluid margin-design" *ngIf="user.id == currentUser.id">-->
+    <!--<div class="row content">-->
+    <!--<br>-->
+    <!--<div class="col-sm-12">-->
+    <!--<div id="section1" class="well" [hidden]="user.status != active">-->
+    <!--<h4>{{user.firstName}} ยอดเงินของคุณ</h4>-->
+    <!--<p>คงเหลือในบัญชี {{user.balance}} บาท</p>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+    <!--<div class="col-sm-4 ex1" [routerLink]="['/topUpOnline']">-->
+    <!--<div class="well" align="center" [hidden]="user.status != active">-->
+    <!--<p>เติมเงิน</p>-->
+    <!--<p>ONLINE</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-sm-4 ex1" [routerLink]="['/nonTopUp']">-->
+    <!--<div class="well" align="center" [hidden]="user.status != active">-->
+    <!--<p>รายการ</p>-->
+    <!--<p>ค้างชำระ</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-sm-4 ex1" [routerLink]="['/PaymentLists']">-->
+    <!--<div class="well" align="center" [hidden]="user.status != active">-->
+    <!--<p>บัญชี</p>-->
+    <!--<p>ของคุณ</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-sm-4 ex1" [routerLink]="['/createCourse']">-->
+    <!--<div class="well" align="center" [hidden]="user.status != instructor">-->
+    <!--<p>สร้าง</p>-->
+    <!--<p>คอร์สเรียน</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-sm-4 ex1" [routerLink]="['/EditCourse']">-->
+    <!--<div class="well" align="center" [hidden]="user.status != instructor">-->
+    <!--<p>แก้ไข</p>-->
+    <!--<p>คอร์สเรียน</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-sm-12 ex1" [routerLink]="['/management']">-->
+    <!--<div class="well" align="center" [hidden]="user.status != admin">-->
+    <!--<p>จัดการระบบ</p>-->
+    <!--<p></p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
 
   </div>
 </div>
+<app-footer></app-footer>

@@ -1,11 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {CourseService} from "../services/CourseService";
 import {FileUploader} from "ng2-file-upload";
 import {AlertService} from "../alertContent/AlertService";
-
-// const URL = '/api/';
-//const URL = 'http://localhost:8080/add/video';
+import {Video} from "../models/Video";
 
 @Component({
   selector: 'app-edit-courst-id',
@@ -19,10 +17,13 @@ export class EditCourstIdComponent implements OnInit {
   description: any;
   price: any;
   courseId: any;
+  video: Video;
+  course: any = {};
 
   constructor(private route: ActivatedRoute,
               private courseService: CourseService,
-              private alertService: AlertService) {
+              private alertService: AlertService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -93,6 +94,48 @@ export class EditCourstIdComponent implements OnInit {
       error => {
         alert("Error")
       });
+  }
+
+  editVideoName(id, lessonName) {
+    console.log(id);
+    console.log(lessonName);
+    this.courseService.editVideoName(id, lessonName, this.video).subscribe(
+      data => {
+        alert("Success");
+      },
+      error => {
+        alert("Error");
+      }
+    )
+  }
+
+  CreateVideo() {
+    //this.router.navigate(['/addVideoItem', this.route.snapshot.params['id']]);
+    this.courseService.createVideoItem(this.route.snapshot.params['id'], this.course).subscribe(
+      data => {
+        location.reload();
+        this.alertService.success('Upload Successful', true);
+      },
+      error => {
+        this.alertService.error('Upload Failed', true);
+      });
+  }
+
+  CreateImage() {
+    //this.router.navigate(['/addVideoItem', this.route.snapshot.params['id']]);
+    this.courseService.createImageItem(this.route.snapshot.params['id'], this.course).subscribe(
+      data => {
+        location.reload();
+        this.alertService.success('Upload Successful', true);
+      },
+      error => {
+        this.alertService.error('Upload Failed', true);
+      });
+  }
+
+  EditItem(id) {
+    console.log(id);
+    this.router.navigate(['/addItem', id]);
   }
 
 }

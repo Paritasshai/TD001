@@ -1,97 +1,133 @@
-<div class="bg">
-  <div class="container-fluid">
-    <div class="container-design">
-      <div class="row">
+<div class="container-fluid">
+  <div class="container-design">
+    <div class="row">
 
-        <div class="col-sm-4">
-          <div class="panel panel-default brr img">
-            <div align="center" *ngFor="let imageCourse of courses?.imageCourses">
-              <img class="img-responsive" src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}">
-            </div>
+      <div class="col-sm-4">
+        <div class="thumbnail" *ngFor="let imageCourse of courses?.imageCourses">
+          <img class="portrait" src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt="Image"/>
+        </div>
+        <div class="panel panel-default br">
+          <div class="panel-heading">เกี่ยวกับคอร์สนี้</div>
+          <div class="panel-body"><span> <p class="glyphicon glyphicon-calendar"></p></span> เรียนคอร์สนี้ได้อีก 30
+            วัน
           </div>
-          <div class="panel panel-default br">
-            <div class="panel-heading">เกี่ยวกับคอร์สนี้</div>
-            <div class="panel-body"><span> <p class="glyphicon glyphicon-calendar"></p></span> เรียนคอร์สนี้ได้อีก 30
-              วัน
-            </div>
-            <div class="panel-body"><span> <p class="glyphicon glyphicon-facetime-video"></p></span> วิดีโอความยาว 1
-              ชั่วโมง 15 นาที
-            </div>
+          <div class="panel-body"><span> <p class="glyphicon glyphicon-facetime-video"></p></span> วิดีโอความยาว 1
+            ชั่วโมง 15 นาที
           </div>
-          <div class="panel panel-default br">
-            <div class="media br">
-              <div class="media-left">
-                <img [src]="ImgUser" class="media-object" style="width:60px">
-              </div>
-              <div class="media-body" *ngFor="let user of courses?.users">
-                <h4 class="media-heading font-design">เกี่ยวกับผู้สอน</h4>
-                <p class="font-design">{{user.firstName}} {{user.lastName}}</p>
-              </div>
+        </div>
+        <div class="panel panel-default br">
+          <div class="media br">
+            <div class="media-left">
+              <img [src]="ImgUser" class="media-object" style="width:60px">
+            </div>
+            <div class="media-body" *ngFor="let user of courses?.users">
+              <h4 class="media-heading font-design">เกี่ยวกับผู้สอน</h4>
+              <p class="font-design">{{user.firstName}} {{user.lastName}}</p>
             </div>
           </div>
         </div>
-        <br>
-        <div class="col-sm-8">
-          <div class="panel panel-default">
-            <div class="panel-heading">Course Name: {{courses.name}}</div>
-            <div class="panel-body">Course Description: {{courses.description}}</div>
-            <button type="button" class="btn btn-warning">ซื้อคอร์สเรียน</button>
-            <button type="button" class="btn btn-warning">สนใจคอร์สเรียน</button>
-          </div>
-          <div class="panel panel-default">
-            <body data-spy="scroll" data-target=".navbar" data-offset="50">
-
-            <div class="container-fluid">
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand">คอร์สเรียน</a>
-              </div>
-              <div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                  <ul class="nav navbar-nav">
-                    <li><a>เอกสารประกอบ</a></li>
-                    <li><a>ถามตอบ</a></li>
-                  </ul>
-                </div>
-              </div>
+        <div class="brr panel panel-default">
+          <h4>คอร์สอื่นๆที่คุณอาจสนใจ</h4>
+          <div class="media br">
+            <div class="media-body">
+              <h4 class="media-heading font-design">คอร์สต่างๆ</h4>
+              <p class="font-design"></p>
             </div>
-
-            <div class="container-fluid">
-              <div>
-                <table class="table">
-                  <thead>
-                  <tr>
-                    <th>Video name</th>
-                    <th>Video</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr *ngFor="let course of courses?.videoClips">
-                    <td>{{course.fileName}}</td>
-                    <td>
-                      <div align="center">
-                        <video class="video-responsive" controls>
-                          <source src="{{'http://localhost:8080/playVideo/' + course.id}}" type="video/mp4">
-                          Your browser does not support HTML5 video.
-                        </video>
-                      </div>
-                    </td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            </body>
           </div>
         </div>
-
       </div>
+      <div class="col-sm-8">
+        <div class="panel panel-default">
+          <div class="panel-heading">Course Name: {{courses.name}}</div>
+          <div class="panel-body">Course Description: {{courses.description}}</div>
+          <button type="button" class="btn btn-warning">ซื้อคอร์สเรียน</button>
+          <button type="button" class="btn btn-warning">สนใจคอร์สเรียน</button>
+        </div>
+        <div class="panel panel-default">
+          <body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand">คอร์สเรียน</a>
+            </div>
+            <div>
+              <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                  <li><a>เอกสารประกอบ</a></li>
+                  <li><a>ถามตอบ</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="container-fluid">
+            <div>
+              <table class="table">
+                <thead>
+                <tr>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let course of courses?.courseItems">
+                  <td>
+                    <div class="container-fluid">
+                      <div class="row col-sm-12">
+                        <!-- Trigger the modal with a text -->
+                        <a type="text" data-toggle="modal"
+                           [attr.data-target]="'#myModal' + course.id" style="cursor: pointer">
+                          {{course.name}}
+                          {{course.videoClips[0]?.id}}
+                          {{course.imageItems[0]?.id}}
+                        </a>
+
+                        <!-- Modal -->
+                        <div class="modal fade" [id]="'myModal' + course.id" role="dialog">
+                          <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span
+                                  aria-hidden="true">×</span>
+                                </button>
+                                <label>{{course.name}}</label>
+                              </div>
+                              <div align="center" class="video-responsive">
+                                <img class="img" *ngIf="course.courseType == image"
+                                     src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
+                                <video width="520" height="350" controls [hidden]="course.courseType == image">
+                                  <source *ngIf="course.courseType == video"
+                                          src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"
+                                          type="video/mp4">
+                                </video>
+                              </div>
+                              <div class="modal-footer">
+                                <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          </body>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
+
 <app-footer></app-footer>

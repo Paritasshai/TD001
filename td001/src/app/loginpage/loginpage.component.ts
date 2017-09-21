@@ -37,7 +37,6 @@ export class LoginpageComponent implements OnInit {
       .subscribe(
         data => {
           this.loading = false;
-          this.router.navigate(['/home']);
         },
         error => {
           this.loading = false;

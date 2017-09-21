@@ -14,7 +14,12 @@ export class UserProfileComponent implements OnInit {
   active = "active";
   instructor = "instructor";
 
+  ImageUserProfile: string;
+  ImageUserCover: string;
+
   constructor(private userService: UserService) {
+    this.ImageUserProfile = '../../assets/images/003.jpg';
+    this.ImageUserCover = '../../assets/images/001.jpg';
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 

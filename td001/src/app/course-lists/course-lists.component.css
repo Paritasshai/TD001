@@ -7,8 +7,8 @@
 
 .container-design {
   margin-top: 5%;
-  margin-right: 5%;
-  margin-left: 5%;
+  margin-right: 10%;
+  margin-left: 10%;
 }
 
 .font-design {
@@ -16,69 +16,83 @@
 }
 
 .br {
-  margin-top: 5%;
+  margin-top: 8%;
   padding: 2%;
+  position: relative;
 }
 
 .brr {
-  margin-top: 5%;
+  margin-top: 2%;
   padding: 2%;
-  height: 250px;
+  height: 200px;
 }
 
 .video-responsive {
   position: relative;
-  width: 50%;
-  height: auto;
-}
-
-.img-responsive {
-  position: relative;
-  width: 100%;
-  height: auto;
-}
-
-.img {
-  width: 100%;
-  height: auto;
-  position: relative;
+  margin: 2%;
+  overflow: hidden;
+  padding: 5%;
 }
 
 body {
   position: relative;
 }
 
-/*#section1 {*/
-/*padding-top: 50px;*/
-/*height: 500px;*/
-/*color: #fff;*/
-/*background-color: #5f6d7e;*/
+/*.img {*/
+/*width: 100%;*/
+/*height: auto;*/
+/*overflow: hidden;*/
 /*}*/
 
-/*#section2 {*/
-/*padding-top: 50px;*/
-/*height: 500px;*/
-/*color: #fff;*/
-/*background-color: #673ab7;*/
+/*.crop {*/
+/*max-height: 350px;*/
+/*max-width: 100%;*/
 /*}*/
 
-/*#section3 {*/
-/*padding-top: 50px;*/
-/*height: 500px;*/
-/*color: #fff;*/
-/*background-color: #ff9800;*/
+/*.crop img {*/
+/*max-height: 300px;*/
+/*max-width: 100%;*/
+/*margin: 0 0 0 0;*/
 /*}*/
 
-/*#section41 {*/
-/*padding-top: 50px;*/
-/*height: 500px;*/
-/*color: #fff;*/
-/*background-color: #00bcd4;*/
-/*}*/
+.thumbnail {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
 
-/*#section42 {*/
-/*padding-top: 50px;*/
-/*height: 500px;*/
-/*color: #fff;*/
-/*background-color: #009688;*/
-/*}*/
+.thumbnail img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  width: 10%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.thumbnail img.portrait {
+  width: 100%;
+  height: auto;
+}
+
+.img {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.crop {
+  max-height: 250px;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.crop img {
+  max-height: 250px;
+  max-width: 100%;
+  margin: -20% -5% -20%;
+}
