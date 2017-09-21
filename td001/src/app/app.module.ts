@@ -38,6 +38,7 @@ import {OrderManagementComponent} from './order-management/order-management.comp
 import {EditCourseComponent} from './edit-course/edit-course.component';
 import { EditCourstIdComponent } from './edit-courst-id/edit-courst-id.component';
 import { CourseImageUploadComponent } from './course-image-upload/course-image-upload.component';
+import {ImageUploadModule} from "angular2-image-upload";
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { CourseImageUploadComponent } from './course-image-upload/course-image-u
     HttpModule,
     routing,
     MyDatePickerModule,
-    FileUploadModule
+    FileUploadModule,
+    ImageUploadModule.forRoot()
   ],
   providers: [
     AuthGuard,

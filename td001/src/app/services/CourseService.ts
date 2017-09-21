@@ -57,5 +57,13 @@ export class CourseService {
       .map((response: Response) => response.json());
   }
 
+  deleteImageCourse(id, courseId: any) {
+    return this.http.delete('http://localhost:8080/delete/Image/' + "?imageId=" + id + "&" + "courseId=" + courseId).map((response: Response) => response.json());
+  }
+
+  deleteVideoCourse(id, courseId: any) {
+    return this.http.delete('http://localhost:8080/delete/Video/' + "?videoId=" + id + "&" + "courseId=" + courseId).map((response: Response) => response.json());
+  }
+
 }
 

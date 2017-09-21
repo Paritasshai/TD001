@@ -1,3 +1,7 @@
+.modal {
+  margin-top: 5%;
+}
+
 .form-signin input[type="text"] {
   margin-bottom: 5px;
   border-bottom-left-radius: 0;
@@ -252,4 +256,11 @@ label {
 
 .style-height {
   height: 250px;
+}
+
+.imgLogin {
+  background-image: url("../../assets/images/login.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }

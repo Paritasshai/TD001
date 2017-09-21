@@ -18,6 +18,7 @@ export class EditCourstIdComponent implements OnInit {
   name: any;
   description: any;
   price: any;
+  courseId: any;
 
   constructor(private route: ActivatedRoute,
               private courseService: CourseService,
@@ -37,6 +38,7 @@ export class EditCourstIdComponent implements OnInit {
   }
 
   public uploader: FileUploader = new FileUploader({url: 'http://localhost:8080/add/video/' + "?id=" + this.route.snapshot.params['id']});
+  public uploaderImage: FileUploader = new FileUploader({url: 'http://localhost:8080/add/ImageCourse/' + "?id=" + this.route.snapshot.params['id']});
   public hasBaseDropZoneOver: boolean = false;
   public hasAnotherDropZoneOver: boolean = false;
 
@@ -65,6 +67,32 @@ export class EditCourstIdComponent implements OnInit {
         error => {
           this.alertService.error('Upload Failed', true);
         });
+  }
+
+  deleteImage(id) {
+
+    this.courseId = this.Course.id;
+    this.courseService.deleteImageCourse(id, this.courseId).subscribe(
+      data => {
+        alert("Delete Image Success");
+        location.reload();
+      },
+      error => {
+        alert("Error")
+      });
+  }
+
+  deleteVideo(id) {
+
+    this.courseId = this.Course.id;
+    this.courseService.deleteVideoCourse(id, this.courseId).subscribe(
+      data => {
+        alert("Delete Video Success");
+        location.reload();
+      },
+      error => {
+        alert("Error")
+      });
   }
 
 }

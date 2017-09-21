@@ -4,9 +4,9 @@
       <div class="row">
 
         <div class="col-sm-4">
-          <div class="panel panel-default brr">
-            <div align="center">
-              <img src="{{ImgCourse}}" class="img-responsive">
+          <div class="panel panel-default brr img">
+            <div align="center" *ngFor="let imageCourse of courses?.imageCourses">
+              <img class="img-responsive" src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}">
             </div>
           </div>
           <div class="panel panel-default br">
@@ -23,9 +23,9 @@
               <div class="media-left">
                 <img [src]="ImgUser" class="media-object" style="width:60px">
               </div>
-              <div class="media-body">
+              <div class="media-body" *ngFor="let user of courses?.users">
                 <h4 class="media-heading font-design">เกี่ยวกับผู้สอน</h4>
-                <p class="font-design">Teacher_Name</p>
+                <p class="font-design">{{user.firstName}} {{user.lastName}}</p>
               </div>
             </div>
           </div>
@@ -35,10 +35,9 @@
           <div class="panel panel-default">
             <div class="panel-heading">Course Name: {{courses.name}}</div>
             <div class="panel-body">Course Description: {{courses.description}}</div>
+            <button type="button" class="btn btn-warning">ซื้อคอร์สเรียน</button>
+            <button type="button" class="btn btn-warning">สนใจคอร์สเรียน</button>
           </div>
-          <!--<div class="panel panel-default" *ngFor="let video of videos">-->
-          <!--<div class="panel-heading">Course Name: {{video.id}}</div>-->
-          <!--</div>-->
           <div class="panel panel-default">
             <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
@@ -75,7 +74,7 @@
                     <td>{{course.fileName}}</td>
                     <td>
                       <div align="center">
-                        <video class="img-responsive" controls>
+                        <video class="video-responsive" controls>
                           <source src="{{'http://localhost:8080/playVideo/' + course.id}}" type="video/mp4">
                           Your browser does not support HTML5 video.
                         </video>

@@ -8,12 +8,12 @@
   background-color: #5f6d7e;
 }
 
-.bg {
-  position: relative;
-  background: linear-gradient(to bottom, #5f6d7e 0%, #7f91a9 100%);
-  width: 100%;
-  min-height:100vh;
-}
+/*.bg {*/
+  /*position: relative;*/
+  /*background: linear-gradient(to bottom, #5f6d7e 0%, #7f91a9 100%);*/
+  /*width: 100%;*/
+  /*min-height:100vh;*/
+/*}*/
 
 .navbar-default {
   border: solid 5px #5f6d7e;

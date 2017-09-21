@@ -18,7 +18,7 @@
             <tbody *ngFor="let orderPayment of orderPayments">
             <tr *ngIf="orderPayment.users[0].id == currentUser.id">
               <td>{{orderPayment.transRef}}</td>
-              <td>{{orderPayment.users[0].createTime}}</td>
+              <td>{{orderPayment.createDate}}</td>
               <td>{{orderPayment.users[0].email}}</td>
               <td>{{orderPayment.transAmount}}</td>
               <td>
