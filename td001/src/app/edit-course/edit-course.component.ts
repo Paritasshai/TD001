@@ -13,7 +13,7 @@ export class EditCourseComponent implements OnInit {
   courses: Course[] = [];
   currentUser: User;
   users: User[] = [];
-  //id: any;
+  userId: any;
 
   constructor(private courseService: CourseService,
               private router: Router) {
@@ -42,6 +42,18 @@ export class EditCourseComponent implements OnInit {
   EditCourse(id) {
     console.log("Edit");
     this.router.navigate(['/EditCourse', id])
+  }
+
+  DeleteCourse(id) {
+    console.log(id);
+    this.courseService.DeleteCourse(id).subscribe(
+      data => {
+        alert("Success");
+        location.reload();
+      },
+      error => {
+        alert("Error");
+      });
   }
 
 }

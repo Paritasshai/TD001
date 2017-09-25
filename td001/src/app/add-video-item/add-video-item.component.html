@@ -17,9 +17,10 @@
                         <div class="row">
 
                           <div class="col-sm-12" [hidden]="Course.courseType == image">
-                            <label>Upload Video</label>
                             <div class="col-md-4">
-                              <input class="btn btn-default" type="file" ng2FileSelect [uploader]="uploader"
+                              <label>Upload Video</label>
+                              <input style="width: 250px;" class="btn btn-default" type="file" ng2FileSelect
+                                     [uploader]="uploader"
                                      accept="video/mp4, .mp4, .MP4"/>
                             </div>
 
@@ -77,10 +78,12 @@
                             </div>
 
                           </div>
+
                           <div class="col-sm-12" [hidden]="Course.courseType == video">
-                            <label>Upload Image</label>
                             <div class="col-md-4">
-                              <input class="btn btn-default" type="file" ng2FileSelect [uploader]="uploaderImage"
+                              <label>Upload Image</label>
+                              <input style="width: 250px;" class="btn btn-default" type="file" ng2FileSelect
+                                     [uploader]="uploaderImage"
                                      accept="image/*"/>
                             </div>
 
@@ -157,14 +160,14 @@
 
                 <div class="form-group">
                   <input type="text" class="form-control" name="videoName" placeholder="Lesson Name.."
-                         [(ngModel)]="VideoItem.name"
+                         [(ngModel)]="Course.name"
                          #name="ngModel" required/>
                 </div>
 
                 <div class="form-group">
                   <input type="text" class="form-control" name="videoDescription"
                          placeholder="Lesson Description.."
-                         [(ngModel)]="VideoItem.description"
+                         [(ngModel)]="Course.description"
                          #description="ngModel" required/>
                 </div>
 
@@ -172,7 +175,7 @@
                         <span>
                         <label><input type="checkbox" value="canPreview" [(ngModel)]="VideoItem.canPreview"
                                       #canPreview="ngModel" name="canPreview" id="canPreview">Can Preview</label>
-                        </span>
+                        </span>: {{Course.canPreview}}
                 </div>
 
                 <button type="submit" class="btn btn-success btn-md">Update Item Content</button>

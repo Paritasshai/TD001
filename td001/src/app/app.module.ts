@@ -38,6 +38,7 @@ import {EditCourseComponent} from './edit-course/edit-course.component';
 import {EditCourstIdComponent} from './edit-courst-id/edit-courst-id.component';
 import {ImageUploadModule} from "angular2-image-upload";
 import {AddVideoItemComponent} from "./add-video-item/add-video-item.component";
+import {PurchaseCourseService} from "./services/PurchaseCourseService";
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import {AddVideoItemComponent} from "./add-video-item/add-video-item.component";
     OrderService,
     BankStatementService,
     PaymentTransService,
-    CourseService
+    CourseService,
+    PurchaseCourseService
   ],
   bootstrap: [AppComponent],
   entryComponents: [AppComponent],

@@ -1,14 +1,13 @@
-<section class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color: #5f6d7e">
+<section class="navbar navbar-default navbar-fixed-top header-style" role="navigation">
 
   <div class="container">
     <div class="navbar-header">
-      <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style="margin-top: 3%">
-        <span class="icon icon-bar"></span>
-        <span class="icon icon-bar"></span>
-        <span class="icon icon-bar"></span>
+      <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"
+              style="margin-top: 3%; background-color: white; border: solid 1px #bf2b2a">
+        <span style="background-color: #bf2b2a" class="icon icon-bar"></span>
+        <span style="background-color: #bf2b2a" class="icon icon-bar"></span>
       </button>
-      <!--<img [src]="ImgLogo" [routerLink]="['/']" class="img-responsive" style="width: 100px; margin-top: 5%"/>-->
-      <p style="color: white; margin-top: 3%; cursor: pointer" [routerLink]="['/home']" class="navbar-brand">Website
+      <p style="color: #bf2b2a; margin-top: 3%; cursor: pointer" [routerLink]="['/home']" class="navbar-brand">Website
         LOGO</p>
     </div>
 
@@ -17,31 +16,31 @@
 
         <li data-toggle="modal" data-target="#squarespaceModalLogin"
             class="smoothScroll center-block"
-            style="cursor: pointer"><a style="color: white">
+            style="cursor: pointer"><a style="color: #bf2b2a">
           <div [hidden]="currentUser != null"><span class="glyphicon glyphicon-log-in" data-toggle="modal"
                                                     data-target="#squarespaceModalLogin"></span> Sign In
           </div>
         </a></li>
         <li data-toggle="modal" data-target="#squarespaceModalSignUp"
             class="smoothScroll center-block"
-            style="cursor: pointer"><a style="color: white">
+            style="cursor: pointer"><a style="color: #bf2b2a">
           <div [hidden]="currentUser != null"><span class="glyphicon glyphicon-log-in" data-toggle="modal"
                                                     data-target="#squarespaceModalSignUp"></span> Sign Up
           </div>
         </a></li>
-        <li><a class="smoothScroll" style="color: white">
-          <div *ngIf="currentUser != null">Welcome <b>{{currentUser.firstName}}</b></div>
+
+        <li><a class="smoothScroll" style="color: #bf2b2a">
+          <div *ngIf="currentUser != null"><b>{{currentUser.firstName}}</b></div>
         </a></li>
-        <li><a class="smoothScroll" style="color: white">
+        <li><a class="smoothScroll" style="color: #bf2b2a">
           <div [hidden]="!currentUser" style="cursor: pointer" [routerLink]="['/userProfile']"><span
-            class="glyphicon glyphicon-user"></span> Profile <span
-            class=""></span>
+            class="glyphicon glyphicon-user"></span> Profile
           </div>
         </a></li>
-        <li><a class="smoothScroll" style="color: white">
+        <li><a class="smoothScroll" style="color: #bf2b2a">
           <div [hidden]="currentUser == null" (click)="logOut()" [routerLink]="['/']" style="cursor: pointer"> LogOut
             <span
-              class="glyphicon glyphicon-log-out" data-toggle="modal"></span>
+              class="glyphicon glyphicon-log-out"></span>
           </div>
         </a></li>
       </ul>

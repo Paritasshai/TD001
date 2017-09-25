@@ -109,5 +109,9 @@ export class CourseService {
     return this.http.delete('http://localhost:8080/delete/Video/' + "?videoId=" + id + "&" + "courseId=" + courseId).map((response: Response) => response.json());
   }
 
+  DeleteCourse(id) {
+    return this.http.delete('http://localhost:8080/deleteCourse/' + id).map((response: Response) => response.json());
+  }
+
 }
 

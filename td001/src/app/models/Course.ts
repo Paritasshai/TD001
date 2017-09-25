@@ -4,4 +4,5 @@ export class Course {
   public description: any;
   public price: any;
   public path: any;
+  public userId: any;
 }

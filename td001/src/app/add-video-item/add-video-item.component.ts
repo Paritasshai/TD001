@@ -33,14 +33,17 @@ export class AddVideoItemComponent implements OnInit {
   updateItem(id) {
     console.log(id);
     console.log(this.VideoItem);
-    this.name = this.VideoItem.name;
-    this.description = this.VideoItem.description;
-    this.canPreview = "canPreview";
+    this.name = this.Course.name;
+    this.description = this.Course.description;
+    this.canPreview = this.VideoItem.canPreview;
 
     this.courseService.updateItemDetails(id, this.name, this.description, this.canPreview, this.course).subscribe(
       data => {
+        alert("Update Success");
+        location.reload();
       },
       error => {
+        alert("Update Failed");
       });
   }
 

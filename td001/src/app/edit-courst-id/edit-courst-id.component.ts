@@ -138,4 +138,8 @@ export class EditCourstIdComponent implements OnInit {
     this.router.navigate(['/addItem', id]);
   }
 
+  DeleteItem() {
+
+  }
+
 }

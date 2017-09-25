@@ -3,10 +3,16 @@
     <div class="row">
 
       <div class="col-sm-4">
+
         <div class="thumbnail" *ngFor="let imageCourse of courses?.imageCourses">
-          <img class="portrait" src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt="Image"/>
+          <div class="crop">
+            <div align="center">
+              <img class="img" src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt="Image"/>
+            </div>
+          </div>
         </div>
-        <div class="panel panel-default br">
+
+        <div class="panel panel-default">
           <div class="panel-heading">เกี่ยวกับคอร์สนี้</div>
           <div class="panel-body"><span> <p class="glyphicon glyphicon-calendar"></p></span> เรียนคอร์สนี้ได้อีก 30
             วัน
@@ -17,9 +23,9 @@
         </div>
         <div class="panel panel-default br">
           <div class="media br">
-            <div class="media-left">
-              <img [src]="ImgUser" class="media-object" style="width:60px">
-            </div>
+            <!--<div class="media-left">-->
+            <!--<img [src]="ImgUser" class="media-object" style="width:60px">-->
+            <!--</div>-->
             <div class="media-body" *ngFor="let user of courses?.users">
               <h4 class="media-heading font-design">เกี่ยวกับผู้สอน</h4>
               <p class="font-design">{{user.firstName}} {{user.lastName}}</p>
@@ -36,13 +42,15 @@
           </div>
         </div>
       </div>
+
       <div class="col-sm-8">
         <div class="panel panel-default">
           <div class="panel-heading">Course Name: {{courses.name}}</div>
           <div class="panel-body">Course Description: {{courses.description}}</div>
-          <button type="button" class="btn btn-warning">ซื้อคอร์สเรียน</button>
-          <button type="button" class="btn btn-warning">สนใจคอร์สเรียน</button>
+          <button type="button" class="btn btn-primary" (click)="buyCourse(courses.id, currentUser.id)">ซื้อคอร์สเรียน
+          </button>
         </div>
+
         <div class="panel panel-default">
           <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
@@ -71,6 +79,7 @@
                 <thead>
                 <tr>
                   <th></th>
+                  <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -81,25 +90,31 @@
                         <!-- Trigger the modal with a text -->
                         <a type="text" data-toggle="modal"
                            [attr.data-target]="'#myModal' + course.id" style="cursor: pointer">
+                              <span *ngIf="course.courseType == video"
+                                    class="glyphicon glyphicon-facetime-video"></span>
+                          <span *ngIf="course.courseType == image" class="glyphicon glyphicon-picture"></span>
                           {{course.name}}
-                          {{course.videoClips[0]?.id}}
-                          {{course.imageItems[0]?.id}}
+                          <!--{{course.videoClips[0]?.id}}-->
+                          <!--{{course.imageItems[0]?.id}}-->
+                          <!--{{course.imageItems[0]?.id}}-->
                         </a>
 
                         <!-- Modal -->
-                        <div class="modal fade" [id]="'myModal' + course.id" role="dialog">
+                        <div class="modal fade" [id]="'myModal' + course.id" role="dialog"
+                             *ngIf="course.canPreview == truePreview">
                           <div class="modal-dialog">
                             <!-- Modal content-->
                             <div class="modal-content">
                               <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal"><span
-                                  aria-hidden="true">×</span>
-                                </button>
-                                <label>{{course.name}}</label>
+                                <!--<button type="button" class="close" data-dismiss="modal"><span-->
+                                <!--aria-hidden="true">×</span>-->
+                                <!--</button>-->
                               </div>
                               <div align="center" class="video-responsive">
+                                <br>
                                 <img class="img" *ngIf="course.courseType == image"
                                      src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
+                                <br>
                                 <video width="520" height="350" controls [hidden]="course.courseType == image">
                                   <source *ngIf="course.courseType == video"
                                           src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"
@@ -116,6 +131,9 @@
                       </div>
                     </div>
                   </td>
+                  <td>
+                    <span *ngIf="course.canPreview != truePreview" class="glyphicon glyphicon-lock"></span>
+                  </td>
                 </tr>
                 </tbody>
               </table>
@@ -124,10 +142,9 @@
 
           </body>
         </div>
-      </div>
 
+      </div>
     </div>
   </div>
 </div>
-
 <app-footer></app-footer>

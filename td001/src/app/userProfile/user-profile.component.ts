@@ -13,7 +13,6 @@ export class UserProfileComponent implements OnInit {
   admin = "admin";
   active = "active";
   instructor = "instructor";
-
   ImageUserProfile: string;
   ImageUserCover: string;
 
