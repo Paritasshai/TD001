@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../services/User.service";
 import {User} from "../models/User";
 import {PurchaseCourseService} from "../services/PurchaseCourseService";
+import {isNull} from "util";
 
 @Component({
   selector: 'app-course-lists',
@@ -12,15 +13,23 @@ import {PurchaseCourseService} from "../services/PurchaseCourseService";
 })
 export class CourseListsComponent implements OnInit {
   courses: any = [];
+  users: any = [];
   image = "image";
   video = "video";
   truePreview = "true";
   statusInstructor = "instructor";
-  users: User[] = [];
+  active = "active";
+  admin = "admin";
+  // users: User[] = [];
   currentUser: User;
   userId: any;
   purchaseCart: any = {};
   carts: any = [];
+  pathId = this.route.snapshot.params['id'];
+  userBalance: any;
+  coursePrice = 30;
+  result: any;
+  balance: any;
 
   constructor(private courseService: CourseService,
               private route: ActivatedRoute,
@@ -60,15 +69,39 @@ export class CourseListsComponent implements OnInit {
     this.router.navigate(['/addItem', id]);
   }
 
-  buyCourse(id) {
+  buyCourse(id, balance) {
+
     this.userId = this.currentUser.id;
-    this.purchaseCourseService.createBuyCourse(this.userId, id, this.purchaseCart).subscribe(
-      data => {
-        alert("Success");
-      },
-      error => {
-        alert("Failed");
-      });
+    console.log(id);
+    console.log(balance);
+    console.log(this.userId);
+    console.log(this.coursePrice);
+
+    if (balance <= this.coursePrice) {
+      console.log("error");
+      alert("Your balance not enough!!")
+    } else {
+
+      this.result = balance - this.coursePrice;
+      console.log(this.result);
+      this.purchaseCourseService.createBuyCourse(this.userId, id, this.purchaseCart, this.result, this.coursePrice).subscribe(
+        data => {
+          alert("Success");
+          location.reload();
+        },
+        error => {
+          alert("Failed");
+        });
+    }
+
   }
 
+  buyCourseNull() {
+    alert("Please SignIn or SignUp !!");
+  }
+
+  TeacherHistory(email) {
+    console.log(email);
+    console.log("Get Teacher History");
+  }
 }

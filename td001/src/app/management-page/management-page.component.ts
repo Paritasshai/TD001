@@ -33,7 +33,7 @@ export class ManagementPageComponent implements OnInit {
     });
   }
 
-  ConfirmPayment(id, email, paymentId, statementAmount, balance) {
+  ConfirmPayment(id, email, paymentId, statementAmount, balance, bankOrderId) {
     //console.log(id);
     //console.log(email);
     //console.log(statementAmount);
@@ -43,7 +43,7 @@ export class ManagementPageComponent implements OnInit {
     this.result = parseFloat(statementAmount) + parseFloat(balance);
     //console.log(this.result);
 
-    this.bankStatementService.confirmBankStatements(id, email, paymentId, statementAmount, this.bankStatement, this.userId, this.result)
+    this.bankStatementService.confirmBankStatements(id, email, paymentId, statementAmount, bankOrderId, this.bankStatement, this.userId, this.result)
       .subscribe(
         data => {
           alert("Success");

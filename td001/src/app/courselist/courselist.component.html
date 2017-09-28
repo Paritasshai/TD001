@@ -28,57 +28,55 @@
       </div>
     </div>
     <div class="col-lg-9 col-md-9 col-sm-9">
-      <div *ngFor="let user of users">
-        <div *ngIf="user.id == currentUser.id">
-          <div [hidden]="user.status != instructor">
-            <div class="btn-group" class="well well-sm">
-              <a href="#" id="list" class="btn btn-default btn-sm" [routerLink]="['/createCourse']"><span
-                class="glyphicon glyphicon-th-list">
+      <div align="center">
+        <div *ngFor="let user of users">
+          <div *ngIf="user.id == currentUser.id">
+            <div [hidden]="user.status != instructor">
+              <div class="btn-group" class="well well-sm">
+                <a href="#" id="list" class="btn btn-default btn-sm" [routerLink]="['/createCourse']"><span
+                  class="glyphicon glyphicon-th-list">
               </span>Create Course</a> <a href="#" id="grid" class="btn btn-default btn-sm"
                                           [routerLink]="['/EditCourse']"><span
-              class="glyphicon glyphicon-th"></span>EditCourse</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div *ngFor="let user of users">
-        <div *ngIf="user.id == currentUser.id">
-          <div *ngIf="user.status != instructor">
-            <div class="btn-group" class="well well-sm">
-              <h4 style="color:white;">New Course</h4>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="products" class="row list-group">
-        <div class="item col-xs-12 col-sm-3 col-lg-3" *ngFor="let course of courses">
-
-          <div class="thumbnail">
-            <div class="crop" *ngFor="let imageCourse of course?.imageCourses">
-              <img class="img" src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>
-            </div>
-            <div class="caption" align="left">
-              <h6 class="group inner list-group-item-heading">
-                {{course.name}}</h6>
-              <div *ngFor="let user of users" align="left">
-                <p class="small" *ngIf="user.id == course.userId">
-                  {{user.firstName}}
+                class="glyphicon glyphicon-th"></span>EditCourse</a>
               </div>
-              <div class="row">
-                <div class="col-xs-12 col-md-6" align="right">
-                  <button class="btn btn-danger btn-sm" (click)="click(course.id)">
-                    ดูรายละเอียด
-                  </button>
+            </div>
+          </div>
+        </div>
+        <div *ngFor="let user of users">
+          <div *ngIf="user.id == currentUser.id">
+            <div *ngIf="user.status != instructor">
+              <div class="btn-group" class="well well-sm">
+                <h4 style="color:white;">New Course</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="products" class="row list-group">
+          <div class="item col-xs-12 col-sm-3 col-lg-3" *ngFor="let course of courses">
+
+            <div class="thumbnail">
+              <div class="crop" *ngFor="let imageCourse of course?.imageCourses">
+                <img class="img" src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>
+              </div>
+              <div class="caption" align="left">
+                <h6 class="group inner list-group-item-heading">{{course.name}}</h6>
+                <!--<div *ngFor="let user of users" align="left">-->
+                <!--<p class="small" *ngIf="user.id == course.userId">-->
+                <!--{{user.firstName}}-->
+                <!--</div>-->
+                <div class="row">
+                  <div class="col-xs-12 col-md-6" align="right">
+                    <button class="btn btn-danger btn-sm" (click)="click(course.id)">
+                      ดูรายละเอียด
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
+          </div>
         </div>
       </div>
-
     </div>
 
   </div>

@@ -29,6 +29,7 @@
     <tr>
       <th>User ID</th>
       <th>Payment Id</th>
+      <th>Order ID</th>
       <th>Username</th>
       <th>Email</th>
       <th>Bank</th>
@@ -43,6 +44,7 @@
     <tr [hidden]="bankStatements == undefined" *ngFor="let bankStatement of bankStatements">
       <td>{{bankStatement.users[0].id}}</td>
       <td>{{bankStatement.paymentId}}</td>
+      <td>{{bankStatement.bankOrderId}}</td>
       <td>{{bankStatement.users[0].firstName}}</td>
       <td>{{bankStatement.users[0].email}}</td>
       <td>{{bankStatement.bankName}}</td>
@@ -52,7 +54,7 @@
       <td>{{bankStatement.statementAmount}}</td>
       <td>
         <button class="btn btn-primary btn-md"
-                (click)="ConfirmPayment(bankStatement.id, bankStatement.users[0].email, bankStatement.paymentId, bankStatement.statementAmount, bankStatement.users[0].balance)">
+                (click)="ConfirmPayment(bankStatement.id, bankStatement.users[0].email, bankStatement.paymentId, bankStatement.statementAmount, bankStatement.users[0].balance, bankStatement.bankOrderId)">
           Confirm
         </button>
       </td>

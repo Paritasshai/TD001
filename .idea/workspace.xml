@@ -2,33 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bae7473-a8d5-49bc-9d24-3d0dc9ac3770" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/td001/src/app/models/PurchaseCard.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/td001/src/app/services/PurchaseCourseService.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/add-video-item/add-video-item.component.html" afterPath="$PROJECT_DIR$/td001/src/app/add-video-item/add-video-item.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/add-video-item/add-video-item.component.ts" afterPath="$PROJECT_DIR$/td001/src/app/add-video-item/add-video-item.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/app.module.ts" afterPath="$PROJECT_DIR$/td001/src/app/app.module.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/course-lists/course-lists.component.css" afterPath="$PROJECT_DIR$/td001/src/app/course-lists/course-lists.component.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/course-lists/course-lists.component.html" afterPath="$PROJECT_DIR$/td001/src/app/course-lists/course-lists.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/course-lists/course-lists.component.ts" afterPath="$PROJECT_DIR$/td001/src/app/course-lists/course-lists.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/course-video-list-page/video-list-page.component.html" afterPath="$PROJECT_DIR$/td001/src/app/course-video-list-page/video-list-page.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/courselist/courselist.component.css" afterPath="$PROJECT_DIR$/td001/src/app/courselist/courselist.component.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/courselist/courselist.component.html" afterPath="$PROJECT_DIR$/td001/src/app/courselist/courselist.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/courselist/courselist.component.ts" afterPath="$PROJECT_DIR$/td001/src/app/courselist/courselist.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/edit-course/edit-course.component.html" afterPath="$PROJECT_DIR$/td001/src/app/edit-course/edit-course.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/edit-course/edit-course.component.ts" afterPath="$PROJECT_DIR$/td001/src/app/edit-course/edit-course.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/edit-courst-id/edit-courst-id.component.html" afterPath="$PROJECT_DIR$/td001/src/app/edit-courst-id/edit-courst-id.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/edit-courst-id/edit-courst-id.component.ts" afterPath="$PROJECT_DIR$/td001/src/app/edit-courst-id/edit-courst-id.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/footer/footer.component.css" afterPath="$PROJECT_DIR$/td001/src/app/footer/footer.component.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/footer/footer.component.html" afterPath="$PROJECT_DIR$/td001/src/app/footer/footer.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/header/header.component.css" afterPath="$PROJECT_DIR$/td001/src/app/header/header.component.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/header/header.component.html" afterPath="$PROJECT_DIR$/td001/src/app/header/header.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/homepage/homepage.component.css" afterPath="$PROJECT_DIR$/td001/src/app/homepage/homepage.component.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/homepage/homepage.component.html" afterPath="$PROJECT_DIR$/td001/src/app/homepage/homepage.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/loginpage/loginpage.component.html" afterPath="$PROJECT_DIR$/td001/src/app/loginpage/loginpage.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/models/Course.ts" afterPath="$PROJECT_DIR$/td001/src/app/models/Course.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/services/CourseService.ts" afterPath="$PROJECT_DIR$/td001/src/app/services/CourseService.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/userProfile/user-profile.component.ts" afterPath="$PROJECT_DIR$/td001/src/app/userProfile/user-profile.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/management-page/management-page.component.html" afterPath="$PROJECT_DIR$/td001/src/app/management-page/management-page.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/management-page/management-page.component.ts" afterPath="$PROJECT_DIR$/td001/src/app/management-page/management-page.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/non-top-up/non-top-up.component.html" afterPath="$PROJECT_DIR$/td001/src/app/non-top-up/non-top-up.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/non-top-up/non-top-up.component.ts" afterPath="$PROJECT_DIR$/td001/src/app/non-top-up/non-top-up.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/order-management/order-management.component.html" afterPath="$PROJECT_DIR$/td001/src/app/order-management/order-management.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/services/BankStatementService.ts" afterPath="$PROJECT_DIR$/td001/src/app/services/BankStatementService.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/services/PurchaseCourseService.ts" afterPath="$PROJECT_DIR$/td001/src/app/services/PurchaseCourseService.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/top-up-bank-page/top-up-bank-page.component.html" afterPath="$PROJECT_DIR$/td001/src/app/top-up-bank-page/top-up-bank-page.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/top-up-bank-page/top-up-bank-page.component.ts" afterPath="$PROJECT_DIR$/td001/src/app/top-up-bank-page/top-up-bank-page.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/td001/src/app/userProfile/user-profile.component.html" afterPath="$PROJECT_DIR$/td001/src/app/userProfile/user-profile.component.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -61,6 +50,8 @@
       <find>orderPaymentsIds</find>
       <find>modal</find>
       <find>heading7</find>
+      <find>currentUser</find>
+      <find>container-fluid</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -74,15 +65,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/td001/src/app/course-video-list-page/video-list-page.component.css" />
-        <option value="$PROJECT_DIR$/td001/src/app/edit-course/edit-course.component.css" />
-        <option value="$PROJECT_DIR$/td001/src/app/management-page/management-page.component.html" />
-        <option value="$PROJECT_DIR$/td001/src/app/top-up-bank-page/top-up-bank-page.component.ts" />
-        <option value="$PROJECT_DIR$/td001/src/app/non-top-up/non-top-up.component.html" />
-        <option value="$PROJECT_DIR$/td001/src/app/management-page/management-page.component.ts" />
-        <option value="$PROJECT_DIR$/td001/src/app/course-image-upload/course-image-upload.component.ts" />
-        <option value="$PROJECT_DIR$/td001/src/app/course-image-upload/course-image-upload.component.html" />
-        <option value="$PROJECT_DIR$/td001/src/app/signuppage/signuppage.component.html" />
         <option value="$PROJECT_DIR$/td001/src/app/loginpage/loginpage.component.css" />
         <option value="$PROJECT_DIR$/td001/src/app/top-up-online-page/top-up-online-page.component.html" />
         <option value="$PROJECT_DIR$/td001/src/app/coursepage/coursepage.component.css" />
@@ -101,7 +83,6 @@
         <option value="$PROJECT_DIR$/td001/src/app/header/header.component.html" />
         <option value="$PROJECT_DIR$/td001/src/app/edit-courst-id/edit-courst-id.component.ts" />
         <option value="$PROJECT_DIR$/td001/src/app/edit-courst-id/edit-courst-id.component.html" />
-        <option value="$PROJECT_DIR$/td001/src/app/homepage/homepage.component.html" />
         <option value="$PROJECT_DIR$/td001/src/app/homepage/homepage.component.css" />
         <option value="$PROJECT_DIR$/td001/src/app/userProfile/user-profile.component.css" />
         <option value="$PROJECT_DIR$/td001/node_modules/bootstrap-material-design/bower_components/bootstrap/dist/css/bootstrap.min.css" />
@@ -109,22 +90,32 @@
         <option value="$PROJECT_DIR$/td001/src/app/footer/footer.component.html" />
         <option value="$PROJECT_DIR$/td001/src/app/footer/footer.component.css" />
         <option value="$PROJECT_DIR$/td001/src/app/courselist/courselist.component.css" />
-        <option value="$PROJECT_DIR$/td001/src/app/course-lists/course-lists.component.css" />
         <option value="$PROJECT_DIR$/td001/src/app/loginpage/loginpage.component.html" />
         <option value="$PROJECT_DIR$/td001/src/app/add-video-item/add-video-item.component.ts" />
         <option value="$PROJECT_DIR$/td001/src/app/add-video-item/add-video-item.component.html" />
-        <option value="$PROJECT_DIR$/td001/src/app/app.module.ts" />
         <option value="$PROJECT_DIR$/td001/src/app/models/PurchaseCard.ts" />
         <option value="$PROJECT_DIR$/td001/src/app/edit-course/edit-course.component.html" />
         <option value="$PROJECT_DIR$/td001/src/app/edit-course/edit-course.component.ts" />
         <option value="$PROJECT_DIR$/td001/src/app/models/Course.ts" />
         <option value="$PROJECT_DIR$/td001/src/app/services/CourseService.ts" />
-        <option value="$PROJECT_DIR$/td001/src/app/services/PurchaseCourseService.ts" />
-        <option value="$PROJECT_DIR$/td001/src/app/courselist/courselist.component.html" />
-        <option value="$PROJECT_DIR$/td001/src/app/courselist/courselist.component.ts" />
         <option value="$PROJECT_DIR$/td001/src/app/userProfile/user-profile.component.html" />
-        <option value="$PROJECT_DIR$/td001/src/app/course-lists/course-lists.component.ts" />
+        <option value="$PROJECT_DIR$/td001/src/app/pipe/purchase-cart-pipe.pipe.ts" />
+        <option value="$PROJECT_DIR$/td001/src/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/td001/src/app/courselist/courselist.component.ts" />
+        <option value="$PROJECT_DIR$/td001/src/app/services/PurchaseCourseService.ts" />
+        <option value="$PROJECT_DIR$/td001/src/app/course-lists/course-lists.component.css" />
         <option value="$PROJECT_DIR$/td001/src/app/course-lists/course-lists.component.html" />
+        <option value="$PROJECT_DIR$/td001/src/app/course-lists/course-lists.component.ts" />
+        <option value="$PROJECT_DIR$/td001/src/app/homepage/homepage.component.html" />
+        <option value="$PROJECT_DIR$/td001/src/app/courselist/courselist.component.html" />
+        <option value="$PROJECT_DIR$/td001/src/app/order-management/order-management.component.html" />
+        <option value="$PROJECT_DIR$/td001/src/app/top-up-bank-page/top-up-bank-page.component.html" />
+        <option value="$PROJECT_DIR$/td001/src/app/top-up-bank-page/top-up-bank-page.component.ts" />
+        <option value="$PROJECT_DIR$/td001/src/app/management-page/management-page.component.html" />
+        <option value="$PROJECT_DIR$/td001/src/app/management-page/management-page.component.ts" />
+        <option value="$PROJECT_DIR$/td001/src/app/services/BankStatementService.ts" />
+        <option value="$PROJECT_DIR$/td001/src/app/non-top-up/non-top-up.component.html" />
+        <option value="$PROJECT_DIR$/td001/src/app/non-top-up/non-top-up.component.ts" />
       </list>
     </option>
   </component>
@@ -145,7 +136,7 @@
     <handled-path value="$PROJECT_DIR$/td001/functions/node_modules" />
     <handled-path value="$PROJECT_DIR$/td001/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="width" value="1382" />
     <option name="height" value="754" />
@@ -184,8 +175,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -193,19 +182,39 @@
               <item name="TD001" type="b2602c69:ProjectViewProjectNode" />
               <item name="TD001" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="TD001" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TD001" type="462c0819:PsiDirectoryNode" />
+              <item name="td001" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TD001" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TD001" type="462c0819:PsiDirectoryNode" />
+              <item name="td001" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TD001" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TD001" type="462c0819:PsiDirectoryNode" />
+              <item name="td001" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Music/SE331-lab12complete-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Fit-Up-Application-master" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/td001/node_modules/angular-cli/models/webpack-config.js&#10;true" />
     <property name="ignore_missing_gitignore" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -213,16 +222,16 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Film\Documents\TD001\td001\src\app" />
+      <recent name="C:\Users\Film\Documents\TD001\td001\src\app\services" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Film\Documents\TD001\td001\src\assets\images" />
       <recent name="C:\Users\Film\Documents\TD001\td001\src\app\user-profile-page" />
       <recent name="C:\Users\Film\Documents\TD001\td001\src\app\loginpage\authentication" />
       <recent name="C:\Users\Film\Documents\TD001\td001\src\app\loginpage" />
       <recent name="C:\Users\Film\Documents\Tamdai\td001\src\assets\images" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Film\Documents\TD001\td001\src\app" />
-      <recent name="C:\Users\Film\Documents\TD001\td001\src\app\services" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -411,14 +420,18 @@
       <workItem from="1506229953187" duration="11341000" />
       <workItem from="1506302313431" duration="209000" />
       <workItem from="1506302574595" duration="22044000" />
+      <workItem from="1506393422539" duration="11697000" />
+      <workItem from="1506476971539" duration="16840000" />
+      <workItem from="1506501051615" duration="7618000" />
+      <workItem from="1506561777650" duration="19214000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="661979000" />
+    <option name="totallyTimeSpent" value="717348000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -433,7 +446,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18229954" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2065053" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -493,90 +506,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/td001/.editorconfig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/td001/firebase.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/td001/angular-cli.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/td001/src/app/top-up-bank-page/top-up-bank-page.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2010">
-          <caret line="161" column="27" lean-forward="true" selection-start-line="161" selection-start-column="27" selection-end-line="171" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/td001/src/app/user-management/user-management.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="20" column="21" lean-forward="false" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/td001/src/app/top-up-online-page/top-up-online-page.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-636">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/td001/src/app/top-up-bank-page/top-up-bank-page.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1176">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/td001/node_modules/@angular/common/src/directives/ng_if.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="61" column="27" lean-forward="false" selection-start-line="61" selection-start-column="27" selection-end-line="61" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/td001/src/app/header/header.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-366">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/td001/src/app/header/header.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="34" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/td001/src/app/homepage/homepage.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/td001/src/app/homepage/homepage.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="53" lean-forward="false" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/td001/src/app/signuppage/signuppage.component.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -633,13 +562,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/td001/src/app/courselist/courselist.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="82" column="19" lean-forward="true" selection-start-line="82" selection-start-column="19" selection-end-line="82" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/td001/src/app/header/header.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -668,13 +590,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/td001/src/app/course-lists/course-lists.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="107" column="0" lean-forward="true" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/td001/src/app/services/ForgotPassword.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -682,32 +597,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/td001/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="86" column="21" lean-forward="false" selection-start-line="86" selection-start-column="21" selection-end-line="86" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/td001/src/app/non-top-up/non-top-up.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/td001/src/app/order-management/order-management.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/td001/src/app/models/PurchaseCard.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -719,13 +612,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/td001/src/app/models/BankStatement.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/td001/src/app/services/BankStatementService.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -750,7 +636,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -758,7 +643,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" column="15" lean-forward="false" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -766,7 +650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
           <caret line="46" column="20" lean-forward="true" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -774,7 +657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="12" column="32" lean-forward="false" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -782,7 +664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1206">
           <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -790,7 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2268">
           <caret line="126" column="7" lean-forward="false" selection-start-line="126" selection-start-column="7" selection-end-line="126" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -802,46 +682,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/td001/src/app/services/PurchaseCourseService.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="23" column="10" lean-forward="false" selection-start-line="23" selection-start-column="2" selection-end-line="23" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/td001/src/app/courselist/courselist.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="27" column="3" lean-forward="true" selection-start-line="27" selection-start-column="3" selection-end-line="33" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/td001/src/app/courselist/courselist.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="30" column="7" lean-forward="false" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
-          <folding>
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/td001/src/app/edit-courst-id/edit-courst-id.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="20" column="2" lean-forward="true" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/courselist/courselist.component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/resources/html5-schema/html5/applications.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="63" column="18" lean-forward="false" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/pipe/purchase-cart-pipe.pipe.spec.ts" />
+    <entry file="file://$PROJECT_DIR$/td001/src/app/pipe/purchase-cart-pipe.pipe.ts" />
+    <entry file="file://$PROJECT_DIR$/td001/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="40" column="71" lean-forward="false" selection-start-line="40" selection-start-column="71" selection-end-line="40" selection-end-column="71" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/td001/src/app/userProfile/user-profile.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
+        <state relative-caret-position="468">
           <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="32" selection-end-column="3" />
           <folding />
         </state>
@@ -849,28 +723,167 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/td001/src/app/userProfile/user-profile.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="57" lean-forward="false" selection-start-line="1" selection-start-column="31" selection-end-line="1" selection-end-column="57" />
+        <state relative-caret-position="36">
+          <caret line="2" column="26" lean-forward="true" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/services/PurchaseCourseService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="11" column="82" lean-forward="false" selection-start-line="11" selection-start-column="71" selection-end-line="11" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/courselist/courselist.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-96">
+          <caret line="82" column="19" lean-forward="true" selection-start-line="82" selection-start-column="19" selection-end-line="82" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/courselist/courselist.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/course-lists/course-lists.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1356">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/td001/src/app/course-lists/course-lists.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="822">
-          <caret line="62" column="17" lean-forward="false" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
+        <state relative-caret-position="534">
+          <caret line="103" column="23" lean-forward="true" selection-start-line="103" selection-start-column="23" selection-end-line="103" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/td001/src/app/course-lists/course-lists.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="124" column="19" lean-forward="false" selection-start-line="124" selection-start-column="19" selection-end-line="124" selection-end-column="19" />
+        <state relative-caret-position="396">
+          <caret line="193" column="24" lean-forward="true" selection-start-line="193" selection-start-column="24" selection-end-line="193" selection-end-column="24" />
           <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#body#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <marker date="1506331279414" expanded="false" signature="1036:1046" ph="..." />
+            <element signature="n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#1;n#body#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#body#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#body#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/homepage/homepage.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/homepage/homepage.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="29" lean-forward="true" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/courselist/courselist.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="30" column="24" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/order-management/order-management.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/order-management/order-management.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="86" lean-forward="false" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/top-up-bank-page/top-up-bank-page.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2160">
+          <caret line="39" column="53" lean-forward="true" selection-start-line="39" selection-start-column="53" selection-end-line="39" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/top-up-bank-page/top-up-bank-page.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="77" column="43" lean-forward="false" selection-start-line="77" selection-start-column="43" selection-end-line="77" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/management-page/management-page.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="56" column="201" lean-forward="false" selection-start-line="56" selection-start-column="190" selection-end-line="56" selection-end-column="201" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/services/BankStatementService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="25" column="240" lean-forward="false" selection-start-line="25" selection-start-column="240" selection-end-line="25" selection-end-column="240" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/management-page/management-page.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="45" column="103" lean-forward="false" selection-start-line="45" selection-start-column="103" selection-end-line="45" selection-end-column="103" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/non-top-up/non-top-up.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/td001/src/app/non-top-up/non-top-up.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

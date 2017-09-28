@@ -8,23 +8,29 @@
           <table class="table table-striped">
             <thead>
             <tr>
+              <th>Order ID</th>
               <th>Order Payment</th>
               <th>Payment Date</th>
               <th>User Email</th>
               <th>Amount</th>
-              <th>แจ้งชำระเงิน</th>
+              <th>สถานะ</th>
+              <th></th>
             </tr>
             </thead>
             <tbody *ngFor="let orderPayment of orderPayments">
             <tr *ngIf="orderPayment.users[0].id == currentUser.id">
+              <td>{{orderPayment.id}}</td>
               <td>{{orderPayment.transRef}}</td>
               <td>{{orderPayment.createDate}}</td>
               <td>{{orderPayment.users[0].email}}</td>
               <td>{{orderPayment.transAmount}}</td>
+              <td>{{orderPayment.statusOrder}}</td>
               <td>
-                <button class="btn btn-success btn-sm" (click)="Submit(orderPayment.id)">แจ้งชำระเงิน
-                  <!--[routerLink]="['/topUpBank', orderPayment.id]"-->
-                </button>
+                <div [hidden]="orderPayment.statusOrder == confirm">
+                  <button class="btn btn-success btn-sm" (click)="Submit(orderPayment.id)">แจ้งชำระเงิน
+                    <!--[routerLink]="['/topUpBank', orderPayment.id]"-->
+                  </button>
+                </div>
               </td>
             </tr>
             </tbody>

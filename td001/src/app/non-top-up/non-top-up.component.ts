@@ -9,10 +9,12 @@ import {Router} from "@angular/router";
   templateUrl: './non-top-up.component.html',
   styleUrls: ['./non-top-up.component.css'],
 })
+
 export class NonTopUpComponent implements OnInit {
   orderPayments: Order[] = [];
   currentUser: User;
   orderPaymentsId: Order[] = [];
+  confirm = "confirm";
 
   constructor(private orderService: OrderService,
               private router: Router) {

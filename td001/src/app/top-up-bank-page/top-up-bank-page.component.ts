@@ -67,6 +67,7 @@ export class TopUpBankPageComponent implements OnInit {
 
     //console.log(this.modelDate.formatted);
     this.bankStatement.bankName = this.model.options;
+    this.bankStatement.bankOrderId = this.orderPaymentsIds.id;
     this.bankStatement.statementAmount = this.orderPaymentsIds.transAmount;
     this.bankStatement.paymentId = this.orderPaymentsIds.transRef;
     this.bankStatement.statementDate = this.modelDate.formatted;
