@@ -29,6 +29,21 @@
                         #description="ngModel"></textarea>
             </div>
             <div class="form-group">
+              <p>Course Link: </p>
+              <input type="text" class="form-control" name="linkCourse" id="linkCourse" placeholder="Link Course.."
+                     [(ngModel)]="Course.linkCourse"
+                     #linkCourse="ngModel" required/>
+            </div>
+
+            <div class="checkbox form-group" align="left">
+                        <span>
+                        <label><input [checked]="Course.publicCourse == textTrue" type="checkbox" value="publicCourse"
+                                      [(ngModel)]="Course.publicCourse"
+                                      #publicCourse="ngModel" name="publicCourse" id="publicCourse">public</label>
+                        : {{Course.publicCourse}}</span>
+            </div>
+
+            <div class="form-group">
               <button class="btn btn-primary btn-md" style="width: 150px">Edit</button>
             </div>
           </div>
@@ -116,6 +131,8 @@
               <th>Type</th>
               <th>Name</th>
               <th>Description</th>
+              <!--<th>Edit CourseItem</th>-->
+              <!--<th>Edit CourseItem</th>-->
               <th>Edit CourseItem</th>
             </tr>
             </thead>
@@ -124,6 +141,8 @@
               <td>{{courseItem.courseType}}</td>
               <td>{{courseItem.name}}</td>
               <td>{{courseItem.description}}</td>
+              <!--<td *ngIf="courseItem.courseType == imageType">{{courseItem.imageItems[0]?.id}}</td>-->
+              <!--<td *ngIf="courseItem.courseType == videoType">{{courseItem.videosItems[0]?.id}}</td>-->
               <td>
                 <button class="btn btn-warning btn-md"
                         (click)="EditItem(courseItem.id)">

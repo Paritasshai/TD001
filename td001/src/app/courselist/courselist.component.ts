@@ -16,6 +16,9 @@ export class CourselistComponent implements OnInit {
   instructor = "instructor";
   currentUser: User;
   users: User[] = [];
+  textTrue = "true";
+  textNull = "null";
+  textFalse = 'false';
 
   constructor(private courseService: CourseService,
               private router: Router,
@@ -26,8 +29,6 @@ export class CourselistComponent implements OnInit {
 
   ngOnInit() {
     if (this.courses != undefined) {
-      this.getCourseList();
-    } else if (this.currentUser == undefined) {
       this.getCourseList();
     } else {
       this.getCourseList();

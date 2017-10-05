@@ -173,9 +173,10 @@
 
                 <div class="checkbox form-group" align="left">
                         <span>
-                        <label><input type="checkbox" value="canPreview" [(ngModel)]="VideoItem.canPreview"
-                                      #canPreview="ngModel" name="canPreview" id="canPreview">Can Preview</label>
-                        </span>: {{Course.canPreview}}
+                        <label><input [checked]="Course.canPreview == textTrue" type="checkbox" value="canPreview"
+                                      [(ngModel)]="VideoItem.canPreview"
+                                      #canPreview="ngModel" name="canPreview" id="canPreview1">Can Preview</label>
+                        : {{Course.canPreview}}</span>
                 </div>
 
                 <button type="submit" class="btn btn-success btn-md">Update Item Content</button>

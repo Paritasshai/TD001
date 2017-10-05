@@ -20,6 +20,8 @@ export class AddVideoItemComponent implements OnInit {
   canPreview: any;
   image = "image";
   video = "video";
+  textTrue = "true";
+  textUndefined = "undefined";
 
   constructor(private route: ActivatedRoute,
               private courseService: CourseService) {
@@ -31,8 +33,8 @@ export class AddVideoItemComponent implements OnInit {
   }
 
   updateItem(id) {
-    console.log(id);
-    console.log(this.VideoItem);
+    //console.log(id);
+    //console.log(this.VideoItem);
     this.name = this.Course.name;
     this.description = this.Course.description;
     this.canPreview = this.VideoItem.canPreview;

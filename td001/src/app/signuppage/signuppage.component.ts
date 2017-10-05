@@ -34,13 +34,15 @@ export class SignuppageComponent implements OnInit {
     this.userService.createUsers(this.User)
       .subscribe(
         data => {
-          this.alertService.success('Registration successful', true);
+          // this.alertService.success('Registration successful', true);
+          alert("Registration successful");
           location.reload();
           this.router.navigate(['/home']);
           this.loading = false;
         },
         error => {
-          this.alertService.error('This email already exists', true);
+          // this.alertService.error('This email already exists', true);
+          alert("Registration Failed");
           this.loading = false;
         });
   }

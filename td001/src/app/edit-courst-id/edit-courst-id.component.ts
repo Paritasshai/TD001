@@ -19,6 +19,11 @@ export class EditCourstIdComponent implements OnInit {
   courseId: any;
   video: Video;
   course: any = {};
+  imageType = "image";
+  videoType = "video";
+  textTrue = "true";
+  publicCourse: any;
+  linkCourse: any;
 
   constructor(private route: ActivatedRoute,
               private courseService: CourseService,
@@ -59,8 +64,12 @@ export class EditCourstIdComponent implements OnInit {
     this.name = this.Course.name;
     this.description = this.Course.description;
     this.price = this.Course.price;
+    this.publicCourse = this.Course.publicCourse;
+    console.log(this.publicCourse);
+    this.linkCourse = this.Course.linkCourse;
+    console.log(this.linkCourse);
 
-    this.courseService.updateCourse(id, this.name, this.description, this.price, this.Course)
+    this.courseService.updateCourse(id, this.name, this.description, this.price, this.publicCourse,this.linkCourse, this.Course)
       .subscribe(
         data => {
           this.alertService.success('Upload Successful', true);

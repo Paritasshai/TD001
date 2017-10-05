@@ -66,8 +66,8 @@ export class CourseService {
       .map((response: Response) => response.json());
   }
 
-  updateCourse(id, name, description, price, course: Course) {
-    return this.http.put('http://localhost:8080/update/course/' + id + "?name=" + name + "&" + "description=" + description + "&" + "price=" + price, course).map((response: Response) => response.json());
+  updateCourse(id, name, description, price, publicCourse, linkCourse, course: Course) {
+    return this.http.put('http://localhost:8080/update/course/' + id + "?name=" + name + "&" + "description=" + description + "&" + "price=" + price + "&" + "publicCourse=" + publicCourse + "&" + "linkCourse=" + linkCourse, course).map((response: Response) => response.json());
   }
 
   editVideoName(id: any, lessonName: any, video: Video) {

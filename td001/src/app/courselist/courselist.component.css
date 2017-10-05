@@ -73,12 +73,12 @@
 
 .img {
   width: 100%;
-  height: 200px;
+  height: 170px;
   overflow: hidden;
 }
 
 .crop {
-  max-height: 200px;
+  max-height: 170px;
   max-width: 100%;
   overflow: hidden;
   position: relative;
@@ -87,7 +87,7 @@
 .crop img {
   max-height: 200px;
   max-width: 100%;
-  margin: -15% 0 0 0%;
+  margin: -10% 0 0 0;
 }
 
 .well-bar {
@@ -104,10 +104,14 @@
 }
 
 .well-height {
-  height: 50px;
+  height: 60px;
 }
 
-.list-group{
+.style-height-bar {
+  height: 59px;
+}
+
+.list-group {
   border: none;
   width: 100%;
 }

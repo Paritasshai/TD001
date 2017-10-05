@@ -6,33 +6,34 @@
     <div class="modal-dialog">
       <div class="modal-content">
 
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
-            class="sr-only">Close</span></button>
-        </div>
+        <!--<div class="modal-header">-->
+        <!--<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span-->
+        <!--class="sr-only">Close</span></button>-->
+        <!--</div>-->
 
         <div class="modal-body">
-          <div class="container-fluid">
+          <div class="container-fluid double">
 
             <div class="row">
               <div class="col-sm-4">
-                <img [src]="ImgSignUp" class="img-responsive" style="width: 400px; height: auto; margin-top: 50%"/>
+                <img [src]="ImgSignUp" class="img-responsive" style="width: 400px; height: auto; margin-top: 35%"/>
               </div>
               <!--<br>-->
               <div class="col-sm-8">
                 <input class="btn btn-lg btn-primary btn-block" (click)="clickLogin()" type="submit" id="facebook"
                        value="Sign Up With Facebook">
                 <hr class="style15">
-                <div class="col-lg-12 well">
+                <div class="col-lg-12">
 
                   <div class="row">
                     <div class="col-md-10 col-md-offset-1 style-height">
-                      <alert>
-                        <div class="alert alert-success" ng-reflect-ng-class="[object Object]">Registration successful
-                        </div>
-                      </alert>
+                      <!--<alert>-->
+                      <!--<div class="alert alert-success" ng-reflect-ng-class="[object Object]">Registration successful-->
+                      <!--</div>-->
+                      <!--</alert>-->
                       <form name="form" (ngSubmit)="f.form.valid && signUp()" #f="ngForm" novalidate>
-                        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                        <div style="margin-top: -2%" class="form-group"
+                             [ngClass]="{ 'has-error': f.submitted && !username.valid }">
                           <input type="text" class="form-control" name="firstName" placeholder="First Name.."
                                  [(ngModel)]="User.firstName"
                                  #firstName="ngModel" required/>
@@ -40,7 +41,8 @@
                             required!
                           </div>
                         </div>
-                        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                        <div style="margin-top: -2%" class="form-group"
+                             [ngClass]="{ 'has-error': f.submitted && !username.valid }">
                           <input type="text" class="form-control" name="lastName" placeholder="Last Name.."
                                  [(ngModel)]="User.lastName"
                                  #lastName="ngModel" required/>
@@ -48,7 +50,8 @@
                             required!
                           </div>
                         </div>
-                        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                        <div style="margin-top: -2%" class="form-group"
+                             [ngClass]="{ 'has-error': f.submitted && !username.valid }">
                           <input type="email" class="form-control" name="email" placeholder="Email.."
                                  [(ngModel)]="User.email"
                                  #username="ngModel" required/>
@@ -56,7 +59,8 @@
                             required!
                           </div>
                         </div>
-                        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                        <div style="margin-top: -2%" class="form-group"
+                             [ngClass]="{ 'has-error': f.submitted && !password.valid }">
                           <input minlength="8" type="password" class="form-control" name="password"
                                  placeholder="Password.."
                                  [(ngModel)]="User.password"
