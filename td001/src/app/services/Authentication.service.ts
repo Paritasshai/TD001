@@ -47,6 +47,7 @@ export class AuthenticationService {
           // if (localStorage.getItem('currentUser') === null) {
           //   localStorage.setItem('currentUser', JSON.stringify(user.firstName));
           this.alertService.success('Login successful', true);
+          alert("Success");
         }
         // location.reload();
         return user;

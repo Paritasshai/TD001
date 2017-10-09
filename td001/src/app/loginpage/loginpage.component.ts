@@ -92,7 +92,7 @@ export class LoginpageComponent implements OnInit {
     this.authenticationService.login(this.model.email, this.model.password)
       .subscribe(
         data => {
-          alert("Success");
+          //alert("Success");
           this.loading = false;
           location.reload();
         },

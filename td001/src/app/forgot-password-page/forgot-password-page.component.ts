@@ -8,6 +8,7 @@ import {forgotPassword} from "../services/ForgotPassword";
 })
 export class ForgotPasswordPageComponent implements OnInit {
   User: any = {};
+  loading: false;
 
   constructor(private forgotPasswordService: forgotPassword) {
   }

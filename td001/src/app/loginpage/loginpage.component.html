@@ -22,11 +22,20 @@
                 </div>
                 <div class="col-md-8 style-height">
                   <div class="wrapper">
-                    <input style="background-color: #337ab7; color: white" class="btn btn-lg btn-primary btn-block"
-                           (click)="loginWithFacebook()" type="submit" id="facebook"
-                           value="Sign In With Facebook">
-                    <hr class="style15">
                     <form name="form" (ngSubmit)="signIn()" #f="ngForm" novalidate>
+                      <!--<input style="background-color: #337ab7; color: white" class="btn btn-lg btn-primary btn-block"-->
+                      <!--(click)="loginWithFacebook()" type="submit" id="facebook"-->
+                      <!--value="Sign in with Facebook">-->
+                      <div align="center">
+                        <div
+                          class="fb-login-button"
+                          data-max-rows="1"
+                          data-size="large"
+                          data-button-type="continue_with" (click)="loginWithFacebook()">
+                        </div>
+                      </div>
+
+                      <hr class="style15">
                       <div class="group">
                         <input type="email" [(ngModel)]="model.email" name="email" id="email" required/><span
                         class="highlight"></span><span class="bar"></span>
@@ -37,7 +46,7 @@
                                required/><span class="highlight"></span><span class="bar"></span>
                         <label>Password</label>
                       </div>
-                      <div class="" align="center" style="margin-top: -20px">
+                      <div class="" align="center" style="margin-top: 5px">
                         <button [disabled]="loading" class="btn btn-primary btn-md">Login</button>
                         <button [disabled]="loading" data-dismiss="modal" class="btn btn-primary btn-md">Cancel</button>
                       </div>

@@ -13,7 +13,7 @@ import {IMyDpOptions} from 'mydatepicker';
 
 export class TopUpBankPageComponent implements OnInit {
 
-  private myDatePickerOptions: IMyDpOptions = {
+  public myDatePickerOptions: IMyDpOptions = {
     // other options...
     dateFormat: 'dd-mm-yyyy',
   };
