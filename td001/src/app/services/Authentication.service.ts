@@ -3,13 +3,25 @@ import {Http, Headers, Response, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/map'
 import {Router} from "@angular/router";
 import {AlertService} from "../alertContent/AlertService";
+import {FacebookService, InitParams} from 'ngx-facebook';
 
 @Injectable()
 export class AuthenticationService {
 
   constructor(private http: Http,
               private router: Router,
-              private alertService: AlertService) {
+              private alertService: AlertService,
+              private fb: FacebookService) {
+
+    let initParams: InitParams = {
+      appId: '679370048928070',
+      status: true, // check login status
+      cookie: true, // enable cookies to allow the server to access the session
+      xfbml: true,  // parse XFBML
+      version: 'v2.10'
+    };
+
+    fb.init(initParams);
   }
 
   login(email: string, password: string) {
@@ -36,7 +48,7 @@ export class AuthenticationService {
           //   localStorage.setItem('currentUser', JSON.stringify(user.firstName));
           this.alertService.success('Login successful', true);
         }
-        location.reload();
+        // location.reload();
         return user;
         // }
       });

@@ -19,11 +19,11 @@
   opacity: 0.9;
 }
 
-#home h1 {
-  font-size: 20px;
-  letter-spacing: 8px;
-  font-style: normal;
+#home h2 {
+  font-size: 24px;
+  letter-spacing: 2px;
   padding-top: 10px;
+  font-family: 'Kanit', sans-serif;
 }
 
 @media screen and (max-width: 400px) {
@@ -45,6 +45,6 @@
   border-style: double;
 }
 
-.container-fluid{
+.container-fluid {
   width: 90%;
 }

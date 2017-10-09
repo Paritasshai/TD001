@@ -30,6 +30,7 @@ export class CourseListsComponent implements OnInit {
   coursePrice = 30;
   result: any;
   balance: any;
+  textNull = "null";
 
   constructor(private courseService: CourseService,
               private route: ActivatedRoute,

@@ -255,7 +255,7 @@ label {
 }
 
 .style-height {
-  height: 250px;
+  height: 300px;
 }
 
 .imgLogin {
@@ -273,4 +273,20 @@ label {
 
 .wrapper{
   margin-top: -5%;
+}
+
+hr.style15 {
+  border-top: 4px double #8c8b8b;
+  text-align: center;
+}
+
+hr.style15:after {
+  content: 'Or';
+  display: inline-block;
+  position: relative;
+  top: -15px;
+  padding: 0 10px;
+  background: white;
+  color: #8c8b8b;
+  font-size: 18px;
 }

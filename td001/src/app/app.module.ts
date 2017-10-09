@@ -40,6 +40,7 @@ import {ImageUploadModule} from "angular2-image-upload";
 import {AddVideoItemComponent} from "./add-video-item/add-video-item.component";
 import {PurchaseCourseService} from "./services/PurchaseCourseService";
 import { Ng2OrderModule } from 'ng2-order-pipe';
+import {FacebookModule} from "ngx-facebook";
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { Ng2OrderModule } from 'ng2-order-pipe';
     MyDatePickerModule,
     FileUploadModule,
     ImageUploadModule.forRoot(),
-    Ng2OrderModule
+    Ng2OrderModule,
+    FacebookModule.forRoot()
   ],
   providers: [
     AuthGuard,

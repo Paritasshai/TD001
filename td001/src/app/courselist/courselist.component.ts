@@ -12,13 +12,14 @@ import {UserService} from "../services/User.service";
 })
 export class CourselistComponent implements OnInit {
   Img1: string;
-  courses: Course[] = [];
+  courses: any = [];
   instructor = "instructor";
   currentUser: User;
   users: User[] = [];
   textTrue = "true";
   textNull = "null";
   textFalse = 'false';
+  textPublic = 'true';
 
   constructor(private courseService: CourseService,
               private router: Router,
@@ -30,19 +31,24 @@ export class CourselistComponent implements OnInit {
   ngOnInit() {
     if (this.courses != undefined) {
       this.getCourseList();
-    } else {
-      this.getCourseList();
     }
 
     if (this.currentUser != undefined) {
       this.getUserList();
     }
-
   }
 
+  // private getCourseList() {
+  //   this.courseService.getCourses().subscribe(courses => {
+  //     this.courses = courses;
+  //     console.log(this.courses);
+  //   });
+  // }
+
   private getCourseList() {
-    this.courseService.getCourses().subscribe(courses => {
+    this.courseService.getCourseItemsByPublic(this.textPublic).subscribe(courses => {
       this.courses = courses;
+      console.log(this.courses);
     });
   }
 

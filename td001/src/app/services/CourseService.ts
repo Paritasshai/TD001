@@ -48,6 +48,15 @@ export class CourseService {
       .map((response: Response) => response.json());
   }
 
+  getCourseItemsByPublic(textPublic: any): Observable<CourseItem[]> {
+    let headers = new Headers({'Authorization': 'Bearer '});
+    let options = new RequestOptions({headers: headers});
+
+    // get users from api
+    return this.http.get('http://localhost:8080/courseItemByPublic/' + "?textPublic=" + textPublic, options)
+      .map((response: Response) => response.json());
+  }
+
   getCoursesById(id): Observable<Course> {
     let headers = new Headers({'Authorization': 'Bearer '});
     let options = new RequestOptions({headers: headers});

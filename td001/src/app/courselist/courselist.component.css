@@ -1,3 +1,7 @@
+body{
+  font-family: 'Kanit', sans-serif;
+}
+
 .boxes-design {
   border: solid 1px #818181;
   padding: 1%;
@@ -69,6 +73,7 @@
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
+  border: solid 1px #bf2b2a;
 }
 
 .img {
@@ -104,14 +109,18 @@
 }
 
 .well-height {
-  height: 60px;
+  height: 40px;
 }
 
 .style-height-bar {
-  height: 59px;
+  height: 40px;
 }
 
 .list-group {
   border: none;
   width: 100%;
+}
+
+.list-group-item{
+  font-family: 'Kanit', sans-serif;
 }

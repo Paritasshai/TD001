@@ -1,3 +1,6 @@
+<body>
+
+</body>
 <div class="row" style="margin-top: 2%">
 
   <div class="col-lg-12 col-md-12 col-sm-12">
@@ -32,11 +35,11 @@
         <div *ngFor="let user of users">
           <div *ngIf="user.id == currentUser.id">
             <div [hidden]="user.status != instructor">
-              <div class="btn-group" class="well well-sm style-height-bar">
-                <a href="#" id="list" class="btn btn-default btn-sm" [routerLink]="['/createCourse']"><span
+              <div class="well well-sm style-height-bar">
+                <a style="color: white" href="#" id="list" [routerLink]="['/createCourse']"><span
                   class="glyphicon glyphicon-th-list">
               </span>Create Course</a>
-                <a href="#" id="grid" class="btn btn-default btn-sm"
+                <a style="color: white" href="#" id="grid"
                    [routerLink]="['/EditCourse']"><span
                   class="glyphicon glyphicon-th"></span>EditCourse</a>
               </div>
@@ -57,8 +60,7 @@
         </div>
 
         <div *ngIf="currentUser == null">
-          <div class="btn-group" class="well well-sm">
-            <h4 style="color:white;">New Course</h4>
+          <div class="btn-group" class="well well-sm well-height">
           </div>
         </div>
 
