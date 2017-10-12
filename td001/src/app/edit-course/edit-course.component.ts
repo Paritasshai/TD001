@@ -25,6 +25,15 @@ export class EditCourseComponent implements OnInit {
   ngOnInit() {
     this.getCourseList();
     // this.getUserList();
+    this.courses.sort(function (id1, id2) {
+      if (id1.id < id2.id) {
+        return -1;
+      } else if (id1.id > id2.id) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
   }
 
   private getCourseList() {

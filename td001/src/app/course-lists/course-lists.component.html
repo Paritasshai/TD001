@@ -9,13 +9,17 @@
           <div class="thumbnail" *ngFor="let imageCourse of courses?.imageCourses">
             <div class="crop">
               <div align="center">
-                <img class="img" src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt="Image"/>
+                <img class="img" src="{{'http://192.168.1.7:8080/displayImage/' + imageCourse.id}}" alt="Image"/>
               </div>
             </div>
           </div>
 
           <div class="panel panel-default br">
             <div class="panel-heading">เกี่ยวกับคอร์สนี้</div>
+            <div *ngIf="courses.linkCourse != textNull" class="panel-body"><span> <p
+              class="glyphicon glyphicon-shopping-cart"></p></span>
+              <a href="{{courses.linkCourse}}">ซื้ออุปกรณ์ที่เกี่ยวข้อง</a>
+            </div>
             <div class="panel-body"><span> <p class="glyphicon glyphicon-calendar"></p></span> เรียนคอร์สนี้ได้อีก
               30
               วัน
@@ -53,8 +57,8 @@
         <div class="col-sm-8">
           <div class="panel panel-default">
             <div class="panel-heading">Course Name: {{courses.name}}
-              <p *ngIf="courses.linkCourse != textNull" style="color: #bf2b2a"
-                 class="glyphicon glyphicon-shopping-cart"></p>
+              <!--<p *ngIf="courses.linkCourse != textNull" style="color: #bf2b2a"-->
+              <!--class="glyphicon glyphicon-shopping-cart"></p>-->
             </div>
             <div class="panel-body">Course Description: {{courses.description}}</div>
             <button type="button" class="btn btn-primary" (click)="buyCourseNull()">ซื้อคอร์สเรียน
@@ -93,7 +97,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr *ngFor="let course of courses?.courseItems">
+                  <tr *ngFor="let course of courses?.courseItems| sortBy : 'id'; let i = index">
                     <td>
                       <div class="container-fluid">
                         <div class="row col-sm-12">
@@ -122,13 +126,12 @@
                                 <!--</button>-->
                                 <!--</div>-->
                                 <div align="center" class="video-responsive">
-                                  <br>
                                   <img class="img" *ngIf="course.courseType == image"
-                                       src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
+                                       src="{{'http://192.168.1.7:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
                                   <br>
                                   <video width="800" height="430" controls [hidden]="course.courseType == image">
                                     <source *ngIf="course.courseType == video"
-                                            src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"
+                                            src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"
                                             type="video/mp4">
                                   </video>
                                 </div>
@@ -172,7 +175,7 @@
                 <div class="thumbnail" *ngFor="let imageCourse of courses?.imageCourses">
                   <div class="crop">
                     <div align="center">
-                      <img class="img" src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}"
+                      <img class="img" src="{{'http://192.168.1.7:8080/displayImage/' + imageCourse.id}}"
                            alt="Image"/>
                     </div>
                   </div>
@@ -180,6 +183,10 @@
 
                 <div class="panel panel-default br">
                   <div class="panel-heading">เกี่ยวกับคอร์สนี้</div>
+                  <div *ngIf="courses.linkCourse != textNull" class="panel-body"><span> <p
+                    class="glyphicon glyphicon-shopping-cart"></p></span>
+                    <a href="{{courses.linkCourse}}">ซื้ออุปกรณ์ที่เกี่ยวข้อง</a>
+                  </div>
                   <div class="panel-body"><span> <p class="glyphicon glyphicon-calendar"></p></span>
                     เรียนคอร์สนี้ได้อีก
                     30
@@ -269,10 +276,9 @@
                           <tr>
                             <th></th>
                             <th></th>
-                            <th></th>
                           </tr>
                           </thead>
-                          <tbody *ngFor="let course of courses?.courseItems">
+                          <tbody *ngFor="let course of courses?.courseItems| sortBy : 'id'; let i = index">
                           <tr>
                             <td>
                               <div class="container-fluid">
@@ -284,6 +290,7 @@
                 class="glyphicon glyphicon-facetime-video"></span>
                                     <span *ngIf="course.courseType == image"
                                           class="glyphicon glyphicon-picture"></span>
+
                                     {{course.name}}
                                     <!--{{course.videoClips[0]?.id}}-->
                                     <!--{{course.imageItems[0]?.id}}-->
@@ -306,13 +313,17 @@
                                             <!--</div>-->
                                             <div align="center" class="video-responsive">
                                               <img class="img" *ngIf="course.courseType == image"
-                                                   src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
-                                              <br>
+                                                   src="{{'http://192.168.1.7:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
+                                              <!--<img class="img" *ngIf="course.courseType == image"-->
+                                              <!--src="{{'http://192.168.1.7:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>-->
                                               <video width="800" height="430" controls
                                                      [hidden]="course.courseType == image">
                                                 <source *ngIf="course.courseType == video"
-                                                        src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"
+                                                        src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"
                                                         type="video/mp4">
+                                                <!--<source *ngIf="course.courseType == video"-->
+                                                <!--src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"-->
+                                                <!--type="video/mp4">-->
                                               </video>
                                             </div>
                                             <!--<div class="modal-footer">-->
@@ -337,15 +348,19 @@
                                         <!--</button>-->
                                         <!--</div>-->
                                         <div align="center" class="video-responsive">
-                                          <br>
                                           <img class="img" *ngIf="course.courseType == image"
-                                               src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
+                                               src="{{'http://192.168.1.7:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
+                                          <!--<img class="img" *ngIf="course.courseType == image"-->
+                                          <!--src="{{'http://192.168.1.7:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>-->
                                           <br>
                                           <video width="800" height="430" controls
                                                  [hidden]="course.courseType == image">
                                             <source *ngIf="course.courseType == video"
-                                                    src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"
+                                                    src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"
                                                     type="video/mp4">
+                                            <!--<source *ngIf="course.courseType == video"-->
+                                            <!--src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"-->
+                                            <!--type="video/mp4">-->
                                           </video>
                                         </div>
                                         <!--<div class="modal-footer">-->
@@ -359,8 +374,8 @@
                               </div>
                             </td>
                             <td>
-                              <!--<span id="IconLock" *ngIf="course.canPreview != truePreview"-->
-                              <!--class="glyphicon glyphicon-lock"></span>-->
+                              <span id="IconLock" *ngIf="course.canPreview != truePreview"
+                                    class="glyphicon glyphicon-lock"></span>
                             </td>
                           </tr>
                           </tbody>
@@ -380,7 +395,6 @@
           </div>
 
         </div>
-
         <div *ngIf="user.status == statusInstructor">
           <div class="container-design">
             <div class="row">
@@ -390,13 +404,18 @@
                 <div class="thumbnail" *ngFor="let imageCourse of courses?.imageCourses">
                   <div class="crop">
                     <div align="center">
-                      <img class="img" src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt="Image"/>
+                      <img class="img" src="{{'http://192.168.1.7:8080/displayImage/' + imageCourse.id}}" alt="Image"/>
+                      <!--<img class="img" src="{{'http://192.168.1.7:8080/displayImage/' + imageCourse.id}}" alt="Image"/>-->
                     </div>
                   </div>
                 </div>
 
                 <div class="panel panel-default br">
                   <div class="panel-heading">เกี่ยวกับคอร์สนี้</div>
+                  <div *ngIf="courses.linkCourse != textNull" class="panel-body"><span> <p
+                    class="glyphicon glyphicon-shopping-cart"></p></span>
+                    <a href="{{courses.linkCourse}}">ซื้ออุปกรณ์ที่เกี่ยวข้อง</a>
+                  </div>
                   <div class="panel-body"><span> <p class="glyphicon glyphicon-calendar"></p></span>
                     เรียนคอร์สนี้ได้อีก
                     30
@@ -486,9 +505,8 @@
                             <th></th>
                           </tr>
                           </thead>
-                          <tbody *ngFor="let course of courses?.courseItems">
+                          <tbody *ngFor="let course of courses?.courseItems| sortBy : 'id'; let i = index">
                           <tr>
-
                             <td>
                               <div class="container-fluid">
                                 <div class="row col-sm-12">
@@ -518,13 +536,18 @@
                                         <!--</div>-->
                                         <div align="center" class="video-responsive">
                                           <img class="img" *ngIf="course.courseType == image"
-                                               src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
+                                               src="{{'http://192.168.1.7:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
+                                          <!--<img class="img" *ngIf="course.courseType == image"-->
+                                          <!--src="{{'http://192.168.1.7:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>-->
                                           <br>
                                           <video width="800" height="470" controls
                                                  [hidden]="course.courseType == image">
                                             <source *ngIf="course.courseType == video"
-                                                    src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"
+                                                    src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"
                                                     type="video/mp4">
+                                            <!--<source *ngIf="course.courseType == video"-->
+                                            <!--src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"-->
+                                            <!--type="video/mp4">-->
                                           </video>
                                         </div>
                                         <!--<div class="modal-footer">-->
@@ -565,5 +588,6 @@
       </div>
     </div>
   </div>
+
 </div>
 <app-footer></app-footer>

@@ -50,15 +50,22 @@
                                   </td>
                                   <td class="text-center">
                                     <span *ngIf="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
-                                    <span *ngIf="item.isCancel"><i
-                                      class="glyphicon glyphicon-ban-circle"></i></span>
+                                    <span *ngIf="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
                                     <span *ngIf="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
                                   </td>
                                   <td nowrap>
                                     <button type="button" class="btn btn-success btn-xs"
                                             (click)="item.upload()"
                                             [disabled]="item.isReady || item.isUploading || item.isSuccess">
-                                      <span class="glyphicon glyphicon-upload"></span> Upload Video
+                                      <span class="glyphicon glyphicon-upload"></span> Upload
+                                    </button>
+                                    <button type="button" class="btn btn-warning btn-xs"
+                                            (click)="item.cancel()" [disabled]="!item.isUploading">
+                                      <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-xs"
+                                            (click)="item.remove()">
+                                      <span class="glyphicon glyphicon-trash"></span> Remove
                                     </button>
                                   </td>
                                 </tr>
@@ -66,6 +73,7 @@
                               </table>
 
                               <div>
+                                Video File: {{Course.videoClips[0]?.fileName}}
                                 <div>
                                   Queue progress:
                                   <div class="progress" style="">
@@ -78,7 +86,6 @@
                             </div>
 
                           </div>
-
                           <div class="col-sm-12" [hidden]="Course.courseType == video">
                             <div class="col-md-4">
                               <label>Upload Image</label>
@@ -86,7 +93,6 @@
                                      [uploader]="uploaderImage"
                                      accept="image/*"/>
                             </div>
-
                             <div class="col-md-8" style="margin-bottom: 5px">
 
                               <table class="table">
@@ -136,6 +142,7 @@
                               </table>
 
                               <div>
+                                Image File: {{Course.imageItems[0]?.fileName}}
                                 <div>
                                   Queue progress:
                                   <div class="progress" style="">
@@ -145,6 +152,27 @@
                                 </div>
                               </div>
 
+                              <!--<div class="modal-header">-->
+                              <!--&lt;!&ndash;<button type="button" class="close" data-dismiss="modal"><span&ndash;&gt;-->
+                              <!--&lt;!&ndash;aria-hidden="true">×</span>&ndash;&gt;-->
+                              <!--&lt;!&ndash;</button>&ndash;&gt;-->
+                              <!--</div>-->
+
+                              <!--<div align="center" class="video-responsive">-->
+                              <!--<img class="img" *ngIf="Course.courseType == image"-->
+                              <!--src="{{'http://localhost:8080/displayImageItem/' + Course.imageItems[0]?.id}}"/>-->
+                              <!--<br>-->
+                              <!--<video width="800" height="430" controls-->
+                              <!--[hidden]="Course.courseType == image">-->
+                              <!--<source *ngIf="Course.courseType == video"-->
+                              <!--src="{{'http://localhost:8080/playVideo/' + Course.videoClips[0]?.id}}"-->
+                              <!--type="video/mp4">-->
+                              <!--</video>-->
+                              <!--</div>-->
+
+                              <!--<div class="modal-footer">-->
+                              <!--&lt;!&ndash;<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>&ndash;&gt;-->
+                              <!--</div>-->
                             </div>
 
                           </div>
@@ -155,16 +183,54 @@
                   </div>
                 </div>
 
-                <label>Lesson ID: {{Course.id}}</label><br>
-                <label>Lesson Type: {{Course.courseType}}</label>
+                <!--<div *ngFor="let course of courses?.courseItems">-->
+                <!--<div align="center" class="video-responsive">-->
+                <!--<img class="img" *ngIf="course.courseType == image"-->
+                <!--src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>-->
+                <!--<br>-->
+                <!--<video width="500" height="250" controls-->
+                <!--[hidden]="course.courseType == image">-->
+                <!--<source *ngIf="course.courseType == video"-->
+                <!--src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"-->
+                <!--type="video/mp4">-->
+                <!--</video>-->
+                <!--</div>-->
+                <!--</div>-->
+
+                <!--<div align="left" class="video-responsive">-->
+                <!--<button *ngIf="Course.courseType == video"-->
+                <!--class="btn btn-sm btn-danger"-->
+                <!--(click)="deleteItemVideo(Course.videoClips[0]?.id)"><span>Delete Video</span>-->
+                <!--</button>-->
+                <!--<button *ngIf="Course.courseType == image"-->
+                <!--class="btn btn-sm btn-danger"-->
+                <!--(click)="deleteItemImage(Course.imageItems[0]?.id)"><span>Delete Image</span>-->
+                <!--</button>-->
+                <!--<div>-->
+                <!--<img class="img" *ngIf="Course.courseType == image"-->
+                <!--src="{{'http://localhost:8080/displayImageItem/' + Course.imageItems[0]?.id}}"/>-->
+                <!--</div>-->
+                <!--<br>-->
+                <!--<video width="400" height="250" controls-->
+                <!--[hidden]="Course.courseType == image">-->
+                <!--<source *ngIf="Course.courseType == video"-->
+                <!--src="{{'http://localhost:8080/playVideo/' + Course.videoClips[0]?.id}}"-->
+                <!--type="video/mp4">-->
+                <!--</video>-->
+                <!--</div>-->
+
+                <!--<label>Lesson ID: {{Course.id}}</label><br>-->
+                <!--<label>Lesson Type: {{Course.courseType}}</label>-->
 
                 <div class="form-group">
+                  <label>Name</label>
                   <input type="text" class="form-control" name="videoName" placeholder="Lesson Name.."
                          [(ngModel)]="Course.name"
                          #name="ngModel" required/>
                 </div>
 
                 <div class="form-group">
+                  <label>Description</label>
                   <input type="text" class="form-control" name="videoDescription"
                          placeholder="Lesson Description.."
                          [(ngModel)]="Course.description"

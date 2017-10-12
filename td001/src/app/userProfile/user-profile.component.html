@@ -2,7 +2,7 @@
   <div class="container-fluid" *ngFor="let user of users">
     <div class="container" *ngIf="user.id == currentUser.id">
       <div class="fb-profile">
-        <img align="left" class="fb-image-lg" [src]="ImageUserCover"
+        <img style="height: 450px" align="left" class="fb-image-lg" [src]="ImageUserCover"
              alt="Profile image example"/>
         <img align="left" class="fb-image-profile thumbnail" [src]="ImageUserProfile"
              alt="Profile image example"/>

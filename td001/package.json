@@ -26,6 +26,7 @@
     "core-js": "^2.4.1",
     "mydatepicker": "^2.0.29",
     "ng2-datepicker": "^1.8.3",
+    "ng2-facebook-sdk": "^2.1.0-rc.1",
     "ng2-file-upload": "^1.2.1",
     "ng2-file-uploader": "^0.1.4",
     "ng2-order-pipe": "^0.1.5",

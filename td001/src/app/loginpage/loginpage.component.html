@@ -2,7 +2,8 @@
   <div class="panel-body">
 
     <!-- line modal -->
-    <div class="modal fade" id="squarespaceModalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+    <div class="modal fade" id="squarespaceModalLogin" tabindex="-1" role="dialog"
+         aria-labelledby="modalLabel"
          aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -22,18 +23,22 @@
                 </div>
                 <div class="col-md-8 style-height">
                   <div class="wrapper">
+                    <div align="center">
+                      <input
+                        style="background-color: #4267b2; color: white; width: 80%; font-size: 14px; margin-top: 5%"
+                        class="btn btn-lg btn-primary btn-block"
+                        (click)="loginWithFacebook()" id="facebook"
+                        value="Connect with Facebook">
+                    </div>
                     <form name="form" (ngSubmit)="signIn()" #f="ngForm" novalidate>
-                      <!--<input style="background-color: #337ab7; color: white" class="btn btn-lg btn-primary btn-block"-->
-                      <!--(click)="loginWithFacebook()" type="submit" id="facebook"-->
-                      <!--value="Sign in with Facebook">-->
-                      <div align="center">
-                        <div
-                          class="fb-login-button"
-                          data-max-rows="1"
-                          data-size="large"
-                          data-button-type="continue_with" (click)="loginWithFacebook()">
-                        </div>
-                      </div>
+                      <!--<div align="center">-->
+                      <!--<div-->
+                      <!--class="fb-login-button"-->
+                      <!--data-max-rows="1"-->
+                      <!--data-size="large"-->
+                      <!--data-button-type="continue_with" (click)="loginWithFacebook()">-->
+                      <!--</div>-->
+                      <!--</div>-->
 
                       <hr class="style15">
                       <div class="group">
@@ -48,7 +53,7 @@
                       </div>
                       <div class="" align="center" style="margin-top: 5px">
                         <button [disabled]="loading" class="btn btn-primary btn-md">Login</button>
-                        <button [disabled]="loading" data-dismiss="modal" class="btn btn-primary btn-md">Cancel</button>
+                        <button data-dismiss="modal" class="btn btn-primary btn-md">Cancel</button>
                       </div>
                     </form>
                   </div>

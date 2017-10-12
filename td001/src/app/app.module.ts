@@ -39,8 +39,10 @@ import {EditCourstIdComponent} from './edit-courst-id/edit-courst-id.component';
 import {ImageUploadModule} from "angular2-image-upload";
 import {AddVideoItemComponent} from "./add-video-item/add-video-item.component";
 import {PurchaseCourseService} from "./services/PurchaseCourseService";
-import { Ng2OrderModule } from 'ng2-order-pipe';
+import {Ng2OrderModule} from 'ng2-order-pipe';
 import {FacebookModule} from "ngx-facebook";
+import {HttpClientModule} from "@angular/common/http";
+import { SortingPipe } from './pipes/sorting.pipe';
 
 @NgModule({
   declarations: [
@@ -65,7 +67,8 @@ import {FacebookModule} from "ngx-facebook";
     OrderManagementComponent,
     EditCourseComponent,
     EditCourstIdComponent,
-    AddVideoItemComponent
+    AddVideoItemComponent,
+    SortingPipe
   ],
   imports: [
     BrowserModule,
@@ -76,7 +79,8 @@ import {FacebookModule} from "ngx-facebook";
     FileUploadModule,
     ImageUploadModule.forRoot(),
     Ng2OrderModule,
-    FacebookModule.forRoot()
+    FacebookModule.forRoot(),
+    HttpClientModule
   ],
   providers: [
     AuthGuard,

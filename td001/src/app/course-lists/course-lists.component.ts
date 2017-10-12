@@ -41,6 +41,15 @@ export class CourseListsComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
+//   this.playerService.getData().subscribe((data) => {
+//   this.data = data;
+//   for (var i = 0; i <= this.data.length; i++) {
+//   if (this.data[i].likes>this.max) {
+//   this.max=this.data[i].likes;
+//   this.bestPlayer=this.data[i];
+// }
+// })
+
   ngOnInit() {
     this.getCoursesById();
     this.getCarts();

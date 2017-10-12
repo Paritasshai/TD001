@@ -5,12 +5,14 @@ import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class PurchaseCourseService {
+  //url = "localhost";
+  url = "192.168.1.7";
 
   constructor(private http: Http) {
   }
 
   createBuyCourse(userId, id, purchaseCart: PurchaseCard, result: any, coursePrice: any) {
-    return this.http.post('http://localhost:8080/saveCart/' + "?userId=" + userId + "&" + "courseId=" + id + "&" + "Balance=" + result + "&" + "transAmount=" + coursePrice, purchaseCart).map((response: Response) => response.json());
+    return this.http.post('http://' + this.url + ':8080/saveCart/' + "?userId=" + userId + "&" + "courseId=" + id + "&" + "Balance=" + result + "&" + "transAmount=" + coursePrice, purchaseCart).map((response: Response) => response.json());
   }
 
   getCarts(): Observable<PurchaseCard[]> {
@@ -18,7 +20,7 @@ export class PurchaseCourseService {
     let options = new RequestOptions({headers: headers});
 
     // get users from api
-    return this.http.get('http://localhost:8080/getPurchaseCartList', options)
+    return this.http.get('http://' + this.url + ':8080/getPurchaseCartList', options)
       .map((response: Response) => response.json());
   }
 

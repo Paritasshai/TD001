@@ -2,17 +2,19 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <th>Course ID</th>
+      <th>#</th>
       <th>Name</th>
       <th>Description</th>
-      <th>Upload CourseItem</th>
+      <th>Public/Private</th>
+      <th></th>
     </tr>
     </thead>
-    <tbody *ngFor="let userCourse of courses">
+    <tbody *ngFor="let userCourse of courses | sortBy : 'id'; let i = index">
     <tr *ngIf="userCourse.userId == currentUser.id">
-      <td>{{userCourse.id}}</td>
+      <td>{{i+1}}</td>
       <td>{{userCourse.name}}</td>
       <td>{{userCourse.description}}</td>
+      <td>{{userCourse.publicCourse}}</td>
       <td>
         <button class="btn btn-primary btn-md"
                 (click)="EditCourse(userCourse.id)">

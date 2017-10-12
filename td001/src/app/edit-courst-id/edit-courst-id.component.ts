@@ -43,8 +43,10 @@ export class EditCourstIdComponent implements OnInit {
     });
   }
 
-  public uploader: FileUploader = new FileUploader({url: 'http://localhost:8080/add/video/' + "?id=" + this.route.snapshot.params['id']});
-  public uploaderImage: FileUploader = new FileUploader({url: 'http://localhost:8080/add/ImageCourse/' + "?id=" + this.route.snapshot.params['id']});
+  public uploader: FileUploader = new FileUploader({url: 'http://192.168.1.7:8080/add/video/' + "?id=" + this.route.snapshot.params['id']});
+  //public uploader: FileUploader = new FileUploader({url: 'http://localhost:8080/add/video/' + "?id=" + this.route.snapshot.params['id']});
+  public uploaderImage: FileUploader = new FileUploader({url: 'http://192.168.1.7:8080/add/ImageCourse/' + "?id=" + this.route.snapshot.params['id']});
+  //public uploaderImage: FileUploader = new FileUploader({url: 'http://localhost:8080/add/ImageCourse/' + "?id=" + this.route.snapshot.params['id']});
   public hasBaseDropZoneOver: boolean = false;
   public hasAnotherDropZoneOver: boolean = false;
 
@@ -69,13 +71,13 @@ export class EditCourstIdComponent implements OnInit {
     this.linkCourse = this.Course.linkCourse;
     console.log(this.linkCourse);
 
-    this.courseService.updateCourse(id, this.name, this.description, this.price, this.publicCourse,this.linkCourse, this.Course)
+    this.courseService.updateCourse(id, this.name, this.description, this.price, this.publicCourse, this.linkCourse, this.Course)
       .subscribe(
         data => {
-          this.alertService.success('Upload Successful', true);
+          this.alertService.success('Edit Successful', true);
         },
         error => {
-          this.alertService.error('Upload Failed', true);
+          this.alertService.error('Edit Failed', true);
         });
   }
 
@@ -93,7 +95,6 @@ export class EditCourstIdComponent implements OnInit {
   }
 
   deleteVideo(id) {
-
     this.courseId = this.Course.id;
     this.courseService.deleteVideoCourse(id, this.courseId).subscribe(
       data => {
@@ -147,8 +148,18 @@ export class EditCourstIdComponent implements OnInit {
     this.router.navigate(['/addItem', id]);
   }
 
-  DeleteItem() {
-
+  DeleteItem(id) {
+    console.log(id);
+    this.courseId = this.Course.id;
+    console.log(this.courseId);
+    this.courseService.DeleteItem(id, this.courseId).subscribe(
+      data => {
+        alert("Success");
+        location.reload();
+      },
+      error => {
+        alert("Error");
+      });
   }
 
 }

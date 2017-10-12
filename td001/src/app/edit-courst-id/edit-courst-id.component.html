@@ -1,14 +1,9 @@
 <div class="container-fluid design">
   <div class="container-default">
 
-    <nav class="navbar navbar-default bg-faded">
-                <span class="navbar-text">
-                <button class="btn btn-success btn-md" (click)="CreateVideo()"> <span
-                  class="glyphicon glyphicon-plus"></span> Add Video</button>
-                 <button class="btn btn-success btn-md" (click)="CreateImage()"> <span
-                   class="glyphicon glyphicon-plus"></span> Add Image</button>
-                </span>
-    </nav>
+    <!--<nav class="navbar navbar-default bg-faded">-->
+    <!---->
+    <!--</nav>-->
 
     <form (ngSubmit)="edit(Course.id)">
       <div class="row">
@@ -46,6 +41,10 @@
             <div class="form-group">
               <button class="btn btn-primary btn-md" style="width: 150px">Edit</button>
             </div>
+            <alert>
+              <div class="alert alert-success">Registration successful
+              </div>
+            </alert>
           </div>
 
           <div class="col-sm-8">
@@ -56,7 +55,7 @@
                   (click)="deleteImage(imageCourse.id)"><span>Delete Image</span>
                 </button>
                 <img class="img-responsive"
-                     src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}">
+                     src="{{'http://192.168.1.7:8080/displayImage/' + imageCourse.id}}">
               </div>
             </div>
             <br>
@@ -124,6 +123,14 @@
 
     <div>
       <nav class="navbar navbar-default bg-faded">
+                <span class="navbar-text">
+                <button class="btn btn-success btn-md" (click)="CreateVideo()"> <span
+                  class="glyphicon glyphicon-plus"></span> Add Video</button>
+                 <button class="btn btn-success btn-md" (click)="CreateImage()"> <span
+                   class="glyphicon glyphicon-plus"></span> Add Image</button>
+                </span>
+      </nav>
+      <nav class="navbar navbar-default bg-faded">
         <div class="container-fluid">
           <table class="table table-striped">
             <thead>
@@ -132,17 +139,20 @@
               <th>Type</th>
               <th>Name</th>
               <th>Description</th>
+              <th>Public/Private</th>
               <!--<th>Edit CourseItem</th>-->
               <!--<th>Edit CourseItem</th>-->
               <th>Edit CourseItem</th>
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let courseItem of Course?.courseItems; let i = index">
+            <!--<tr *ngFor="let courseItem of Course?.courseItems; let i = index">-->
+            <tr *ngFor="let courseItem of Course?.courseItems | sortBy : 'id'; let i = index">
               <td>{{i+1}}</td>
               <td>{{courseItem.courseType}}</td>
               <td>{{courseItem.name}}</td>
               <td>{{courseItem.description}}</td>
+              <td>{{courseItem.canPreview}}</td>
               <!--<td *ngIf="courseItem.courseType == imageType">{{courseItem.imageItems[0]?.id}}</td>-->
               <!--<td *ngIf="courseItem.courseType == videoType">{{courseItem.videosItems[0]?.id}}</td>-->
               <td>

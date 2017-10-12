@@ -5,12 +5,14 @@ import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class OrderService {
+  //url = "localhost";
+  url = "192.168.1.7";
 
   constructor(private http: Http) {
   }
 
   createOrders(orderPayment: Order, userId: any) {
-    return this.http.post('http://localhost:8080/create/order' + "?userId=" + userId, orderPayment).map((response: Response) => response.json());
+    return this.http.post('http://' + this.url + ':8080/create/order' + "?userId=" + userId, orderPayment).map((response: Response) => response.json());
   }
 
   getPayments(): Observable<Order[]> {
@@ -18,7 +20,7 @@ export class OrderService {
     let options = new RequestOptions({headers: headers});
 
     // get users from api
-    return this.http.get('http://localhost:8080/get/orderAll', options)
+    return this.http.get('http://' + this.url + ':8080/get/orderAll', options)
       .map((response: Response) => response.json());
   }
 
@@ -27,7 +29,7 @@ export class OrderService {
     let options = new RequestOptions({headers: headers});
 
     // get users from api
-    return this.http.get('http://localhost:8080/getOrder/' + id, options)
+    return this.http.get('http://' + this.url + ':8080/getOrder/' + id, options)
       .map((response: Response) => response.json());
   }
 
@@ -36,7 +38,7 @@ export class OrderService {
     let options = new RequestOptions({headers: headers});
 
     // get users from api
-    return this.http.get('http://localhost:8080/getOrder/' + id, options)
+    return this.http.get('http://' + this.url + ':8080/getOrder/' + id, options)
       .map((response: Response) => response.json());
   }
 
