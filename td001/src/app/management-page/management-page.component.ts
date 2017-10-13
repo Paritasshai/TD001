@@ -15,6 +15,7 @@ export class ManagementPageComponent implements OnInit {
   result: any;
   paymentId: any;
   statementAmount: any;
+  confirm = "confirm";
 
   constructor(private bankStatementService: BankStatementService) {
   }

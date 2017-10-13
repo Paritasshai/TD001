@@ -31,6 +31,12 @@
           </div>
 
           <div class="form-group">
+            <input type="text" class="form-control" name="price" placeholder="Price.."
+                   [(ngModel)]="Course.price"
+                   #price="ngModel" required/>
+          </div>
+
+          <div class="form-group">
             <button class="btn btn-success btn-md"><span class="glyphicon glyphicon-ok"></span> Create Course</button>
           </div>
 

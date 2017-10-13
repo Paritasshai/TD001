@@ -37,7 +37,7 @@
       <th>Time</th>
       <th>Status</th>
       <th>Amount</th>
-      <th>Confirm</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
@@ -53,10 +53,12 @@
       <td>{{bankStatement.statusBank}}</td>
       <td>{{bankStatement.statementAmount}}</td>
       <td>
-        <button class="btn btn-primary btn-md"
-                (click)="ConfirmPayment(bankStatement.id, bankStatement.users[0].email, bankStatement.paymentId, bankStatement.statementAmount, bankStatement.users[0].balance, bankStatement.bankOrderId)">
-          Confirm
-        </button>
+        <div [hidden]="bankStatement.statusBank == confirm">
+          <button class="btn btn-primary btn-md"
+                  (click)="ConfirmPayment(bankStatement.id, bankStatement.users[0].email, bankStatement.paymentId, bankStatement.statementAmount, bankStatement.users[0].balance, bankStatement.bankOrderId)">
+            Confirm
+          </button>
+        </div>
       </td>
     </tr>
     </tbody>

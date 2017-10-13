@@ -12,4 +12,6 @@ export class Order {
   public updateDate: any;
   public updateTime: any;
   public updateUserId: any;
+  public systemRemark: any;
+
 }

@@ -95,13 +95,13 @@ body {
 }
 
 .img {
-  width: 800px;
-  height: 430px;
+  width: 100%;
+  height: 250px;
   overflow: hidden;
 }
 
 .crop {
-  max-height: 300px;
+  max-height: 170px;
   max-width: 100%;
   overflow: hidden;
   position: relative;
@@ -110,5 +110,24 @@ body {
 .crop img {
   max-height: 300px;
   max-width: 100%;
-  margin: -15% -5% -20%;
+  margin: -10% 0 -3% 0;
 }
+
+/*.img {*/
+  /*width: 100%;*/
+  /*height: 430px;*/
+  /*overflow: hidden;*/
+/*}*/
+
+/*.crop {*/
+  /*max-height: 430px;*/
+  /*max-width: 100%;*/
+  /*overflow: hidden;*/
+  /*position: relative;*/
+/*}*/
+
+/*.crop img {*/
+  /*max-height: 330px;*/
+  /*max-width: 100%;*/
+  /*margin: -15% -5% -20%;*/
+/*}*/

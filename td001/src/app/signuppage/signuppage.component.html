@@ -34,22 +34,22 @@
                       <form name="form" (ngSubmit)="f.form.valid && signUp()" #f="ngForm" novalidate>
                         <div style="margin-top: -2%" class="form-group"
                              [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-                          <input type="text" class="form-control" name="firstName" placeholder="First Name.."
+                          <input type="text" class="form-control" name="firstName" placeholder="User Name.."
                                  [(ngModel)]="User.firstName"
                                  #firstName="ngModel" required/>
                           <div align="left" *ngIf="f.submitted && !firstName.valid" class="help-block">First Name is
                             required!
                           </div>
                         </div>
-                        <div style="margin-top: -2%" class="form-group"
-                             [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-                          <input type="text" class="form-control" name="lastName" placeholder="Last Name.."
-                                 [(ngModel)]="User.lastName"
-                                 #lastName="ngModel" required/>
-                          <div align="left" *ngIf="f.submitted && !lastName.valid" class="help-block">Last Name is
-                            required!
-                          </div>
-                        </div>
+                        <!--<div style="margin-top: -2%" class="form-group"-->
+                             <!--[ngClass]="{ 'has-error': f.submitted && !username.valid }">-->
+                          <!--<input type="text" class="form-control" name="lastName" placeholder="Last Name.."-->
+                                 <!--[(ngModel)]="User.lastName"-->
+                                 <!--#lastName="ngModel" required/>-->
+                          <!--<div align="left" *ngIf="f.submitted && !lastName.valid" class="help-block">Last Name is-->
+                            <!--required!-->
+                          <!--</div>-->
+                        <!--</div>-->
                         <div style="margin-top: -2%" class="form-group"
                              [ngClass]="{ 'has-error': f.submitted && !username.valid }">
                           <input type="email" class="form-control" name="email" placeholder="Email.."

@@ -20,14 +20,21 @@
               class="glyphicon glyphicon-shopping-cart"></p></span>
               <a href="{{courses.linkCourse}}">ซื้ออุปกรณ์ที่เกี่ยวข้อง</a>
             </div>
-            <div class="panel-body"><span> <p class="glyphicon glyphicon-calendar"></p></span> เรียนคอร์สนี้ได้อีก
-              30
-              วัน
+            <div class="panel-body"><span> <i class="fa fa-money"></i></span>
+              Price: {{courses.price}} Bath
             </div>
-            <div class="panel-body"><span> <p class="glyphicon glyphicon-facetime-video"></p></span> วิดีโอความยาว
-              1
-              ชั่วโมง 15 นาที
+            <div>
+              <button type="button" class="btn btn-primary" (click)="buyCourseNull()">ซื้อคอร์สเรียน
+              </button>
             </div>
+            <!--<div class="panel-body"><span> <p class="glyphicon glyphicon-calendar"></p></span> เรียนคอร์สนี้ได้อีก-->
+            <!--30-->
+            <!--วัน-->
+            <!--</div>-->
+            <!--<div class="panel-body"><span> <p class="glyphicon glyphicon-facetime-video"></p></span> วิดีโอความยาว-->
+            <!--1-->
+            <!--ชั่วโมง 15 นาที-->
+            <!--</div>-->
           </div>
 
           <div class="panel panel-default br">
@@ -61,8 +68,8 @@
               <!--class="glyphicon glyphicon-shopping-cart"></p>-->
             </div>
             <div class="panel-body">Course Description: {{courses.description}}</div>
-            <button type="button" class="btn btn-primary" (click)="buyCourseNull()">ซื้อคอร์สเรียน
-            </button>
+            <!--<button type="button" class="btn btn-primary" (click)="buyCourseNull()">ซื้อคอร์สเรียน-->
+            <!--</button>-->
           </div>
 
           <div class="panel panel-default">
@@ -187,16 +194,25 @@
                     class="glyphicon glyphicon-shopping-cart"></p></span>
                     <a href="{{courses.linkCourse}}">ซื้ออุปกรณ์ที่เกี่ยวข้อง</a>
                   </div>
-                  <div class="panel-body"><span> <p class="glyphicon glyphicon-calendar"></p></span>
-                    เรียนคอร์สนี้ได้อีก
-                    30
-                    วัน
+                  <div class="panel-body"><span> <i class="fa fa-money"></i></span>
+                    Price: {{courses.price}} Bath
                   </div>
-                  <div class="panel-body"><span> <p class="glyphicon glyphicon-facetime-video"></p></span>
-                    วิดีโอความยาว
-                    1
-                    ชั่วโมง 15 นาที
+                  <div [hidden]="user.status != active">
+                    <button type="button" class="btn btn-primary"
+                            (click)="buyCourse(courses.id, user.balance,courses.price,courses.name, currentUser.id)">
+                      ซื้อคอร์สเรียน
+                    </button>
                   </div>
+                  <!--<div class="panel-body"><span> <p class="glyphicon glyphicon-calendar"></p></span>-->
+                  <!--เรียนคอร์สนี้ได้อีก-->
+                  <!--30-->
+                  <!--วัน-->
+                  <!--</div>-->
+                  <!--<div class="panel-body"><span> <p class="glyphicon glyphicon-facetime-video"></p></span>-->
+                  <!--วิดีโอความยาว-->
+                  <!--1-->
+                  <!--ชั่วโมง 15 นาที-->
+                  <!--</div>-->
                 </div>
 
                 <div class="panel panel-default br">
@@ -238,13 +254,6 @@
                     <!--{{courses.id}}-->
                     <!--</div>-->
                     <!--</div>-->
-
-                    <div [hidden]="user.status != active">
-                      <button type="button" class="btn btn-primary"
-                              (click)="buyCourse(courses.id, user.balance, currentUser.id)">
-                        ซื้อคอร์สเรียน
-                      </button>
-                    </div>
                   </div>
                   <div class="panel panel-default">
                     <body data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -416,16 +425,19 @@
                     class="glyphicon glyphicon-shopping-cart"></p></span>
                     <a href="{{courses.linkCourse}}">ซื้ออุปกรณ์ที่เกี่ยวข้อง</a>
                   </div>
-                  <div class="panel-body"><span> <p class="glyphicon glyphicon-calendar"></p></span>
-                    เรียนคอร์สนี้ได้อีก
-                    30
-                    วัน
+                  <div class="panel-body"><span> <i class="fa fa-money"></i></span>
+                    Price: {{courses.price}} Bath
                   </div>
-                  <div class="panel-body"><span> <p class="glyphicon glyphicon-facetime-video"></p></span>
-                    วิดีโอความยาว
-                    1
-                    ชั่วโมง 15 นาที
-                  </div>
+                  <!--<div class="panel-body"><span> <p class="glyphicon glyphicon-calendar"></p></span>-->
+                  <!--เรียนคอร์สนี้ได้อีก-->
+                  <!--30-->
+                  <!--วัน-->
+                  <!--</div>-->
+                  <!--<div class="panel-body"><span> <p class="glyphicon glyphicon-facetime-video"></p></span>-->
+                  <!--วิดีโอความยาว-->
+                  <!--1-->
+                  <!--ชั่วโมง 15 นาที-->
+                  <!--</div>-->
                 </div>
 
                 <div class="panel panel-default br">

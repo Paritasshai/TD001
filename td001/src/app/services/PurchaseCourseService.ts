@@ -11,8 +11,8 @@ export class PurchaseCourseService {
   constructor(private http: Http) {
   }
 
-  createBuyCourse(userId, id, purchaseCart: PurchaseCard, result: any, coursePrice: any) {
-    return this.http.post('http://' + this.url + ':8080/saveCart/' + "?userId=" + userId + "&" + "courseId=" + id + "&" + "Balance=" + result + "&" + "transAmount=" + coursePrice, purchaseCart).map((response: Response) => response.json());
+  createBuyCourse(userId, id, purchaseCart: PurchaseCard, result: any, price, name) {
+    return this.http.post('http://' + this.url + ':8080/saveCart/' + "?userId=" + userId + "&" + "courseId=" + id + "&" + "Balance=" + result + "&" + "transAmount=" + price+ "&" + "courseName=" + name, purchaseCart).map((response: Response) => response.json());
   }
 
   getCarts(): Observable<PurchaseCard[]> {

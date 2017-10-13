@@ -8,6 +8,7 @@
             <thead>
             <tr>
               <th>Transaction Flq</th>
+              <th>System Remark</th>
               <th>Payment ID</th>
               <th>Payment Date</th>
               <th>Payment Time</th>
@@ -19,6 +20,7 @@
             <tbody *ngFor="let paymentTran of paymentTrans">
             <tr *ngIf="paymentTran.users[0].id == currentUser.id">
               <td>{{paymentTran.transFlq}}</td>
+              <td>{{paymentTran.systemRemark}}</td>
               <td>{{paymentTran.transRef}}</td>
               <td>{{paymentTran.updateDate}}</td>
               <td>{{paymentTran.updateTime}}</td>

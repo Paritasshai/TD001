@@ -79,22 +79,24 @@ export class CourseListsComponent implements OnInit {
     this.router.navigate(['/addItem', id]);
   }
 
-  buyCourse(id, balance) {
+  buyCourse(id, balance, price, name) {
 
     this.userId = this.currentUser.id;
     console.log(id);
     console.log(balance);
+    console.log(price);
+    console.log(name);
     console.log(this.userId);
     console.log(this.coursePrice);
 
-    if (balance <= this.coursePrice) {
+    if (balance <= price) {
       console.log("error");
       alert("Your balance not enough!!")
     } else {
 
-      this.result = balance - this.coursePrice;
+      this.result = balance - price;
       console.log(this.result);
-      this.purchaseCourseService.createBuyCourse(this.userId, id, this.purchaseCart, this.result, this.coursePrice).subscribe(
+      this.purchaseCourseService.createBuyCourse(this.userId, id, this.purchaseCart, this.result, price, name).subscribe(
         data => {
           alert("Success");
           location.reload();
