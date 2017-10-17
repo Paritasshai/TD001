@@ -18,7 +18,17 @@ export class ForgotPasswordPageComponent implements OnInit {
 
   forgotPassword() {
     console.log("Submit Email");
+    console.log(this.User.email);
     this.forgotPasswordService.forgot(this.User.email)
+      .subscribe(
+        data => {
+          //alert("Success");
+          this.loading = false;
+        },
+        error => {
+          alert("Failed");
+          this.loading = false;
+        });
   }
 
 }

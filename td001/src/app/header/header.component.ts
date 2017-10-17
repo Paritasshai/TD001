@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   constructor(private authenticationService: AuthenticationService,
               private userService: UserService) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.ImgLogo = '../../assets/images/logo.png';
+    this.ImgLogo = '../../assets/images/logomake.png';
   }
 
   ngOnInit() {

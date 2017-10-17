@@ -10,8 +10,8 @@ import {CourseItem} from "app/models/CourseItem";
 
 @Injectable()
 export class CourseService {
-  //url = "localhost";
-  url = "192.168.1.7";
+  url = "localhost";
+  //url = "192.168.1.7";
 
   constructor(private http: Http) {
   }
@@ -126,6 +126,10 @@ export class CourseService {
 
   DeleteItem(id, courseId: any) {
     return this.http.delete('http://' + this.url + ':8080/deleteItem/' + "?courseItem=" + id + "&" + "courseId=" + courseId).map((response: Response) => response.json());
+  }
+
+  getTeacherHistory(email: any) {
+    return this.http.get('http://' + this.url + ':8080/user/getTeacherHistory' + "?Email=" + email)
   }
 
   // deleteItemVideo(id,courseId: any) {

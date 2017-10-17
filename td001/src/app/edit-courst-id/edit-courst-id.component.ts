@@ -43,10 +43,10 @@ export class EditCourstIdComponent implements OnInit {
     });
   }
 
-  public uploader: FileUploader = new FileUploader({url: 'http://192.168.1.7:8080/add/video/' + "?id=" + this.route.snapshot.params['id']});
-  //public uploader: FileUploader = new FileUploader({url: 'http://localhost:8080/add/video/' + "?id=" + this.route.snapshot.params['id']});
-  public uploaderImage: FileUploader = new FileUploader({url: 'http://192.168.1.7:8080/add/ImageCourse/' + "?id=" + this.route.snapshot.params['id']});
-  //public uploaderImage: FileUploader = new FileUploader({url: 'http://localhost:8080/add/ImageCourse/' + "?id=" + this.route.snapshot.params['id']});
+  //public uploader: FileUploader = new FileUploader({url: 'http://192.168.1.7:8080/add/video/' + "?id=" + this.route.snapshot.params['id']});
+  public uploader: FileUploader = new FileUploader({url: 'http://localhost:8080/add/video/' + "?id=" + this.route.snapshot.params['id']});
+  //public uploaderImage: FileUploader = new FileUploader({url: 'http://192.168.1.7:8080/add/ImageCourse/' + "?id=" + this.route.snapshot.params['id']});
+  public uploaderImage: FileUploader = new FileUploader({url: 'http://localhost:8080/add/ImageCourse/' + "?id=" + this.route.snapshot.params['id']});
   public hasBaseDropZoneOver: boolean = false;
   public hasAnotherDropZoneOver: boolean = false;
 

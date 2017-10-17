@@ -42,3 +42,10 @@ li {
   background-color: white;
   border: solid 2px white;
 }
+
+img{
+  width: 160px;
+  height: 30px;
+  margin: 12px 0 0 0;
+  position: relative;
+}

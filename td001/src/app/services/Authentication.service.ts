@@ -7,9 +7,8 @@ import {FacebookService, InitParams} from 'ngx-facebook';
 
 @Injectable()
 export class AuthenticationService {
-  //url = "localhost";
-
-  url = "192.168.1.7";
+  url = "localhost";
+  //url = "192.168.1.7";
 
   constructor(private http: Http,
               private router: Router,
@@ -52,7 +51,7 @@ export class AuthenticationService {
           // if (localStorage.getItem('currentUser') === null) {
           //   localStorage.setItem('currentUser', JSON.stringify(user.firstName));
           this.alertService.success('Login successful', true);
-          alert("Success");
+          //alert("Success");
         }
         // location.reload();
         return user;

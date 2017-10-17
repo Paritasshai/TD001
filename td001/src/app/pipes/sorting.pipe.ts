@@ -3,7 +3,7 @@ import {Pipe, PipeTransform} from '@angular/core';
 @Pipe({name: "sortBy"})
 export class SortingPipe implements PipeTransform {
 
-  transform(array: Array<string>, args: string): Array<string> {
+  transform(array: any[], args: string): any[] {
     array.sort((a: any, b: any) => {
       if (a[args] < b[args]) {
         return -1;

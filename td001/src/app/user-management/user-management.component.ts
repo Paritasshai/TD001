@@ -33,6 +33,15 @@ export class UserManagementComponent implements OnInit {
   private getUserList() {
     this.userService.getAll().subscribe(users => {
       this.users = users;
+      this.users.sort(function (id1, id2) {
+        if (id1.id < id2.id) {
+          return -1;
+        } else if (id1.id > id2.id) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
     });
   }
 

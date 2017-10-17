@@ -24,6 +24,12 @@
                         #description="ngModel"></textarea>
             </div>
             <div class="form-group">
+              <p>Course Price: </p>
+              <input type="text" class="form-control" name="price" id="price" placeholder="Course Price.."
+                     [(ngModel)]="Course.price"
+                     #price="ngModel" required/>
+            </div>
+            <div class="form-group">
               <p>Course Link: </p>
               <input type="text" class="form-control" name="linkCourse" id="linkCourse" placeholder="Link Course.."
                      [(ngModel)]="Course.linkCourse"
@@ -55,7 +61,7 @@
                   (click)="deleteImage(imageCourse.id)"><span>Delete Image</span>
                 </button>
                 <img class="img-responsive"
-                     src="{{'http://192.168.1.7:8080/displayImage/' + imageCourse.id}}">
+                     src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}">
               </div>
             </div>
             <br>

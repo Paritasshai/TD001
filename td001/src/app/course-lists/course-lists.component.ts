@@ -18,7 +18,7 @@ export class CourseListsComponent implements OnInit {
   video = "video";
   truePreview = "true";
   statusInstructor = "instructor";
-  active = "active";
+  statusActive = "active";
   admin = "admin";
   // users: User[] = [];
   currentUser: User;
@@ -31,6 +31,7 @@ export class CourseListsComponent implements OnInit {
   result: any;
   balance: any;
   textNull = "null";
+  historyIns: any = [];
 
   constructor(private courseService: CourseService,
               private route: ActivatedRoute,
@@ -52,7 +53,7 @@ export class CourseListsComponent implements OnInit {
 
   ngOnInit() {
     this.getCoursesById();
-    this.getCarts();
+    //this.getCarts();
     this.getUserList();
   }
 
@@ -82,18 +83,16 @@ export class CourseListsComponent implements OnInit {
   buyCourse(id, balance, price, name) {
 
     this.userId = this.currentUser.id;
-    console.log(id);
+    //console.log(id);
     console.log(balance);
     console.log(price);
-    console.log(name);
-    console.log(this.userId);
-    console.log(this.coursePrice);
+    //console.log(name);
+    //console.log(this.userId);
+    //console.log(this.coursePrice);
 
-    if (balance <= price) {
-      console.log("error");
+    if (balance < price) {
       alert("Your balance not enough!!")
-    } else {
-
+    } else if (balance > price) {
       this.result = balance - price;
       console.log(this.result);
       this.purchaseCourseService.createBuyCourse(this.userId, id, this.purchaseCart, this.result, price, name).subscribe(
@@ -104,6 +103,8 @@ export class CourseListsComponent implements OnInit {
         error => {
           alert("Failed");
         });
+    } else {
+      alert("error");
     }
 
   }
@@ -113,7 +114,12 @@ export class CourseListsComponent implements OnInit {
   }
 
   TeacherHistory(email) {
-    console.log(email);
-    console.log("Get Teacher History");
+    //console.log(email);
+    //console.log("Get Teacher History");
+    this.courseService.getTeacherHistory(email)
+      .subscribe(historyIns => {
+        this.historyIns = historyIns;
+        console.log(this.historyIns);
+      });
   }
 }
