@@ -16,6 +16,7 @@ import {VideoListPageComponent} from "./course-video-list-page/video-list-page.c
 import {CourselistComponent} from "./courselist/courselist.component";
 import {EditCourseComponent} from "./edit-course/edit-course.component";
 import {AddVideoItemComponent} from "./add-video-item/add-video-item.component";
+import {CourseHistoryComponent} from "./course-history/course-history.component";
 
 const appRoutes: Routes = [
   {path: 'home', component: HomepageComponent},
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
   {path: 'courseCreateList', component: CourselistComponent},
   {path: 'EditCourse', component: EditCourseComponent},
   {path: 'addItem/:id', component: AddVideoItemComponent},
+  {path: 'CourseHistory', component: CourseHistoryComponent},
 
 
   // otherwise redirect to home

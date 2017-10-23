@@ -7,8 +7,7 @@
         <span style="background-color: #bf2b2a" class="icon icon-bar"></span>
         <span style="background-color: #bf2b2a" class="icon icon-bar"></span>
       </button>
-        <img [src]="ImgLogo" routerLink="/home">
-
+      <img title="Logo" [src]="ImgLogo" routerLink="/home" style="cursor: pointer">
       <!--<a style="color: #bf2b2a; margin-top: 3%; cursor: hand" class="navbar-brand"><span routerLink="/home">Website-->
       <!--LOGO</span></a>-->
     </div>
@@ -19,14 +18,14 @@
         <li data-toggle="modal" data-target="#squarespaceModalLogin"
             class="smoothScroll center-block"
             style="cursor: pointer"><a style="color: #bf2b2a">
-          <div [hidden]="currentUser != null"><span class="glyphicon glyphicon-log-in" data-toggle="modal"
+          <div title="Sign In" [hidden]="currentUser != null"><span class="glyphicon glyphicon-log-in" data-toggle="modal"
                                                     data-target="#squarespaceModalLogin"></span> Sign In
           </div>
         </a></li>
         <li data-toggle="modal" data-target="#squarespaceModalSignUp"
             class="smoothScroll center-block"
             style="cursor: pointer"><a style="color: #bf2b2a">
-          <div [hidden]="currentUser != null"><span class="glyphicon glyphicon-log-in" data-toggle="modal"
+          <div title="Sign Up" [hidden]="currentUser != null"><span class="glyphicon glyphicon-log-in" data-toggle="modal"
                                                     data-target="#squarespaceModalSignUp"></span> Sign Up
           </div>
         </a></li>
@@ -35,12 +34,14 @@
           <div *ngIf="currentUser != null"><b>{{currentUser.firstName}}</b></div>
         </a></li>
         <li><a class="smoothScroll" style="color: #bf2b2a">
-          <div [hidden]="!currentUser" style="cursor: pointer" [routerLink]="['/userProfile']"><span
-            class="glyphicon glyphicon-user"></span> Profile
+          <div title="Profile" [hidden]="!currentUser" style="font-size: 24px;margin-top: -10px; cursor: pointer"
+               [routerLink]="['/userProfile']"><span
+            class="glyphicon glyphicon-user"></span>
           </div>
         </a></li>
         <li><a class="smoothScroll" style="color: #bf2b2a">
-          <div [hidden]="currentUser == null" (click)="logOut()" [routerLink]="['/']" style="cursor: pointer"> LogOut
+          <div title="Logout" [hidden]="currentUser == null" (click)="logOut()" [routerLink]="['/']"
+               style="cursor: pointer; font-size: 28px; margin-top: -13px">
             <span
               class="glyphicon glyphicon-log-out"></span>
           </div>

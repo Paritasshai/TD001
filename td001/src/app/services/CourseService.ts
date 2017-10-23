@@ -11,6 +11,7 @@ import {CourseItem} from "app/models/CourseItem";
 @Injectable()
 export class CourseService {
   url = "localhost";
+
   //url = "192.168.1.7";
 
   constructor(private http: Http) {
@@ -59,12 +60,48 @@ export class CourseService {
       .map((response: Response) => response.json());
   }
 
+  getCoursenewType(newType: any, textPublic: any): Observable<CourseItem[]> {
+    let headers = new Headers({'Authorization': 'Bearer '});
+    let options = new RequestOptions({headers: headers});
+
+    // get users from api
+    return this.http.get('http://' + this.url + ':8080/getCoursenewType/' + "?textPublic=" + textPublic + "&" + "newType=" + newType, options)
+      .map((response: Response) => response.json());
+  }
+
+  getCourseRecommendType(recommendType: any, textPublic: any): Observable<CourseItem[]> {
+    let headers = new Headers({'Authorization': 'Bearer '});
+    let options = new RequestOptions({headers: headers});
+
+    // get users from api
+    return this.http.get('http://' + this.url + ':8080/getCourserecommendType/' + "?textPublic=" + textPublic + "&" + "recommendType=" + recommendType, options)
+      .map((response: Response) => response.json());
+  }
+
+  getCourseHotType(hotType: any, textPublic: any): Observable<CourseItem[]> {
+    let headers = new Headers({'Authorization': 'Bearer '});
+    let options = new RequestOptions({headers: headers});
+
+    // get users from api
+    return this.http.get('http://' + this.url + ':8080/getCourseHotType/' + "?textPublic=" + textPublic + "&" + "hotType=" + hotType, options)
+      .map((response: Response) => response.json());
+  }
+
   getCoursesById(id): Observable<Course> {
     let headers = new Headers({'Authorization': 'Bearer '});
     let options = new RequestOptions({headers: headers});
 
     // get users from api
     return this.http.get('http://' + this.url + ':8080/course/' + id, options)
+      .map((response: Response) => response.json());
+  }
+
+  getCoursesByIdPurchased(id, userIdPurchase: any): Observable<Course> {
+    let headers = new Headers({'Authorization': 'Bearer '});
+    let options = new RequestOptions({headers: headers});
+
+    // get users from api
+    return this.http.get('http://' + this.url + ':8080/coursePurchased/' + "?userId=" + userIdPurchase+ "&" + "courseId=" + id, options)
       .map((response: Response) => response.json());
   }
 
@@ -122,6 +159,10 @@ export class CourseService {
 
   DeleteCourse(id) {
     return this.http.delete('http://' + this.url + ':8080/deleteCourse/' + id).map((response: Response) => response.json());
+  }
+
+  DeleteUserCourse(id, userId:any) {
+    return this.http.delete('http://' + this.url + ':8080/courseUserDelete/' + "?courseId=" + id + "&" + "userId=" + userId).map((response: Response) => response.json());
   }
 
   DeleteItem(id, courseId: any) {

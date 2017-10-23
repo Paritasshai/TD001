@@ -43,6 +43,10 @@ import {Ng2OrderModule} from 'ng2-order-pipe';
 import {FacebookModule} from "ngx-facebook";
 import {HttpClientModule} from "@angular/common/http";
 import { SortingPipe } from './pipes/sorting.pipe';
+import { CourseHistoryComponent } from './course-history/course-history.component';
+import { SearchPipe } from './pipes/search.pipe';
+import { MapKeyPipe } from './pipes/map-key.pipe';
+import { SortObjectPipe } from './sort-object.pipe';
 
 @NgModule({
   declarations: [
@@ -68,7 +72,11 @@ import { SortingPipe } from './pipes/sorting.pipe';
     EditCourseComponent,
     EditCourstIdComponent,
     AddVideoItemComponent,
-    SortingPipe
+    SortingPipe,
+    CourseHistoryComponent,
+    SearchPipe,
+    MapKeyPipe,
+    SortObjectPipe
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,7 @@
     <td>{{user.lastName}}</td>
     <td>{{user.email}}</td>
     <td>{{user.status}}</td>
-    <td>{{user.balance}}</td>
+    <td align="right">{{user.balance}}</td>
     <td>
       <select #categoriesCtrl (change)='SelectedValue = categoriesCtrl.value'>
         <option *ngFor="let category of categories" [value]="category.status">{{category.status}}</option>

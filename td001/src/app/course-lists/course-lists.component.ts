@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CourseService} from "../services/CourseService";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../services/User.service";
@@ -13,10 +13,12 @@ import {isNull} from "util";
 })
 export class CourseListsComponent implements OnInit {
   courses: any = [];
+  coursesPurchaseed: any = [];
   users: any = [];
   image = "image";
   video = "video";
   truePreview = "true";
+  falsePreivew = "false";
   statusInstructor = "instructor";
   statusActive = "active";
   admin = "admin";
@@ -32,6 +34,9 @@ export class CourseListsComponent implements OnInit {
   balance: any;
   textNull = "null";
   historyIns: any = [];
+  userIdPurchase: any;
+  zero = "0";
+  one = "1";
 
   constructor(private courseService: CourseService,
               private route: ActivatedRoute,
@@ -55,6 +60,10 @@ export class CourseListsComponent implements OnInit {
     this.getCoursesById();
     //this.getCarts();
     this.getUserList();
+
+    if (this.currentUser != undefined) {
+      this.getCoursesByIdPurchased();
+    }
   }
 
   private getUserList() {
@@ -66,6 +75,14 @@ export class CourseListsComponent implements OnInit {
   getCoursesById() {
     this.courseService.getCoursesById(this.route.snapshot.params['id']).subscribe(courses => {
       this.courses = courses;
+    });
+  }
+
+  getCoursesByIdPurchased() {
+    this.userIdPurchase = this.currentUser.id;
+    // console.log(this.userIdPurchase);
+    this.courseService.getCoursesByIdPurchased(this.route.snapshot.params['id'], this.userIdPurchase).subscribe(coursesPurchaseed => {
+      this.coursesPurchaseed = coursesPurchaseed;
     });
   }
 
@@ -81,21 +98,18 @@ export class CourseListsComponent implements OnInit {
   }
 
   buyCourse(id, balance, price, name) {
-
     this.userId = this.currentUser.id;
     //console.log(id);
-    console.log(balance);
-    console.log(price);
+    //console.log(balance);
+    //console.log(price);
     //console.log(name);
     //console.log(this.userId);
     //console.log(this.coursePrice);
 
-    if (balance < price) {
-      alert("Your balance not enough!!")
-    } else if (balance > price) {
+    if (balance >= price) {
       this.result = balance - price;
       console.log(this.result);
-      this.purchaseCourseService.createBuyCourse(this.userId, id, this.purchaseCart, this.result, price, name).subscribe(
+      return this.purchaseCourseService.createBuyCourse(this.userId, id, this.purchaseCart, this.result, price, name).subscribe(
         data => {
           alert("Success");
           location.reload();
@@ -104,8 +118,25 @@ export class CourseListsComponent implements OnInit {
           alert("Failed");
         });
     } else {
-      alert("error");
+      alert("Your balance not enough!!");
     }
+
+    //  (balance < price) {
+    //   alert("Your balance not enough!!")
+    // }
+
+    // else if (balance = price) {
+    //     this.result = balance - price;
+    //     console.log(this.result);
+    //     this.purchaseCourseService.createBuyCourse(this.userId, id, this.purchaseCart, this.result, price, name).subscribe(
+    //       data => {
+    //         alert("Success");
+    //         location.reload();
+    //       },
+    //       error => {
+    //         alert("Failed");
+    //       });
+    //   }
 
   }
 

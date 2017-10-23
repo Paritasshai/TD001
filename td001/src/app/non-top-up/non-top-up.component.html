@@ -4,14 +4,14 @@
     <div class="row content">
       <div class="col-sm-12">
         <div class="well">
-          <h4>รายการที่ค้างชำระ</h4>
+          <h4>Payment status</h4>
           <table class="table table-striped">
             <thead>
             <tr>
               <th>Order ID</th>
               <th>Order Payment</th>
               <th>Payment Date</th>
-              <th>User Email</th>
+              <!--<th>User Email</th>-->
               <th>Amount</th>
               <th>Status</th>
               <th></th>
@@ -22,9 +22,10 @@
               <td>{{orderPayment.id}}</td>
               <td>{{orderPayment.transRef}}</td>
               <td>{{orderPayment.createDate}}</td>
-              <td>{{orderPayment.users[0].email}}</td>
-              <td>{{orderPayment.transAmount}}</td>
-              <td>{{orderPayment.statusOrder}}</td>
+              <!--<td>{{orderPayment.users[0].email}}</td>-->
+              <td align="right">{{orderPayment.transAmount}}</td>
+              <td [hidden]="orderPayment.statusOrder == confirm">{{orderPayment.statusOrder}}</td>
+              <td *ngIf="orderPayment.statusOrder == confirm" style="color: green">{{orderPayment.statusOrder}}</td>
               <td>
                 <div [hidden]="orderPayment.statusOrder == confirm">
                   <button class="btn btn-success btn-sm" (click)="Submit(orderPayment.id)">แจ้งชำระเงิน

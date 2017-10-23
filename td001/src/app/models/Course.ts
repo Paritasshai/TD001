@@ -5,4 +5,6 @@ export class Course {
   public userId: any;
   public publicCourse: any;
   public price: any;
+  public courseType: any;
+  public showLock: any;
 }

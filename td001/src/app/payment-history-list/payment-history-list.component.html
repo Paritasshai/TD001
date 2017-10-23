@@ -3,30 +3,28 @@
     <div class="row content">
       <div class="col-sm-12">
         <div class="well">
-          <h4>รายการ ฝาก-ถอน</h4>
+          <h4>Transaction</h4>
           <table class="table table-striped">
             <thead>
             <tr>
-              <th>Transaction Flq</th>
-              <th>System Remark</th>
-              <th>Payment ID</th>
               <th>Payment Date</th>
               <th>Payment Time</th>
-              <th>User Email</th>
+              <th>Type</th>
+              <th>Remark</th>
               <th>Amount</th>
               <th>Balance</th>
             </tr>
             </thead>
             <tbody *ngFor="let paymentTran of paymentTrans">
             <tr *ngIf="paymentTran.users[0].id == currentUser.id">
-              <td>{{paymentTran.transFlq}}</td>
-              <td>{{paymentTran.systemRemark}}</td>
-              <td>{{paymentTran.transRef}}</td>
+              <!--<td>{{paymentTran.transFlq}}</td>-->
               <td>{{paymentTran.updateDate}}</td>
               <td>{{paymentTran.updateTime}}</td>
-              <td>{{paymentTran.users[0].email}}</td>
-              <td>{{paymentTran.transAmount}}</td>
-              <td>{{paymentTran.transRemark}}</td>
+              <td>{{paymentTran.systemRemark}}</td>
+              <td>{{paymentTran.transRef}}</td>
+              <!--<td>{{paymentTran.users[0].email}}</td>-->
+              <td align="right">{{paymentTran.transAmount}}</td>
+              <td align="right">{{paymentTran.transRemark}}</td>
             </tr>
             </tbody>
           </table>

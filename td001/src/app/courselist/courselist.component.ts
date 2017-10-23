@@ -13,6 +13,9 @@ import {UserService} from "../services/User.service";
 export class CourselistComponent implements OnInit {
   Img1: string;
   courses: any = [];
+  coursesNew: any = [];
+  coursesRecommend: any = [];
+  coursesHot: any = [];
   instructor = "instructor";
   currentUser: User;
   users: User[] = [];
@@ -20,6 +23,10 @@ export class CourselistComponent implements OnInit {
   textNull = "null";
   textFalse = 'false';
   textPublic = 'true';
+  active = "active";
+  newType = "new";
+  recommendType = "recommend";
+  hotType = "hot";
 
   constructor(private courseService: CourseService,
               private router: Router,
@@ -32,10 +39,12 @@ export class CourselistComponent implements OnInit {
     if (this.courses != undefined) {
       this.getCourseList();
     }
-
     if (this.currentUser != undefined) {
       this.getUserList();
     }
+    this.getCourseNewType();
+    this.getCourseRecommendType();
+    this.getCourseHotType();
   }
 
   // private getCourseList() {
@@ -51,6 +60,28 @@ export class CourselistComponent implements OnInit {
       console.log(this.courses);
     });
   }
+
+  private getCourseNewType() {
+    this.courseService.getCoursenewType(this.newType, this.textPublic).subscribe(coursesNew => {
+      this.coursesNew = coursesNew;
+      console.log(this.coursesNew);
+    });
+  }
+
+  private getCourseRecommendType() {
+    this.courseService.getCourseRecommendType(this.recommendType, this.textPublic).subscribe(coursesRecommend => {
+      this.coursesRecommend = coursesRecommend;
+      console.log(this.coursesRecommend);
+    });
+  }
+
+  private getCourseHotType() {
+    this.courseService.getCourseHotType(this.hotType, this.textPublic).subscribe(coursesHot => {
+      this.coursesHot = coursesHot;
+      console.log(this.coursesHot);
+    });
+  }
+
 
   click(id) {
     this.router.navigate(['/CourseLists', id]);

@@ -2,24 +2,26 @@
   <div class="container-fluid" *ngFor="let user of users">
     <div class="container" *ngIf="user.id == currentUser.id">
       <div class="fb-profile">
-        <img style="height: 450px" align="left" class="fb-image-lg" [src]="ImageUserCover"
-             alt="Profile image example"/>
-        <img align="left" class="fb-image-profile thumbnail" [src]="ImageUserProfile"
-             alt="Profile image example"/>
+        <!--<img style="height: 450px" align="left" class="fb-image-lg" [src]="ImageUserCover"-->
+        <!--alt="Profile image example"/>-->
+        <!--<img align="left" class="fb-image-profile thumbnail" [src]="ImageUserProfile"-->
+        <!--alt="Profile image example"/>-->
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <div class="fb-profile-text">
-          <h2>{{currentUser.firstName}} {{currentUser.lastName}}</h2>
-          <p>You are "{{currentUser.status}}"</p>
-          <p>Your balance {{user.balance}} Bath.</p>
+          <h2>{{currentUser.firstName}}</h2>
+          <div [hidden]="user.status != active">
+            <h3><b>Your balance {{user.balance}} Bath.</b></h3>
+          </div>
         </div>
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse" [hidden]="user.status == instructor">
           <div class="container-fluid">
             <ul class="nav navbar-nav">
-
               <!--<li>-->
               <!--<div [hidden]="user.status != active"><p style="cursor: pointer; color: white;"-->
               <!--[routerLink]="['/topUpOnline']">เติมเงิน &nbsp;&nbsp;&nbsp;</p>-->
@@ -57,14 +59,15 @@
               <!--</li>-->
               <div [hidden]="user.status != active">
                 <button class="btn btn-danger navbar-btn" [routerLink]="['/topUpOnline']">เติมเงิน</button>
-                <button class="btn btn-danger navbar-btn" [routerLink]="['/nonTopUp']">รายการค้างชำระ</button>
-                <button class="btn btn-danger navbar-btn" [routerLink]="['/PaymentLists']">รายการบัญชีย้อนหลัง</button>
+                <button class="btn btn-danger navbar-btn" [routerLink]="['/CourseHistory']">คอร์สที่ซื้อ</button>
+                <!--<button class="btn btn-danger navbar-btn" [routerLink]="['/nonTopUp']">รายการค้างชำระ</button>-->
+                <!--<button class="btn btn-danger navbar-btn" [routerLink]="['/PaymentLists']">รายการบัญชีย้อนหลัง</button>-->
                 <!--<button class="btn btn-danger navbar-btn" [routerLink]="['/purchaseCart']">คอร์สเรียนที่ซื้อ</button>-->
               </div>
-              <div [hidden]="user.status != instructor">
-                <button class="btn btn-danger navbar-btn" [routerLink]="['/createCourse']">สร้างคอร์สเรียน</button>
-                <button class="btn btn-danger navbar-btn" [routerLink]="['/EditCourse']">แก้ไขคอร์สเรียน</button>
-              </div>
+              <!--<div [hidden]="user.status != instructor">-->
+              <!--<button class="btn btn-danger navbar-btn" [routerLink]="['/createCourse']">สร้างคอร์สเรียน</button>-->
+              <!--<button class="btn btn-danger navbar-btn" [routerLink]="['/EditCourse']">แก้ไขคอร์สเรียน</button>-->
+              <!--</div>-->
               <div [hidden]="user.status != admin">
                 <button class="btn btn-danger navbar-btn" [routerLink]="['/management']">จัดการระบบ</button>
               </div>
@@ -72,6 +75,28 @@
             </ul>
           </div>
         </nav>
+        <div [hidden]="user.status != active">
+          <app-non-top-up></app-non-top-up>
+          <app-payment-history-list></app-payment-history-list>
+        </div>
+        <div [hidden]="user.status != instructor">
+          <div class="row">
+            <div>
+              <div class="col-lg-6">
+                <app-video-list-page></app-video-list-page>
+              </div>
+              <div class="col-lg-6">
+                <app-edit-course></app-edit-course>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
       </div>
     </div> <!-- /container -->
     <!--<nav class="navbar navbar-default margin-design">-->

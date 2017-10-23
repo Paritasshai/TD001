@@ -4,7 +4,6 @@
     <tr>
       <th>#</th>
       <th>Name</th>
-      <th>Description</th>
       <th>Price</th>
       <th>Public/Private</th>
       <th></th>
@@ -14,15 +13,14 @@
     <tr *ngIf="userCourse.userId == currentUser.id">
       <td>{{i+1}}</td>
       <td>{{userCourse.name}}</td>
-      <td>{{userCourse.description}}</td>
       <td>{{userCourse.price}}</td>
       <td>{{userCourse.publicCourse}}</td>
       <td>
         <button class="btn btn-primary btn-md"
                 (click)="EditCourse(userCourse.id)">
-          Edit CourseItem
+          Edit
         </button>
-        <button class="btn btn-danger" (click)="DeleteCourse(userCourse.id)"> Delete</button>
+        <button class="btn btn-danger" (click)="DeleteCourse(userCourse.id)">Delete</button>
       </td>
     </tr>
     </tbody>

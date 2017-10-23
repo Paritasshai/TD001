@@ -23,13 +23,13 @@
                 </div>
                 <div class="col-md-8 style-height">
                   <div class="wrapper">
-                    <div align="center">
-                      <input
-                        style="background-color: #4267b2; color: white; width: 80%; font-size: 14px; margin-top: 5%"
-                        class="btn btn-lg btn-primary btn-block"
-                        (click)="loginWithFacebook()" id="facebook"
-                        value="Connect with Facebook">
-                    </div>
+                    <!--<div align="center">-->
+                    <!--<input-->
+                    <!--style="background-color: #4267b2; color: white; width: 80%; font-size: 14px; margin-top: 5%"-->
+                    <!--class="btn btn-lg btn-primary btn-block"-->
+                    <!--(click)="loginWithFacebook()" id="facebook"-->
+                    <!--value="Connect with Facebook">-->
+                    <!--</div>-->
                     <form name="form" (ngSubmit)="signIn()" #f="ngForm" novalidate>
                       <!--<div align="center">-->
                       <!--<div-->
@@ -40,7 +40,7 @@
                       <!--</div>-->
                       <!--</div>-->
 
-                      <hr class="style15">
+                      <!--<hr class="style15">-->
                       <div class="group">
                         <input type="email" [(ngModel)]="model.email" name="email" id="email" required/><span
                         class="highlight"></span><span class="bar"></span>
@@ -51,8 +51,11 @@
                                required/><span class="highlight"></span><span class="bar"></span>
                         <label>Password</label>
                       </div>
-                      <a routerLink="/forgotPassword" data-dismiss="modal">forgot password</a>
-                      <div class="" align="center" style="margin-top: 5px">
+                      <div style="margin-top: -10px">
+                        <a routerLink="/forgotPassword" data-dismiss="modal">Forgot Password ?</a>
+                      </div>
+
+                      <div class="" align="center" style="margin-top: 30px">
                         <button [disabled]="loading" class="btn btn-primary btn-md">Login</button>
                         <button data-dismiss="modal" class="btn btn-primary btn-md">Cancel</button>
                       </div>
