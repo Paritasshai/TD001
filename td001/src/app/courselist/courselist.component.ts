@@ -4,6 +4,7 @@ import {CourseService} from "../services/CourseService";
 import {Router} from "@angular/router";
 import {User} from "../models/User";
 import {UserService} from "../services/User.service";
+import {isUndefined} from "util";
 
 @Component({
   selector: 'app-courselist',
@@ -27,6 +28,12 @@ export class CourselistComponent implements OnInit {
   newType = "new";
   recommendType = "recommend";
   hotType = "hot";
+  query: any;
+  // Mindstrom = "Mindstrom";
+  // Household = "Household";
+  // Toy = "Toy";
+  // Garden = "Garden";
+  // IOT = "IOT";
 
   constructor(private courseService: CourseService,
               private router: Router,
@@ -52,6 +59,25 @@ export class CourselistComponent implements OnInit {
   //     this.courses = courses;
   //     console.log(this.courses);
   //   });
+  // }
+
+  // searchCata(Mindstrom, Household, Toy, Garden, IOT) {
+  //   // console.log(Mindstrom);
+  //   // console.log(Household);
+  //   // console.log(Toy);
+  //   // console.log(Garden);
+  //   // console.log(IOT);
+  //   if (Mindstrom != undefined) {
+  //     console.log(Mindstrom);
+  //   } else if (Household != undefined) {
+  //     console.log(Household);
+  //   } else if (Toy != undefined) {
+  //     console.log(Toy);
+  //   } else if (Garden != undefined) {
+  //     console.log(Garden);
+  //   } else {
+  //     console.log(IOT);
+  //   }
   // }
 
   private getCourseList() {

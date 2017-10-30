@@ -5,8 +5,8 @@ import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class PaymentTransService {
-  url = "localhost";
-  //url = "192.168.1.7";
+  //url = "localhost";
+  url = "192.168.1.7";
 
   constructor(private http: Http) {
   }

@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {Component, ElementRef, Input, NgModule, OnInit} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {routing} from './app.routing';
@@ -46,7 +46,8 @@ import { SortingPipe } from './pipes/sorting.pipe';
 import { CourseHistoryComponent } from './course-history/course-history.component';
 import { SearchPipe } from './pipes/search.pipe';
 import { MapKeyPipe } from './pipes/map-key.pipe';
-import { SortObjectPipe } from './sort-object.pipe';
+import {SortObjectPipe} from "./pipes/sort-object.pipe";
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { SortObjectPipe } from './sort-object.pipe';
     CourseHistoryComponent,
     SearchPipe,
     MapKeyPipe,
-    SortObjectPipe
+    SortObjectPipe,
+    EditUserComponent,
   ],
   imports: [
     BrowserModule,

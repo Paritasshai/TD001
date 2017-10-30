@@ -85,16 +85,16 @@ export class LoginpageComponent implements OnInit {
   // }
 
   loginWithFacebook() {
-    return this.http.get('http://localhost:8080/user/facebook')
-      .subscribe(
-        data => {
-          //alert("Success");
-          this.loading = false;
-        },
-        error => {
-          alert("Failed");
-          this.loading = false;
-        });
+    // return this.http.get('http://localhost:8080/user/facebook')
+    //   .subscribe(
+    //     data => {
+    //       //alert("Success");
+    //       this.loading = false;
+    //     },
+    //     error => {
+    //       alert("Failed");
+    //       this.loading = false;
+    //     });
   }
 
   // me() {
@@ -142,6 +142,7 @@ export class LoginpageComponent implements OnInit {
 
   signIn() {
     this.loading = true;
+
     this.authenticationService.login(this.model.email, this.model.password)
       .subscribe(
         data => {

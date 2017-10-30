@@ -12,7 +12,11 @@
           </div>
           <div align="center">
             <div class="input-group stylish-input-group">
-              <input style="width: 500px; border-radius: 15px" type="text" class="form-control" placeholder="Search"
+              <!--<div class="all-copy">-->
+              <!--<p>One click selects all this.</p>-->
+              <!--</div>-->
+              <input onClick="this.setSelectionRange(0, this.value.length)" style="width: 500px; border-radius: 15px"
+                     type="text" class="form-control" placeholder="Search"
                      [(ngModel)]="query">
             </div>
           </div>
@@ -31,8 +35,10 @@
         </div>
         <div style="margin-top: -20px">
           <ul class="list-group">
-            <li class="list-group-item"><a style="cursor: pointer">Lego Mindstrom</a></li>
-            <li class="list-group-item"><a style="cursor: pointer">Tech Household</a></li>
+            <li class="list-group-item"><a style="cursor: pointer">Lego Mindstrom</a>
+            </li>
+            <li class="list-group-item"><a style="cursor: pointer">Tech Household</a>
+            </li>
             <li class="list-group-item"><a style="cursor: pointer">Tech Toy</a></li>
             <li class="list-group-item"><a style="cursor: pointer">Tech Garden</a></li>
             <li class="list-group-item"><a style="cursor: pointer">IoT</a></li>
@@ -59,24 +65,6 @@
         </div>
       </div>
 
-      <!--<div *ngIf="currentUser.status ==active">-->
-      <!--<div class="well well-sm style-height-bar">-->
-      <!--<p style="color: white; font-size: 18px">New</p>-->
-      <!--</div>-->
-      <!--</div>-->
-
-      <!--<div *ngIf="currentUser.status ==active">-->
-      <!--<div class="well well-sm style-height-bar">-->
-      <!--<p style="color: white; font-size: 18px">Recommend</p>-->
-      <!--</div>-->
-      <!--</div>-->
-
-      <!--<div *ngIf="currentUser.status ==active">-->
-      <!--<div class="well well-sm style-height-bar">-->
-      <!--<p style="color: white; font-size: 18px">Hot</p>-->
-      <!--</div>-->
-      <!--</div>-->
-
       <div *ngIf="currentUser == undefined">
         <div class="well well-sm style-height-bar">
           <p style="color: white; font-size: 18px">All Course</p>
@@ -99,9 +87,12 @@
             <div class="item col-sm-3 col-lg-3"
                  *ngFor="let course of courses| search:'name':query | sortBy : 'id'; let i = index">
               <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
-                <div class="crop" *ngFor="let imageCourse of course?.imageCourses">
+                <div class="crop">
+                  <!--<img style="cursor: pointer" (click)="click(course.id)" class="img"-->
+                  <!--src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>-->
                   <img style="cursor: pointer" (click)="click(course.id)" class="img"
-                       src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>
+                       src="data:{{course.courseImages[0]?.contentType}};base64,{{course.courseImages[0]?.content}}"
+                       alt=""/>
                 </div>
                 <div align="left" [hidden]="course.linkCourse == textNull">
                   <a style="cursor: pointer"><span
@@ -149,9 +140,12 @@
                  *ngFor="let course of coursesNew">
               <div>
                 <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
-                  <div class="crop" *ngFor="let imageCourse of course?.imageCourses">
+                  <div class="crop">
+                    <!--<img style="cursor: pointer" (click)="click(course.id)" class="img"-->
+                    <!--src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>-->
                     <img style="cursor: pointer" (click)="click(course.id)" class="img"
-                         src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>
+                         src="data:{{course.courseImages[0]?.contentType}};base64,{{course.courseImages[0]?.content}}"
+                         alt=""/>
                   </div>
                   <div align="left" [hidden]="course.linkCourse == textNull">
                     <a style="cursor: pointer"><span
@@ -200,9 +194,12 @@
                  *ngFor="let course of coursesRecommend">
               <div>
                 <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
-                  <div class="crop" *ngFor="let imageCourse of course?.imageCourses">
+                  <div class="crop">
+                    <!--<img style="cursor: pointer" (click)="click(course.id)" class="img"-->
+                    <!--src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>-->
                     <img style="cursor: pointer" (click)="click(course.id)" class="img"
-                         src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>
+                         src="data:{{course.courseImages[0]?.contentType}};base64,{{course.courseImages[0]?.content}}"
+                         alt=""/>
                   </div>
                   <div align="left" [hidden]="course.linkCourse == textNull">
                     <a style="cursor: pointer"><span
@@ -252,9 +249,12 @@
                  *ngFor="let course of coursesHot">
               <div>
                 <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
-                  <div class="crop" *ngFor="let imageCourse of course?.imageCourses">
+                  <div class="crop">
+                    <!--<img style="cursor: pointer" (click)="click(course.id)" class="img"-->
+                    <!--src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>-->
                     <img style="cursor: pointer" (click)="click(course.id)" class="img"
-                         src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>
+                         src="data:{{course.courseImages[0]?.contentType}};base64,{{course.courseImages[0]?.content}}"
+                         alt=""/>
                   </div>
                   <div align="left" [hidden]="course.linkCourse == textNull">
                     <a style="cursor: pointer"><span

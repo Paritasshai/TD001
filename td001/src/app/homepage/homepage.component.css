@@ -1,6 +1,7 @@
 /* home section */
 #home {
-  background: url('../../assets/images/001.jpg') 50% 0 repeat-y fixed;
+  background: url('https://firebasestorage.googleapis.com/v0/b/makehappen-cc730.appspot.com/o/001.jpg?alt=media&token=53c87f65-0a73-4e9c-a752-762ea9c8171a') 50% 0 repeat-y fixed;
+  /*background: url('https://drive.google.com/open?id=0B-3_PQch_LsGS3ktdWRJSm1uVE0') 50% 0 repeat-y fixed;*/
   -webkit-background-size: cover;
   background-size: cover;
   background-position: center;

@@ -22,6 +22,7 @@
         <nav class="navbar navbar-inverse" [hidden]="user.status == instructor">
           <div class="container-fluid">
             <ul class="nav navbar-nav">
+
               <!--<li>-->
               <!--<div [hidden]="user.status != active"><p style="cursor: pointer; color: white;"-->
               <!--[routerLink]="['/topUpOnline']">เติมเงิน &nbsp;&nbsp;&nbsp;</p>-->
@@ -57,6 +58,7 @@
               <!--[routerLink]="['/management']">จัดการระบบ &nbsp;&nbsp;&nbsp;</p>-->
               <!--</div>-->
               <!--</li>-->
+
               <div [hidden]="user.status != active">
                 <button class="btn btn-danger navbar-btn" [routerLink]="['/topUpOnline']">เติมเงิน</button>
                 <button class="btn btn-danger navbar-btn" [routerLink]="['/CourseHistory']">คอร์สที่ซื้อ</button>
@@ -82,6 +84,9 @@
         <div [hidden]="user.status != instructor">
           <div class="row">
             <div>
+              <div class="col-lg-12">
+                <app-edit-user></app-edit-user>
+              </div>
               <div class="col-lg-6">
                 <app-video-list-page></app-video-list-page>
               </div>
@@ -98,7 +103,9 @@
         <br>
         <br>
       </div>
-    </div> <!-- /container -->
+    </div>
+
+    <!-- /container -->
     <!--<nav class="navbar navbar-default margin-design">-->
     <!--<div class="container-fluid nav-design">-->
     <!--<div class="navbar-header">-->

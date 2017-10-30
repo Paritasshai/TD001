@@ -10,9 +10,8 @@ import {CourseItem} from "app/models/CourseItem";
 
 @Injectable()
 export class CourseService {
-  url = "localhost";
-
-  //url = "192.168.1.7";
+  //url = "localhost";
+  url = "192.168.1.7";
 
   constructor(private http: Http) {
   }

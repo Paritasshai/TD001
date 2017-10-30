@@ -7,6 +7,7 @@
           <table class="table table-striped">
             <thead>
             <tr>
+              <!--<th></th>-->
               <th>Payment Date</th>
               <th>Payment Time</th>
               <th>Type</th>
@@ -15,7 +16,7 @@
               <th>Balance</th>
             </tr>
             </thead>
-            <tbody *ngFor="let paymentTran of paymentTrans">
+            <tbody *ngFor="let paymentTran of paymentTrans | sortBy: 'id'">
             <tr *ngIf="paymentTran.users[0].id == currentUser.id">
               <!--<td>{{paymentTran.transFlq}}</td>-->
               <td>{{paymentTran.updateDate}}</td>
@@ -23,7 +24,7 @@
               <td>{{paymentTran.systemRemark}}</td>
               <td>{{paymentTran.transRef}}</td>
               <!--<td>{{paymentTran.users[0].email}}</td>-->
-              <td align="right">{{paymentTran.transAmount}}</td>
+              <td align="right">{{paymentTran.transFlq*paymentTran.transAmount}}</td>
               <td align="right">{{paymentTran.transRemark}}</td>
             </tr>
             </tbody>

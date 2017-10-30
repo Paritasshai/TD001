@@ -6,11 +6,14 @@
 
         <div class="col-sm-4">
 
-          <div class="thumbnail" *ngFor="let imageCourse of courses?.imageCourses">
+          <div class="thumbnail">
             <div class="crops">
               <div align="center">
-                <img class="imgs" src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt="Image"/>
+                <img class="imgs"
+                     src="data:{{courses.courseImages[0]?.contentType}};base64,{{courses.courseImages[0]?.content}}"
+                     alt=""/>
               </div>
+
             </div>
           </div>
 
@@ -20,31 +23,44 @@
               class="glyphicon glyphicon-shopping-cart"></p></span>
               <a href="{{courses.linkCourse}}">ซื้ออุปกรณ์ที่เกี่ยวข้อง</a>
             </div>
-            <div class="panel-body"><span> <i class="fa fa-money"></i></span>
+            <div class="panel-body" [hidden]="courses.price == textNull"><span> <i class="fa fa-money"></i></span>
               Price: {{courses.price}} Bath
             </div>
-            <div>
-              <button type="button" class="btn btn-primary" (click)="buyCourseNull()">ซื้อคอร์สเรียน
-              </button>
+            <div class="panel-body" [hidden]="courses.price != textNull">
+              <span> <i class="fa fa-money"></i></span>
+              Free Couse
             </div>
-            <!--<div class="panel-body"><span> <p class="glyphicon glyphicon-calendar"></p></span> เรียนคอร์สนี้ได้อีก-->
-            <!--30-->
-            <!--วัน-->
-            <!--</div>-->
-            <!--<div class="panel-body"><span> <p class="glyphicon glyphicon-facetime-video"></p></span> วิดีโอความยาว-->
-            <!--1-->
-            <!--ชั่วโมง 15 นาที-->
-            <!--</div>-->
+            <div [hidden]="courses.price == textNull">
+              <div>
+                <button type="button" class="btn btn-primary" (click)="buyCourseNull()" style="margin-left: 5%">
+                  ซื้อคอร์สเรียน
+                </button>
+              </div>
+            </div>
           </div>
 
           <div class="panel panel-default br">
             <div class="panel-heading">เกี่ยวกับผู้สอน</div>
-            <div class="media-body">
-              <div *ngFor="let user of users">
-                <div *ngIf="user.id == courses.userId" style="margin-left: 7px">
-                  <a data-toggle="modal" data-target="#myModal" style="cursor: pointer"
-                     (click)="TeacherHistory(user.email)"> {{user.firstName}}
-                    {{user.lastName}} </a>
+            <div *ngFor="let user of users" style="margin-top: 5%">
+              <div *ngIf="user.id == courses.userId" style="margin-left: 7px">
+                <div class="media-body">
+                  <div class="profile-header-container">
+                    <div class="profile-header-img">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="circular--portrait">
+                            <img src="data:{{user?.userImages[0].contentType}};base64,{{user?.userImages[0].content}}">
+                          </div>
+                        </div>
+                        <br>
+                        <div class="col-lg-6">
+                          <a data-toggle="modal" data-target="#myModal"
+                             style="cursor: pointer; color: black; margin-top: -3%; margin-left: -70%"
+                             (click)="TeacherHistory(user.email)"> {{user.firstName}}</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -62,9 +78,22 @@
                 </div>
                 <div *ngFor="let user of users">
                   <div class="modal-body" *ngIf="user.id == courses.userId">
-                    <p>Instructor Name : {{user.firstName}} {{user.lastName}}</p>
-                    <p>Instructor email : {{user.email}} </p>
-                    <p>Instructor status : {{user.status}} </p>
+                    <div class="profile-header-containers">
+                      <div class="profile-header-imgs">
+                        <div align="center">
+                          <div class="circular--portraits">
+                            <img src="data:{{user.userImages[0]?.contentType}};base64,{{user.userImages[0]?.content}}">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p>Name : {{user.firstName}} {{user.lastName}}</p>
+                    <p>Email : {{user.email}} </p>
+                    <div *ngFor="let course of coursesList">
+                      <div *ngIf="user.id == course.userId">
+                        Course Name: {{course.name}}
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="modal-footer">
@@ -90,12 +119,8 @@
         <div class="col-sm-8">
           <div class="panel panel-default">
             <div class="panel-heading">Course Name: {{courses.name}}
-              <!--<p *ngIf="courses.linkCourse != textNull" style="color: #bf2b2a"-->
-              <!--class="glyphicon glyphicon-shopping-cart"></p>-->
             </div>
             <div class="panel-body">Course Description: {{courses.description}}</div>
-            <!--<button type="button" class="btn btn-primary" (click)="buyCourseNull()">ซื้อคอร์สเรียน-->
-            <!--</button>-->
           </div>
 
           <div class="panel panel-default">
@@ -141,36 +166,51 @@
         class="glyphicon glyphicon-facetime-video"></span>
                             <span *ngIf="course.courseType == image" class="glyphicon glyphicon-picture"></span>
                             {{course.name}}
-                            <!--{{course.videoClips[0]?.id}}-->
-                            <!--{{course.imageItems[0]?.id}}-->
-                            <!--{{course.imageItems[0]?.id}}-->
                           </a>
 
                           <!-- Modal -->
                           <div class="modal fade" [id]="'myModal' + course.id" role="dialog"
                                *ngIf="course.canPreview == truePreview">
                             <div class="modal-dialog">
-                              <!-- Modal content-->
-                              <!--<div class="modal-content">-->
                               <div class="card-content">
-                                <!--<div class="modal-header">-->
-                                <!--<button type="button" class="close" data-dismiss="modal"><span-->
-                                <!--aria-hidden="true">×</span>-->
-                                <!--</button>-->
-                                <!--</div>-->
                                 <div align="center" class="video-responsive">
                                   <img class="img" *ngIf="course.courseType == image"
-                                       src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
-                                  <br>
-                                  <video width="800" height="430" controls [hidden]="course.courseType == image">
-                                    <source *ngIf="course.courseType == video"
-                                            src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"
-                                            type="video/mp4">
-                                  </video>
+                                       src="{{'http://192.168.1.7:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
+                                  <div align="center" [hidden]="course.courseType == image">
+                                    <video id="my-video" class="video-js vjs-default-skin vjs-big-play-button" controls
+                                           preload="auto" width="800"
+                                           height="450" data-setup='{ "playbackRates": [1, 1.5, 2] }'>
+                                      <source *ngIf="course.courseType == video"
+                                              src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"
+                                              type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'>
+                                      <source *ngIf="course.courseType == video"
+                                              src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"
+                                              type='video/webm;codecs="vp8, vorbis"'>
+                                      <p class="vjs-no-js">
+                                        To view this video please enable JavaScript, and consider upgrading to a web
+                                        browser that
+                                        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5
+                                          video</a>
+                                      </p>
+                                    </video>
+                                    <div class="overlay">
+                                      <form>
+                                        <div class="runtext-container">
+                                          <div class="main-runtext">
+                                            <marquee direction="" onmouseover="this.stop();" onmouseout="this.start();">
+                                              <div class="holder">
+                                                <div class="text-container">
+                                                  {{ipObj._body}}
+                                                </div>
+                                              </div>
+                                            </marquee>
+                                          </div>
+                                        </div>
+                                      </form>
+                                    </div>
+                                  </div>
+
                                 </div>
-                                <!--<div class="modal-footer">-->
-                                <!--&lt;!&ndash;<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>&ndash;&gt;-->
-                                <!--</div>-->
                               </div>
                             </div>
                           </div>
@@ -195,403 +235,23 @@
       </div>
     </div>
   </div>
-
   <div *ngIf="currentUser != null">
     <div *ngFor="let user of users">
       <div *ngIf="user.id == currentUser.id">
 
         <div *ngIf="user.status == statusActive">
 
-          <!--<div class="container-design">-->
-          <!--<div class="row">-->
-
-          <!--<div class="col-sm-4">-->
-
-          <!--<div class="thumbnails" *ngFor="let imageCourse of courses?.imageCourses">-->
-          <!--<div class="crops">-->
-          <!--<div align="center">-->
-          <!--<img class="imgs" src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt="Image"/>-->
-          <!--</div>-->
-          <!--</div>-->
-          <!--</div>-->
-
-          <!--<div class="panel panel-default br">-->
-          <!--<div class="panel-heading">เกี่ยวกับคอร์สนี้</div>-->
-          <!--<div *ngIf="courses.linkCourse != textNull" class="panel-body"><span> <p-->
-          <!--class="glyphicon glyphicon-shopping-cart"></p></span>-->
-          <!--<a href="{{courses.linkCourse}}">ซื้ออุปกรณ์ที่เกี่ยวข้อง</a>-->
-          <!--</div>-->
-          <!--<div class="panel-body"><span> <i class="fa fa-money"></i></span>-->
-          <!--Price: {{courses.price}} Bath-->
-          <!--</div>-->
-          <!--<button type="button" class="btn btn-primary"-->
-          <!--(click)="buyCourse(courses.id, user.balance,courses.price,courses.name, currentUser.id)">-->
-          <!--ซื้อคอร์สเรียน-->
-          <!--</button>-->
-          <!--&lt;!&ndash;<div class="panel-body"><span> <p class="glyphicon glyphicon-calendar"></p></span>&ndash;&gt;-->
-          <!--&lt;!&ndash;เรียนคอร์สนี้ได้อีก&ndash;&gt;-->
-          <!--&lt;!&ndash;30&ndash;&gt;-->
-          <!--&lt;!&ndash;วัน&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--&lt;!&ndash;<div class="panel-body"><span> <p class="glyphicon glyphicon-facetime-video"></p></span>&ndash;&gt;-->
-          <!--&lt;!&ndash;วิดีโอความยาว&ndash;&gt;-->
-          <!--&lt;!&ndash;1&ndash;&gt;-->
-          <!--&lt;!&ndash;ชั่วโมง 15 นาที&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--</div>-->
-
-          <!--<div class="panel panel-default br">-->
-          <!--<div class="panel-heading">เกี่ยวกับผู้สอน</div>-->
-          <!--<div class="media-body">-->
-          <!--<div *ngFor="let user of users">-->
-          <!--<div *ngIf="user.id == courses.userId" style="margin-left: 7px">-->
-          <!--<a data-toggle="modal" data-target="#myModal1" style="cursor: pointer"-->
-          <!--(click)="TeacherHistory(user.email)"> {{user.firstName}}-->
-          <!--{{user.lastName}} </a>-->
-          <!--</div>-->
-          <!--</div>-->
-          <!--</div>-->
-          <!--</div>-->
-
-          <!--&lt;!&ndash; Modal &ndash;&gt;-->
-          <!--<div class="modal fade" id="myModal1" role="dialog">-->
-          <!--<div class="modal-dialog">-->
-
-          <!--&lt;!&ndash; Modal content&ndash;&gt;-->
-          <!--<div class="modal-content">-->
-          <!--<div class="modal-header">-->
-          <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
-          <!--<h4 class="modal-title">Instructor Information</h4>-->
-          <!--</div>-->
-          <!--<div *ngFor="let user of users">-->
-          <!--<div class="modal-body" *ngIf="user.id == courses.userId">-->
-          <!--<p>Instructor Name : {{user.firstName}} {{user.lastName}}</p>-->
-          <!--<p>Instructor email : {{user.email}} </p>-->
-          <!--<p>Instructor status : {{user.status}} </p>-->
-          <!--</div>-->
-          <!--</div>-->
-          <!--<div class="modal-footer">-->
-          <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
-          <!--</div>-->
-          <!--</div>-->
-
-          <!--</div>-->
-          <!--</div>-->
-
-          <!--<div class="panel panel-default br">-->
-          <!--<div class="panel-heading">คอร์สอื่นๆที่คุณอาจสนใจ</div>-->
-          <!--<div class="media-body">-->
-          <!--<h4 class="media-heading font-design">คอร์สต่างๆ</h4>-->
-          <!--<br>-->
-          <!--<br>-->
-          <!--<br>-->
-          <!--<br>-->
-          <!--<br>-->
-          <!--</div>-->
-          <!--</div>-->
-
-          <!--</div>-->
-
-          <!--<div class="col-sm-8">-->
-          <!--&lt;!&ndash;<div *ngFor="let userCourse of user?.courses">&ndash;&gt;-->
-          <!--&lt;!&ndash;<div *ngIf="userCourse.id != courses.id">&ndash;&gt;-->
-          <!--<div>-->
-          <!--<div class="panel panel-default">-->
-          <!--<div class="panel-heading">Course ID: {{courses.id}}</div>-->
-          <!--<div class="panel-body">Course Description: {{courses.description}}</div>-->
-          <!--&lt;!&ndash;<div *ngFor="let userCourse of user?.courses">&ndash;&gt;-->
-          <!--&lt;!&ndash;<div *ngIf="userCourse.id == courses.id">&ndash;&gt;-->
-          <!--&lt;!&ndash;{{userCourse.id}}&ndash;&gt;-->
-          <!--&lt;!&ndash;{{courses.id}}&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--</div>-->
-          <!--<div class="panel panel-default">-->
-          <!--<body data-spy="scroll" data-target=".navbar" data-offset="50">-->
-
-          <!--<div class="container-fluid">-->
-          <!--<div class="navbar-header">-->
-          <!--<button type="button" class="navbar-toggle" data-toggle="collapse"-->
-          <!--data-target="#myNavbar">-->
-          <!--<span class="icon-bar"></span>-->
-          <!--<span class="icon-bar"></span>-->
-          <!--<span class="icon-bar"></span>-->
-          <!--</button>-->
-          <!--<a class="navbar-brand">คอร์สเรียน</a>-->
-          <!--</div>-->
-          <!--<div>-->
-          <!--<div class="collapse navbar-collapse">-->
-          <!--<ul class="nav navbar-nav">-->
-          <!--<li><a></a></li>-->
-          <!--<li><a></a></li>-->
-          <!--</ul>-->
-          <!--</div>-->
-          <!--</div>-->
-          <!--</div>-->
-
-          <!--&lt;!&ndash;<div *ngFor="let userCourse of user?.courses">&ndash;&gt;-->
-          <!--&lt;!&ndash;<div *ngIf="userCourse.id == courses.id">&ndash;&gt;-->
-          <!--&lt;!&ndash;<div class="container-fluid">&ndash;&gt;-->
-          <!--&lt;!&ndash;<div>&ndash;&gt;-->
-          <!--&lt;!&ndash;<table class="table">&ndash;&gt;-->
-          <!--&lt;!&ndash;<thead>&ndash;&gt;-->
-          <!--&lt;!&ndash;<tr>&ndash;&gt;-->
-          <!--&lt;!&ndash;<th></th>&ndash;&gt;-->
-          <!--&lt;!&ndash;<th></th>&ndash;&gt;-->
-          <!--&lt;!&ndash;</tr>&ndash;&gt;-->
-          <!--&lt;!&ndash;</thead>&ndash;&gt;-->
-          <!--&lt;!&ndash;<tbody *ngFor="let course of courses?.courseItems| sortBy : 'id'; let i = index">&ndash;&gt;-->
-          <!--&lt;!&ndash;<tr>&ndash;&gt;-->
-          <!--&lt;!&ndash;<td>&ndash;&gt;-->
-          <!--&lt;!&ndash;<div class="container-fluid">&ndash;&gt;-->
-          <!--&lt;!&ndash;<div class="row col-sm-12">&ndash;&gt;-->
-
-          <!--&lt;!&ndash;<a type="text" data-toggle="modal"&ndash;&gt;-->
-          <!--&lt;!&ndash;[attr.data-target]="'#myModal' + course.id" style="cursor: pointer">&ndash;&gt;-->
-          <!--&lt;!&ndash;<span *ngIf="course.courseType == video"&ndash;&gt;-->
-          <!--&lt;!&ndash;class="glyphicon glyphicon-facetime-video"></span>&ndash;&gt;-->
-          <!--&lt;!&ndash;<span *ngIf="course.courseType == image"&ndash;&gt;-->
-          <!--&lt;!&ndash;class="glyphicon glyphicon-picture"></span>&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;{{course.videoClips[0]?.id}}&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;{{course.imageItems[0]?.id}}&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;{{course.imageItems[0]?.id}}&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;{{course.name}}&ndash;&gt;-->
-          <!--&lt;!&ndash;</a>&ndash;&gt;-->
-
-          <!--&lt;!&ndash;&lt;!&ndash; Modal &ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;<div *ngFor="let userCourse of user?.courses">&ndash;&gt;-->
-          <!--&lt;!&ndash;<div *ngIf="userCourse.id == courses.id">&ndash;&gt;-->
-
-          <!--&lt;!&ndash;<div class="modal fade" [id]="'myModal' + course.id" role="dialog">&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;<div class="modal-dialog">&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;<div class="modal-dialog">&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash; Modal content&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;<div class="modal-content">&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;<div class="card-content">&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;<div class="modal-header">&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;<button type="button" class="close" data-dismiss="modal"><span&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;aria-hidden="true">×</span>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;</button>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;<div align="center" class="video-responsive">&ndash;&gt;-->
-          <!--&lt;!&ndash;<img class="img" *ngIf="course.courseType == image"&ndash;&gt;-->
-          <!--&lt;!&ndash;src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;<img class="img" *ngIf="course.courseType == image"&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;src="{{'http://192.168.1.7:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;<video width="800" height="430" controls&ndash;&gt;-->
-          <!--&lt;!&ndash;[hidden]="course.courseType == image">&ndash;&gt;-->
-          <!--&lt;!&ndash;<source *ngIf="course.courseType == video"&ndash;&gt;-->
-          <!--&lt;!&ndash;src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"&ndash;&gt;-->
-          <!--&lt;!&ndash;type="video/mp4">&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;<source *ngIf="course.courseType == video"&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;type="video/mp4">&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;</video>&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;<div class="modal-footer">&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-          <!--&lt;!&ndash;&lt;!&ndash;Modal&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;<div class="modal fade" [id]="'myModal' + course.id" role="dialog"&ndash;&gt;-->
-          <!--&lt;!&ndash;*ngIf="course.canPreview == truePreview">&ndash;&gt;-->
-          <!--&lt;!&ndash;<div class="modal-dialog">&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash; Modal content&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;<div class="modal-content">&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;<div class="card-content">&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;<div class="modal-header">&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;<button type="button" class="close" data-dismiss="modal"><span&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;aria-hidden="true">×</span>&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;</button>&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;<div align="center" class="video-responsive">&ndash;&gt;-->
-          <!--&lt;!&ndash;<img class="img" *ngIf="course.courseType == image"&ndash;&gt;-->
-          <!--&lt;!&ndash;src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;<img class="img" *ngIf="course.courseType == image"&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;src="{{'http://192.168.1.7:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;<br>&ndash;&gt;-->
-          <!--&lt;!&ndash;<video width="800" height="430" controls&ndash;&gt;-->
-          <!--&lt;!&ndash;[hidden]="course.courseType == image">&ndash;&gt;-->
-          <!--&lt;!&ndash;<source *ngIf="course.courseType == video"&ndash;&gt;-->
-          <!--&lt;!&ndash;src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"&ndash;&gt;-->
-          <!--&lt;!&ndash;type="video/mp4">&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;<source *ngIf="course.courseType == video"&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;type="video/mp4">&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;</video>&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;<div class="modal-footer">&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--&lt;!&ndash;</td>&ndash;&gt;-->
-          <!--&lt;!&ndash;<td>&ndash;&gt;-->
-          <!--&lt;!&ndash;<div [hidden]="user?.courses != null">&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;<div *ngFor="let userCourse of user?.courses">&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;<div *ngIf="userCourse.id == courses.id; else notFirst">&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;{{userCourse.name}}&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;<ng-template #notFirst>&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;<span *ngIf="course.canPreview != truePreview"&ndash;&gt;-->
-          <!--&lt;!&ndash;class="glyphicon glyphicon-lock"></span>&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;</ng-template>&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;</td>&ndash;&gt;-->
-          <!--&lt;!&ndash;</tr>&ndash;&gt;-->
-          <!--&lt;!&ndash;</tbody>&ndash;&gt;-->
-          <!--&lt;!&ndash;</table>&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-          <!--<div class="container-fluid">-->
-          <!--<div>-->
-          <!--<table class="table">-->
-          <!--<thead>-->
-          <!--<tr>-->
-          <!--<th></th>-->
-          <!--<th></th>-->
-          <!--</tr>-->
-          <!--</thead>-->
-          <!--<tbody *ngFor="let course of courses?.courseItems| sortBy : 'id'; let i = index">-->
-          <!--<tr>-->
-          <!--<td>-->
-          <!--<div class="container-fluid">-->
-          <!--<div class="row col-sm-12">-->
-
-          <!--<a type="text" data-toggle="modal"-->
-          <!--[attr.data-target]="'#myModal' + course.id" style="cursor: pointer">-->
-          <!--<span *ngIf="course.courseType == video"-->
-          <!--class="glyphicon glyphicon-facetime-video"></span>-->
-          <!--<span *ngIf="course.courseType == image"-->
-          <!--class="glyphicon glyphicon-picture"></span>-->
-          <!--&lt;!&ndash;{{course.videoClips[0]?.id}}&ndash;&gt;-->
-          <!--&lt;!&ndash;{{course.imageItems[0]?.id}}&ndash;&gt;-->
-          <!--&lt;!&ndash;{{course.imageItems[0]?.id}}&ndash;&gt;-->
-          <!--{{course.name}}-->
-          <!--</a>-->
-
-          <!--&lt;!&ndash; Modal &ndash;&gt;-->
-          <!--<div *ngFor="let userCourse of user?.courses">-->
-          <!--<div *ngIf="userCourse.id == coursesPurchaseed.id">-->
-
-          <!--<div class="modal fade" [id]="'myModal' + course.id" role="dialog">-->
-          <!--&lt;!&ndash;<div class="modal-dialog">&ndash;&gt;-->
-          <!--<div class="modal-dialog">-->
-          <!--&lt;!&ndash; Modal content&ndash;&gt;-->
-          <!--&lt;!&ndash;<div class="modal-content">&ndash;&gt;-->
-          <!--<div class="card-content">-->
-          <!--&lt;!&ndash;<div class="modal-header">&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;<button type="button" class="close" data-dismiss="modal"><span&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;aria-hidden="true">×</span>&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;</button>&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--<div align="center" class="video-responsive">-->
-          <!--<img class="img" *ngIf="course.courseType == image"-->
-          <!--src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>-->
-          <!--&lt;!&ndash;<img class="img" *ngIf="course.courseType == image"&ndash;&gt;-->
-          <!--&lt;!&ndash;src="{{'http://192.168.1.7:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>&ndash;&gt;-->
-          <!--<video width="800" height="430" controls-->
-          <!--[hidden]="course.courseType == image">-->
-          <!--<source *ngIf="course.courseType == video"-->
-          <!--src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"-->
-          <!--type="video/mp4">-->
-          <!--&lt;!&ndash;<source *ngIf="course.courseType == video"&ndash;&gt;-->
-          <!--&lt;!&ndash;src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"&ndash;&gt;-->
-          <!--&lt;!&ndash;type="video/mp4">&ndash;&gt;-->
-          <!--</video>-->
-          <!--</div>-->
-          <!--&lt;!&ndash;<div class="modal-footer">&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--</div>-->
-          <!--</div>-->
-          <!--</div>-->
-
-          <!--</div>-->
-          <!--</div>-->
-
-          <!--&lt;!&ndash;Modal&ndash;&gt;-->
-          <!--<div class="modal fade" [id]="'myModal' + course.id" role="dialog"-->
-          <!--*ngIf="course.canPreview == truePreview">-->
-          <!--<div class="modal-dialog">-->
-          <!--&lt;!&ndash; Modal content&ndash;&gt;-->
-          <!--&lt;!&ndash;<div class="modal-content">&ndash;&gt;-->
-          <!--<div class="card-content">-->
-          <!--&lt;!&ndash;<div class="modal-header">&ndash;&gt;-->
-          <!--&lt;!&ndash;<button type="button" class="close" data-dismiss="modal"><span&ndash;&gt;-->
-          <!--&lt;!&ndash;aria-hidden="true">×</span>&ndash;&gt;-->
-          <!--&lt;!&ndash;</button>&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--<div align="center" class="video-responsive">-->
-          <!--<img class="img" *ngIf="course.courseType == image"-->
-          <!--src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>-->
-          <!--&lt;!&ndash;<img class="img" *ngIf="course.courseType == image"&ndash;&gt;-->
-          <!--&lt;!&ndash;src="{{'http://192.168.1.7:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>&ndash;&gt;-->
-          <!--<br>-->
-          <!--<video width="800" height="430" controls-->
-          <!--[hidden]="course.courseType == image">-->
-          <!--<source *ngIf="course.courseType == video"-->
-          <!--src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"-->
-          <!--type="video/mp4">-->
-          <!--&lt;!&ndash;<source *ngIf="course.courseType == video"&ndash;&gt;-->
-          <!--&lt;!&ndash;src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"&ndash;&gt;-->
-          <!--&lt;!&ndash;type="video/mp4">&ndash;&gt;-->
-          <!--</video>-->
-          <!--</div>-->
-          <!--&lt;!&ndash;<div class="modal-footer">&ndash;&gt;-->
-          <!--&lt;!&ndash;&lt;!&ndash;<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>&ndash;&gt;&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--</div>-->
-          <!--</div>-->
-          <!--</div>-->
-
-          <!--</div>-->
-          <!--</div>-->
-          <!--</td>-->
-
-          <!--<td>-->
-          <!--<span *ngIf="course.canPreview == falsePreivew"-->
-          <!--class="glyphicon glyphicon-lock"></span>-->
-          <!--</td>-->
-
-          <!--</tr>-->
-          <!--</tbody>-->
-          <!--</table>-->
-          <!--</div>-->
-          <!--</div>-->
-
-          <!--</body>-->
-          <!--</div>-->
-          <!--</div>-->
-
-          <!--</div>-->
-
-          <!--</div>-->
-          <!--</div>-->
-
           <div class="container-design">
             <div class="row">
 
               <div class="col-sm-4">
 
-                <div class="thumbnails" *ngFor="let imageCourse of coursesPurchaseed?.imageCourses">
+                <div class="thumbnails">
                   <div class="crops">
                     <div align="center">
-                      <img class="imgs" src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt="Image"/>
+                      <img class="imgs"
+                           src="data:{{courses.courseImages[0]?.contentType}};base64,{{courses.courseImages[0]?.content}}"
+                           alt=""/>
                     </div>
                   </div>
                 </div>
@@ -602,25 +262,48 @@
                     class="glyphicon glyphicon-shopping-cart"></p></span>
                     <a href="{{coursesPurchaseed.linkCourse}}">ซื้ออุปกรณ์ที่เกี่ยวข้อง</a>
                   </div>
-                  <div class="panel-body"><span> <i class="fa fa-money"></i></span>
+                  <div class="panel-body" [hidden]="coursesPurchaseed.price == textNull"><span> <i
+                    class="fa fa-money"></i></span>
                     Price: {{coursesPurchaseed.price}} Bath
                   </div>
-                  <div [hidden]="coursesPurchaseed.showLock == zero">
-                    <button type="button" class="btn btn-primary"
-                            (click)="buyCourse(coursesPurchaseed.id, user.balance,coursesPurchaseed.price,coursesPurchaseed.name, currentUser.id)">
-                      ซื้อคอร์สเรียน
-                    </button>
+                  <div class="panel-body" [hidden]="coursesPurchaseed.price != textNull">
+                    <span> <i class="fa fa-money"></i></span>
+                    Free Couse
                   </div>
+                  <div *ngIf="coursesPurchaseed.price != textNull">
+                    <div [hidden]="coursesPurchaseed.showLock == zero">
+                      <button type="button" class="btn btn-primary" style="margin-left: 5%"
+                              (click)="buyCourse(coursesPurchaseed.id, user.balance,coursesPurchaseed.price,coursesPurchaseed.name, currentUser.id)">
+                        ซื้อคอร์สเรียน
+                      </button>
+                    </div>
+                  </div>
+
                 </div>
 
                 <div class="panel panel-default br">
                   <div class="panel-heading">เกี่ยวกับผู้สอน</div>
-                  <div class="media-body">
-                    <div *ngFor="let user of users">
-                      <div *ngIf="user.id == courses.userId" style="margin-left: 7px">
-                        <a data-toggle="modal" data-target="#myModal1" style="cursor: pointer"
-                           (click)="TeacherHistory(user.email)"> {{user.firstName}}
-                          {{user.lastName}} </a>
+                  <div *ngFor="let user of users" style="margin-top: 5%">
+                    <div *ngIf="user.id == courses.userId" style="margin-left: 7px">
+                      <div class="media-body">
+                        <div class="profile-header-container">
+                          <div class="profile-header-img">
+                            <div class="row">
+                              <div class="col-lg-6">
+                                <div class="circular--portrait">
+                                  <img
+                                    src="data:{{user?.userImages[0].contentType}};base64,{{user?.userImages[0].content}}">
+                                </div>
+                              </div>
+                              <br>
+                              <div class="col-lg-6">
+                                <a data-toggle="modal" data-target="#myModal1"
+                                   style="cursor: pointer; color: black; margin-top: -3%; margin-left: -70%"
+                                   (click)="TeacherHistory(user.email)"> {{user.firstName}}</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -638,9 +321,23 @@
                       </div>
                       <div *ngFor="let user of users">
                         <div class="modal-body" *ngIf="user.id == courses.userId">
-                          <p>Instructor Name : {{user.firstName}} {{user.lastName}}</p>
-                          <p>Instructor email : {{user.email}} </p>
-                          <p>Instructor status : {{user.status}} </p>
+                          <div class="profile-header-containers">
+                            <div class="profile-header-imgs">
+                              <div align="center">
+                                <div class="circular--portraits">
+                                  <img
+                                    src="data:{{user.userImages[0]?.contentType}};base64,{{user.userImages[0]?.content}}">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <p>Name : {{user.firstName}} {{user.lastName}}</p>
+                          <p>Email : {{user.email}} </p>
+                          <div *ngFor="let course of coursesList">
+                            <div *ngIf="user.id == course.userId">
+                              Course Name: {{course.name}}
+                            </div>
+                          </div>
                         </div>
                       </div>
                       <div class="modal-footer">
@@ -694,134 +391,6 @@
                       </div>
                     </div>
 
-                    <!--<div *ngFor="let userCourse of user?.courses">-->
-                    <!--<div *ngIf="userCourse.id == courses.id">-->
-                    <!--<div class="container-fluid">-->
-                    <!--<div>-->
-                    <!--<table class="table">-->
-                    <!--<thead>-->
-                    <!--<tr>-->
-                    <!--<th></th>-->
-                    <!--<th></th>-->
-                    <!--</tr>-->
-                    <!--</thead>-->
-                    <!--<tbody *ngFor="let course of courses?.courseItems| sortBy : 'id'; let i = index">-->
-                    <!--<tr>-->
-                    <!--<td>-->
-                    <!--<div class="container-fluid">-->
-                    <!--<div class="row col-sm-12">-->
-
-                    <!--<a type="text" data-toggle="modal"-->
-                    <!--[attr.data-target]="'#myModal' + course.id" style="cursor: pointer">-->
-                    <!--<span *ngIf="course.courseType == video"-->
-                    <!--class="glyphicon glyphicon-facetime-video"></span>-->
-                    <!--<span *ngIf="course.courseType == image"-->
-                    <!--class="glyphicon glyphicon-picture"></span>-->
-                    <!--&lt;!&ndash;{{course.videoClips[0]?.id}}&ndash;&gt;-->
-                    <!--&lt;!&ndash;{{course.imageItems[0]?.id}}&ndash;&gt;-->
-                    <!--&lt;!&ndash;{{course.imageItems[0]?.id}}&ndash;&gt;-->
-                    <!--{{course.name}}-->
-                    <!--</a>-->
-
-                    <!--&lt;!&ndash; Modal &ndash;&gt;-->
-                    <!--<div *ngFor="let userCourse of user?.courses">-->
-                    <!--<div *ngIf="userCourse.id == courses.id">-->
-
-                    <!--<div class="modal fade" [id]="'myModal' + course.id" role="dialog">-->
-                    <!--&lt;!&ndash;<div class="modal-dialog">&ndash;&gt;-->
-                    <!--<div class="modal-dialog">-->
-                    <!--&lt;!&ndash; Modal content&ndash;&gt;-->
-                    <!--&lt;!&ndash;<div class="modal-content">&ndash;&gt;-->
-                    <!--<div class="card-content">-->
-                    <!--&lt;!&ndash;<div class="modal-header">&ndash;&gt;-->
-                    <!--&lt;!&ndash;&lt;!&ndash;<button type="button" class="close" data-dismiss="modal"><span&ndash;&gt;&ndash;&gt;-->
-                    <!--&lt;!&ndash;&lt;!&ndash;aria-hidden="true">×</span>&ndash;&gt;&ndash;&gt;-->
-                    <!--&lt;!&ndash;&lt;!&ndash;</button>&ndash;&gt;&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!--<div align="center" class="video-responsive">-->
-                    <!--<img class="img" *ngIf="course.courseType == image"-->
-                    <!--src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>-->
-                    <!--&lt;!&ndash;<img class="img" *ngIf="course.courseType == image"&ndash;&gt;-->
-                    <!--&lt;!&ndash;src="{{'http://192.168.1.7:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>&ndash;&gt;-->
-                    <!--<video width="800" height="430" controls-->
-                    <!--[hidden]="course.courseType == image">-->
-                    <!--<source *ngIf="course.courseType == video"-->
-                    <!--src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"-->
-                    <!--type="video/mp4">-->
-                    <!--&lt;!&ndash;<source *ngIf="course.courseType == video"&ndash;&gt;-->
-                    <!--&lt;!&ndash;src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"&ndash;&gt;-->
-                    <!--&lt;!&ndash;type="video/mp4">&ndash;&gt;-->
-                    <!--</video>-->
-                    <!--</div>-->
-                    <!--&lt;!&ndash;<div class="modal-footer">&ndash;&gt;-->
-                    <!--&lt;!&ndash;&lt;!&ndash;<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>&ndash;&gt;&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
-
-                    <!--</div>-->
-                    <!--</div>-->
-
-                    <!--&lt;!&ndash;Modal&ndash;&gt;-->
-                    <!--<div class="modal fade" [id]="'myModal' + course.id" role="dialog"-->
-                    <!--*ngIf="course.canPreview == truePreview">-->
-                    <!--<div class="modal-dialog">-->
-                    <!--&lt;!&ndash; Modal content&ndash;&gt;-->
-                    <!--&lt;!&ndash;<div class="modal-content">&ndash;&gt;-->
-                    <!--<div class="card-content">-->
-                    <!--&lt;!&ndash;<div class="modal-header">&ndash;&gt;-->
-                    <!--&lt;!&ndash;<button type="button" class="close" data-dismiss="modal"><span&ndash;&gt;-->
-                    <!--&lt;!&ndash;aria-hidden="true">×</span>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</button>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!--<div align="center" class="video-responsive">-->
-                    <!--<img class="img" *ngIf="course.courseType == image"-->
-                    <!--src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>-->
-                    <!--&lt;!&ndash;<img class="img" *ngIf="course.courseType == image"&ndash;&gt;-->
-                    <!--&lt;!&ndash;src="{{'http://192.168.1.7:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>&ndash;&gt;-->
-                    <!--<br>-->
-                    <!--<video width="800" height="430" controls-->
-                    <!--[hidden]="course.courseType == image">-->
-                    <!--<source *ngIf="course.courseType == video"-->
-                    <!--src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"-->
-                    <!--type="video/mp4">-->
-                    <!--&lt;!&ndash;<source *ngIf="course.courseType == video"&ndash;&gt;-->
-                    <!--&lt;!&ndash;src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"&ndash;&gt;-->
-                    <!--&lt;!&ndash;type="video/mp4">&ndash;&gt;-->
-                    <!--</video>-->
-                    <!--</div>-->
-                    <!--&lt;!&ndash;<div class="modal-footer">&ndash;&gt;-->
-                    <!--&lt;!&ndash;&lt;!&ndash;<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>&ndash;&gt;&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
-
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</td>-->
-                    <!--<td>-->
-                    <!--<div [hidden]="user?.courses != null">-->
-                    <!--&lt;!&ndash;<div *ngFor="let userCourse of user?.courses">&ndash;&gt;-->
-                    <!--&lt;!&ndash;<div *ngIf="userCourse.id == courses.id; else notFirst">&ndash;&gt;-->
-                    <!--&lt;!&ndash;{{userCourse.name}}&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<ng-template #notFirst>&ndash;&gt;-->
-                    <!--<span *ngIf="course.canPreview != truePreview"-->
-                    <!--class="glyphicon glyphicon-lock"></span>-->
-                    <!--</div>-->
-                    <!--&lt;!&ndash;</ng-template>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!--</td>-->
-                    <!--</tr>-->
-                    <!--</tbody>-->
-                    <!--</table>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
-
                     <div class="container-fluid">
                       <div>
                         <table class="table">
@@ -843,9 +412,6 @@
                 class="glyphicon glyphicon-facetime-video"></span>
                                     <span *ngIf="course.courseType == image"
                                           class="glyphicon glyphicon-picture"></span>
-                                    <!--{{course.videoClips[0]?.id}}-->
-                                    <!--{{course.imageItems[0]?.id}}-->
-                                    <!--{{course.imageItems[0]?.id}}-->
                                     {{course.name}}
                                   </a>
 
@@ -858,13 +424,44 @@
                                           <div class="card-content">
                                             <div align="center" class="video-responsive">
                                               <img class="img" *ngIf="course.courseType == image"
-                                                   src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
-                                              <video width="800" height="430" controls
-                                                     [hidden]="course.courseType == image">
-                                                <source *ngIf="course.courseType == video"
-                                                        src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"
-                                                        type="video/mp4">
-                                              </video>
+                                                   src="{{'http://192.168.1.7:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
+                                              <div align="center" [hidden]="course.courseType == image">
+                                                <video id="my-video1" class="video-js" controls preload="auto"
+                                                       width="800"
+                                                       height="450" data-setup='{ "playbackRates": [1, 1.5, 2] }'
+                                                       (click)="open()">
+                                                  <source *ngIf="course.courseType == video"
+                                                          src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"
+                                                          type='video/mp4' (click)="open()">
+                                                  <source *ngIf="course.courseType == video"
+                                                          src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"
+                                                          type='video/webm' (click)="open()">
+                                                  <p class="vjs-no-js">
+                                                    To view this video please enable JavaScript, and consider upgrading
+                                                    to a web
+                                                    browser that
+                                                    <a href="http://videojs.com/html5-video-support/" target="_blank">supports
+                                                      HTML5
+                                                      video</a>
+                                                  </p>
+                                                </video>
+                                                <div class="overlay">
+                                                  <form>
+                                                    <div class="runtext-container">
+                                                      <div class="main-runtext">
+                                                        <marquee direction="" onmouseover="this.stop();"
+                                                                 onmouseout="this.start();">
+                                                          <div class="holder">
+                                                            <div class="text-container">
+                                                              {{ipObj._body}}
+                                                            </div>
+                                                          </div>
+                                                        </marquee>
+                                                      </div>
+                                                    </div>
+                                                  </form>
+                                                </div>
+                                              </div>
                                             </div>
                                           </div>
                                         </div>
@@ -880,14 +477,43 @@
                                       <div class="card-content">
                                         <div align="center" class="video-responsive">
                                           <img class="img" *ngIf="course.courseType == image"
-                                               src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
-                                          <br>
-                                          <video width="800" height="430" controls
-                                                 [hidden]="course.courseType == image">
-                                            <source *ngIf="course.courseType == video"
-                                                    src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"
-                                                    type="video/mp4">
-                                          </video>
+                                               src="{{'http://192.168.1.7:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
+                                          <div align="center" [hidden]="course.courseType == image">
+                                            <video id="my-video2" class="video-js" controls preload="auto" width="800"
+                                                   height="450" data-setup='{ "playbackRates": [1, 1.5, 2] }'
+                                                   (click)="open()">
+                                              <source *ngIf="course.courseType == video"
+                                                      src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"
+                                                      type='video/mp4' (click)="open()">
+                                              <source *ngIf="course.courseType == video"
+                                                      src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"
+                                                      type='video/webm' (click)="open()">
+                                              <p class="vjs-no-js">
+                                                To view this video please enable JavaScript, and consider upgrading to a
+                                                web
+                                                browser that
+                                                <a href="http://videojs.com/html5-video-support/" target="_blank">supports
+                                                  HTML5
+                                                  video</a>
+                                              </p>
+                                            </video>
+                                            <div class="overlay">
+                                              <form>
+                                                <div class="runtext-container">
+                                                  <div class="main-runtext">
+                                                    <marquee direction="" onmouseover="this.stop();"
+                                                             onmouseout="this.start();">
+                                                      <div class="holder">
+                                                        <div class="text-container">
+                                                          {{ipObj._body}}
+                                                        </div>
+                                                      </div>
+                                                    </marquee>
+                                                  </div>
+                                                </div>
+                                              </form>
+                                            </div>
+                                          </div>
                                         </div>
                                       </div>
                                     </div>
@@ -920,17 +546,18 @@
           </div>
 
         </div>
-
         <div *ngIf="user.status == statusInstructor">
           <div class="container-design">
             <div class="row">
 
               <div class="col-sm-4">
 
-                <div class="thumbnail" *ngFor="let imageCourse of courses?.imageCourses">
+                <div class="thumbnail">
                   <div class="crops">
                     <div align="center">
-                      <img class="imgs" src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt="Image"/>
+                      <img class="imgs"
+                           src="data:{{courses.courseImages[0]?.contentType}};base64,{{courses.courseImages[0]?.content}}"
+                           alt=""/>
                     </div>
                   </div>
                 </div>
@@ -944,26 +571,31 @@
                   <div class="panel-body"><span> <i class="fa fa-money"></i></span>
                     Price: {{courses.price}} Bath
                   </div>
-                  <!--<div class="panel-body"><span> <p class="glyphicon glyphicon-calendar"></p></span>-->
-                  <!--เรียนคอร์สนี้ได้อีก-->
-                  <!--30-->
-                  <!--วัน-->
-                  <!--</div>-->
-                  <!--<div class="panel-body"><span> <p class="glyphicon glyphicon-facetime-video"></p></span>-->
-                  <!--วิดีโอความยาว-->
-                  <!--1-->
-                  <!--ชั่วโมง 15 นาที-->
-                  <!--</div>-->
                 </div>
 
                 <div class="panel panel-default br">
                   <div class="panel-heading">เกี่ยวกับผู้สอน</div>
-                  <div class="media-body">
-                    <div *ngFor="let user of users">
-                      <div *ngIf="user.id == courses.userId" style="margin-left: 7px">
-                        <a data-toggle="modal" data-target="#myModal2" style="cursor: pointer"
-                           (click)="TeacherHistory(user.email)"> {{user.firstName}}
-                          {{user.lastName}} </a>
+                  <div *ngFor="let user of users" style="margin-top: 5%">
+                    <div *ngIf="user.id == courses.userId" style="margin-left: 7px">
+                      <div class="media-body">
+                        <div class="profile-header-container">
+                          <div class="profile-header-img">
+                            <div class="row">
+                              <div class="col-lg-6">
+                                <div class="circular--portrait">
+                                  <img *ngIf=""
+                                    src="data:{{user.userImages[0]?.contentType}};base64,{{user.userImages[0]?.content}}">
+                                </div>
+                              </div>
+                              <br>
+                              <div class="col-lg-6">
+                                <a data-toggle="modal" data-target="#myModal2"
+                                   style="cursor: pointer; color: black; margin-top: -3%; margin-left: -70%"
+                                   (click)="TeacherHistory(user.email)"> {{user.firstName}}</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -979,11 +611,25 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">Instructor Information</h4>
                       </div>
+                      <div class="profile-header-containers">
+                        <div class="profile-header-imgs">
+                          <div align="center">
+                            <div class="circular--portraits">
+                              <img
+                                src="data:{{user?.userImages[0].contentType}};base64,{{user?.userImages[0].content}}">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                       <div *ngFor="let user of users">
                         <div class="modal-body" *ngIf="user.id == courses.userId">
-                          <p>Instructor Name : {{user.firstName}} {{user.lastName}}</p>
-                          <p>Instructor email : {{user.email}} </p>
-                          <p>Instructor status : {{user.status}} </p>
+                          <p>Name : {{user.firstName}} {{user.lastName}}</p>
+                          <p>Email : {{user.email}}</p>
+                          <div *ngFor="let course of coursesList">
+                            <div *ngIf="user.id == course.userId">
+                              Course Name: {{course.name}}
+                            </div>
+                          </div>
                         </div>
                       </div>
                       <div class="modal-footer">
@@ -1009,18 +655,10 @@
               </div>
               <div class="col-sm-8">
 
-                <!--<div *ngFor="let userCourse of user?.courses">-->
-                <!--<div *ngIf="userCourse.id != courses.id">-->
                 <div>
                   <div class="panel panel-default">
                     <div class="panel-heading">Course Name: {{courses.name}}</div>
                     <div class="panel-body">Course Description: {{courses.description}}</div>
-                    <!--<div *ngFor="let userCourse of user?.courses">-->
-                    <!--<div *ngIf="userCourse.id == courses.id">-->
-                    <!--{{userCourse.id}}-->
-                    <!--{{courses.id}}-->
-                    <!--</div>-->
-                    <!--</div>-->
                     <div [hidden]="user.status != active">
                       <button type="button" class="btn btn-primary"
                               (click)="buyCourse(courses.id, user.balance, currentUser.id)">
@@ -1072,41 +710,53 @@
                                     <span *ngIf="course.courseType == image"
                                           class="glyphicon glyphicon-picture"></span>
                                     {{course.name}}
-                                    <!--{{course.videoClips[0]?.id}}-->
-                                    <!--{{course.imageItems[0]?.id}}-->
-                                    <!--{{course.imageItems[0]?.id}}-->
                                   </a>
 
                                   <!-- Modal -->
                                   <div class="modal fade" [id]="'myModal' + course.id" role="dialog">
                                     <div class="modal-dialog">
-                                      <!-- Modal content-->
-                                      <!--<div class="modal-content">-->
-                                      <div class="card-content">
-                                        <!--<div class="modal-header">-->
-                                        <!--&lt;!&ndash;<button type="button" class="close" data-dismiss="modal"><span&ndash;&gt;-->
-                                        <!--&lt;!&ndash;aria-hidden="true">×</span>&ndash;&gt;-->
-                                        <!--&lt;!&ndash;</button>&ndash;&gt;-->
-                                        <!--</div>-->
+                                      <div class="card-content container">
                                         <div align="center" class="video-responsive">
                                           <img class="img" *ngIf="course.courseType == image"
-                                               src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
-                                          <!--<img class="img" *ngIf="course.courseType == image"-->
-                                          <!--src="{{'http://192.168.1.7:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>-->
-                                          <br>
-                                          <video width="800" height="470" controls
-                                                 [hidden]="course.courseType == image">
-                                            <source *ngIf="course.courseType == video"
-                                                    src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"
-                                                    type="video/mp4">
-                                            <!--<source *ngIf="course.courseType == video"-->
-                                            <!--src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"-->
-                                            <!--type="video/mp4">-->
-                                          </video>
-                                        </div>
-                                        <!--<div class="modal-footer">-->
-                                        <div class="">
-                                          <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                                               src="{{'http://192.168.1.7:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
+                                          <div align="center" [hidden]="course.courseType == image">
+                                            <video id="my-video4" class="video-js" controls preload="auto" width="800"
+                                                   height="450" data-setup='{ "playbackRates": [1, 1.5, 2] }'
+                                                   (click)="open()">
+                                              <source *ngIf="course.courseType == video"
+                                                      src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"
+                                                      type='video/mp4'>
+                                              <p class="vjs-no-js">
+                                                To view this video please enable JavaScript, and consider upgrading to
+                                                a
+                                                web
+                                                browser that
+                                                <a href="http://videojs.com/html5-video-support/" target="_blank">supports
+                                                  HTML5
+                                                  video</a>
+                                              </p>
+                                            </video>
+                                            <div class="overlay">
+                                              <form>
+                                                <!--<p-->
+                                                <!--style="font-size: 18px; color: white; width: 100%; margin-left: 40%; margin-top: 30px">-->
+                                                <!--<span class="blink_me">{{ipObj._body}}</span>-->
+                                                <!--</p>-->
+                                                <div class="runtext-container">
+                                                  <div class="main-runtext">
+                                                    <marquee direction="" onmouseover="this.stop();"
+                                                             onmouseout="this.start();">
+                                                      <div class="holder">
+                                                        <div class="text-container">
+                                                          {{ipObj._body}}
+                                                        </div>
+                                                      </div>
+                                                    </marquee>
+                                                  </div>
+                                                </div>
+                                              </form>
+                                            </div>
+                                          </div>
                                         </div>
                                       </div>
                                     </div>
@@ -1129,8 +779,6 @@
                     </body>
                   </div>
                 </div>
-                <!--</div>-->
-                <!--</div>-->
 
               </div>
 
@@ -1142,6 +790,6 @@
       </div>
     </div>
   </div>
-
 </div>
+
 <app-footer></app-footer>

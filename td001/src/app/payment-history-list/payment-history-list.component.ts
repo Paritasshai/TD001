@@ -21,6 +21,15 @@ export class PaymentHistoryListComponent implements OnInit {
   ngOnInit() {
     this.getUserList();
     this.getPaymentTransList();
+    // this.paymentTrans.sort(function (id1, id2) {
+    //   if (id1.id < id2.id) {
+    //     return -1;
+    //   } else if (id1.id > id2.id) {
+    //     return 1;
+    //   } else {
+    //     return 0;
+    //   }
+    // });
   }
 
   private getUserList() {

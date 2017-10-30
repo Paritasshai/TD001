@@ -3,8 +3,8 @@ import {Http} from '@angular/http';
 
 @Injectable()
 export class forgotPassword {
-  url = "localhost";
-  //url = "192.168.1.7";
+  //url = "localhost";
+  url = "192.168.1.7";
 
   constructor(private http: Http) {
   }

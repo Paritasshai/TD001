@@ -5,6 +5,8 @@ import {UserService} from "../services/User.service";
 import {User} from "../models/User";
 import {PurchaseCourseService} from "../services/PurchaseCourseService";
 import {isNull} from "util";
+import {Http} from "@angular/http";
+import * as http from "http";
 
 @Component({
   selector: 'app-course-lists',
@@ -12,7 +14,9 @@ import {isNull} from "util";
   styleUrls: ['./course-lists.component.css']
 })
 export class CourseListsComponent implements OnInit {
+  jsonp: any;
   courses: any = [];
+  coursesList: any = [];
   coursesPurchaseed: any = [];
   users: any = [];
   image = "image";
@@ -37,12 +41,15 @@ export class CourseListsComponent implements OnInit {
   userIdPurchase: any;
   zero = "0";
   one = "1";
+  ipObj: any = [];
+  textPublic = 'true';
 
   constructor(private courseService: CourseService,
               private route: ActivatedRoute,
               private router: Router,
               private userService: UserService,
-              private purchaseCourseService: PurchaseCourseService) {
+              private purchaseCourseService: PurchaseCourseService,
+              private http: Http) {
     let id = this.route.snapshot.params['id'];
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
@@ -56,6 +63,16 @@ export class CourseListsComponent implements OnInit {
 // }
 // })
 
+  open() {
+    console.log("opennnnnnn");
+    // let body = JSON.stringify({"someJsonData": [{ip}]});
+    this.http.get('http://192.168.1.7:8080/getClientIp')
+      .subscribe(response => {
+        this.ipObj = response;
+        console.log(this.ipObj);
+      });
+  }
+
   ngOnInit() {
     this.getCoursesById();
     //this.getCarts();
@@ -64,6 +81,26 @@ export class CourseListsComponent implements OnInit {
     if (this.currentUser != undefined) {
       this.getCoursesByIdPurchased();
     }
+    if (this.courses != undefined) {
+      this.getCourseList();
+    }
+    if (this.currentUser != undefined) {
+      this.getUserList();
+    }
+
+    this.open();
+
+    // // setTimeout(() => {    //<<<---    using ()=> syntax
+    // this.ipObj = true;
+    // // this.http.get('//api.ipify.org/?format=json')
+    // this.http.get('http:// 192.168.1.7:8080/processing')
+    //   .subscribe(response => {
+    //     this.ipObj = response.json();
+    //     // setTimeout(() => {    //<<<---    using ()=> syntax
+    //       console.log(this.ipObj);
+    //       // this.ipObj = false;
+    //     // }, 9000);
+    //   });
   }
 
   private getUserList() {
@@ -72,9 +109,16 @@ export class CourseListsComponent implements OnInit {
     });
   }
 
+  private getCourseList() {
+    this.courseService.getCourseItemsByPublic(this.textPublic).subscribe(courses => {
+      this.coursesList = courses;
+    });
+  }
+
   getCoursesById() {
     this.courseService.getCoursesById(this.route.snapshot.params['id']).subscribe(courses => {
       this.courses = courses;
+      console.log(this.courses);
     });
   }
 

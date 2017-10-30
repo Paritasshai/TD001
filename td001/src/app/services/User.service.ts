@@ -11,8 +11,8 @@ import {FacebookService, InitParams} from "ngx-facebook";
 
 @Injectable()
 export class UserService {
-  url = "localhost";
-  //url = "192.168.1.7";
+  //url = "localhost";
+  url = "192.168.1.7";
 
   constructor(private http: Http,
               private fb: FacebookService) {
@@ -39,6 +39,10 @@ export class UserService {
     // get users from api
     return this.http.get('http://' + this.url + ':8080/user/list', options)
       .map((response: Response) => response.json());
+  }
+
+  deleteImage(id, userId: any) {
+    return this.http.delete('http://' + this.url + ':8080/delete/ImageUser/' + "?imageId=" + id + "&" + "userId=" + userId).map((response: Response) => response.json());
   }
 
   createUsers(user: User) {
