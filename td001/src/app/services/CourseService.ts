@@ -10,8 +10,8 @@ import {CourseItem} from "app/models/CourseItem";
 
 @Injectable()
 export class CourseService {
-  //url = "localhost";
-  url = "192.168.1.7";
+  url = "localhost";
+  //url = "192.168.1.7";
 
   constructor(private http: Http) {
   }
@@ -83,6 +83,51 @@ export class CourseService {
 
     // get users from api
     return this.http.get('http://' + this.url + ':8080/getCourseHotType/' + "?textPublic=" + textPublic + "&" + "hotType=" + hotType, options)
+      .map((response: Response) => response.json());
+  }
+
+  getCourseItemsByLegoPublic(LegoText: any, textPublic: any): Observable<CourseItem[]> {
+    let headers = new Headers({'Authorization': 'Bearer '});
+    let options = new RequestOptions({headers: headers});
+
+    // get users from api
+    return this.http.get('http://' + this.url + ':8080/getCourseLego/' + "?textPublic=" + textPublic + "&" + "LegoText=" + LegoText, options)
+      .map((response: Response) => response.json());
+  }
+
+  getCourseItemsByHouseholdPublic(HouseholdText: any, textPublic: any): Observable<CourseItem[]> {
+    let headers = new Headers({'Authorization': 'Bearer '});
+    let options = new RequestOptions({headers: headers});
+
+    // get users from api
+    return this.http.get('http://' + this.url + ':8080/getCourseHousehold/' + "?textPublic=" + textPublic + "&" + "HouseholdText=" + HouseholdText, options)
+      .map((response: Response) => response.json());
+  }
+
+  getCourseItemsByToyPublic(ToyText: any, textPublic: any): Observable<CourseItem[]> {
+    let headers = new Headers({'Authorization': 'Bearer '});
+    let options = new RequestOptions({headers: headers});
+
+    // get users from api
+    return this.http.get('http://' + this.url + ':8080/getCourseToy/' + "?textPublic=" + textPublic + "&" + "ToyText=" + ToyText, options)
+      .map((response: Response) => response.json());
+  }
+
+  getCourseItemsByGardenPublic(GardenText: any, textPublic: any): Observable<CourseItem[]> {
+    let headers = new Headers({'Authorization': 'Bearer '});
+    let options = new RequestOptions({headers: headers});
+
+    // get users from api
+    return this.http.get('http://' + this.url + ':8080/getCourseGarden/' + "?textPublic=" + textPublic + "&" + "GardenText=" + GardenText, options)
+      .map((response: Response) => response.json());
+  }
+
+  getCourseItemsByIoTPublic(IoTText: any, textPublic: any): Observable<CourseItem[]> {
+    let headers = new Headers({'Authorization': 'Bearer '});
+    let options = new RequestOptions({headers: headers});
+
+    // get users from api
+    return this.http.get('http://' + this.url + ':8080/getCourseIoT/' + "?textPublic=" + textPublic + "&" + "IoTText=" + IoTText, options)
       .map((response: Response) => response.json());
   }
 

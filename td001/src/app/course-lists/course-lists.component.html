@@ -175,17 +175,21 @@
                               <div class="card-content">
                                 <div align="center" class="video-responsive">
                                   <img class="img" *ngIf="course.courseType == image"
-                                       src="{{'http://192.168.1.7:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
+                                       src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
                                   <div align="center" [hidden]="course.courseType == image">
+                                    <!--<video width="400" controls>-->
+                                    <!--<source src="../../assets/images/JustTitle.mp4" type="video/mp4">-->
+                                    <!--Your browser does not support HTML5 video.-->
+                                    <!--</video>-->
                                     <video id="my-video" class="video-js vjs-default-skin vjs-big-play-button" controls
                                            preload="auto" width="800"
-                                           height="450" data-setup='{ "playbackRates": [1, 1.5, 2] }'>
+                                           height="450" data-setup='{ "playbackRates": [1, 1.5, 2] }' (click)="open()">
                                       <source *ngIf="course.courseType == video"
-                                              src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"
-                                              type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'>
+                                              src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"
+                                              type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' (click)="open()">
                                       <source *ngIf="course.courseType == video"
-                                              src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"
-                                              type='video/webm;codecs="vp8, vorbis"'>
+                                              src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"
+                                              type='video/webm;codecs="vp8, vorbis"' (click)="open()">
                                       <p class="vjs-no-js">
                                         To view this video please enable JavaScript, and consider upgrading to a web
                                         browser that
@@ -424,17 +428,17 @@
                                           <div class="card-content">
                                             <div align="center" class="video-responsive">
                                               <img class="img" *ngIf="course.courseType == image"
-                                                   src="{{'http://192.168.1.7:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
+                                                   src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
                                               <div align="center" [hidden]="course.courseType == image">
                                                 <video id="my-video1" class="video-js" controls preload="auto"
                                                        width="800"
                                                        height="450" data-setup='{ "playbackRates": [1, 1.5, 2] }'
                                                        (click)="open()">
                                                   <source *ngIf="course.courseType == video"
-                                                          src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"
+                                                          src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"
                                                           type='video/mp4' (click)="open()">
                                                   <source *ngIf="course.courseType == video"
-                                                          src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"
+                                                          src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"
                                                           type='video/webm' (click)="open()">
                                                   <p class="vjs-no-js">
                                                     To view this video please enable JavaScript, and consider upgrading
@@ -477,16 +481,16 @@
                                       <div class="card-content">
                                         <div align="center" class="video-responsive">
                                           <img class="img" *ngIf="course.courseType == image"
-                                               src="{{'http://192.168.1.7:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
+                                               src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
                                           <div align="center" [hidden]="course.courseType == image">
                                             <video id="my-video2" class="video-js" controls preload="auto" width="800"
                                                    height="450" data-setup='{ "playbackRates": [1, 1.5, 2] }'
                                                    (click)="open()">
                                               <source *ngIf="course.courseType == video"
-                                                      src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"
+                                                      src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"
                                                       type='video/mp4' (click)="open()">
                                               <source *ngIf="course.courseType == video"
-                                                      src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"
+                                                      src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"
                                                       type='video/webm' (click)="open()">
                                               <p class="vjs-no-js">
                                                 To view this video please enable JavaScript, and consider upgrading to a
@@ -718,13 +722,13 @@
                                       <div class="card-content container">
                                         <div align="center" class="video-responsive">
                                           <img class="img" *ngIf="course.courseType == image"
-                                               src="{{'http://192.168.1.7:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
+                                               src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>
                                           <div align="center" [hidden]="course.courseType == image">
                                             <video id="my-video4" class="video-js" controls preload="auto" width="800"
                                                    height="450" data-setup='{ "playbackRates": [1, 1.5, 2] }'
                                                    (click)="open()">
                                               <source *ngIf="course.courseType == video"
-                                                      src="{{'http://192.168.1.7:8080/playVideo/' + course.videoClips[0]?.id}}"
+                                                      src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"
                                                       type='video/mp4'>
                                               <p class="vjs-no-js">
                                                 To view this video please enable JavaScript, and consider upgrading to

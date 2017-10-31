@@ -14,6 +14,11 @@ import {isUndefined} from "util";
 export class CourselistComponent implements OnInit {
   Img1: string;
   courses: any = [];
+  coursesLego: any = [];
+  coursesHousehold: any = [];
+  coursesToy: any = [];
+  coursesGarden: any = [];
+  coursesIoT: any = [];
   coursesNew: any = [];
   coursesRecommend: any = [];
   coursesHot: any = [];
@@ -28,18 +33,25 @@ export class CourselistComponent implements OnInit {
   newType = "new";
   recommendType = "recommend";
   hotType = "hot";
+  LegoText = "Lego";
+  HouseholdText = "Household";
+  ToyText = "Toy";
+  GardenText = "Garden";
+  IoTText = "IoT";
   query: any;
-  // Mindstrom = "Mindstrom";
-  // Household = "Household";
-  // Toy = "Toy";
-  // Garden = "Garden";
-  // IOT = "IOT";
+  myVar = true;
+  lego = false;
+  household = false;
+  toy = false;
+  garden = false;
+  iot = false;
 
   constructor(private courseService: CourseService,
               private router: Router,
               private userService: UserService) {
     this.Img1 = '../../assets/images/001.jpg';
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    console.clear();
   }
 
   ngOnInit() {
@@ -54,31 +66,80 @@ export class CourselistComponent implements OnInit {
     this.getCourseHotType();
   }
 
-  // private getCourseList() {
-  //   this.courseService.getCourses().subscribe(courses => {
-  //     this.courses = courses;
-  //     console.log(this.courses);
-  //   });
-  // }
+  public All() {
+    this.myVar = true;
+    this.lego = false;
+    this.household = false;
+    this.toy = false;
+    this.garden = false;
+    this.iot = false;
+  }
 
-  // searchCata(Mindstrom, Household, Toy, Garden, IOT) {
-  //   // console.log(Mindstrom);
-  //   // console.log(Household);
-  //   // console.log(Toy);
-  //   // console.log(Garden);
-  //   // console.log(IOT);
-  //   if (Mindstrom != undefined) {
-  //     console.log(Mindstrom);
-  //   } else if (Household != undefined) {
-  //     console.log(Household);
-  //   } else if (Toy != undefined) {
-  //     console.log(Toy);
-  //   } else if (Garden != undefined) {
-  //     console.log(Garden);
-  //   } else {
-  //     console.log(IOT);
-  //   }
-  // }
+  public Lego() {
+    this.myVar = false;
+    this.lego = true;
+    this.household = false;
+    this.toy = false;
+    this.garden = false;
+    this.iot = false;
+    console.log("Lego");
+    this.courseService.getCourseItemsByLegoPublic(this.LegoText, this.textPublic).subscribe(coursesLego => {
+      this.coursesLego = coursesLego;
+    });
+  }
+
+  public Household() {
+    this.myVar = false;
+    this.lego = false;
+    this.household = true;
+    this.toy = false;
+    this.garden = false;
+    this.iot = false;
+    console.log("Household");
+    this.courseService.getCourseItemsByHouseholdPublic(this.HouseholdText, this.textPublic).subscribe(coursesHousehold => {
+      this.coursesHousehold = coursesHousehold;
+    });
+  }
+
+  public Toy() {
+    this.myVar = false;
+    this.lego = false;
+    this.household = false;
+    this.toy = true;
+    this.garden = false;
+    this.iot = false;
+    console.log("Toy");
+    this.courseService.getCourseItemsByToyPublic(this.ToyText, this.textPublic).subscribe(coursesToy => {
+      this.coursesToy = coursesToy;
+    });
+  }
+
+  public Garden() {
+    this.myVar = false;
+    this.lego = false;
+    this.household = false;
+    this.toy = false;
+    this.garden = true;
+    this.iot = false;
+    console.log("Garden");
+    this.courseService.getCourseItemsByGardenPublic(this.GardenText, this.textPublic).subscribe(coursesGarden => {
+      this.coursesGarden = coursesGarden;
+    });
+  }
+
+  public IoT() {
+    this.myVar = false;
+    this.lego = false;
+    this.household = false;
+    this.toy = false;
+    this.garden = false;
+    this.iot = true;
+    console.log("IoT");
+    this.courseService.getCourseItemsByIoTPublic(this.IoTText, this.textPublic).subscribe(coursesIoT => {
+      this.coursesIoT = coursesIoT;
+    });
+  }
+
 
   private getCourseList() {
     this.courseService.getCourseItemsByPublic(this.textPublic).subscribe(courses => {
@@ -107,7 +168,6 @@ export class CourselistComponent implements OnInit {
       console.log(this.coursesHot);
     });
   }
-
 
   click(id) {
     this.router.navigate(['/CourseLists', id]);

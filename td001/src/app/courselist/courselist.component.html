@@ -35,90 +35,95 @@
         </div>
         <div style="margin-top: -20px">
           <ul class="list-group">
-            <li class="list-group-item"><a style="cursor: pointer">Lego Mindstrom</a>
+            <li class="list-group-item"><a style="cursor: pointer" (click)="All()">All</a>
+            <li class="list-group-item"><a style="cursor: pointer" (click)="Lego()">Lego Mindstrom</a>
             </li>
-            <li class="list-group-item"><a style="cursor: pointer">Tech Household</a>
+            <li class="list-group-item"><a style="cursor: pointer" (click)="Household()">Tech Household</a>
             </li>
-            <li class="list-group-item"><a style="cursor: pointer">Tech Toy</a></li>
-            <li class="list-group-item"><a style="cursor: pointer">Tech Garden</a></li>
-            <li class="list-group-item"><a style="cursor: pointer">IoT</a></li>
+            <li class="list-group-item"><a style="cursor: pointer" (click)="Toy()">Tech Toy</a></li>
+            <li class="list-group-item"><a style="cursor: pointer" (click)="Garden()">Tech Garden</a></li>
+            <li class="list-group-item"><a style="cursor: pointer" (click)="IoT()">IoT</a></li>
           </ul>
         </div>
       </div>
     </div>
 
     <div class="col-lg-9 col-md-9 col-sm-9">
-      <div>
-        <div *ngFor="let user of users">
-          <div *ngIf="user.id == currentUser.id">
-            <div [hidden]="user.status != instructor">
-              <div class="well well-sm style-height-bar">
-                <a style="color: white" href="#" id="list" [routerLink]="['/createCourse']"><span
-                  class="glyphicon glyphicon-th-list">
+      <div *ngIf="myVar">
+        <div>
+          <div>
+            <div *ngFor="let user of users">
+              <div *ngIf="user.id == currentUser.id">
+                <div [hidden]="user.status != instructor">
+                  <div class="well well-sm style-height-bar">
+                    <a style="color: white" href="#" id="list" [routerLink]="['/createCourse']"><span
+                      class="glyphicon glyphicon-th-list">
               </span>Create Course</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a style="color: white" href="#" id="grid"
-                   [routerLink]="['/EditCourse']"><span
-                  class="glyphicon glyphicon-th"></span>EditCourse</a>
+                    <a style="color: white" href="#" id="grid"
+                       [routerLink]="['/EditCourse']"><span
+                      class="glyphicon glyphicon-th"></span>EditCourse</a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div *ngIf="currentUser == undefined">
-        <div class="well well-sm style-height-bar">
-          <p style="color: white; font-size: 18px">All Course</p>
-        </div>
-      </div>
-
-      <div *ngFor="let user of users">
-        <div *ngIf="user.id == currentUser.id">
-          <div [hidden]="user.status == instructor">
+          <div *ngIf="currentUser == undefined">
             <div class="well well-sm style-height-bar">
               <p style="color: white; font-size: 18px">All Course</p>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div align="center">
-        <div class="blog">
-          <div id="products" class="row list-group">
-            <div class="item col-sm-3 col-lg-3"
-                 *ngFor="let course of courses| search:'name':query | sortBy : 'id'; let i = index">
-              <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
-                <div class="crop">
-                  <!--<img style="cursor: pointer" (click)="click(course.id)" class="img"-->
-                  <!--src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>-->
-                  <img style="cursor: pointer" (click)="click(course.id)" class="img"
-                       src="data:{{course.courseImages[0]?.contentType}};base64,{{course.courseImages[0]?.content}}"
-                       alt=""/>
+          <div *ngFor="let user of users">
+            <div *ngIf="user.id == currentUser.id">
+              <div [hidden]="user.status == instructor">
+                <div class="well well-sm style-height-bar">
+                  <p style="color: white; font-size: 18px">All Course</p>
                 </div>
-                <div align="left" [hidden]="course.linkCourse == textNull">
-                  <a style="cursor: pointer"><span
-                    style="font-size: 20px; color: #bf2b2a; float: right; margin-top: -130px; margin-right: 5px"
-                    class="glyphicon glyphicon glyphicon-shopping-cart"></span></a>
-                </div>
+              </div>
+            </div>
+          </div>
 
-                <div class="caption" align="left">
-                  <h6 class="group inner list-group-item-heading">{{course.name}}</h6>
-                  <h6 class="group inner list-group-item-heading">{{course.price}} Bath.</h6>
-                  <!--<div *ngFor="let user of users" align="left">-->
-                  <!--<p class="small" *ngIf="user.id == course.userId">-->
-                  <!--{{user.firstName}}-->
-                  <!--</div>-->
-                  <div class="row">
-                    <div class="col-xs-12 col-md-6" align="right">
-                      <!--<button class="btn btn-danger btn-sm" (click)="click(course.id)">-->
-                      <!--ดูรายละเอียด-->
-                      <!--</button>-->
-                      <div *ngFor="let user of users">
-                        <div *ngIf="user.id == currentUser.id">
-                          <!--<div [hidden]="user.status != instructor">-->
-                          <!--<a class="btn btn-default btn-sm"-->
-                          <!--[routerLink]="['/EditCourse']"><span-->
-                          <!--class="glyphicon glyphicon-th"></span>EditCourse</a>-->
-                          <!--</div>-->
+          <div align="center">
+            <div class="blog">
+              <div id="products" class="row list-group">
+                <div class="item col-sm-3 col-lg-3"
+                     *ngFor="let course of courses| search:'name':query | sortBy : 'id'; let i = index">
+                  <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
+                    <div class="crop">
+                      <!--<img style="cursor: pointer" (click)="click(course.id)" class="img"-->
+                      <!--src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>-->
+                      <img style="cursor: pointer" (click)="click(course.id)" class="img"
+                           src="data:{{course.courseImages[0]?.contentType}};base64,{{course.courseImages[0]?.content}}"
+                           alt=""/>
+                    </div>
+                    <div align="left" [hidden]="course.linkCourse == textNull">
+                      <a style="cursor: pointer"><span
+                        style="font-size: 20px; color: #bf2b2a; float: right; margin-top: -130px; margin-right: 5px"
+                        class="glyphicon glyphicon glyphicon-shopping-cart"></span></a>
+                    </div>
+
+                    <div class="caption" align="left">
+                      <h6 class="group inner list-group-item-heading">{{course.name}}</h6>
+                      <h6 class="group inner list-group-item-heading">{{course.price}} Bath.</h6>
+                      <!--<div *ngFor="let user of users" align="left">-->
+                      <!--<p class="small" *ngIf="user.id == course.userId">-->
+                      <!--{{user.firstName}}-->
+                      <!--</div>-->
+                      <div class="row">
+                        <div class="col-xs-12 col-md-6" align="right">
+                          <!--<button class="btn btn-danger btn-sm" (click)="click(course.id)">-->
+                          <!--ดูรายละเอียด-->
+                          <!--</button>-->
+                          <div *ngFor="let user of users">
+                            <div *ngIf="user.id == currentUser.id">
+                              <!--<div [hidden]="user.status != instructor">-->
+                              <!--<a class="btn btn-default btn-sm"-->
+                              <!--[routerLink]="['/EditCourse']"><span-->
+                              <!--class="glyphicon glyphicon-th"></span>EditCourse</a>-->
+                              <!--</div>-->
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -127,51 +132,160 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div class="well well-sm style-height-bar">
-        <p style="color: white; font-size: 18px">New</p>
-      </div>
-      <div align="center">
-        <div class="blog">
-          <div id="products2" class="row list-group">
-            <div class="item col-sm-3 col-lg-3"
-                 *ngFor="let course of coursesNew">
-              <div>
-                <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
-                  <div class="crop">
-                    <!--<img style="cursor: pointer" (click)="click(course.id)" class="img"-->
-                    <!--src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>-->
-                    <img style="cursor: pointer" (click)="click(course.id)" class="img"
-                         src="data:{{course.courseImages[0]?.contentType}};base64,{{course.courseImages[0]?.content}}"
-                         alt=""/>
-                  </div>
-                  <div align="left" [hidden]="course.linkCourse == textNull">
-                    <a style="cursor: pointer"><span
-                      style="font-size: 20px; color: #bf2b2a; float: right; margin-top: -130px; margin-right: 5px"
-                      class="glyphicon glyphicon glyphicon-shopping-cart"></span></a>
-                  </div>
+          <div class="well well-sm style-height-bar">
+            <p style="color: white; font-size: 18px">New</p>
+          </div>
+          <div align="center">
+            <div class="blog">
+              <div id="products2" class="row list-group">
+                <div class="item col-sm-3 col-lg-3"
+                     *ngFor="let course of coursesNew">
+                  <div>
+                    <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
+                      <div class="crop">
+                        <!--<img style="cursor: pointer" (click)="click(course.id)" class="img"-->
+                        <!--src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>-->
+                        <img style="cursor: pointer" (click)="click(course.id)" class="img"
+                             src="data:{{course.courseImages[0]?.contentType}};base64,{{course.courseImages[0]?.content}}"
+                             alt=""/>
+                      </div>
+                      <div align="left" [hidden]="course.linkCourse == textNull">
+                        <a style="cursor: pointer"><span
+                          style="font-size: 20px; color: #bf2b2a; float: right; margin-top: -130px; margin-right: 5px"
+                          class="glyphicon glyphicon glyphicon-shopping-cart"></span></a>
+                      </div>
 
-                  <div class="caption" align="left">
-                    <h6 class="group inner list-group-item-heading">{{course.name}}</h6>
-                    <h6 class="group inner list-group-item-heading">{{course.price}} Bath.</h6>
-                    <!--<div *ngFor="let user of users" align="left">-->
-                    <!--<p class="small" *ngIf="user.id == course.userId">-->
-                    <!--{{user.firstName}}-->
-                    <!--</div>-->
-                    <div class="row">
-                      <div class="col-xs-12 col-md-6" align="right">
-                        <!--<button class="btn btn-danger btn-sm" (click)="click(course.id)">-->
-                        <!--ดูรายละเอียด-->
-                        <!--</button>-->
-                        <div *ngFor="let user of users">
-                          <div *ngIf="user.id == currentUser.id">
-                            <!--<div [hidden]="user.status != instructor">-->
-                            <!--<a class="btn btn-default btn-sm"-->
-                            <!--[routerLink]="['/EditCourse']"><span-->
-                            <!--class="glyphicon glyphicon-th"></span>EditCourse</a>-->
-                            <!--</div>-->
+                      <div class="caption" align="left">
+                        <h6 class="group inner list-group-item-heading">{{course.name}}</h6>
+                        <h6 class="group inner list-group-item-heading">{{course.price}} Bath.</h6>
+                        <!--<div *ngFor="let user of users" align="left">-->
+                        <!--<p class="small" *ngIf="user.id == course.userId">-->
+                        <!--{{user.firstName}}-->
+                        <!--</div>-->
+                        <div class="row">
+                          <div class="col-xs-12 col-md-6" align="right">
+                            <!--<button class="btn btn-danger btn-sm" (click)="click(course.id)">-->
+                            <!--ดูรายละเอียด-->
+                            <!--</button>-->
+                            <div *ngFor="let user of users">
+                              <div *ngIf="user.id == currentUser.id">
+                                <!--<div [hidden]="user.status != instructor">-->
+                                <!--<a class="btn btn-default btn-sm"-->
+                                <!--[routerLink]="['/EditCourse']"><span-->
+                                <!--class="glyphicon glyphicon-th"></span>EditCourse</a>-->
+                                <!--</div>-->
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="well well-sm style-height-bar">
+            <p style="color: white; font-size: 18px">Recommend</p>
+          </div>
+          <div align="center">
+            <div class="blog">
+              <div class="row list-group">
+                <div class="item col-sm-3 col-lg-3"
+                     *ngFor="let course of coursesRecommend">
+                  <div>
+                    <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
+                      <div class="crop">
+                        <!--<img style="cursor: pointer" (click)="click(course.id)" class="img"-->
+                        <!--src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>-->
+                        <img style="cursor: pointer" (click)="click(course.id)" class="img"
+                             src="data:{{course.courseImages[0]?.contentType}};base64,{{course.courseImages[0]?.content}}"
+                             alt=""/>
+                      </div>
+                      <div align="left" [hidden]="course.linkCourse == textNull">
+                        <a style="cursor: pointer"><span
+                          style="font-size: 20px; color: #bf2b2a; float: right; margin-top: -130px; margin-right: 5px"
+                          class="glyphicon glyphicon glyphicon-shopping-cart"></span></a>
+                      </div>
+
+                      <div class="caption" align="left">
+                        <h6 class="group inner list-group-item-heading">{{course.name}}</h6>
+                        <h6 class="group inner list-group-item-heading">{{course.price}} Bath.</h6>
+                        <!--<div *ngFor="let user of users" align="left">-->
+                        <!--<p class="small" *ngIf="user.id == course.userId">-->
+                        <!--{{user.firstName}}-->
+                        <!--</div>-->
+                        <div class="row">
+                          <div class="col-xs-12 col-md-6" align="right">
+                            <!--<button class="btn btn-danger btn-sm" (click)="click(course.id)">-->
+                            <!--ดูรายละเอียด-->
+                            <!--</button>-->
+                            <div *ngFor="let user of users">
+                              <div *ngIf="user.id == currentUser.id">
+                                <!--<div [hidden]="user.status != instructor">-->
+                                <!--<a class="btn btn-default btn-sm"-->
+                                <!--[routerLink]="['/EditCourse']"><span-->
+                                <!--class="glyphicon glyphicon-th"></span>EditCourse</a>-->
+                                <!--</div>-->
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="well well-sm style-height-bar">
+            <p style="color: white; font-size: 18px">Hot</p>
+          </div>
+
+          <div align="center">
+            <div class="blog">
+              <div class="row list-group">
+                <div class="item col-sm-3 col-lg-3"
+                     *ngFor="let course of coursesHot">
+                  <div>
+                    <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
+                      <div class="crop">
+                        <!--<img style="cursor: pointer" (click)="click(course.id)" class="img"-->
+                        <!--src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>-->
+                        <img style="cursor: pointer" (click)="click(course.id)" class="img"
+                             src="data:{{course.courseImages[0]?.contentType}};base64,{{course.courseImages[0]?.content}}"
+                             alt=""/>
+                      </div>
+                      <div align="left" [hidden]="course.linkCourse == textNull">
+                        <a style="cursor: pointer"><span
+                          style="font-size: 20px; color: #bf2b2a; float: right; margin-top: -130px; margin-right: 5px"
+                          class="glyphicon glyphicon glyphicon-shopping-cart"></span></a>
+                      </div>
+
+                      <div class="caption" align="left">
+                        <h6 class="group inner list-group-item-heading">{{course.name}}</h6>
+                        <h6 class="group inner list-group-item-heading">{{course.price}} Bath.</h6>
+                        <!--<div *ngFor="let user of users" align="left">-->
+                        <!--<p class="small" *ngIf="user.id == course.userId">-->
+                        <!--{{user.firstName}}-->
+                        <!--</div>-->
+                        <div class="row">
+                          <div class="col-xs-12 col-md-6" align="right">
+                            <!--<button class="btn btn-danger btn-sm" (click)="click(course.id)">-->
+                            <!--ดูรายละเอียด-->
+                            <!--</button>-->
+                            <div *ngFor="let user of users">
+                              <div *ngIf="user.id == currentUser.id">
+                                <!--<div [hidden]="user.status != instructor">-->
+                                <!--<a class="btn btn-default btn-sm"-->
+                                <!--[routerLink]="['/EditCourse']"><span-->
+                                <!--class="glyphicon glyphicon-th"></span>EditCourse</a>-->
+                                <!--</div>-->
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -184,48 +298,52 @@
         </div>
       </div>
 
-      <div class="well well-sm style-height-bar">
-        <p style="color: white; font-size: 18px">Recommend</p>
-      </div>
-      <div align="center">
-        <div class="blog">
-          <div class="row list-group">
-            <div class="item col-sm-3 col-lg-3"
-                 *ngFor="let course of coursesRecommend">
-              <div>
-                <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
-                  <div class="crop">
-                    <!--<img style="cursor: pointer" (click)="click(course.id)" class="img"-->
-                    <!--src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>-->
-                    <img style="cursor: pointer" (click)="click(course.id)" class="img"
-                         src="data:{{course.courseImages[0]?.contentType}};base64,{{course.courseImages[0]?.content}}"
-                         alt=""/>
-                  </div>
-                  <div align="left" [hidden]="course.linkCourse == textNull">
-                    <a style="cursor: pointer"><span
-                      style="font-size: 20px; color: #bf2b2a; float: right; margin-top: -130px; margin-right: 5px"
-                      class="glyphicon glyphicon glyphicon-shopping-cart"></span></a>
-                  </div>
+      <div *ngIf="lego">
+        <div>
 
-                  <div class="caption" align="left">
-                    <h6 class="group inner list-group-item-heading">{{course.name}}</h6>
-                    <h6 class="group inner list-group-item-heading">{{course.price}} Bath.</h6>
-                    <!--<div *ngFor="let user of users" align="left">-->
-                    <!--<p class="small" *ngIf="user.id == course.userId">-->
-                    <!--{{user.firstName}}-->
-                    <!--</div>-->
-                    <div class="row">
-                      <div class="col-xs-12 col-md-6" align="right">
-                        <!--<button class="btn btn-danger btn-sm" (click)="click(course.id)">-->
-                        <!--ดูรายละเอียด-->
-                        <!--</button>-->
-                        <div *ngFor="let user of users">
-                          <div *ngIf="user.id == currentUser.id">
-                            <!--<div [hidden]="user.status != instructor">-->
-                            <!--<a class="btn btn-default btn-sm"-->
-                            <!--[routerLink]="['/EditCourse']"><span-->
-                            <!--class="glyphicon glyphicon-th"></span>EditCourse</a>-->
-                            <!--</div>-->
+          <div class="well well-sm style-height-bar">
+            <p style="color: white; font-size: 18px">Lego Mindstrom</p>
+          </div>
+          <div align="center">
+            <div class="blog">
+              <div id="productsLego" class="row list-group">
+                <div class="item col-sm-3 col-lg-3"
+                     *ngFor="let course of coursesLego">
+                  <div *ngIf="course.catagory == LegoText">
+                    <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
+                      <div class="crop">
+                        <!--<img style="cursor: pointer" (click)="click(course.id)" class="img"-->
+                        <!--src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>-->
+                        <img style="cursor: pointer" (click)="click(course.id)" class="img"
+                             src="data:{{course.courseImages[0]?.contentType}};base64,{{course.courseImages[0]?.content}}"
+                             alt=""/>
+                      </div>
+                      <div align="left" [hidden]="course.linkCourse == textNull">
+                        <a style="cursor: pointer"><span
+                          style="font-size: 20px; color: #bf2b2a; float: right; margin-top: -130px; margin-right: 5px"
+                          class="glyphicon glyphicon glyphicon-shopping-cart"></span></a>
+                      </div>
+                      <div class="caption" align="left">
+                        <h6 class="group inner list-group-item-heading">{{course.name}}</h6>
+                        <h6 class="group inner list-group-item-heading">{{course.price}} Bath.</h6>
+                        <!--<div *ngFor="let user of users" align="left">-->
+                        <!--<p class="small" *ngIf="user.id == course.userId">-->
+                        <!--{{user.firstName}}-->
+                        <!--</div>-->
+                        <div class="row">
+                          <div class="col-xs-12 col-md-6" align="right">
+                            <!--<button class="btn btn-danger btn-sm" (click)="click(course.id)">-->
+                            <!--ดูรายละเอียด-->
+                            <!--</button>-->
+                            <div *ngFor="let user of users">
+                              <div *ngIf="user.id == currentUser.id">
+                                <!--<div [hidden]="user.status != instructor">-->
+                                <!--<a class="btn btn-default btn-sm"-->
+                                <!--[routerLink]="['/EditCourse']"><span-->
+                                <!--class="glyphicon glyphicon-th"></span>EditCourse</a>-->
+                                <!--</div>-->
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -235,52 +353,55 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
+      <div *ngIf="household">
+        <div>
 
-      <div class="well well-sm style-height-bar">
-        <p style="color: white; font-size: 18px">Hot</p>
-      </div>
-
-      <div align="center">
-        <div class="blog">
-          <div class="row list-group">
-            <div class="item col-sm-3 col-lg-3"
-                 *ngFor="let course of coursesHot">
-              <div>
-                <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
-                  <div class="crop">
-                    <!--<img style="cursor: pointer" (click)="click(course.id)" class="img"-->
-                    <!--src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>-->
-                    <img style="cursor: pointer" (click)="click(course.id)" class="img"
-                         src="data:{{course.courseImages[0]?.contentType}};base64,{{course.courseImages[0]?.content}}"
-                         alt=""/>
-                  </div>
-                  <div align="left" [hidden]="course.linkCourse == textNull">
-                    <a style="cursor: pointer"><span
-                      style="font-size: 20px; color: #bf2b2a; float: right; margin-top: -130px; margin-right: 5px"
-                      class="glyphicon glyphicon glyphicon-shopping-cart"></span></a>
-                  </div>
-
-                  <div class="caption" align="left">
-                    <h6 class="group inner list-group-item-heading">{{course.name}}</h6>
-                    <h6 class="group inner list-group-item-heading">{{course.price}} Bath.</h6>
-                    <!--<div *ngFor="let user of users" align="left">-->
-                    <!--<p class="small" *ngIf="user.id == course.userId">-->
-                    <!--{{user.firstName}}-->
-                    <!--</div>-->
-                    <div class="row">
-                      <div class="col-xs-12 col-md-6" align="right">
-                        <!--<button class="btn btn-danger btn-sm" (click)="click(course.id)">-->
-                        <!--ดูรายละเอียด-->
-                        <!--</button>-->
-                        <div *ngFor="let user of users">
-                          <div *ngIf="user.id == currentUser.id">
-                            <!--<div [hidden]="user.status != instructor">-->
-                            <!--<a class="btn btn-default btn-sm"-->
-                            <!--[routerLink]="['/EditCourse']"><span-->
-                            <!--class="glyphicon glyphicon-th"></span>EditCourse</a>-->
-                            <!--</div>-->
+          <div class="well well-sm style-height-bar">
+            <p style="color: white; font-size: 18px">Tect Household</p>
+          </div>
+          <div align="center">
+            <div class="blog">
+              <div id="productsHousehold" class="row list-group">
+                <div class="item col-sm-3 col-lg-3"
+                     *ngFor="let course of coursesHousehold">
+                  <div *ngIf="course.catagory == HouseholdText">
+                    <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
+                      <div class="crop">
+                        <!--<img style="cursor: pointer" (click)="click(course.id)" class="img"-->
+                        <!--src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>-->
+                        <img style="cursor: pointer" (click)="click(course.id)" class="img"
+                             src="data:{{course.courseImages[0]?.contentType}};base64,{{course.courseImages[0]?.content}}"
+                             alt=""/>
+                      </div>
+                      <div align="left" [hidden]="course.linkCourse == textNull">
+                        <a style="cursor: pointer"><span
+                          style="font-size: 20px; color: #bf2b2a; float: right; margin-top: -130px; margin-right: 5px"
+                          class="glyphicon glyphicon glyphicon-shopping-cart"></span></a>
+                      </div>
+                      <div class="caption" align="left">
+                        <h6 class="group inner list-group-item-heading">{{course.name}}</h6>
+                        <h6 class="group inner list-group-item-heading">{{course.price}} Bath.</h6>
+                        <!--<div *ngFor="let user of users" align="left">-->
+                        <!--<p class="small" *ngIf="user.id == course.userId">-->
+                        <!--{{user.firstName}}-->
+                        <!--</div>-->
+                        <div class="row">
+                          <div class="col-xs-12 col-md-6" align="right">
+                            <!--<button class="btn btn-danger btn-sm" (click)="click(course.id)">-->
+                            <!--ดูรายละเอียด-->
+                            <!--</button>-->
+                            <div *ngFor="let user of users">
+                              <div *ngIf="user.id == currentUser.id">
+                                <!--<div [hidden]="user.status != instructor">-->
+                                <!--<a class="btn btn-default btn-sm"-->
+                                <!--[routerLink]="['/EditCourse']"><span-->
+                                <!--class="glyphicon glyphicon-th"></span>EditCourse</a>-->
+                                <!--</div>-->
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -290,115 +411,186 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
-      <!--<div>-->
-      <!--<div class="well well-sm style-height-bar">-->
-      <!--<p style="color: white; font-size: 18px">Recommend</p>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--<div align="center">-->
-      <!--<div class="blog">-->
-      <!--<div class="row list-group">-->
-      <!--<div class="item col-sm-3 col-lg-3"-->
-      <!--*ngFor="let course of courses">-->
-      <!--<div>-->
-      <!--<div class="thumbnail" *ngIf="course.publicCourse == textTrue">-->
-      <!--<div class="crop" *ngFor="let imageCourse of course?.imageCourses">-->
-      <!--<img style="cursor: pointer" (click)="click(course.id)" class="img"-->
-      <!--src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>-->
-      <!--</div>-->
-      <!--<div align="left" [hidden]="course.linkCourse == textNull">-->
-      <!--<a style="cursor: pointer"><span-->
-      <!--style="font-size: 20px; color: #bf2b2a; float: right; margin-top: -130px; margin-right: 5px"-->
-      <!--class="glyphicon glyphicon glyphicon-shopping-cart"></span></a>-->
-      <!--</div>-->
+      <div *ngIf="toy">
+        <div>
 
-      <!--<div class="caption" align="left">-->
-      <!--<h6 class="group inner list-group-item-heading">{{course.name}}</h6>-->
-      <!--<h6 class="group inner list-group-item-heading">{{course.price}} Bath.</h6>-->
-      <!--&lt;!&ndash;<div *ngFor="let user of users" align="left">&ndash;&gt;-->
-      <!--&lt;!&ndash;<p class="small" *ngIf="user.id == course.userId">&ndash;&gt;-->
-      <!--&lt;!&ndash;{{user.firstName}}&ndash;&gt;-->
-      <!--&lt;!&ndash;</div>&ndash;&gt;-->
-      <!--<div class="row">-->
-      <!--<div class="col-xs-12 col-md-6" align="right">-->
-      <!--&lt;!&ndash;<button class="btn btn-danger btn-sm" (click)="click(course.id)">&ndash;&gt;-->
-      <!--&lt;!&ndash;ดูรายละเอียด&ndash;&gt;-->
-      <!--&lt;!&ndash;</button>&ndash;&gt;-->
-      <!--<div *ngFor="let user of users">-->
-      <!--<div *ngIf="user.id == currentUser.id">-->
-      <!--&lt;!&ndash;<div [hidden]="user.status != instructor">&ndash;&gt;-->
-      <!--&lt;!&ndash;<a class="btn btn-default btn-sm"&ndash;&gt;-->
-      <!--&lt;!&ndash;[routerLink]="['/EditCourse']"><span&ndash;&gt;-->
-      <!--&lt;!&ndash;class="glyphicon glyphicon-th"></span>EditCourse</a>&ndash;&gt;-->
-      <!--&lt;!&ndash;</div>&ndash;&gt;-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
+          <div class="well well-sm style-height-bar">
+            <p style="color: white; font-size: 18px">Tech Toy</p>
+          </div>
+          <div align="center">
+            <div class="blog">
+              <div id="productsToy" class="row list-group">
+                <div class="item col-sm-3 col-lg-3"
+                     *ngFor="let course of coursesToy">
+                  <div *ngIf="course.catagory == ToyText">
+                    <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
+                      <div class="crop">
+                        <!--<img style="cursor: pointer" (click)="click(course.id)" class="img"-->
+                        <!--src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>-->
+                        <img style="cursor: pointer" (click)="click(course.id)" class="img"
+                             src="data:{{course.courseImages[0]?.contentType}};base64,{{course.courseImages[0]?.content}}"
+                             alt=""/>
+                      </div>
+                      <div align="left" [hidden]="course.linkCourse == textNull">
+                        <a style="cursor: pointer"><span
+                          style="font-size: 20px; color: #bf2b2a; float: right; margin-top: -130px; margin-right: 5px"
+                          class="glyphicon glyphicon glyphicon-shopping-cart"></span></a>
+                      </div>
+                      <div class="caption" align="left">
+                        <h6 class="group inner list-group-item-heading">{{course.name}}</h6>
+                        <h6 class="group inner list-group-item-heading">{{course.price}} Bath.</h6>
+                        <!--<div *ngFor="let user of users" align="left">-->
+                        <!--<p class="small" *ngIf="user.id == course.userId">-->
+                        <!--{{user.firstName}}-->
+                        <!--</div>-->
+                        <div class="row">
+                          <div class="col-xs-12 col-md-6" align="right">
+                            <!--<button class="btn btn-danger btn-sm" (click)="click(course.id)">-->
+                            <!--ดูรายละเอียด-->
+                            <!--</button>-->
+                            <div *ngFor="let user of users">
+                              <div *ngIf="user.id == currentUser.id">
+                                <!--<div [hidden]="user.status != instructor">-->
+                                <!--<a class="btn btn-default btn-sm"-->
+                                <!--[routerLink]="['/EditCourse']"><span-->
+                                <!--class="glyphicon glyphicon-th"></span>EditCourse</a>-->
+                                <!--</div>-->
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <!--<div>-->
-      <!--<div class="well well-sm style-height-bar">-->
-      <!--<p style="color: white; font-size: 18px">Hot</p>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--<div align="center">-->
-      <!--<div class="blog">-->
-      <!--<div class="row list-group">-->
-      <!--<div class="item col-sm-3 col-lg-3"-->
-      <!--*ngFor="let course of courses">-->
-      <!--<div>-->
-      <!--<div class="thumbnail" *ngIf="course.publicCourse == textTrue">-->
-      <!--<div class="crop" *ngFor="let imageCourse of course?.imageCourses">-->
-      <!--<img style="cursor: pointer" (click)="click(course.id)" class="img"-->
-      <!--src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>-->
-      <!--</div>-->
-      <!--<div align="left" [hidden]="course.linkCourse == textNull">-->
-      <!--<a style="cursor: pointer"><span-->
-      <!--style="font-size: 20px; color: #bf2b2a; float: right; margin-top: -130px; margin-right: 5px"-->
-      <!--class="glyphicon glyphicon glyphicon-shopping-cart"></span></a>-->
-      <!--</div>-->
+        </div>
+      </div>
+      <div *ngIf="garden">
+        <div>
 
-      <!--<div class="caption" align="left">-->
-      <!--<h6 class="group inner list-group-item-heading">{{course.name}}</h6>-->
-      <!--<h6 class="group inner list-group-item-heading">{{course.price}} Bath.</h6>-->
-      <!--&lt;!&ndash;<div *ngFor="let user of users" align="left">&ndash;&gt;-->
-      <!--&lt;!&ndash;<p class="small" *ngIf="user.id == course.userId">&ndash;&gt;-->
-      <!--&lt;!&ndash;{{user.firstName}}&ndash;&gt;-->
-      <!--&lt;!&ndash;</div>&ndash;&gt;-->
-      <!--<div class="row">-->
-      <!--<div class="col-xs-12 col-md-6" align="right">-->
-      <!--&lt;!&ndash;<button class="btn btn-danger btn-sm" (click)="click(course.id)">&ndash;&gt;-->
-      <!--&lt;!&ndash;ดูรายละเอียด&ndash;&gt;-->
-      <!--&lt;!&ndash;</button>&ndash;&gt;-->
-      <!--<div *ngFor="let user of users">-->
-      <!--<div *ngIf="user.id == currentUser.id">-->
-      <!--&lt;!&ndash;<div [hidden]="user.status != instructor">&ndash;&gt;-->
-      <!--&lt;!&ndash;<a class="btn btn-default btn-sm"&ndash;&gt;-->
-      <!--&lt;!&ndash;[routerLink]="['/EditCourse']"><span&ndash;&gt;-->
-      <!--&lt;!&ndash;class="glyphicon glyphicon-th"></span>EditCourse</a>&ndash;&gt;-->
-      <!--&lt;!&ndash;</div>&ndash;&gt;-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
+          <div class="well well-sm style-height-bar">
+            <p style="color: white; font-size: 18px">Tech Garden</p>
+          </div>
+          <div align="center">
+            <div class="blog">
+              <div id="productsGarden" class="row list-group">
+                <div class="item col-sm-3 col-lg-3"
+                     *ngFor="let course of coursesGarden">
+                  <div *ngIf="course.catagory == GardenText">
+                    <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
+                      <div class="crop">
+                        <!--<img style="cursor: pointer" (click)="click(course.id)" class="img"-->
+                        <!--src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>-->
+                        <img style="cursor: pointer" (click)="click(course.id)" class="img"
+                             src="data:{{course.courseImages[0]?.contentType}};base64,{{course.courseImages[0]?.content}}"
+                             alt=""/>
+                      </div>
+                      <div align="left" [hidden]="course.linkCourse == textNull">
+                        <a style="cursor: pointer"><span
+                          style="font-size: 20px; color: #bf2b2a; float: right; margin-top: -130px; margin-right: 5px"
+                          class="glyphicon glyphicon glyphicon-shopping-cart"></span></a>
+                      </div>
+                      <div class="caption" align="left">
+                        <h6 class="group inner list-group-item-heading">{{course.name}}</h6>
+                        <h6 class="group inner list-group-item-heading">{{course.price}} Bath.</h6>
+                        <!--<div *ngFor="let user of users" align="left">-->
+                        <!--<p class="small" *ngIf="user.id == course.userId">-->
+                        <!--{{user.firstName}}-->
+                        <!--</div>-->
+                        <div class="row">
+                          <div class="col-xs-12 col-md-6" align="right">
+                            <!--<button class="btn btn-danger btn-sm" (click)="click(course.id)">-->
+                            <!--ดูรายละเอียด-->
+                            <!--</button>-->
+                            <div *ngFor="let user of users">
+                              <div *ngIf="user.id == currentUser.id">
+                                <!--<div [hidden]="user.status != instructor">-->
+                                <!--<a class="btn btn-default btn-sm"-->
+                                <!--[routerLink]="['/EditCourse']"><span-->
+                                <!--class="glyphicon glyphicon-th"></span>EditCourse</a>-->
+                                <!--</div>-->
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div *ngIf="iot">
+        <div>
+
+          <div class="well well-sm style-height-bar">
+            <p style="color: white; font-size: 18px">IoT</p>
+          </div>
+          <div align="center">
+            <div class="blog">
+              <div id="productsIoT" class="row list-group">
+                <div class="item col-sm-3 col-lg-3"
+                     *ngFor="let course of coursesIoT">
+                  <div *ngIf="course.catagory == IoTText">
+                    <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
+                      <div class="crop">
+                        <!--<img style="cursor: pointer" (click)="click(course.id)" class="img"-->
+                        <!--src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>-->
+                        <img style="cursor: pointer" (click)="click(course.id)" class="img"
+                             src="data:{{course.courseImages[0]?.contentType}};base64,{{course.courseImages[0]?.content}}"
+                             alt=""/>
+                      </div>
+                      <div align="left" [hidden]="course.linkCourse == textNull">
+                        <a style="cursor: pointer"><span
+                          style="font-size: 20px; color: #bf2b2a; float: right; margin-top: -130px; margin-right: 5px"
+                          class="glyphicon glyphicon glyphicon-shopping-cart"></span></a>
+                      </div>
+                      <div class="caption" align="left">
+                        <h6 class="group inner list-group-item-heading">{{course.name}}</h6>
+                        <h6 class="group inner list-group-item-heading">{{course.price}} Bath.</h6>
+                        <!--<div *ngFor="let user of users" align="left">-->
+                        <!--<p class="small" *ngIf="user.id == course.userId">-->
+                        <!--{{user.firstName}}-->
+                        <!--</div>-->
+                        <div class="row">
+                          <div class="col-xs-12 col-md-6" align="right">
+                            <!--<button class="btn btn-danger btn-sm" (click)="click(course.id)">-->
+                            <!--ดูรายละเอียด-->
+                            <!--</button>-->
+                            <div *ngFor="let user of users">
+                              <div *ngIf="user.id == currentUser.id">
+                                <!--<div [hidden]="user.status != instructor">-->
+                                <!--<a class="btn btn-default btn-sm"-->
+                                <!--[routerLink]="['/EditCourse']"><span-->
+                                <!--class="glyphicon glyphicon-th"></span>EditCourse</a>-->
+                                <!--</div>-->
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
 
     </div>
+
 
   </div>
 

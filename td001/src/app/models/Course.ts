@@ -6,5 +6,6 @@ export class Course {
   public publicCourse: any;
   public price: any;
   public courseType: any;
+  public catagory: any;
   public showLock: any;
 }

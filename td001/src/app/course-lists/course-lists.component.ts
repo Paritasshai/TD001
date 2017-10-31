@@ -54,22 +54,13 @@ export class CourseListsComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
-//   this.playerService.getData().subscribe((data) => {
-//   this.data = data;
-//   for (var i = 0; i <= this.data.length; i++) {
-//   if (this.data[i].likes>this.max) {
-//   this.max=this.data[i].likes;
-//   this.bestPlayer=this.data[i];
-// }
-// })
-
   open() {
     console.log("opennnnnnn");
     // let body = JSON.stringify({"someJsonData": [{ip}]});
     this.http.get('http://192.168.1.7:8080/getClientIp')
       .subscribe(response => {
         this.ipObj = response;
-        console.log(this.ipObj);
+        // console.log(this.ipObj);
       });
   }
 
@@ -89,18 +80,6 @@ export class CourseListsComponent implements OnInit {
     }
 
     this.open();
-
-    // // setTimeout(() => {    //<<<---    using ()=> syntax
-    // this.ipObj = true;
-    // // this.http.get('//api.ipify.org/?format=json')
-    // this.http.get('http:// 192.168.1.7:8080/processing')
-    //   .subscribe(response => {
-    //     this.ipObj = response.json();
-    //     // setTimeout(() => {    //<<<---    using ()=> syntax
-    //       console.log(this.ipObj);
-    //       // this.ipObj = false;
-    //     // }, 9000);
-    //   });
   }
 
   private getUserList() {
@@ -118,7 +97,7 @@ export class CourseListsComponent implements OnInit {
   getCoursesById() {
     this.courseService.getCoursesById(this.route.snapshot.params['id']).subscribe(courses => {
       this.courses = courses;
-      console.log(this.courses);
+      // console.log(this.courses);
     });
   }
 
@@ -152,7 +131,7 @@ export class CourseListsComponent implements OnInit {
 
     if (balance >= price) {
       this.result = balance - price;
-      console.log(this.result);
+      // console.log(this.result);
       return this.purchaseCourseService.createBuyCourse(this.userId, id, this.purchaseCart, this.result, price, name).subscribe(
         data => {
           alert("Success");
@@ -194,7 +173,7 @@ export class CourseListsComponent implements OnInit {
     this.courseService.getTeacherHistory(email)
       .subscribe(historyIns => {
         this.historyIns = historyIns;
-        console.log(this.historyIns);
+        // console.log(this.historyIns);
       });
   }
 }

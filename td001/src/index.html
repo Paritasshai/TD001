@@ -43,38 +43,17 @@
 <script src="http://vjs.zencdn.net/6.2.8/video.js"></script>
 </body>
 
-<script>
-  $(function(){
-    var $refreshButton = $('#refresh');
-    var $results = $('#css_result');
+<!--<script>-->
+  <!--var isChrome = !!window.chrome;-->
+  <!--var isIE = /*@cc_on!@*/false;-->
 
-    function refresh(){
-      var css = $('style.cp-pen-styles').text();
-      $results.html(css);
-    }
-
-    refresh();
-    $refreshButton.click(refresh);
-
-    // Select all the contents when clicked
-    $results.click(function(){
-      $(this).select();
-    });
-  });
-
-</script>
-
-<script>
-  var isChrome = !!window.chrome;
-  var isIE = /*@cc_on!@*/false;
-
-  if( isChrome ) {
-    $("#videoId").replaceWith($('<video id="videoId" width="100%" autoplay loop><source src="video.webm" type="video/webm"></video>'));
-  }
-  if( isIE ) {
-    $("#videoId").replaceWith($('<img id="videoId" src="img/video.jpg" />'));
-  }
-</script>
+  <!--if( isChrome ) {-->
+    <!--$("#videoId").replaceWith($('<video id="videoId" width="100%" autoplay loop><source src="video.webm" type="video/webm"></video>'));-->
+  <!--}-->
+  <!--if( isIE ) {-->
+    <!--$("#videoId").replaceWith($('<img id="videoId" src="img/video.jpg" />'));-->
+  <!--}-->
+<!--</script>-->
 
 <script>
   $(function () {

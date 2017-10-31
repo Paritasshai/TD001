@@ -18,6 +18,32 @@ export class VideoListPageComponent implements OnInit {
   Course: any = {};
   currentUser: User;
 
+  // courseTypes = [
+  //   {id: 1, name: "New"},
+  //   {id: 2, name: "Hot"},
+  //   {id: 3, name: "Recommend"}
+  // ];
+  // selectedValueCourseType = null;
+  //
+  // catagories = [
+  //   {id: 1, name: "Lego Mindstrom"},
+  //   {id: 2, name: "Tech Household"},
+  //   {id: 3, name: "Tech Toy"},
+  //   {id: 4, name: "Tech Garden"},
+  //   {id: 5, name: "IoT"}
+  // ];
+  //
+  // selectedValueCatagory = null;
+
+  TypeItems = 'new hot recommend'.split(' ');
+  CatagoriesItems = 'Lego Household Toy Garden IoT'.split(' ');
+  model = {options: ''};
+  models = {options: ''};
+
+  // get debug() {
+  //   return JSON.stringify(this.model);
+  // }
+
   public uploader: FileUploader = new FileUploader({url: URL});
   public hasBaseDropZoneOver: boolean = false;
   public hasAnotherDropZoneOver: boolean = false;
@@ -35,6 +61,7 @@ export class VideoListPageComponent implements OnInit {
               private alertService: AlertService,
               private router: Router) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    console.clear();
   }
 
   ngOnInit() {
@@ -42,6 +69,10 @@ export class VideoListPageComponent implements OnInit {
 
   upLoad(id) {
     console.log(id);
+    this.Course.courseType = this.model.options;
+    this.Course.catagory = this.models.options;
+    console.log(this.Course.courseType);
+    console.log(this.Course.catagory);
     this.courseService.createCourse(id, this.Course)
       .subscribe(
         data => {
@@ -52,4 +83,5 @@ export class VideoListPageComponent implements OnInit {
           this.alertService.error('Upload Failed', true);
         });
   }
+
 }

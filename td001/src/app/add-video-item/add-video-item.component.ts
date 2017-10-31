@@ -25,8 +25,8 @@ export class AddVideoItemComponent implements OnInit {
   courses: any = [];
   courseId: any;
 
-  //url = "localhost";
-  url = "192.168.1.7";
+  url = "localhost";
+  //url = "192.168.1.7";
 
   constructor(private route: ActivatedRoute,
               private courseService: CourseService) {
