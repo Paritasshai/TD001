@@ -17,7 +17,7 @@
               <th></th>
             </tr>
             </thead>
-            <tbody *ngFor="let orderPayment of orderPayments| sortBy: 'id'">
+            <tbody *ngFor="let orderPayment of orderPayments| sortObject:'id'">
             <tr *ngIf="orderPayment.users[0].id == currentUser.id">
               <td>{{orderPayment.id}}</td>
               <td>{{orderPayment.transRef}}</td>

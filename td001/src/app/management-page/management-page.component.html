@@ -1,29 +1,18 @@
-<body>
-
-<div class="tab">
-  <button class="tablinks" onclick="openCity(event, '6')" id="defaultOpen"></button>
-  <button class="tablinks" onclick="openCity(event, '1')"><p style="font-size: 14px">
-    User</p></button>
-  <button class="tablinks" onclick="openCity(event, '2')"><p style="font-size: 14px">Order Payment</p>
-  </button>
-  <button class="tablinks" onclick="openCity(event, '3')"><p style="font-size: 14px">Confirm Payment</p>
-  </button>
-</div>
-
-<div id="6" class="tabcontent">
-  <h1 align="center" style="font-size: 12em; margin-top: 5%">System Management</h1>
-  <div style="margin-top: 50%"></div>
-</div>
-
-<div id="1" class="tabcontent">
+<div>
+  <br>
+  <h2>User Management</h2>
   <app-user-management></app-user-management>
 </div>
 
-<div id="2" class="tabcontent">
+<div>
+  <br>
+  <h2>Order Management</h2>
   <app-order-management></app-order-management>
 </div>
 
-<div id="3" class="tabcontent">
+<div>
+  <br>
+  <h2>Confirm Management</h2>
   <table class="table table-striped">
     <thead>
     <tr>
@@ -64,5 +53,3 @@
     </tbody>
   </table>
 </div>
-
-</body>

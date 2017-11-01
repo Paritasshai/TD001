@@ -16,7 +16,7 @@
               <th>Balance</th>
             </tr>
             </thead>
-            <tbody *ngFor="let paymentTran of paymentTrans | sortBy: 'id'">
+            <tbody *ngFor="let paymentTran of paymentTrans| sortObject:'id'">
             <tr *ngIf="paymentTran.users[0].id == currentUser.id">
               <!--<td>{{paymentTran.transFlq}}</td>-->
               <td>{{paymentTran.updateDate}}</td>

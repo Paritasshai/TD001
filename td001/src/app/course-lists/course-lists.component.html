@@ -28,7 +28,7 @@
             </div>
             <div class="panel-body" [hidden]="courses.price != textNull">
               <span> <i class="fa fa-money"></i></span>
-              Free Couse
+              Course Free
             </div>
             <div [hidden]="courses.price == textNull">
               <div>
@@ -120,7 +120,7 @@
           <div class="panel panel-default">
             <div class="panel-heading">Course Name: {{courses.name}}
             </div>
-            <div class="panel-body">Course Description: {{courses.description}}</div>
+            <div class="panel-body"><label>Description</label><br>{{courses.description}}</div>
           </div>
 
           <div class="panel panel-default">
@@ -369,8 +369,8 @@
               <div class="col-sm-8">
                 <div>
                   <div class="panel panel-default">
-                    <div class="panel-heading">Course ID: {{coursesPurchaseed.id}}</div>
-                    <div class="panel-body">Course Description: {{coursesPurchaseed.description}}</div>
+                    <div class="panel-heading">Course ID: {{coursesPurchaseed.name}}</div>
+                    <div class="panel-body"><label>Description</label><br>{{coursesPurchaseed.description}}</div>
                   </div>
                   <div class="panel panel-default">
                     <body data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -662,7 +662,7 @@
                 <div>
                   <div class="panel panel-default">
                     <div class="panel-heading">Course Name: {{courses.name}}</div>
-                    <div class="panel-body">Course Description: {{courses.description}}</div>
+                    <div class="panel-body"><label>Description</label><br>{{courses.description}}</div>
                     <div [hidden]="user.status != active">
                       <button type="button" class="btn btn-primary"
                               (click)="buyCourse(courses.id, user.balance, currentUser.id)">

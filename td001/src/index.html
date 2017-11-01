@@ -76,35 +76,36 @@
 
 </script>
 
-<script>
+<!--<script>-->
 
-  $(document).ready(function () {
-    $('#list').click(function (event) {
-      event.preventDefault();
-      $('#products .item').addClass('list-group-item');
-    });
-    $('#grid').click(function (event) {
-      event.preventDefault();
-      $('#products .item').removeClass('list-group-item');
-      $('#products .item').addClass('grid-group-item');
-    });
-  });
+  <!--$(document).ready(function () {-->
+    <!--$('#list').click(function (event) {-->
+      <!--event.preventDefault();-->
+      <!--$('#products .item').addClass('list-group-item');-->
+    <!--});-->
+    <!--$('#grid').click(function (event) {-->
+      <!--event.preventDefault();-->
+      <!--$('#products .item').removeClass('list-group-item');-->
+      <!--$('#products .item').addClass('grid-group-item');-->
+    <!--});-->
+  <!--});-->
 
-  function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-  }
+  <!--function openCity(evt, cityName) {-->
+    <!--var i, tabcontent, tablinks;-->
+    <!--tabcontent = document.getElementsByClassName("tabcontent");-->
+    <!--for (i = 0; i < tabcontent.length; i++) {-->
+      <!--tabcontent[i].style.display = "none";-->
+    <!--}-->
+    <!--tablinks = document.getElementsByClassName("tablinks");-->
+    <!--for (i = 0; i < tablinks.length; i++) {-->
+      <!--tablinks[i].className = tablinks[i].className.replace(" active", "");-->
+    <!--}-->
+    <!--document.getElementById(cityName).style.display = "block";-->
+    <!--evt.currentTarget.className += " active";-->
+  <!--}-->
 
-  // Get the element with id="defaultOpen" and click on it
-  document.getElementById("defaultOpen").click();
-</script>
+  <!--// Get the element with id="defaultOpen" and click on it-->
+  <!--document.getElementById("defaultOpen").click();-->
+<!--</script>-->
+
 </html>
