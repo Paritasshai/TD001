@@ -36,7 +36,7 @@ export class CourseListsComponent implements OnInit {
   coursePrice = 30;
   result: any;
   balance: any;
-  textNull = "null";
+  empty = "";
   historyIns: any = [];
   userIdPurchase: any;
   zero = "0";
@@ -57,7 +57,8 @@ export class CourseListsComponent implements OnInit {
   open() {
     console.log("opennnnnnn");
     // let body = JSON.stringify({"someJsonData": [{ip}]});
-    this.http.get('http://192.168.1.7:8080/getClientIp')
+    this.http.get('http://103.76.180.120:8080/tamdai-service/getClientIp')
+    //this.http.get('http://192.168.1.7:8080/getClientIp')
       .subscribe(response => {
         this.ipObj = response;
         // console.log(this.ipObj);

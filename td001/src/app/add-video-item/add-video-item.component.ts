@@ -88,8 +88,10 @@ export class AddVideoItemComponent implements OnInit {
     //   });
   }
 
-  public uploader: FileUploader = new FileUploader({url: 'http://' + this.url + ':8080/add/videoItem/' + "?id=" + this.route.snapshot.params['id']});
-  public uploaderImage: FileUploader = new FileUploader({url: 'http://' + this.url + ':8080/add/imageItem/' + "?id=" + this.route.snapshot.params['id']});
+  public uploader: FileUploader = new FileUploader({url: 'http://103.76.180.120:8080/tamdai-service/add/videoItem/' + "?id=" + this.route.snapshot.params['id']});
+  //public uploader: FileUploader = new FileUploader({url: 'http://' + this.url + ':8080/add/videoItem/' + "?id=" + this.route.snapshot.params['id']});
+  public uploaderImage: FileUploader = new FileUploader({url: 'http://103.76.180.120:8080/tamdai-service/add/imageItem/' + "?id=" + this.route.snapshot.params['id']});
+  //public uploaderImage: FileUploader = new FileUploader({url: 'http://' + this.url + ':8080/add/imageItem/' + "?id=" + this.route.snapshot.params['id']});
   public hasBaseDropZoneOver: boolean = false;
   public hasAnotherDropZoneOver: boolean = false;
 

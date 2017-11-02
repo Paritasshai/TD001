@@ -31,7 +31,7 @@
           </div>
 
           <div class="form-group">
-            <input type="text" class="form-control" name="price" placeholder="Price.."
+            <input type="number" (keypress)="keyPress($event)" class="form-control" name="price" placeholder="Price.."
                    [(ngModel)]="Course.price"
                    #price="ngModel" required/>
           </div>

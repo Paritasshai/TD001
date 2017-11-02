@@ -11,7 +11,7 @@ import {FacebookService, InitParams} from "ngx-facebook";
 
 @Injectable()
 export class UserService {
-  url = "localhost";
+  //url = "localhost";
   //url = "192.168.1.7";
 
   constructor(private http: Http,
@@ -28,7 +28,8 @@ export class UserService {
   }
 
   getAll() {
-    return this.http.get('http://' + this.url + ':8080/user/list', this.jwt()).map((response: Response) => response.json());
+    return this.http.get('http://103.76.180.120:8080/tamdai-service/user/list', this.jwt()).map((response: Response) => response.json());
+    //return this.http.get('http://' + this.url + ':8080/user/list', this.jwt()).map((response: Response) => response.json());
   }
 
   getUsers(): Observable<User[]> {
@@ -37,22 +38,25 @@ export class UserService {
     let options = new RequestOptions({headers: headers});
 
     // get users from api
-    return this.http.get('http://' + this.url + ':8080/user/list', options)
-      .map((response: Response) => response.json());
+    return this.http.get('http://103.76.180.120:8080/tamdai-service/user/list', options).map((response: Response) => response.json());
+    //return this.http.get('http://' + this.url + ':8080/user/list', options).map((response: Response) => response.json());
   }
 
   deleteImage(id, userId: any) {
-    return this.http.delete('http://' + this.url + ':8080/delete/ImageUser/' + "?imageId=" + id + "&" + "userId=" + userId).map((response: Response) => response.json());
+    return this.http.delete('http://103.76.180.120:8080/tamdai-service/delete/ImageUser/' + "?imageId=" + id + "&" + "userId=" + userId).map((response: Response) => response.json());
+    //return this.http.delete('http://' + this.url + ':8080/delete/ImageUser/' + "?imageId=" + id + "&" + "userId=" + userId).map((response: Response) => response.json());
   }
 
   createUsers(user: User) {
-    return this.http.post('http://' + this.url + ':8080/user/register', user).map((response: Response) => response.json());
+    return this.http.post('http://103.76.180.120:8080/tamdai-service/user/register', user).map((response: Response) => response.json());
+    //return this.http.post('http://' + this.url + ':8080/user/register', user).map((response: Response) => response.json());
     // return this.http.post('https://tamdaiserver.herokuapp.com/user/register', user).map((response: Response) => response.json());
     // return this.http.post('https://peaceful-reaches-52826.herokuapp.com/user/register', user).map((response: Response) => response.json());
   }
 
   createUserFb(user: User) {
-    return this.http.post('http://' + this.url + ':8080/user/register', user).map((response: Response) => response.json());
+    return this.http.post('http://103.76.180.120:8080/tamdai-service/user/register', user).map((response: Response) => response.json());
+    //return this.http.post('http://' + this.url + ':8080/user/register', user).map((response: Response) => response.json());
   }
 
   // private helper methods
@@ -66,7 +70,8 @@ export class UserService {
   }
 
   updateUserStatus(id, statusName, user: User) {
-    return this.http.put('http://' + this.url + ':8080/update/userStatus/' + id + "/" + "?statusName=" + statusName, user).map((response: Response) => response.json());
+    return this.http.put('http://103.76.180.120:8080/tamdai-service/update/userStatus/' + id + "/" + "?statusName=" + statusName, user).map((response: Response) => response.json());
+    //return this.http.put('http://' + this.url + ':8080/update/userStatus/' + id + "/" + "?statusName=" + statusName, user).map((response: Response) => response.json());
   }
 
 }

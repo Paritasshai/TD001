@@ -1,0 +1,35 @@
+<br>
+<br>
+<br>
+<div class="container-fluid">
+  <nav class="navbar navbar-default">
+    <div align="center">
+      <h1>Your Course</h1>
+    </div>
+    <div *ngFor="let user of users">
+      <div class="row" *ngIf="user.id == currentUser.id">
+        <div class="col-xs-3 col-md-3" *ngFor="let courseHis of user?.courses">
+          <div align="center">
+            <!--{{courseHis.id}}-->
+            <div *ngFor="let courseImage of courseHis?.courseImages">
+              <!--{{courseImage.id}}-->
+              <div class="shelf container">
+                <div>
+                  <img class="img-responsive book" style="cursor: pointer" (click)="click(course.id)"
+                       src="data:{{courseImage.contentType}};base64,{{courseImage.content}}"
+                       alt=""/>
+                </div>
+                <p>{{courseHis.name}}</p>
+                <!--<a (click)="delete(courseHis.id)">delete</a>-->
+              </div>
+            </div>
+            <!--<p>{{courseHis.imageCourses[0]?.id}}</p>-->
+            <!--<p>{{courseHis.name}}</p>-->
+            <!--<a (click)="delete(courseHis.id)">delete</a>-->
+            <!--<p>{{courseHis.imageCourses[0]?.id}}</p>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

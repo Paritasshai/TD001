@@ -13,7 +13,7 @@
                 <div class="form-group" style="width: 70%">
                   <label>ระบุจำนวนเงินที่ต้องการเติม</label>
                   <div class="form-group has-feedback">
-                    <input #box (keyup)="onKey(box.value)" type="text" class="form-control" name="transAmount"
+                    <input #box (keyup)="onKey(box.value)" type="number" (keypress)="keyPress($event)" class="form-control" name="transAmount"
                            id="transAmount"
                            [(ngModel)]="Order.transAmount"
                            #transAmount="ngModel"/>

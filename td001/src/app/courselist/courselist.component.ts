@@ -45,6 +45,7 @@ export class CourselistComponent implements OnInit {
   toy = false;
   garden = false;
   iot = false;
+  empty = "";
 
   constructor(private courseService: CourseService,
               private router: Router,
@@ -64,6 +65,10 @@ export class CourselistComponent implements OnInit {
     this.getCourseNewType();
     this.getCourseRecommendType();
     this.getCourseHotType();
+  }
+
+  public test(){
+    console.log("search");
   }
 
   public All() {

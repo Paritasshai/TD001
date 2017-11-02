@@ -5,7 +5,7 @@ import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class PaymentTransService {
-  url = "localhost";
+  //url = "localhost";
   //url = "192.168.1.7";
 
   constructor(private http: Http) {
@@ -16,8 +16,8 @@ export class PaymentTransService {
     let options = new RequestOptions({headers: headers});
 
     // get users from api
-    return this.http.get('http://' + this.url + ':8080/get/PaymentTransaction', options)
-      .map((response: Response) => response.json());
+    return this.http.get('http://103.76.180.120:8080/tamdai-service/get/PaymentTransaction', options).map((response: Response) => response.json());
+    //return this.http.get('http://' + this.url + ':8080/get/PaymentTransaction', options).map((response: Response) => response.json());
   }
 
 }

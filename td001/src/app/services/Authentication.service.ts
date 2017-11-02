@@ -7,7 +7,7 @@ import {FacebookService, InitParams} from 'ngx-facebook';
 
 @Injectable()
 export class AuthenticationService {
-  url = "localhost";
+  //url = "localhost";
   //url = "192.168.1.7";
 
   constructor(private http: Http,
@@ -29,8 +29,8 @@ export class AuthenticationService {
   // 192.168.1.7
   // localhost
   login(email: string, password: string) {
-    return this.http.get('http://' + this.url + ':8080/user/login' + "?Email=" + email + "&" + "Password=" + password)
-      .map((response: Response) => {
+    return this.http.get('http://103.76.180.120:8080/tamdai-service/user/login' + "?Email=" + email + "&" + "Password=" + password).map((response: Response) => {
+    //return this.http.get('http://' + this.url + ':8080/user/login' + "?Email=" + email + "&" + "Password=" + password).map((response: Response) => {
 
         // login successful if there's a jwt token in the response
         let user = response.json();

@@ -67,6 +67,16 @@ export class VideoListPageComponent implements OnInit {
   ngOnInit() {
   }
 
+  public keyPress(event: any) {
+    const pattern = /[0-9\+\-\ ]/;
+    let inputChar = String.fromCharCode(event.charCode);
+    // console.log(inputChar, e.charCode);
+    if (!pattern.test(inputChar)) {
+      // invalid character, prevent input
+      event.preventDefault();
+    }
+  }
+
   upLoad(id) {
     console.log(id);
     this.Course.courseType = this.model.options;
