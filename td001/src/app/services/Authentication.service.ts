@@ -5,13 +5,11 @@ import {Router} from "@angular/router";
 import {AlertService} from "../alertContent/AlertService";
 import {FacebookService, InitParams} from 'ngx-facebook';
 
-//const URL = 'http://localhost:8080/';
-const URL = 'http://103.76.180.120:8080/tamdai-service/';
+const URL = 'http://localhost:8080/';
+//const URL = 'http://103.76.180.120:8080/tamdai-service/';
 
 @Injectable()
 export class AuthenticationService {
-  //url = "localhost";
-  //url = "192.168.1.7";
 
   constructor(private http: Http,
               private router: Router,

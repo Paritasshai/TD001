@@ -15,8 +15,8 @@ import {DomSanitizer} from '@angular/platform-browser'
 
 export class CourseListsComponent implements OnInit {
 
-  //url = 'http://localhost:8080/';
-  url = 'http://103.76.180.120:8080/tamdai-service/';
+  url = 'http://localhost:8080/';
+  //url = 'http://103.76.180.120:8080/tamdai-service/';
 
   jsonp: any;
   courses: any = [];
@@ -56,11 +56,11 @@ export class CourseListsComponent implements OnInit {
               private router: Router,
               private userService: UserService,
               private purchaseCourseService: PurchaseCourseService,
-              private http: Http,
-              private sanitizer: DomSanitizer) {
+              private http: Http) {
 
     let id = this.route.snapshot.params['id'];
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
   }
 
   open() {

@@ -166,12 +166,8 @@
                             <span *ngIf="course.courseType == image" class="glyphicon glyphicon-picture"></span>
                             {{course.name}}
                             <!--{{course.videoPath}}-->
+                            <!--{{course.videoClips[0]?.id}}-->
                             <!--{{courses.courseItems[0]?.videoPath}}-->
-
-                            <!--<input class="form-control" id="videoPath"-->
-                            <!--required-->
-                            <!--[(ngModel)]="course.videoPath" name="videoPath"-->
-                            <!--#videoPath="ngModel">-->
                           </a>
 
                           <!-- Modal -->
@@ -179,42 +175,21 @@
                                *ngIf="course.canPreview == truePreview">
                             <div class="modal-dialog">
                               <div class="card-content">
+
                                 <div align="center" class="video-responsive">
                                   <img class="img" *ngIf="course.courseType == image"
                                        src="{{url + 'displayImageItem/' + course.imageItems[0]?.id}}"/>
-                                  <!--<img class="img" *ngIf="course.courseType == image"-->
-                                  <!--src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>-->
-
                                   <div align="center" [hidden]="course.courseType == image">
-                                    <div [hidden]="courses.courseItems[0]?.videoPath != nullText">
-
-                                      <!--<div *ngIf="course.videoClips[0]?.id == nullText">-->
-                                      <!--<iframe width="800" height="450" [src]="urlVideo"-->
-                                      <!--frameborder="0"-->
-                                      <!--allowfullscreen></iframe>-->
-                                      <!--</div>-->
+                                    <div [hidden]="course.videoClips[0]?.id == undefined">
 
                                       <video id="my-video"
                                              class="video-js vjs-default-skin vjs-big-play-button"
                                              controls
                                              preload="auto" width="800"
                                              height="450" data-setup='{ "playbackRates": [1, 1.5, 2] }'>
-                                        <!--<source *ngIf="course.courseType == video"-->
-                                        <!--src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"-->
-                                        <!--type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'>-->
-                                        <!--<source *ngIf="course.courseType == video"-->
-                                        <!--src="{{course.videoClips[0]?.videoPath}}"-->
-                                        <!--type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'>-->
                                         <source *ngIf="course.courseType == video"
                                                 src="{{url + 'playVideo/' + course.videoClips[0]?.id}}"
                                                 type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'>
-                                        <p class="vjs-no-js">
-                                          To view this video please enable JavaScript, and consider upgrading to a web
-                                          browser that
-                                          <a href="http://videojs.com/html5-video-support/" target="_blank">supports
-                                            HTML5
-                                            video</a>
-                                        </p>
                                       </video>
 
                                       <div class="overlay">
@@ -236,7 +211,7 @@
                                     </div>
                                   </div>
                                   <div align="center" [hidden]="course.courseType == image">
-                                    <div [hidden]="courses.courseItems[0]?.videoPath == nullText">
+                                    <div [hidden]="course.videoClips[0]?.id != undefined">
                                       <div>
                                         <iframe width="800" height="450" [src]="course.videoPath | safety"
                                                 frameborder="0"
@@ -246,6 +221,7 @@
                                   </div>
 
                                 </div>
+
                               </div>
                             </div>
                           </div>
@@ -448,6 +424,7 @@
                                     <span *ngIf="course.courseType == image"
                                           class="glyphicon glyphicon-picture"></span>
                                     {{course.name}}
+                                    {{course.videoPath}}
                                   </a>
 
                                   <!-- Modal -->
@@ -458,46 +435,86 @@
                                         <div class="modal-dialog">
                                           <div class="card-content">
                                             <div align="center" class="video-responsive">
+
                                               <img class="img" *ngIf="course.courseType == image"
                                                    src="{{url + 'displayImageItem/' + course.imageItems[0]?.id}}"/>
-                                              <!--<img class="img" *ngIf="course.courseType == image"-->
-                                              <!--src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>-->
                                               <div align="center" [hidden]="course.courseType == image">
-                                                <video id="my-video1" class="video-js" controls preload="auto"
-                                                       width="800"
-                                                       height="450" data-setup='{ "playbackRates": [1, 1.5, 2] }'>
-                                                  <source *ngIf="course.courseType == video"
-                                                          src="{{url + 'playVideo/' + course.videoClips[0]?.id}}"
-                                                          type='video/mp4'>
-                                                  <!--<source *ngIf="course.courseType == video"-->
-                                                  <!--src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"-->
-                                                  <!--type='video/mp4'>-->
-                                                  <p class="vjs-no-js">
-                                                    To view this video please enable JavaScript, and consider upgrading
-                                                    to a web
-                                                    browser that
-                                                    <a href="http://videojs.com/html5-video-support/" target="_blank">supports
-                                                      HTML5
-                                                      video</a>
-                                                  </p>
-                                                </video>
-                                                <div class="overlay">
-                                                  <form>
-                                                    <div class="runtext-container">
-                                                      <div class="main-runtext">
-                                                        <marquee direction="" onmouseover="this.stop();"
-                                                                 onmouseout="this.start();">
-                                                          <div class="holder">
-                                                            <div class="text-container">
-                                                              {{ipObj._body}}
+                                                <div [hidden]="course.videoClips[0]?.id == undefined">
+
+                                                  <video id="my-video1"
+                                                         class="video-js vjs-default-skin vjs-big-play-button"
+                                                         controls
+                                                         preload="auto" width="800"
+                                                         height="450" data-setup='{ "playbackRates": [1, 1.5, 2] }'>
+                                                    <source *ngIf="course.courseType == video"
+                                                            src="{{url + 'playVideo/' + course.videoClips[0]?.id}}"
+                                                            type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'>
+                                                  </video>
+                                                  <div class="overlay">
+                                                    <form>
+                                                      <div class="runtext-container">
+                                                        <div class="main-runtext">
+                                                          <marquee direction="" onmouseover="this.stop();"
+                                                                   onmouseout="this.start();">
+                                                            <div class="holder">
+                                                              <div class="text-container">
+                                                                {{ipObj._body}}
+                                                              </div>
                                                             </div>
-                                                          </div>
-                                                        </marquee>
+                                                          </marquee>
+                                                        </div>
                                                       </div>
-                                                    </div>
-                                                  </form>
+                                                    </form>
+                                                  </div>
                                                 </div>
                                               </div>
+                                              <div align="center" [hidden]="course.courseType == image">
+                                                <div [hidden]="course.videoClips[0]?.id != undefined">
+                                                  <div>
+                                                    <iframe width="800" height="450" [src]="course.videoPath | safety"
+                                                            frameborder="0"
+                                                            allowfullscreen></iframe>
+                                                  </div>
+                                                </div>
+                                              </div>
+
+                                              <!--<div align="center" [hidden]="course.courseType == image">-->
+                                              <!--<video id="my-video1" class="video-js" controls preload="auto"-->
+                                              <!--width="800"-->
+                                              <!--height="450" data-setup='{ "playbackRates": [1, 1.5, 2] }'>-->
+                                              <!--<source *ngIf="course.courseType == video"-->
+                                              <!--src="{{url + 'playVideo/' + course.videoClips[0]?.id}}"-->
+                                              <!--type='video/mp4'>-->
+                                              <!--&lt;!&ndash;<source *ngIf="course.courseType == video"&ndash;&gt;-->
+                                              <!--&lt;!&ndash;src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"&ndash;&gt;-->
+                                              <!--&lt;!&ndash;type='video/mp4'>&ndash;&gt;-->
+                                              <!--<p class="vjs-no-js">-->
+                                              <!--To view this video please enable JavaScript, and consider upgrading-->
+                                              <!--to a web-->
+                                              <!--browser that-->
+                                              <!--<a href="http://videojs.com/html5-video-support/" target="_blank">supports-->
+                                              <!--HTML5-->
+                                              <!--video</a>-->
+                                              <!--</p>-->
+                                              <!--</video>-->
+                                              <!--<div class="overlay">-->
+                                              <!--<form>-->
+                                              <!--<div class="runtext-container">-->
+                                              <!--<div class="main-runtext">-->
+                                              <!--<marquee direction="" onmouseover="this.stop();"-->
+                                              <!--onmouseout="this.start();">-->
+                                              <!--<div class="holder">-->
+                                              <!--<div class="text-container">-->
+                                              <!--{{ipObj._body}}-->
+                                              <!--</div>-->
+                                              <!--</div>-->
+                                              <!--</marquee>-->
+                                              <!--</div>-->
+                                              <!--</div>-->
+                                              <!--</form>-->
+                                              <!--</div>-->
+                                              <!--</div>-->
+
                                             </div>
                                           </div>
                                         </div>
@@ -512,45 +529,85 @@
                                     <div class="modal-dialog">
                                       <div class="card-content">
                                         <div align="center" class="video-responsive">
+
                                           <img class="img" *ngIf="course.courseType == image"
                                                src="{{url + 'displayImageItem/' + course.imageItems[0]?.id}}"/>
-                                          <!--<img class="img" *ngIf="course.courseType == image"-->
-                                          <!--src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>-->
                                           <div align="center" [hidden]="course.courseType == image">
-                                            <video id="my-video2" class="video-js" controls preload="auto" width="800"
-                                                   height="450" data-setup='{ "playbackRates": [1, 1.5, 2] }'>
-                                              <!--<source *ngIf="course.courseType == video"-->
-                                              <!--src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"-->
-                                              <!--type='video/mp4'>-->
-                                              <source *ngIf="course.courseType == video"
-                                                      src="{{url + 'playVideo/' + course.videoClips[0]?.id}}"
-                                                      type='video/mp4'>
-                                              <p class="vjs-no-js">
-                                                To view this video please enable JavaScript, and consider upgrading to a
-                                                web
-                                                browser that
-                                                <a href="http://videojs.com/html5-video-support/" target="_blank">supports
-                                                  HTML5
-                                                  video</a>
-                                              </p>
-                                            </video>
-                                            <div class="overlay">
-                                              <form>
-                                                <div class="runtext-container">
-                                                  <div class="main-runtext">
-                                                    <marquee direction="" onmouseover="this.stop();"
-                                                             onmouseout="this.start();">
-                                                      <div class="holder">
-                                                        <div class="text-container">
-                                                          {{ipObj._body}}
+                                            <div [hidden]="course.videoClips[0]?.id == undefined">
+
+                                              <video id="my-video1"
+                                                     class="video-js vjs-default-skin vjs-big-play-button"
+                                                     controls
+                                                     preload="auto" width="800"
+                                                     height="450" data-setup='{ "playbackRates": [1, 1.5, 2] }'>
+                                                <source *ngIf="course.courseType == video"
+                                                        src="{{url + 'playVideo/' + course.videoClips[0]?.id}}"
+                                                        type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'>
+                                              </video>
+                                              <div class="overlay">
+                                                <form>
+                                                  <div class="runtext-container">
+                                                    <div class="main-runtext">
+                                                      <marquee direction="" onmouseover="this.stop();"
+                                                               onmouseout="this.start();">
+                                                        <div class="holder">
+                                                          <div class="text-container">
+                                                            {{ipObj._body}}
+                                                          </div>
                                                         </div>
-                                                      </div>
-                                                    </marquee>
+                                                      </marquee>
+                                                    </div>
                                                   </div>
-                                                </div>
-                                              </form>
+                                                </form>
+                                              </div>
                                             </div>
                                           </div>
+                                          <div align="center" [hidden]="course.courseType == image">
+                                            <div [hidden]="course.videoClips[0]?.id != undefined">
+                                              <div>
+                                                <iframe width="800" height="450" [src]="course.videoPath | safety"
+                                                        frameborder="0"
+                                                        allowfullscreen></iframe>
+                                              </div>
+                                            </div>
+                                          </div>
+
+                                          <!--<div align="center" [hidden]="course.courseType == image">-->
+                                          <!--<video id="my-video2" class="video-js" controls preload="auto" width="800"-->
+                                          <!--height="450" data-setup='{ "playbackRates": [1, 1.5, 2] }'>-->
+                                          <!--&lt;!&ndash;<source *ngIf="course.courseType == video"&ndash;&gt;-->
+                                          <!--&lt;!&ndash;src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"&ndash;&gt;-->
+                                          <!--&lt;!&ndash;type='video/mp4'>&ndash;&gt;-->
+                                          <!--<source *ngIf="course.courseType == video"-->
+                                          <!--src="{{url + 'playVideo/' + course.videoClips[0]?.id}}"-->
+                                          <!--type='video/mp4'>-->
+                                          <!--<p class="vjs-no-js">-->
+                                          <!--To view this video please enable JavaScript, and consider upgrading to a-->
+                                          <!--web-->
+                                          <!--browser that-->
+                                          <!--<a href="http://videojs.com/html5-video-support/" target="_blank">supports-->
+                                          <!--HTML5-->
+                                          <!--video</a>-->
+                                          <!--</p>-->
+                                          <!--</video>-->
+                                          <!--<div class="overlay">-->
+                                          <!--<form>-->
+                                          <!--<div class="runtext-container">-->
+                                          <!--<div class="main-runtext">-->
+                                          <!--<marquee direction="" onmouseover="this.stop();"-->
+                                          <!--onmouseout="this.start();">-->
+                                          <!--<div class="holder">-->
+                                          <!--<div class="text-container">-->
+                                          <!--{{ipObj._body}}-->
+                                          <!--</div>-->
+                                          <!--</div>-->
+                                          <!--</marquee>-->
+                                          <!--</div>-->
+                                          <!--</div>-->
+                                          <!--</form>-->
+                                          <!--</div>-->
+                                          <!--</div>-->
+
                                         </div>
                                       </div>
                                     </div>
@@ -583,6 +640,7 @@
           </div>
 
         </div>
+
         <div *ngIf="user.status == statusInstructor">
           <div class="container-design">
             <div class="row">
@@ -751,6 +809,7 @@
                                     <span *ngIf="course.courseType == image"
                                           class="glyphicon glyphicon-picture"></span>
                                     {{course.name}}
+                                    <!--{{course.videoPath}}-->
                                   </a>
 
                                   <!-- Modal -->
@@ -761,41 +820,42 @@
                                           <img class="img" *ngIf="course.courseType == image"
                                                src="{{url + 'displayImageItem/' + course.imageItems[0]?.id}}"/>
                                           <div align="center" [hidden]="course.courseType == image">
+                                            <div [hidden]="course.videoClips[0]?.id == undefined">
 
-                                            <video id="my-video4" class="video-js" controls preload="auto" width="800"
-                                                   height="450" data-setup='{ "playbackRates": [1, 1.5, 2] }'>
-                                              <source *ngIf="course.courseType == video"
-                                                      src="{{url + 'playVideo/' + course.videoClips[0]?.id}}"
-                                                      type='video/mp4'>
-                                              <!--<p class="vjs-no-js">-->
-                                                <!--To view this video please enable JavaScript, and consider upgrading to-->
-                                                <!--a-->
-                                                <!--web-->
-                                                <!--browser that-->
-                                                <!--<a href="http://videojs.com/html5-video-support/" target="_blank">supports-->
-                                                  <!--HTML5-->
-                                                  <!--video</a>-->
-                                              <!--</p>-->
-                                            </video>
-                                            <div class="overlay">
-                                              <form>
-                                                <!--<p-->
-                                                <!--style="font-size: 18px; color: white; width: 100%; margin-left: 40%; margin-top: 30px">-->
-                                                <!--<span class="blink_me">{{ipObj._body}}</span>-->
-                                                <!--</p>-->
-                                                <div class="runtext-container">
-                                                  <div class="main-runtext">
-                                                    <marquee direction="" onmouseover="this.stop();"
-                                                             onmouseout="this.start();">
-                                                      <div class="holder">
-                                                        <div class="text-container">
-                                                          {{ipObj._body}}
+                                              <video id="my-video3"
+                                                     class="video-js vjs-default-skin vjs-big-play-button"
+                                                     controls
+                                                     preload="auto" width="800"
+                                                     height="450" data-setup='{ "playbackRates": [1, 1.5, 2] }'>
+                                                <source *ngIf="course.courseType == video"
+                                                        src="{{url + 'playVideo/' + course.videoClips[0]?.id}}"
+                                                        type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'>
+                                              </video>
+                                              <div class="overlay">
+                                                <form>
+                                                  <div class="runtext-container">
+                                                    <div class="main-runtext">
+                                                      <marquee direction="" onmouseover="this.stop();"
+                                                               onmouseout="this.start();">
+                                                        <div class="holder">
+                                                          <div class="text-container">
+                                                            {{ipObj._body}}
+                                                          </div>
                                                         </div>
-                                                      </div>
-                                                    </marquee>
+                                                      </marquee>
+                                                    </div>
                                                   </div>
-                                                </div>
-                                              </form>
+                                                </form>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div align="center" [hidden]="course.courseType == image">
+                                            <div [hidden]="course.videoClips[0]?.id != undefined">
+                                              <div>
+                                                <iframe width="800" height="450" [src]="course.videoPath | safety"
+                                                        frameborder="0"
+                                                        allowfullscreen></iframe>
+                                              </div>
                                             </div>
                                           </div>
                                         </div>
