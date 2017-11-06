@@ -12,12 +12,17 @@
           </div>
           <div align="center">
             <div class="input-group stylish-input-group">
-              <!--<div class="all-copy">-->
-              <!--<p>One click selects all this.</p>-->
-              <!--</div>-->
-              <input onClick="this.setSelectionRange(0, this.value.length)" style="width: 500px; border-radius: 15px"
-                     type="text" class="form-control" placeholder="Search"
-                     [(ngModel)]="query">
+              <div class="inner-addon right-addon" style="width: 100%">
+                <!--<i class="glyphicon glyphicon-search" style="float: right"></i>-->
+                <input onClick="this.setSelectionRange(0, this.value.length)"
+                       style="width: 350px; height: 40px; border-radius: 5px"
+                       type="text" class="form-control" placeholder="Search"
+                       [(ngModel)]="query">
+                <button class="btn btn-primary btn-md" style="width: 50px; height: 40px" (click)="searchItem(query)"><i
+                  class="glyphicon glyphicon-search"></i>
+                </button>
+              </div>
+
             </div>
           </div>
         </div>
@@ -73,7 +78,7 @@
           <div align="center">
             <div class="blog">
               <div id="products2" class="row list-group">
-                <div class="item col-sm-3 col-lg-3" style="width: 20%"
+                <div class="item col-lg-3" style="width: 200px"
                      *ngFor="let course of coursesNew">
                   <div>
                     <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
@@ -91,8 +96,9 @@
                       </div>
 
                       <div class="caption" align="left">
-                        <h6 class="group inner list-group-item-heading">{{course.name}}</h6>
-                        <h6 [hidden]="course.price == empty" class="group inner list-group-item-heading">{{course.price}} Bath.</h6>
+                        <div id="div1">{{course.name}}</div>
+                        <h6 [hidden]="course.price == empty" class="group inner list-group-item-heading">
+                          {{course.price}} Bath.</h6>
                         <h6 *ngIf="course.price == empty" class="group inner list-group-item-heading">Free Course</h6>
                         <!--<div *ngFor="let user of users" align="left">-->
                         <!--<p class="small" *ngIf="user.id == course.userId">-->
@@ -128,7 +134,7 @@
           <div align="center">
             <div class="blog">
               <div class="row list-group">
-                <div class="item col-sm-3 col-lg-3" style="width: 20%"
+                <div class="item col-lg-3" style="width: 200px"
                      *ngFor="let course of coursesRecommend">
                   <div>
                     <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
@@ -146,8 +152,9 @@
                       </div>
 
                       <div class="caption" align="left">
-                        <h6 class="group inner list-group-item-heading">{{course.name}}</h6>
-                        <h6 [hidden]="course.price == empty" class="group inner list-group-item-heading">{{course.price}} Bath.</h6>
+                        <div id="div8">{{course.name}}</div>
+                        <h6 [hidden]="course.price == empty" class="group inner list-group-item-heading">
+                          {{course.price}} Bath.</h6>
                         <h6 *ngIf="course.price == empty" class="group inner list-group-item-heading">Free Course</h6>
                         <!--<div *ngFor="let user of users" align="left">-->
                         <!--<p class="small" *ngIf="user.id == course.userId">-->
@@ -183,7 +190,7 @@
           <div align="center">
             <div class="blog">
               <div class="row list-group">
-                <div class="item col-sm-3 col-lg-3" style="width: 20%"
+                <div class="item col-lg-3" style="width: 200px"
                      *ngFor="let course of coursesHot">
                   <div>
                     <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
@@ -201,8 +208,9 @@
                       </div>
 
                       <div class="caption" align="left">
-                        <h6 class="group inner list-group-item-heading">{{course.name}}</h6>
-                        <h6 [hidden]="course.price == empty" class="group inner list-group-item-heading">{{course.price}} Bath.</h6>
+                        <div id="div9">{{course.name}}</div>
+                        <h6 [hidden]="course.price == empty" class="group inner list-group-item-heading">
+                          {{course.price}} Bath.</h6>
                         <h6 *ngIf="course.price == empty" class="group inner list-group-item-heading">Free Course</h6>
                         <!--<div *ngFor="let user of users" align="left">-->
                         <!--<p class="small" *ngIf="user.id == course.userId">-->
@@ -249,8 +257,10 @@
           <div align="center">
             <div class="blog">
               <div id="products" class="row list-group">
-                <div class="item col-sm-3 col-lg-3" style="width: 20%"
-                     *ngFor="let course of courses| search:'name':query | sortBy : 'id'; let i = index">
+                <div class="item col-lg-3" style="width: 200px"
+                     *ngFor="let course of courses| sortBy : 'id'; let i = index">
+                  <!--<div class="item col-sm-3 col-lg-3" style="width: 20%"-->
+                  <!--*ngFor="let course of courses| search:'name':query | sortBy : 'id'; let i = index">-->
                   <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
                     <div class="crop">
                       <!--<img style="cursor: pointer" (click)="click(course.id)" class="img"-->
@@ -266,8 +276,9 @@
                     </div>
 
                     <div class="caption" align="left">
-                      <h6 class="group inner list-group-item-heading">{{course.name}}</h6>
-                      <h6 [hidden]="course.price == empty" class="group inner list-group-item-heading">{{course.price}} Bath.</h6>
+                      <div id="div10">{{course.name}}</div>
+                      <h6 [hidden]="course.price == empty" class="group inner list-group-item-heading">{{course.price}}
+                        Bath.</h6>
                       <h6 *ngIf="course.price == empty" class="group inner list-group-item-heading">Free Course</h6>
                       <!--<div *ngFor="let user of users" align="left">-->
                       <!--<p class="small" *ngIf="user.id == course.userId">-->
@@ -308,7 +319,7 @@
           <div align="center">
             <div class="blog">
               <div id="productsLego" class="row list-group">
-                <div class="item col-sm-3 col-lg-3"
+                <div class="item col-sm-3 col-lg-3" style="width: 200px"
                      *ngFor="let course of coursesLego">
                   <div *ngIf="course.catagory == LegoText">
                     <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
@@ -325,7 +336,7 @@
                           class="glyphicon glyphicon glyphicon-shopping-cart"></span></a>
                       </div>
                       <div class="caption" align="left">
-                        <h6 class="group inner list-group-item-heading">{{course.name}}</h6>
+                        <div id="div2">{{course.name}}</div>
                         <h6 class="group inner list-group-item-heading">{{course.price}} Bath.</h6>
                         <!--<div *ngFor="let user of users" align="left">-->
                         <!--<p class="small" *ngIf="user.id == course.userId">-->
@@ -366,7 +377,7 @@
           <div align="center">
             <div class="blog">
               <div id="productsHousehold" class="row list-group">
-                <div class="item col-sm-3 col-lg-3"
+                <div class="item col-sm-3 col-lg-3" style="width: 200px"
                      *ngFor="let course of coursesHousehold">
                   <div *ngIf="course.catagory == HouseholdText">
                     <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
@@ -383,7 +394,7 @@
                           class="glyphicon glyphicon glyphicon-shopping-cart"></span></a>
                       </div>
                       <div class="caption" align="left">
-                        <h6 class="group inner list-group-item-heading">{{course.name}}</h6>
+                        <div id="div3">{{course.name}}</div>
                         <h6 class="group inner list-group-item-heading">{{course.price}} Bath.</h6>
                         <!--<div *ngFor="let user of users" align="left">-->
                         <!--<p class="small" *ngIf="user.id == course.userId">-->
@@ -424,7 +435,7 @@
           <div align="center">
             <div class="blog">
               <div id="productsToy" class="row list-group">
-                <div class="item col-sm-3 col-lg-3"
+                <div class="item col-sm-3 col-lg-3" style="width: 200px"
                      *ngFor="let course of coursesToy">
                   <div *ngIf="course.catagory == ToyText">
                     <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
@@ -441,7 +452,7 @@
                           class="glyphicon glyphicon glyphicon-shopping-cart"></span></a>
                       </div>
                       <div class="caption" align="left">
-                        <h6 class="group inner list-group-item-heading">{{course.name}}</h6>
+                        <div id="div4">{{course.name}}</div>
                         <h6 class="group inner list-group-item-heading">{{course.price}} Bath.</h6>
                         <!--<div *ngFor="let user of users" align="left">-->
                         <!--<p class="small" *ngIf="user.id == course.userId">-->
@@ -482,7 +493,7 @@
           <div align="center">
             <div class="blog">
               <div id="productsGarden" class="row list-group">
-                <div class="item col-sm-3 col-lg-3"
+                <div class="item col-sm-3 col-lg-3" style="width: 200px"
                      *ngFor="let course of coursesGarden">
                   <div *ngIf="course.catagory == GardenText">
                     <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
@@ -499,7 +510,7 @@
                           class="glyphicon glyphicon glyphicon-shopping-cart"></span></a>
                       </div>
                       <div class="caption" align="left">
-                        <h6 class="group inner list-group-item-heading">{{course.name}}</h6>
+                        <div id="div5">{{course.name}}</div>
                         <h6 class="group inner list-group-item-heading">{{course.price}} Bath.</h6>
                         <!--<div *ngFor="let user of users" align="left">-->
                         <!--<p class="small" *ngIf="user.id == course.userId">-->
@@ -540,7 +551,7 @@
           <div align="center">
             <div class="blog">
               <div id="productsIoT" class="row list-group">
-                <div class="item col-sm-3 col-lg-3"
+                <div class="item col-sm-3 col-lg-3" style="width: 200px"
                      *ngFor="let course of coursesIoT">
                   <div *ngIf="course.catagory == IoTText">
                     <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
@@ -557,7 +568,65 @@
                           class="glyphicon glyphicon glyphicon-shopping-cart"></span></a>
                       </div>
                       <div class="caption" align="left">
-                        <h6 class="group inner list-group-item-heading">{{course.name}}</h6>
+                        <div id="div6">{{course.name}}</div>
+                        <h6 class="group inner list-group-item-heading">{{course.price}} Bath.</h6>
+                        <!--<div *ngFor="let user of users" align="left">-->
+                        <!--<p class="small" *ngIf="user.id == course.userId">-->
+                        <!--{{user.firstName}}-->
+                        <!--</div>-->
+                        <div class="row">
+                          <div class="col-xs-12 col-md-6" align="right">
+                            <!--<button class="btn btn-danger btn-sm" (click)="click(course.id)">-->
+                            <!--ดูรายละเอียด-->
+                            <!--</button>-->
+                            <div *ngFor="let user of users">
+                              <div *ngIf="user.id == currentUser.id">
+                                <!--<div [hidden]="user.status != instructor">-->
+                                <!--<a class="btn btn-default btn-sm"-->
+                                <!--[routerLink]="['/EditCourse']"><span-->
+                                <!--class="glyphicon glyphicon-th"></span>EditCourse</a>-->
+                                <!--</div>-->
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div *ngIf="querySearch">
+        <div>
+
+          <div class="well well-sm style-height-bar">
+            <p style="color: white; font-size: 18px">Search</p>
+          </div>
+          <div align="center">
+            <div class="blog">
+              <div id="productsCourseSearch" class="row list-group">
+                <div class="item col-sm-3 col-lg-3" style="width: 200px"
+                     *ngFor="let course of courseSearch">
+                  <div>
+                    <div class="thumbnail" *ngIf="course.publicCourse == textTrue">
+                      <div class="crop">
+                        <!--<img style="cursor: pointer" (click)="click(course.id)" class="img"-->
+                        <!--src="{{'http://localhost:8080/displayImage/' + imageCourse.id}}" alt=""/>-->
+                        <img style="cursor: pointer" (click)="click(course.id)" class="img"
+                             src="data:{{course.courseImages[0]?.contentType}};base64,{{course.courseImages[0]?.content}}"
+                             alt=""/>
+                      </div>
+                      <div align="left" [hidden]="course.linkCourse == textNull">
+                        <a style="cursor: pointer"><span
+                          style="font-size: 20px; color: #bf2b2a; float: right; margin-top: -130px; margin-right: 5px"
+                          class="glyphicon glyphicon glyphicon-shopping-cart"></span></a>
+                      </div>
+                      <div class="caption" align="left">
+                        <div id="div7">{{course.name}}</div>
                         <h6 class="group inner list-group-item-heading">{{course.price}} Bath.</h6>
                         <!--<div *ngFor="let user of users" align="left">-->
                         <!--<p class="small" *ngIf="user.id == course.userId">-->

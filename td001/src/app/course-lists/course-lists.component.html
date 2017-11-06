@@ -25,11 +25,6 @@
             <div class="panel-body" [hidden]="courses.price == empty"><span> <i class="fa fa-money"></i></span>
               Price: {{courses.price}} Bath
             </div>
-            <!--<div class="panel-body" [hidden]="courses.price != textNull">-->
-            <!--<span> <i class="fa fa-money"></i></span>-->
-            <!--Course Free-->
-            <!--</div>-->
-            <!---->
             <div class="panel-body" *ngIf="courses.price == empty">
               <span> <i class="fa fa-money"></i></span>
               Free Course
@@ -170,6 +165,13 @@
         class="glyphicon glyphicon-facetime-video"></span>
                             <span *ngIf="course.courseType == image" class="glyphicon glyphicon-picture"></span>
                             {{course.name}}
+                            <!--{{course.videoPath}}-->
+                            <!--{{courses.courseItems[0]?.videoPath}}-->
+
+                            <!--<input class="form-control" id="videoPath"-->
+                            <!--required-->
+                            <!--[(ngModel)]="course.videoPath" name="videoPath"-->
+                            <!--#videoPath="ngModel">-->
                           </a>
 
                           <!-- Modal -->
@@ -179,46 +181,67 @@
                               <div class="card-content">
                                 <div align="center" class="video-responsive">
                                   <img class="img" *ngIf="course.courseType == image"
-                                       src="{{'http://103.76.180.120:8080/tamdai-service/displayImageItem/' + course.imageItems[0]?.id}}"/>
-                                  <!--<img class="img" *ngIf="course.courseType == image" src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>-->
+                                       src="{{url + 'displayImageItem/' + course.imageItems[0]?.id}}"/>
+                                  <!--<img class="img" *ngIf="course.courseType == image"-->
+                                  <!--src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>-->
+
                                   <div align="center" [hidden]="course.courseType == image">
-                                    <!--<video width="400" controls>-->
-                                    <!--<source src="../../assets/images/JustTitle.mp4" type="video/mp4">-->
-                                    <!--Your browser does not support HTML5 video.-->
-                                    <!--</video>-->
-                                    <video id="my-video" class="video-js vjs-default-skin vjs-big-play-button" controls
-                                           preload="auto" width="800"
-                                           height="450" data-setup='{ "playbackRates": [1, 1.5, 2] }'>
-                                      <!--<source *ngIf="course.courseType == video"-->
-                                      <!--src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"-->
-                                      <!--type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' (click)="open()">-->
-                                      <source *ngIf="course.courseType == video"
-                                              src="{{'http://103.76.180.120:8080/tamdai-service/playVideo/' + course.videoClips[0]?.id}}"
-                                              type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'>
-                                      <!--<source *ngIf="course.courseType == video"-->
-                                      <!--src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"-->
-                                      <!--type='video/webm;codecs="vp8, vorbis"' (click)="open()">-->
-                                      <p class="vjs-no-js">
-                                        To view this video please enable JavaScript, and consider upgrading to a web
-                                        browser that
-                                        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5
-                                          video</a>
-                                      </p>
-                                    </video>
-                                    <div class="overlay">
-                                      <form>
-                                        <div class="runtext-container">
-                                          <div class="main-runtext">
-                                            <marquee direction="" onmouseover="this.stop();" onmouseout="this.start();">
-                                              <div class="holder">
-                                                <div class="text-container">
-                                                  {{ipObj._body}}
+                                    <div [hidden]="courses.courseItems[0]?.videoPath != nullText">
+
+                                      <!--<div *ngIf="course.videoClips[0]?.id == nullText">-->
+                                      <!--<iframe width="800" height="450" [src]="urlVideo"-->
+                                      <!--frameborder="0"-->
+                                      <!--allowfullscreen></iframe>-->
+                                      <!--</div>-->
+
+                                      <video id="my-video"
+                                             class="video-js vjs-default-skin vjs-big-play-button"
+                                             controls
+                                             preload="auto" width="800"
+                                             height="450" data-setup='{ "playbackRates": [1, 1.5, 2] }'>
+                                        <!--<source *ngIf="course.courseType == video"-->
+                                        <!--src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"-->
+                                        <!--type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'>-->
+                                        <!--<source *ngIf="course.courseType == video"-->
+                                        <!--src="{{course.videoClips[0]?.videoPath}}"-->
+                                        <!--type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'>-->
+                                        <source *ngIf="course.courseType == video"
+                                                src="{{url + 'playVideo/' + course.videoClips[0]?.id}}"
+                                                type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'>
+                                        <p class="vjs-no-js">
+                                          To view this video please enable JavaScript, and consider upgrading to a web
+                                          browser that
+                                          <a href="http://videojs.com/html5-video-support/" target="_blank">supports
+                                            HTML5
+                                            video</a>
+                                        </p>
+                                      </video>
+
+                                      <div class="overlay">
+                                        <form>
+                                          <div class="runtext-container">
+                                            <div class="main-runtext">
+                                              <marquee direction="" onmouseover="this.stop();"
+                                                       onmouseout="this.start();">
+                                                <div class="holder">
+                                                  <div class="text-container">
+                                                    {{ipObj._body}}
+                                                  </div>
                                                 </div>
-                                              </div>
-                                            </marquee>
+                                              </marquee>
+                                            </div>
                                           </div>
-                                        </div>
-                                      </form>
+                                        </form>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div align="center" [hidden]="course.courseType == image">
+                                    <div [hidden]="courses.courseItems[0]?.videoPath == nullText">
+                                      <div>
+                                        <iframe width="800" height="450" [src]="course.videoPath | safety"
+                                                frameborder="0"
+                                                allowfullscreen></iframe>
+                                      </div>
                                     </div>
                                   </div>
 
@@ -436,21 +459,19 @@
                                           <div class="card-content">
                                             <div align="center" class="video-responsive">
                                               <img class="img" *ngIf="course.courseType == image"
-                                                   src="{{'http://103.76.180.120:8080/tamdai-service/displayImageItem/' + course.imageItems[0]?.id}}"/>
-                                              <!--<img class="img" *ngIf="course.courseType == image" src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>-->
+                                                   src="{{url + 'displayImageItem/' + course.imageItems[0]?.id}}"/>
+                                              <!--<img class="img" *ngIf="course.courseType == image"-->
+                                              <!--src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>-->
                                               <div align="center" [hidden]="course.courseType == image">
                                                 <video id="my-video1" class="video-js" controls preload="auto"
                                                        width="800"
                                                        height="450" data-setup='{ "playbackRates": [1, 1.5, 2] }'>
                                                   <source *ngIf="course.courseType == video"
-                                                          src="{{'http://103.76.180.120:8080/tamdai-service/playVideo/' + course.videoClips[0]?.id}}"
+                                                          src="{{url + 'playVideo/' + course.videoClips[0]?.id}}"
                                                           type='video/mp4'>
                                                   <!--<source *ngIf="course.courseType == video"-->
                                                   <!--src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"-->
-                                                  <!--type='video/mp4' (click)="open()">-->
-                                                  <!--<source *ngIf="course.courseType == video"-->
-                                                  <!--src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"-->
-                                                  <!--type='video/webm' (click)="open()">-->
+                                                  <!--type='video/mp4'>-->
                                                   <p class="vjs-no-js">
                                                     To view this video please enable JavaScript, and consider upgrading
                                                     to a web
@@ -492,16 +513,18 @@
                                       <div class="card-content">
                                         <div align="center" class="video-responsive">
                                           <img class="img" *ngIf="course.courseType == image"
-                                               src="{{'http://103.76.180.120:8080/tamdai-service/displayImageItem/' + course.imageItems[0]?.id}}"/>
+                                               src="{{url + 'displayImageItem/' + course.imageItems[0]?.id}}"/>
+                                          <!--<img class="img" *ngIf="course.courseType == image"-->
+                                          <!--src="{{'http://localhost:8080/displayImageItem/' + course.imageItems[0]?.id}}"/>-->
                                           <div align="center" [hidden]="course.courseType == image">
                                             <video id="my-video2" class="video-js" controls preload="auto" width="800"
                                                    height="450" data-setup='{ "playbackRates": [1, 1.5, 2] }'>
+                                              <!--<source *ngIf="course.courseType == video"-->
+                                              <!--src="{{'http://localhost:8080/playVideo/' + course.videoClips[0]?.id}}"-->
+                                              <!--type='video/mp4'>-->
                                               <source *ngIf="course.courseType == video"
-                                                      src="{{'http://103.76.180.120:8080/tamdai-service/playVideo/' + course.videoClips[0]?.id}}"
+                                                      src="{{url + 'playVideo/' + course.videoClips[0]?.id}}"
                                                       type='video/mp4'>
-                                              <source *ngIf="course.courseType == video"
-                                                      src="{{'http://103.76.180.120:8080/tamdai-service/playVideo/' + course.videoClips[0]?.id}}"
-                                                      type='video/webm'>
                                               <p class="vjs-no-js">
                                                 To view this video please enable JavaScript, and consider upgrading to a
                                                 web
@@ -601,8 +624,8 @@
                             <div class="row">
                               <div class="col-lg-6">
                                 <div class="circular--portrait">
-                                  <img *ngIf=""
-                                       src="data:{{user.userImages[0]?.contentType}};base64,{{user.userImages[0]?.content}}">
+                                  <img
+                                    src="data:{{user.userImages[0]?.contentType}};base64,{{user.userImages[0]?.content}}">
                                 </div>
                               </div>
                               <br>
@@ -736,22 +759,23 @@
                                       <div class="card-content container">
                                         <div align="center" class="video-responsive">
                                           <img class="img" *ngIf="course.courseType == image"
-                                               src="{{'http://103.76.180.120:8080/tamdai-service/displayImageItem/' + course.imageItems[0]?.id}}"/>
+                                               src="{{url + 'displayImageItem/' + course.imageItems[0]?.id}}"/>
                                           <div align="center" [hidden]="course.courseType == image">
+
                                             <video id="my-video4" class="video-js" controls preload="auto" width="800"
                                                    height="450" data-setup='{ "playbackRates": [1, 1.5, 2] }'>
                                               <source *ngIf="course.courseType == video"
-                                                      src="{{'http://103.76.180.120:8080/tamdai-service/playVideo/' + course.videoClips[0]?.id}}"
+                                                      src="{{url + 'playVideo/' + course.videoClips[0]?.id}}"
                                                       type='video/mp4'>
-                                              <p class="vjs-no-js">
-                                                To view this video please enable JavaScript, and consider upgrading to
-                                                a
-                                                web
-                                                browser that
-                                                <a href="http://videojs.com/html5-video-support/" target="_blank">supports
-                                                  HTML5
-                                                  video</a>
-                                              </p>
+                                              <!--<p class="vjs-no-js">-->
+                                                <!--To view this video please enable JavaScript, and consider upgrading to-->
+                                                <!--a-->
+                                                <!--web-->
+                                                <!--browser that-->
+                                                <!--<a href="http://videojs.com/html5-video-support/" target="_blank">supports-->
+                                                  <!--HTML5-->
+                                                  <!--video</a>-->
+                                              <!--</p>-->
                                             </video>
                                             <div class="overlay">
                                               <form>

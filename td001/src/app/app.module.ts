@@ -48,6 +48,7 @@ import { SearchPipe } from './pipes/search.pipe';
 import { MapKeyPipe } from './pipes/map-key.pipe';
 import {SortObjectPipe} from "./pipes/sort-object.pipe";
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { SafetyPipe } from './pipes/safety.pipe';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     MapKeyPipe,
     SortObjectPipe,
     EditUserComponent,
+    SafetyPipe
   ],
   imports: [
     BrowserModule,

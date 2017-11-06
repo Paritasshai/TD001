@@ -1,21 +1,26 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {CourseService} from "../services/CourseService";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserService} from "../services/User.service";
 import {User} from "../models/User";
 import {PurchaseCourseService} from "../services/PurchaseCourseService";
-import {isNull} from "util";
 import {Http} from "@angular/http";
-import * as http from "http";
+import {DomSanitizer} from '@angular/platform-browser'
 
 @Component({
   selector: 'app-course-lists',
   templateUrl: './course-lists.component.html',
   styleUrls: ['./course-lists.component.css']
 })
+
 export class CourseListsComponent implements OnInit {
+
+  //url = 'http://localhost:8080/';
+  url = 'http://103.76.180.120:8080/tamdai-service/';
+
   jsonp: any;
   courses: any = [];
+  course: any = {};
   coursesList: any = [];
   coursesPurchaseed: any = [];
   users: any = [];
@@ -43,22 +48,24 @@ export class CourseListsComponent implements OnInit {
   one = "1";
   ipObj: any = [];
   textPublic = 'true';
+  nullText = "null";
+  value: any;
 
   constructor(private courseService: CourseService,
               private route: ActivatedRoute,
               private router: Router,
               private userService: UserService,
               private purchaseCourseService: PurchaseCourseService,
-              private http: Http) {
+              private http: Http,
+              private sanitizer: DomSanitizer) {
+
     let id = this.route.snapshot.params['id'];
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   open() {
     console.log("opennnnnnn");
-    // let body = JSON.stringify({"someJsonData": [{ip}]});
-    this.http.get('http://103.76.180.120:8080/tamdai-service/getClientIp')
-    //this.http.get('http://192.168.1.7:8080/getClientIp')
+    this.http.get(URL + 'getClientIp')
       .subscribe(response => {
         this.ipObj = response;
         // console.log(this.ipObj);
@@ -67,7 +74,6 @@ export class CourseListsComponent implements OnInit {
 
   ngOnInit() {
     this.getCoursesById();
-    //this.getCarts();
     this.getUserList();
 
     if (this.currentUser != undefined) {
@@ -79,7 +85,6 @@ export class CourseListsComponent implements OnInit {
     if (this.currentUser != undefined) {
       this.getUserList();
     }
-
     this.open();
   }
 

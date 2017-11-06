@@ -5,6 +5,9 @@ import {FileUploader} from "ng2-file-upload";
 import {AlertService} from "../alertContent/AlertService";
 import {Video} from "../models/Video";
 
+//const URL = 'http://localhost:8080/';
+const URL = 'http://103.76.180.120:8080/tamdai-service/';
+
 @Component({
   selector: 'app-edit-courst-id',
   templateUrl: './edit-courst-id.component.html',
@@ -43,10 +46,8 @@ export class EditCourstIdComponent implements OnInit {
     });
   }
 
-  public uploader: FileUploader = new FileUploader({url: 'http://103.76.180.120:8080/tamdai-service/add/video/' + "?id=" + this.route.snapshot.params['id']});
-  //public uploader: FileUploader = new FileUploader({url: 'http://localhost:8080/add/video/' + "?id=" + this.route.snapshot.params['id']});
-  public uploaderImage: FileUploader = new FileUploader({url: 'http://103.76.180.120:8080/tamdai-service/add/ImageCourse/' + "?id=" + this.route.snapshot.params['id']});
-  //public uploaderImage: FileUploader = new FileUploader({url: 'http://localhost:8080/add/ImageCourse/' + "?id=" + this.route.snapshot.params['id']});
+  public uploader: FileUploader = new FileUploader({url: URL + 'add/video/' + "?id=" + this.route.snapshot.params['id']});
+  public uploaderImage: FileUploader = new FileUploader({url: URL + 'add/ImageCourse/' + "?id=" + this.route.snapshot.params['id']});
   public hasBaseDropZoneOver: boolean = false;
   public hasAnotherDropZoneOver: boolean = false;
 

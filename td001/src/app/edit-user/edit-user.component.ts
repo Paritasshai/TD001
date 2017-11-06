@@ -1,7 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {User} from "../models/User";
 import {UserService} from "../services/User.service";
 import {FileUploader} from "ng2-file-upload";
+import {Http, RequestOptions, Headers} from "@angular/http";
+import {Observable} from "rxjs/Observable";
+
+//const URL = 'http://localhost:8080/';
+const URL = 'http://103.76.180.120:8080/tamdai-service/';
 
 @Component({
   selector: 'app-edit-user',
@@ -11,19 +16,48 @@ import {FileUploader} from "ng2-file-upload";
 export class EditUserComponent implements OnInit {
   currentUser: User;
   users: User[] = [];
-  id = "2";
+  getUserId: any;
   userId: any;
+  @ViewChild('fileInput') fileInput;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,
+              private http: Http) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.getUserId = this.currentUser.id;
+    console.log(this.getUserId);
   }
 
   ngOnInit() {
     this.getUserList();
-    console.log(this.id);
+    this.getUserId = this.currentUser.id;
+    console.log(this.getUserId);
+
   }
 
-  public uploaderImageUser: FileUploader = new FileUploader({url: 'http://103.76.180.120:8080/tamdai-service/add/ImageUser/' + "?userId=" + this.id});
+  public upload() {
+    const fileBrowser = this.fileInput.nativeElement;
+    if (fileBrowser.files && fileBrowser.files[0]) {
+      const formData = new FormData();
+      formData.append('files', fileBrowser.files[0]);
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', URL + 'add/ImageUser' + "?userId=" + this.getUserId, true);
+      xhr.onload = function () {
+        if (this['status'] === 200) {
+          const responseText = this['responseText'];
+          const files = JSON.parse(responseText);
+          location.reload();
+          //todo: emit event
+        } else {
+          //todo: error handling
+        }
+      };
+      xhr.send(formData);
+    }
+  }
+
+  public uploaderImageUser: FileUploader = new FileUploader({url: URL + 'add/ImageUser/' + "?userId=" + this.getUserId});
+
+
   public hasBaseDropZoneOver: boolean = false;
   public hasAnotherDropZoneOver: boolean = false;
 

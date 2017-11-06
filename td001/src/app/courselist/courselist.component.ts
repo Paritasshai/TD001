@@ -11,6 +11,7 @@ import {isUndefined} from "util";
   templateUrl: './courselist.component.html',
   styleUrls: ['./courselist.component.css']
 })
+
 export class CourselistComponent implements OnInit {
   Img1: string;
   courses: any = [];
@@ -45,7 +46,9 @@ export class CourselistComponent implements OnInit {
   toy = false;
   garden = false;
   iot = false;
+  querySearch = false;
   empty = "";
+  courseSearch: any = [];
 
   constructor(private courseService: CourseService,
               private router: Router,
@@ -67,8 +70,18 @@ export class CourselistComponent implements OnInit {
     this.getCourseHotType();
   }
 
-  public test(){
-    console.log("search");
+  public searchItem(query) {
+    this.myVar = false;
+    this.lego = false;
+    this.household = false;
+    this.toy = false;
+    this.garden = false;
+    this.iot = false;
+    this.querySearch = true;
+    console.log(query);
+    this.courseService.getSearchByName(query, this.textPublic).subscribe(courseSearch => {
+      this.courseSearch = courseSearch;
+    });
   }
 
   public All() {
@@ -78,6 +91,7 @@ export class CourselistComponent implements OnInit {
     this.toy = false;
     this.garden = false;
     this.iot = false;
+    this.querySearch = false;
   }
 
   public Lego() {
@@ -87,6 +101,7 @@ export class CourselistComponent implements OnInit {
     this.toy = false;
     this.garden = false;
     this.iot = false;
+    this.querySearch = false;
     console.log("Lego");
     this.courseService.getCourseItemsByLegoPublic(this.LegoText, this.textPublic).subscribe(coursesLego => {
       this.coursesLego = coursesLego;
@@ -100,6 +115,7 @@ export class CourselistComponent implements OnInit {
     this.toy = false;
     this.garden = false;
     this.iot = false;
+    this.querySearch = false;
     console.log("Household");
     this.courseService.getCourseItemsByHouseholdPublic(this.HouseholdText, this.textPublic).subscribe(coursesHousehold => {
       this.coursesHousehold = coursesHousehold;
@@ -113,6 +129,7 @@ export class CourselistComponent implements OnInit {
     this.toy = true;
     this.garden = false;
     this.iot = false;
+    this.querySearch = false;
     console.log("Toy");
     this.courseService.getCourseItemsByToyPublic(this.ToyText, this.textPublic).subscribe(coursesToy => {
       this.coursesToy = coursesToy;
@@ -126,6 +143,7 @@ export class CourselistComponent implements OnInit {
     this.toy = false;
     this.garden = true;
     this.iot = false;
+    this.querySearch = false;
     console.log("Garden");
     this.courseService.getCourseItemsByGardenPublic(this.GardenText, this.textPublic).subscribe(coursesGarden => {
       this.coursesGarden = coursesGarden;
@@ -139,6 +157,7 @@ export class CourselistComponent implements OnInit {
     this.toy = false;
     this.garden = false;
     this.iot = true;
+    this.querySearch = false;
     console.log("IoT");
     this.courseService.getCourseItemsByIoTPublic(this.IoTText, this.textPublic).subscribe(coursesIoT => {
       this.coursesIoT = coursesIoT;
