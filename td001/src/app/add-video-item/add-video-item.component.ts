@@ -3,8 +3,8 @@ import {FileUploader} from "ng2-file-upload";
 import {ActivatedRoute} from "@angular/router";
 import {CourseService} from "../services/CourseService";
 
-const URL = 'http://localhost:8080/';
-//const URL = 'http://103.76.180.120:8080/tamdai-service/';
+//const URL = 'http://localhost:8080/';
+const URL = 'http://103.76.180.120:8080/tamdai-service/';
 
 @Component({
   selector: 'app-add-video-item',

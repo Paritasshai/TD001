@@ -441,7 +441,7 @@
                                               <div align="center" [hidden]="course.courseType == image">
                                                 <div [hidden]="course.videoClips[0]?.id == undefined">
 
-                                                  <video id="my-video1"
+                                                  <video id="my-video4"
                                                          class="video-js vjs-default-skin vjs-big-play-button"
                                                          controls
                                                          preload="auto" width="800"
@@ -700,6 +700,44 @@
                   </div>
                 </div>
 
+                <!--&lt;!&ndash; Modal &ndash;&gt;-->
+                <!--<div class="modal fade" id="myModal2" role="dialog">-->
+                <!--<div class="modal-dialog">-->
+
+                <!--&lt;!&ndash; Modal content&ndash;&gt;-->
+                <!--<div class="modal-content">-->
+                <!--<div class="modal-header">-->
+                <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                <!--<h4 class="modal-title">Instructor Information</h4>-->
+                <!--</div>-->
+                <!--<div class="profile-header-containers">-->
+                <!--<div class="profile-header-imgs">-->
+                <!--<div align="center">-->
+                <!--<div class="circular&#45;&#45;portraits">-->
+                <!--<img-->
+                <!--src="data:{{user?.userImages[0].contentType}};base64,{{user?.userImages[0].content}}">-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div *ngFor="let user of users">-->
+                <!--<div class="modal-body" *ngIf="user.id == courses.userId">-->
+                <!--<p>Name : {{user.firstName}} {{user.lastName}}</p>-->
+                <!--<p>Email : {{user.email}}</p>-->
+                <!--<div *ngFor="let course of coursesList">-->
+                <!--<div *ngIf="user.id == course.userId">-->
+                <!--Course Name: {{course.name}}-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="modal-footer">-->
+                <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                <!--</div>-->
+                <!--</div>-->
+
+                <!--</div>-->
+                <!--</div>-->
                 <!-- Modal -->
                 <div class="modal fade" id="myModal2" role="dialog">
                   <div class="modal-dialog">
@@ -710,20 +748,20 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">Instructor Information</h4>
                       </div>
-                      <div class="profile-header-containers">
-                        <div class="profile-header-imgs">
-                          <div align="center">
-                            <div class="circular--portraits">
-                              <img
-                                src="data:{{user?.userImages[0].contentType}};base64,{{user?.userImages[0].content}}">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
                       <div *ngFor="let user of users">
                         <div class="modal-body" *ngIf="user.id == courses.userId">
+                          <div class="profile-header-containers">
+                            <div class="profile-header-imgs">
+                              <div align="center">
+                                <div class="circular--portraits">
+                                  <img
+                                    src="data:{{user.userImages[0]?.contentType}};base64,{{user.userImages[0]?.content}}">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                           <p>Name : {{user.firstName}} {{user.lastName}}</p>
-                          <p>Email : {{user.email}}</p>
+                          <p>Email : {{user.email}} </p>
                           <div *ngFor="let course of coursesList">
                             <div *ngIf="user.id == course.userId">
                               Course Name: {{course.name}}

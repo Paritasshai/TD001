@@ -5,8 +5,8 @@ import {FileUploader} from "ng2-file-upload";
 import {AlertService} from "../alertContent/AlertService";
 import {Video} from "../models/Video";
 
-const URL = 'http://localhost:8080/';
-//const URL = 'http://103.76.180.120:8080/tamdai-service/';
+//const URL = 'http://localhost:8080/';
+const URL = 'http://103.76.180.120:8080/tamdai-service/';
 
 @Component({
   selector: 'app-edit-courst-id',
