@@ -14,11 +14,12 @@ export class UserManagementComponent implements OnInit {
   User: any = {};
 
   categories: any[] = [
-    {id: 1, status: 'active'},
-    {id: 2, status: 'instructor'},
-    {id: 3, status: 'lock'},
-    {id: 4, status: 'inactive'},
-    {id: 5, status: 'admin'}
+    {id: 1, status: ''},
+    {id: 2, status: 'active'},
+    {id: 3, status: 'instructor'},
+    {id: 4, status: 'lock'},
+    {id: 5, status: 'inactive'},
+    {id: 6, status: 'admin'}
   ];
 
   constructor(private userService: UserService) {
@@ -48,8 +49,8 @@ export class UserManagementComponent implements OnInit {
   getValueFromSelect(id) {
     // console.log(this.SelectedValue);
     // console.log(id);
-
     this.statusName = this.SelectedValue;
+    console.log(this.statusName);
     this.userService.updateUserStatus(id, this.statusName, this.User).subscribe(
       data => {
         alert("Success");

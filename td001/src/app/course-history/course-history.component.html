@@ -13,15 +13,19 @@
             <!--{{courseHis.id}}-->
             <div *ngFor="let courseImage of courseHis?.courseImages">
               <!--{{courseImage.id}}-->
-              <div class="shelf container">
-                <div>
-                  <img class="img-responsive book" style="cursor: pointer" (click)="click(course.id)"
-                       src="data:{{courseImage.contentType}};base64,{{courseImage.content}}"
-                       alt=""/>
-                </div>
-                <p>{{courseHis.name}}</p>
-                <!--<a (click)="delete(courseHis.id)">delete</a>-->
+              <!--<div class="shelf container">-->
+              <div>
+                <img class="img-responsive book" style="width: 50%; height: 130px; cursor: pointer"
+                     src="data:{{courseImage.contentType}};base64,{{courseImage.content}}"
+                     alt=""/>
+                <!--<img class="img-responsive book" style="width: 50%; height: 100px; cursor: pointer"-->
+                <!--(click)="click(course.id)"-->
+                <!--src="data:{{courseImage.contentType}};base64,{{courseImage.content}}"-->
+                <!--alt=""/>-->
               </div>
+              <!--<p>{{courseHis.name}}</p>-->
+              <!--<a (click)="delete(courseHis.id)">delete</a>-->
+              <!--</div>-->
             </div>
             <!--<p>{{courseHis.imageCourses[0]?.id}}</p>-->
             <!--<p>{{courseHis.name}}</p>-->

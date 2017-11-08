@@ -6,8 +6,8 @@ import {AlertService} from "../alertContent/AlertService";
 import {Router} from "@angular/router";
 import {User} from "../models/User";
 
-//const URL = 'http://localhost:8080/';
-const URL = 'http://103.76.180.120:8080/tamdai-service/';
+const URL = 'http://localhost:8080/';
+//const URL = 'http://103.76.180.120:8080/tamdai-service/';
 
 @Component({
   selector: 'app-video-list-page',

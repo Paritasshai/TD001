@@ -8,8 +8,8 @@ import {Observable} from "rxjs/Observable";
 import {Video} from "../models/Video";
 import {CourseItem} from "app/models/CourseItem";
 
-//const URL = 'http://localhost:8080/';
-const URL = 'http://103.76.180.120:8080/tamdai-service/';
+const URL = 'http://localhost:8080/';
+//const URL = 'http://103.76.180.120:8080/tamdai-service/';
 
 @Injectable()
 export class CourseService {

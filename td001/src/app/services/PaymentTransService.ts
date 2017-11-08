@@ -3,8 +3,8 @@ import {Http, Headers, RequestOptions, Response} from "@angular/http";
 import {BankStatement} from "../models/BankStatement";
 import {Observable} from "rxjs/Observable";
 
-//const URL = 'http://localhost:8080/';
-const URL = 'http://103.76.180.120:8080/tamdai-service/';
+const URL = 'http://localhost:8080/';
+//const URL = 'http://103.76.180.120:8080/tamdai-service/';
 
 @Injectable()
 export class PaymentTransService {

@@ -49,6 +49,13 @@ import { MapKeyPipe } from './pipes/map-key.pipe';
 import {SortObjectPipe} from "./pipes/sort-object.pipe";
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { SafetyPipe } from './pipes/safety.pipe';
+import {VgCoreModule} from "videogular2/core";
+import {VgControlsModule} from "videogular2/controls";
+import {VgOverlayPlayModule} from "videogular2/overlay-play";
+import {VgBufferingModule} from "videogular2/buffering";
+import {VgTimeDisplay} from "videogular2/src/controls/vg-time-display/vg-time-display";
+import {VgTrackSelector} from "videogular2/src/controls/vg-track-selector/vg-track-selector";
+import { CourseSlideComponent } from './course-slide/course-slide.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +87,8 @@ import { SafetyPipe } from './pipes/safety.pipe';
     MapKeyPipe,
     SortObjectPipe,
     EditUserComponent,
-    SafetyPipe
+    SafetyPipe,
+    CourseSlideComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +100,11 @@ import { SafetyPipe } from './pipes/safety.pipe';
     ImageUploadModule.forRoot(),
     Ng2OrderModule,
     FacebookModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
   ],
   providers: [
     AuthGuard,
