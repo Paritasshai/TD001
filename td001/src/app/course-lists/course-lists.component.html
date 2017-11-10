@@ -1,5 +1,4 @@
-<div class="container-fluid">
-
+<div class="container-fluid contain">
   <div *ngIf="currentUser == null">
     <div class="container-design">
       <div class="row">
@@ -18,7 +17,7 @@
 
           <div class="panel panel-default br">
             <div class="panel-heading">เกี่ยวกับคอร์สนี้</div>
-            <div *ngIf="courses.linkCourse != textNull" class="panel-body"><span> <p
+            <div *ngIf="courses.linkCourse != nullText" class="panel-body"><span> <p
               class="glyphicon glyphicon-shopping-cart"></p></span>
               <a href="{{courses.linkCourse}}">ซื้ออุปกรณ์ที่เกี่ยวข้อง</a>
             </div>
@@ -189,6 +188,24 @@
                                                 type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'>
                                       </video>
 
+                                      <!--<video controls-->
+                                             <!--preload="auto" width="800"-->
+                                             <!--height="450">-->
+                                        <!--<source *ngIf="course.courseType == video"-->
+                                                <!--src="https://firebasestorage.googleapis.com/v0/b/tamdai-b7326.appspot.com/o/My%20Movie.mp4?alt=media&token=11e0d58c-cc70-4ace-9a4c-83b92bf54600"-->
+                                                <!--type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'>-->
+                                      <!--</video>-->
+
+                                      <!--<video width="320" height="176" controls>-->
+                                        <!--<source-->
+                                          <!--src="http://www.sample-videos.com/video/mp4/480/big_buck_bunny_480p_1mb.mp4"-->
+                                          <!--type="video/mp4">-->
+                                        <!--<source-->
+                                          <!--src="http://www.sample-videos.com/video/mp4/480/big_buck_bunny_480p_1mb.mp4"-->
+                                          <!--type="video/ogg">-->
+                                        <!--Your browser does not support HTML5 video.-->
+                                      <!--</video>-->
+
                                       <!--<vg-player>-->
                                       <!--<vg-controls>-->
                                       <!--<vg-play-pause></vg-play-pause>-->
@@ -223,6 +240,7 @@
                                       </div>
                                     </div>
                                   </div>
+
                                   <div align="center" [hidden]="course.courseType == image">
                                     <div [hidden]="course.videoClips[0]?.id != undefined">
                                       <div>
@@ -281,7 +299,7 @@
 
                 <div class="panel panel-default br">
                   <div class="panel-heading">เกี่ยวกับคอร์สนี้</div>
-                  <div *ngIf="coursesPurchaseed.linkCourse != textNull" class="panel-body"><span> <p
+                  <div *ngIf="coursesPurchaseed.linkCourse != nullText" class="panel-body"><span> <p
                     class="glyphicon glyphicon-shopping-cart"></p></span>
                     <a href="{{coursesPurchaseed.linkCourse}}">ซื้ออุปกรณ์ที่เกี่ยวข้อง</a>
                   </div>
@@ -667,7 +685,7 @@
 
                 <div class="panel panel-default br">
                   <div class="panel-heading">เกี่ยวกับคอร์สนี้</div>
-                  <div *ngIf="courses.linkCourse != textNull" class="panel-body"><span> <p
+                  <div *ngIf="courses.linkCourse != nullText" class="panel-body"><span> <p
                     class="glyphicon glyphicon-shopping-cart"></p></span>
                     <a href="{{courses.linkCourse}}">ซื้ออุปกรณ์ที่เกี่ยวข้อง</a>
                   </div>
@@ -948,7 +966,7 @@
 
                 <div class="panel panel-default br">
                   <div class="panel-heading">เกี่ยวกับคอร์สนี้</div>
-                  <div *ngIf="courses.linkCourse != textNull" class="panel-body"><span> <p
+                  <div *ngIf="courses.linkCourse != nullText" class="panel-body"><span> <p
                     class="glyphicon glyphicon-shopping-cart"></p></span>
                     <a href="{{courses.linkCourse}}">ซื้ออุปกรณ์ที่เกี่ยวข้อง</a>
                   </div>
@@ -1196,4 +1214,6 @@
   </div>
 </div>
 
+<div style="margin-top: -100px">
 <app-footer></app-footer>
+</div>

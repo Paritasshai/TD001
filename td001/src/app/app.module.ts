@@ -56,6 +56,7 @@ import {VgBufferingModule} from "videogular2/buffering";
 import {VgTimeDisplay} from "videogular2/src/controls/vg-time-display/vg-time-display";
 import {VgTrackSelector} from "videogular2/src/controls/vg-track-selector/vg-track-selector";
 import { CourseSlideComponent } from './course-slide/course-slide.component';
+import { TrustAsResourceUrlPipe } from './pipes/trust-as-resource-url.pipe';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { CourseSlideComponent } from './course-slide/course-slide.component';
     SortObjectPipe,
     EditUserComponent,
     SafetyPipe,
-    CourseSlideComponent
+    CourseSlideComponent,
+    TrustAsResourceUrlPipe
   ],
   imports: [
     BrowserModule,

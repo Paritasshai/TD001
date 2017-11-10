@@ -63,12 +63,13 @@ export class CourseListsComponent implements OnInit {
 
   }
 
+
   open() {
     console.log("opennnnnnn");
-    this.http.get(URL + 'getClientIp')
+    this.http.get(this.url + 'getClientIp')
       .subscribe(response => {
         this.ipObj = response;
-        // console.log(this.ipObj);
+        console.log(this.ipObj);
       });
   }
 
