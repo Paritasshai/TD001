@@ -26,6 +26,7 @@ export class CourseListsComponent implements OnInit {
   users: any = [];
   image = "image";
   video = "video";
+  text = "text";
   truePreview = "true";
   falsePreivew = "false";
   statusInstructor = "instructor";
@@ -41,7 +42,7 @@ export class CourseListsComponent implements OnInit {
   coursePrice = 30;
   result: any;
   balance: any;
-  empty = "";
+  empty = "null";
   historyIns: any = [];
   userIdPurchase: any;
   zero = "0";
@@ -129,16 +130,17 @@ export class CourseListsComponent implements OnInit {
 
   buyCourse(id, balance, price, name) {
     this.userId = this.currentUser.id;
-    //console.log(id);
-    //console.log(balance);
-    //console.log(price);
-    //console.log(name);
-    //console.log(this.userId);
-    //console.log(this.coursePrice);
+    // console.log("ID: " + id);
+    console.log("your balance: " + balance);
+    console.log("course price: " + price);
+    // console.log("name: " + name);
+    // console.log("user ID: " + this.userId);
+    // console.log("course price fix 30 bath: "+this.coursePrice);
 
-    if (balance >= price) {
-      this.result = balance - price;
-      // console.log(this.result);
+    if (balance > price) {
+      this.result = parseInt(balance) - parseInt(price);
+      console.log("Result: " + this.result);
+
       return this.purchaseCourseService.createBuyCourse(this.userId, id, this.purchaseCart, this.result, price, name).subscribe(
         data => {
           alert("Success");
@@ -146,15 +148,28 @@ export class CourseListsComponent implements OnInit {
         },
         error => {
           alert("Failed");
-        });
+        })
+    } else if (balance == price) {
+      this.result = parseInt(balance) - parseInt(price);
+      console.log("Result: " + this.result);
+
+      return this.purchaseCourseService.createBuyCourse(this.userId, id, this.purchaseCart, this.result, price, name).subscribe(
+        data => {
+          alert("Success");
+          location.reload();
+        },
+        error => {
+          alert("Failed");
+        })
+    } else if (balance < price) {
+      alert("Your balance not enough!")
     } else {
-      alert("Your balance not enough!!");
+      alert("failed");
     }
 
     //  (balance < price) {
     //   alert("Your balance not enough!!")
     // }
-
     // else if (balance = price) {
     //     this.result = balance - price;
     //     console.log(this.result);

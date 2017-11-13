@@ -37,8 +37,14 @@ export class CourseService {
     //return this.http.post('http://' + this.url + ':8080/create/courseImageItem/' + "?courseId=" + id, course).map((response: Response) => response.json());
   }
 
-  updateItemDetails(id, name, description, canPreview, course: Course, videoPath: any) {
-    return this.http.put(URL + 'update/ItemDetails/' + id + "?name=" + name + "&" + "description=" + description + "&" + "canPreview=" + canPreview + "&" + "videoPath=" + videoPath, course).map((response: Response) => response.json());
+  createTextItem(id, course: Course) {
+    return this.http.post(URL + 'create/courseTextItem/' + "?courseId=" + id, course).map((response: Response) => response.json());
+    //return this.http.post('http://103.76.180.120:8080/tamdai-service/create/courseImageItem/' + "?courseId=" + id, course).map((response: Response) => response.json());
+    //return this.http.post('http://' + this.url + ':8080/create/courseImageItem/' + "?courseId=" + id, course).map((response: Response) => response.json());
+  }
+
+  updateItemDetails(id, name, description, canPreview, course: Course, videoPath: any, courseText:any) {
+    return this.http.put(URL + 'update/ItemDetails/' + id + "?name=" + name + "&" + "description=" + description + "&" + "canPreview=" + canPreview + "&" + "videoPath=" + videoPath + "&" + "courseText=" + courseText, course).map((response: Response) => response.json());
     //return this.http.put('http://103.76.180.120:8080/tamdai-service/update/ItemDetails/' + id + "?name=" + name + "&" + "description=" + description + "&" + "canPreview=" + canPreview, course).map((response: Response) => response.json());
     //return this.http.put('http://' + this.url + ':8080/update/ItemDetails/' + id + "?name=" + name + "&" + "description=" + description + "&" + "canPreview=" + canPreview + "&" + "videoPath=" + videoPath, course).map((response: Response) => response.json());
   }

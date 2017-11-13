@@ -162,6 +162,7 @@
   <span *ngIf="course.courseType == video"
         class="glyphicon glyphicon-facetime-video"></span>
                             <span *ngIf="course.courseType == image" class="glyphicon glyphicon-picture"></span>
+                            <span *ngIf="course.courseType == text" class="glyphicon glyphicon-list-alt"></span>
                             {{course.name}}
                             <!--{{course.videoPath}}-->
                             <!--{{course.videoClips[0]?.id}}-->
@@ -177,7 +178,8 @@
                                 <div align="center" class="video-responsive">
                                   <img class="img" *ngIf="course.courseType == image"
                                        src="{{url + 'displayImageItem/' + course.imageItems[0]?.id}}"/>
-                                  <div align="center" [hidden]="course.courseType == image">
+                                  <div align="center"
+                                       [hidden]="course.courseType == image || course.courseType == text">
                                     <div [hidden]="course.videoClips[0]?.id == undefined">
 
                                       <video controls
@@ -189,21 +191,21 @@
                                       </video>
 
                                       <!--<video controls-->
-                                             <!--preload="auto" width="800"-->
-                                             <!--height="450">-->
-                                        <!--<source *ngIf="course.courseType == video"-->
-                                                <!--src="https://firebasestorage.googleapis.com/v0/b/tamdai-b7326.appspot.com/o/My%20Movie.mp4?alt=media&token=11e0d58c-cc70-4ace-9a4c-83b92bf54600"-->
-                                                <!--type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'>-->
+                                      <!--preload="auto" width="800"-->
+                                      <!--height="450">-->
+                                      <!--<source *ngIf="course.courseType == video"-->
+                                      <!--src="https://firebasestorage.googleapis.com/v0/b/tamdai-b7326.appspot.com/o/My%20Movie.mp4?alt=media&token=11e0d58c-cc70-4ace-9a4c-83b92bf54600"-->
+                                      <!--type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'>-->
                                       <!--</video>-->
 
                                       <!--<video width="320" height="176" controls>-->
-                                        <!--<source-->
-                                          <!--src="http://www.sample-videos.com/video/mp4/480/big_buck_bunny_480p_1mb.mp4"-->
-                                          <!--type="video/mp4">-->
-                                        <!--<source-->
-                                          <!--src="http://www.sample-videos.com/video/mp4/480/big_buck_bunny_480p_1mb.mp4"-->
-                                          <!--type="video/ogg">-->
-                                        <!--Your browser does not support HTML5 video.-->
+                                      <!--<source-->
+                                      <!--src="http://www.sample-videos.com/video/mp4/480/big_buck_bunny_480p_1mb.mp4"-->
+                                      <!--type="video/mp4">-->
+                                      <!--<source-->
+                                      <!--src="http://www.sample-videos.com/video/mp4/480/big_buck_bunny_480p_1mb.mp4"-->
+                                      <!--type="video/ogg">-->
+                                      <!--Your browser does not support HTML5 video.-->
                                       <!--</video>-->
 
                                       <!--<vg-player>-->
@@ -240,13 +242,28 @@
                                       </div>
                                     </div>
                                   </div>
-
-                                  <div align="center" [hidden]="course.courseType == image">
+                                  <div align="center"
+                                       [hidden]="course.courseType == image || course.courseType == text">
                                     <div [hidden]="course.videoClips[0]?.id != undefined">
                                       <div>
                                         <iframe width="800" height="450" [src]="course.videoPath | safety"
                                                 frameborder="0"
                                                 allowfullscreen></iframe>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div align="center"
+                                       [hidden]="course.courseType == image || course.courseType == video">
+                                    <div *ngIf="course.courseText != null">
+                                      <div class="panel panel-default">
+                                            <textarea maxlength="2000" [(ngModel)]="course.courseText" id="textItem"
+                                                      name="textItem"
+                                                      style="width: 800px; height: 430px" type="text"
+                                                      class="form-control">
+                                            </textarea>
+                                        <!--<div align="left">-->
+                                        <!--<p style="font-family: kanit, sans-serif; font-size: 14px; padding: 2%; margin: 2%">{{course.courseText}}</p>-->
+                                        <!--</div>-->
                                       </div>
                                     </div>
                                   </div>
@@ -450,6 +467,7 @@
                 class="glyphicon glyphicon-facetime-video"></span>
                                     <span *ngIf="course.courseType == image"
                                           class="glyphicon glyphicon-picture"></span>
+                                    <span *ngIf="course.courseType == text" class="glyphicon glyphicon-list-alt"></span>
                                     {{course.name}}
                                     <!--{{course.videoPath}}-->
                                   </a>
@@ -465,7 +483,8 @@
 
                                               <img class="img" *ngIf="course.courseType == image"
                                                    src="{{url + 'displayImageItem/' + course.imageItems[0]?.id}}"/>
-                                              <div align="center" [hidden]="course.courseType == image">
+                                              <div align="center"
+                                                   [hidden]="course.courseType == image || course.courseType == text">
                                                 <div [hidden]="course.videoClips[0]?.id == undefined">
 
                                                   <video id="my-video4"
@@ -495,7 +514,8 @@
                                                   </div>
                                                 </div>
                                               </div>
-                                              <div align="center" [hidden]="course.courseType == image">
+                                              <div align="center"
+                                                   [hidden]="course.courseType == image || course.courseType == text">
                                                 <div [hidden]="course.videoClips[0]?.id != undefined">
                                                   <div>
                                                     <iframe width="800" height="450" [src]="course.videoPath | safety"
@@ -504,7 +524,20 @@
                                                   </div>
                                                 </div>
                                               </div>
-
+                                              <div align="center"
+                                                   [hidden]="course.courseType == image || course.courseType == video">
+                                                <div *ngIf="course.courseText != null">
+                                                  <div class="panel panel-default">
+                                            <textarea maxlength="2000" [(ngModel)]="course.courseText" name="textItem"
+                                                      style="width: 800px; height: 430px" type="text"
+                                                      class="form-control">
+                                            </textarea>
+                                                    <!--<div align="left">-->
+                                                    <!--<p style="font-family: kanit, sans-serif; font-size: 14px; padding: 2%; margin: 2%">{{course.courseText}}</p>-->
+                                                    <!--</div>-->
+                                                  </div>
+                                                </div>
+                                              </div>
                                               <!--<div align="center" [hidden]="course.courseType == image">-->
                                               <!--<video id="my-video1" class="video-js" controls preload="auto"-->
                                               <!--width="800"-->
@@ -559,7 +592,8 @@
 
                                           <img class="img" *ngIf="course.courseType == image"
                                                src="{{url + 'displayImageItem/' + course.imageItems[0]?.id}}"/>
-                                          <div align="center" [hidden]="course.courseType == image">
+                                          <div align="center"
+                                               [hidden]="course.courseType == image || course.courseType == text">
                                             <div [hidden]="course.videoClips[0]?.id == undefined">
 
                                               <video id="my-video1"
@@ -589,12 +623,27 @@
                                               </div>
                                             </div>
                                           </div>
-                                          <div align="center" [hidden]="course.courseType == image">
+                                          <div align="center"
+                                               [hidden]="course.courseType == image || course.courseType == text">
                                             <div [hidden]="course.videoClips[0]?.id != undefined">
                                               <div>
                                                 <iframe width="800" height="450" [src]="course.videoPath | safety"
                                                         frameborder="0"
                                                         allowfullscreen></iframe>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div align="center"
+                                               [hidden]="course.courseType == image || course.courseType == video">
+                                            <div *ngIf="course.courseText != null">
+                                              <div class="panel panel-default">
+                                            <textarea maxlength="2000" [(ngModel)]="course.courseText" name="textItem"
+                                                      style="width: 800px; height: 430px" type="text"
+                                                      class="form-control">
+                                            </textarea>
+                                                <!--<div align="left">-->
+                                                <!--<p style="font-family: kanit, sans-serif; font-size: 14px; padding: 2%; margin: 2%">{{course.courseText}}</p>-->
+                                                <!--</div>-->
                                               </div>
                                             </div>
                                           </div>
@@ -726,44 +775,6 @@
                   </div>
                 </div>
 
-                <!--&lt;!&ndash; Modal &ndash;&gt;-->
-                <!--<div class="modal fade" id="myModal2" role="dialog">-->
-                <!--<div class="modal-dialog">-->
-
-                <!--&lt;!&ndash; Modal content&ndash;&gt;-->
-                <!--<div class="modal-content">-->
-                <!--<div class="modal-header">-->
-                <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
-                <!--<h4 class="modal-title">Instructor Information</h4>-->
-                <!--</div>-->
-                <!--<div class="profile-header-containers">-->
-                <!--<div class="profile-header-imgs">-->
-                <!--<div align="center">-->
-                <!--<div class="circular&#45;&#45;portraits">-->
-                <!--<img-->
-                <!--src="data:{{user?.userImages[0].contentType}};base64,{{user?.userImages[0].content}}">-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--<div *ngFor="let user of users">-->
-                <!--<div class="modal-body" *ngIf="user.id == courses.userId">-->
-                <!--<p>Name : {{user.firstName}} {{user.lastName}}</p>-->
-                <!--<p>Email : {{user.email}}</p>-->
-                <!--<div *ngFor="let course of coursesList">-->
-                <!--<div *ngIf="user.id == course.userId">-->
-                <!--Course Name: {{course.name}}-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--<div class="modal-footer">-->
-                <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
-                <!--</div>-->
-                <!--</div>-->
-
-                <!--</div>-->
-                <!--</div>-->
                 <!-- Modal -->
                 <div class="modal fade" id="myModal2" role="dialog">
                   <div class="modal-dialog">
@@ -869,6 +880,7 @@
         class="glyphicon glyphicon-facetime-video"></span>
                                     <span *ngIf="course.courseType == image"
                                           class="glyphicon glyphicon-picture"></span>
+                                    <span *ngIf="course.courseType == text" class="glyphicon glyphicon-list-alt"></span>
                                     {{course.name}}
                                     <!--{{course.videoPath}}-->
                                   </a>
@@ -880,7 +892,8 @@
                                         <div align="center" class="video-responsive">
                                           <img class="img" *ngIf="course.courseType == image"
                                                src="{{url + 'displayImageItem/' + course.imageItems[0]?.id}}"/>
-                                          <div align="center" [hidden]="course.courseType == image">
+                                          <div align="center"
+                                               [hidden]="course.courseType == image || course.courseType == text">
                                             <div [hidden]="course.videoClips[0]?.id == undefined">
 
                                               <video id="my-video3"
@@ -910,12 +923,27 @@
                                               </div>
                                             </div>
                                           </div>
-                                          <div align="center" [hidden]="course.courseType == image">
+                                          <div align="center"
+                                               [hidden]="course.courseType == image || course.courseType == text">
                                             <div [hidden]="course.videoClips[0]?.id != undefined">
                                               <div>
                                                 <iframe width="800" height="450" [src]="course.videoPath | safety"
                                                         frameborder="0"
                                                         allowfullscreen></iframe>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div align="center"
+                                               [hidden]="course.courseType == image || course.courseType == video">
+                                            <div *ngIf="course.courseText != null">
+                                              <div class="panel panel-default">
+                                            <textarea maxlength="2000" [(ngModel)]="course.courseText" name="textItem"
+                                                      style="width: 800px; height: 430px" type="text"
+                                                      class="form-control">
+                                            </textarea>
+                                                <!--<div align="left">-->
+                                                <!--<p style="font-family: kanit, sans-serif; font-size: 14px; padding: 2%; margin: 2%">{{course.courseText}}</p>-->
+                                                <!--</div>-->
                                               </div>
                                             </div>
                                           </div>
@@ -1113,6 +1141,7 @@
   <span *ngIf="course.courseType == video"
         class="glyphicon glyphicon-facetime-video"></span>
                                   <span *ngIf="course.courseType == image" class="glyphicon glyphicon-picture"></span>
+                                  <span *ngIf="course.courseType == text" class="glyphicon glyphicon-list-alt"></span>
                                   {{course.name}}
                                   <!--{{course.videoPath}}-->
                                   <!--{{course.videoClips[0]?.id}}-->
@@ -1128,7 +1157,8 @@
                                       <div align="center" class="video-responsive">
                                         <img class="img" *ngIf="course.courseType == image"
                                              src="{{url + 'displayImageItem/' + course.imageItems[0]?.id}}"/>
-                                        <div align="center" [hidden]="course.courseType == image">
+                                        <div align="center"
+                                             [hidden]="course.courseType == image || course.courseType == text">
                                           <div [hidden]="course.videoClips[0]?.id == undefined">
 
                                             <video controls
@@ -1173,12 +1203,27 @@
                                             </div>
                                           </div>
                                         </div>
-                                        <div align="center" [hidden]="course.courseType == image">
+                                        <div align="center"
+                                             [hidden]="course.courseType == image || course.courseType == text">
                                           <div [hidden]="course.videoClips[0]?.id != undefined">
                                             <div>
                                               <iframe width="800" height="450" [src]="course.videoPath | safety"
                                                       frameborder="0"
                                                       allowfullscreen></iframe>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div align="center"
+                                             [hidden]="course.courseType == image || course.courseType == video">
+                                          <div *ngIf="course.courseText != null">
+                                            <div class="panel panel-default">
+                                            <textarea maxlength="2000" [(ngModel)]="course.courseText" name="textItem"
+                                                      style="width: 800px; height: 430px" type="text"
+                                                      class="form-control">
+                                            </textarea>
+                                              <!--<div align="left">-->
+                                              <!--<p style="font-family: kanit, sans-serif; font-size: 14px; padding: 2%; margin: 2%">{{course.courseText}}</p>-->
+                                              <!--</div>-->
                                             </div>
                                           </div>
                                         </div>
@@ -1215,5 +1260,5 @@
 </div>
 
 <div style="margin-top: -100px">
-<app-footer></app-footer>
+  <app-footer></app-footer>
 </div>

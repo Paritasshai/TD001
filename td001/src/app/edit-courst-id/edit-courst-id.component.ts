@@ -144,6 +144,17 @@ export class EditCourstIdComponent implements OnInit {
       });
   }
 
+  CreateText() {
+    this.courseService.createTextItem(this.route.snapshot.params['id'], this.course).subscribe(
+      data => {
+        location.reload();
+        this.alertService.success('Upload Successful', true);
+      },
+      error => {
+        this.alertService.error('Upload Failed', true);
+      });
+  }
+
   EditItem(id) {
     console.log(id);
     this.router.navigate(['/addItem', id]);

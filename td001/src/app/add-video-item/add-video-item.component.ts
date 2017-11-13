@@ -4,6 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {CourseService} from "../services/CourseService";
 
 const URL = 'http://localhost:8080/';
+
 //const URL = 'http://103.76.180.120:8080/tamdai-service/';
 
 @Component({
@@ -24,11 +25,14 @@ export class AddVideoItemComponent implements OnInit {
   canPreview: any;
   image = "image";
   video = "video";
+  text = "text";
   textTrue = "true";
   textUndefined = "undefined";
   courses: any = [];
   courseId: any;
   videoPath: any;
+  courseText: any;
+
 
   constructor(private route: ActivatedRoute,
               private courseService: CourseService) {
@@ -46,8 +50,10 @@ export class AddVideoItemComponent implements OnInit {
     this.description = this.Course.description;
     this.canPreview = this.VideoItem.canPreview;
     this.videoPath = this.Course.videoPath;
+    this.courseText = this.Course.courseText;
+    // console.log(this.courseText);
 
-    this.courseService.updateItemDetails(id, this.name, this.description, this.canPreview, this.course, this.videoPath).subscribe(
+    this.courseService.updateItemDetails(id, this.name, this.description, this.canPreview, this.course, this.videoPath, this.courseText).subscribe(
       data => {
         alert("Update Success");
         location.reload();
@@ -74,5 +80,9 @@ export class AddVideoItemComponent implements OnInit {
     this.courseService.getCourseItemtemById(this.route.snapshot.params['id']).subscribe(Course => {
       this.Course = Course;
     });
+  }
+
+  submitText(textItem) {
+    console.log(textItem);
   }
 }

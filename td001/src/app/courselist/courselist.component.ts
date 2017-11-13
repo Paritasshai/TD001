@@ -47,7 +47,7 @@ export class CourselistComponent implements OnInit {
   garden = false;
   iot = false;
   querySearch = false;
-  empty = "";
+  empty = "null";
   courseSearch: any = [];
 
   constructor(private courseService: CourseService,
