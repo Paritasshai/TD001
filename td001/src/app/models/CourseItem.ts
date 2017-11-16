@@ -3,5 +3,6 @@ export class CourseItem {
   public name: any;
   public description: any;
   public videoPath: any;
+  public videoTime: any;
 
 }

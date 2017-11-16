@@ -13,6 +13,10 @@ import {isUndefined} from "util";
 })
 
 export class CourselistComponent implements OnInit {
+
+  url = 'http://localhost:8080/';
+//url = 'http://103.76.180.120:8080/tamdai-service/';
+
   Img1: string;
   courses: any = [];
   coursesLego: any = [];

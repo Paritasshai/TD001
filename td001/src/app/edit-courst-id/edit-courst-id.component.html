@@ -18,7 +18,8 @@
             </div>
             <div class="form-group">
               <p>Course Description: </p>
-              <textarea class="form-control" name="description" id="description"
+              <textarea maxlength="2000" style="width: 100%; height: 250px" class="form-control" name="description"
+                        id="description"
                         placeholder="Course description.."
                         [(ngModel)]="Course.description"
                         #description="ngModel"></textarea>
@@ -45,6 +46,26 @@
             </div>
 
             <div class="form-group">
+              <label>CourseType = </label>
+              {{Course.courseType}}
+              <div *ngFor="let TypeItem of TypeItems">
+                <input type="radio" name="option" (click)="model.options = TypeItem"
+                       [checked]="TypeItem === model.options">
+                {{TypeItem}}
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Catagory = </label>
+              {{Course.catagory}}
+              <div *ngFor="let CatagoriesItem of CatagoriesItems">
+                <input type="radio" name="options" (click)="models.options = CatagoriesItem"
+                       [checked]="CatagoriesItem === models.options">
+                {{CatagoriesItem}}
+              </div>
+            </div>
+
+            <div class="form-group">
               <button class="btn btn-primary btn-md" style="width: 150px">Edit</button>
             </div>
             <alert class="col-lg-12">
@@ -56,16 +77,18 @@
           <div class="col-sm-8">
             <div>
               <div style="width: 400px">
-                <button *ngIf="Course.courseImages[0]?.id != null"
+                <button *ngIf="Course.imageCourses[0]?.id != null"
                         class="btn btn-sm btn-danger"
-                        (click)="deleteImage(Course.courseImages[0]?.id)"><span>Delete Image</span>
+                        (click)="deleteImage(Course.imageCourses[0]?.id)"><span>Delete Image</span>
                 </button>
-                <img class="img-responsive"
-                     src="data:{{Course.courseImages[0]?.contentType}};base64,{{Course.courseImages[0]?.content}}"
-                     alt=""/>
+                <img class="img-responsive" style="cursor: pointer"
+                     src="{{ url + '/displayImage/' + Course.imageCourses[0]?.id}}" alt=""/>
+                <!--<img class="img-responsive"-->
+                <!--src="data:{{Course.courseImages[0]?.contentType}};base64,{{Course.courseImages[0]?.content}}"-->
+                <!--alt=""/>-->
               </div>
             </div>
-            <div *ngIf="Course.courseImages[0]?.id == null">
+            <div *ngIf="Course.imageCourses[0]?.id == null">
               <br>
               <input class="btn btn-default" type="file" ng2FileSelect [uploader]="uploaderImage"
                      accept="image/*"/>

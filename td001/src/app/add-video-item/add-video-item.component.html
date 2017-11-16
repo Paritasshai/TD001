@@ -187,12 +187,19 @@
                 </div>
 
                 <div class="form-group">
-                  <label>Description</label>
-                  <input type="text" class="form-control" name="videoDescription"
-                         placeholder="Lesson Description.."
-                         [(ngModel)]="Course.description"
-                         #description="ngModel" required/>
+                  <label>Time</label>
+                  <input type="text" class="form-control" name="videoTime" placeholder="Time.."
+                         [(ngModel)]="Course.videoTime"
+                         #videoTime="ngModel" required/>
                 </div>
+
+                <!--<div class="form-group">-->
+                <!--<label>Description</label>-->
+                <!--<input type="text" class="form-control" name="videoDescription"-->
+                <!--placeholder="Lesson Description.."-->
+                <!--[(ngModel)]="Course.description"-->
+                <!--#description="ngModel" required/>-->
+                <!--</div>-->
 
                 <div class="checkbox form-group" align="left">
                         <span>

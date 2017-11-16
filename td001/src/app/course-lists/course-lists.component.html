@@ -8,9 +8,10 @@
           <div class="thumbnail">
             <div class="crops">
               <div align="center">
-                <img class="imgs"
-                     src="data:{{courses.courseImages[0]?.contentType}};base64,{{courses.courseImages[0]?.content}}"
-                     alt=""/>
+                <img style="cursor: pointer" src="{{ url + '/displayImage/' + courses.imageCourses[0]?.id}}" alt=""/>
+                <!--<img class="imgs"-->
+                <!--src="data:{{courses.courseImages[0]?.contentType}};base64,{{courses.courseImages[0]?.content}}"-->
+                <!--alt=""/>-->
               </div>
             </div>
           </div>
@@ -102,7 +103,7 @@
             </div>
           </div>
 
-          <div class="brr panel panel-default" style="height: 350px">
+          <div class="brr panel panel-default" style="height: 300px">
             <div class="panel-heading">คอร์สแนะนำ</div>
             <div class="media br">
               <div class="media-body">
@@ -115,9 +116,9 @@
 
         <div class="col-sm-8">
           <div class="panel panel-default">
-            <div class="panel-heading">Course Name: {{courses.name}}
+            <div class="panel-heading">{{courses.name}}
             </div>
-            <div class="panel-body"><label>Description</label><br>{{courses.description}}</div>
+            <div class="panel-body">{{courses.description}}</div>
           </div>
 
           <div class="panel panel-default">
@@ -149,6 +150,7 @@
                   <tr>
                     <th></th>
                     <th></th>
+                    <th>Time</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -279,6 +281,7 @@
                     <td>
                       <span *ngIf="course.canPreview != truePreview" class="glyphicon glyphicon-lock"></span>
                     </td>
+                    <td>{{course.videoTime}}</td>
                   </tr>
                   </tbody>
                 </table>
@@ -307,9 +310,11 @@
                 <div class="thumbnails">
                   <div class="crops">
                     <div align="center">
-                      <img class="imgs"
-                           src="data:{{courses.courseImages[0]?.contentType}};base64,{{courses.courseImages[0]?.content}}"
+                      <img style="cursor: pointer" src="{{ url + '/displayImage/' + courses.imageCourses[0]?.id}}"
                            alt=""/>
+                      <!--<img class="imgs"-->
+                      <!--src="data:{{courses.courseImages[0]?.contentType}};base64,{{courses.courseImages[0]?.content}}"-->
+                      <!--alt=""/>-->
                     </div>
                   </div>
                 </div>
@@ -406,7 +411,7 @@
                   </div>
                 </div>
 
-                <div class="brr panel panel-default" style="height: 350px">
+                <div class="brr panel panel-default" style="height: 300px">
                   <div class="panel-heading">คอร์สแนะนำ</div>
                   <div class="media br">
                     <div class="media-body">
@@ -420,8 +425,8 @@
               <div class="col-sm-8">
                 <div>
                   <div class="panel panel-default">
-                    <div class="panel-heading">Course ID: {{coursesPurchaseed.name}}</div>
-                    <div class="panel-body"><label>Description</label><br>{{coursesPurchaseed.description}}</div>
+                    <div class="panel-heading">{{coursesPurchaseed.name}}</div>
+                    <div class="panel-body">{{coursesPurchaseed.description}}</div>
                   </div>
                   <div class="panel panel-default">
                     <body data-spy="scroll" data-target=".navbar" data-offset="50">
@@ -453,6 +458,7 @@
                           <tr>
                             <th></th>
                             <th></th>
+                            <th>Time</th>
                           </tr>
                           </thead>
                           <tbody *ngFor="let course of coursesPurchaseed?.courseItems| sortBy:'id'; let i = index">
@@ -700,6 +706,7 @@
                                 </div>
                               </div>
                             </td>
+                            <td>{{course.videoTime}}</td>
                           </tr>
                           </tbody>
                         </table>
@@ -725,9 +732,11 @@
                 <div class="thumbnail">
                   <div class="crops">
                     <div align="center">
-                      <img class="imgs"
-                           src="data:{{courses.courseImages[0]?.contentType}};base64,{{courses.courseImages[0]?.content}}"
+                      <img style="cursor: pointer" src="{{ url + '/displayImage/' + courses.imageCourses[0]?.id}}"
                            alt=""/>
+                      <!--<img class="imgs"-->
+                      <!--src="data:{{courses.courseImages[0]?.contentType}};base64,{{courses.courseImages[0]?.content}}"-->
+                      <!--alt=""/>-->
                     </div>
                   </div>
                 </div>
@@ -814,7 +823,7 @@
                   </div>
                 </div>
 
-                <div class="brr panel panel-default" style="height: 350px">
+                <div class="brr panel panel-default" style="height: 300px">
                   <div class="panel-heading">คอร์สแนะนำ</div>
                   <div class="media br">
                     <div class="media-body">
@@ -828,8 +837,8 @@
 
                 <div>
                   <div class="panel panel-default">
-                    <div class="panel-heading">Course Name: {{courses.name}}</div>
-                    <div class="panel-body"><label>Description</label><br>{{courses.description}}</div>
+                    <div class="panel-heading">{{courses.name}}</div>
+                    <div class="panel-body" style="width: 100%; height: auto">{{courses.description}}</div>
                     <div [hidden]="user.status != active">
                       <button type="button" class="btn btn-primary"
                               (click)="buyCourse(courses.id, user.balance, currentUser.id)">
@@ -866,6 +875,7 @@
                           <tr>
                             <th></th>
                             <th></th>
+                            <th>Time</th>
                           </tr>
                           </thead>
                           <tbody *ngFor="let course of courses?.courseItems| sortBy : 'id'; let i = index">
@@ -959,7 +969,7 @@
                             <td>
                               <span *ngIf="course.canPreview != truePreview" class="glyphicon glyphicon-lock"></span>
                             </td>
-
+                            <td>{{course.videoTime}}</td>
                           </tr>
                           </tbody>
                         </table>
@@ -985,9 +995,11 @@
                 <div class="thumbnail">
                   <div class="crops">
                     <div align="center">
-                      <img class="imgs"
-                           src="data:{{courses.courseImages[0]?.contentType}};base64,{{courses.courseImages[0]?.content}}"
+                      <img style="cursor: pointer" src="{{ url + '/displayImage/' + courses.imageCourses[0]?.id}}"
                            alt=""/>
+                      <!--<img class="imgs"-->
+                      <!--src="data:{{courses.courseImages[0]?.contentType}};base64,{{courses.courseImages[0]?.content}}"-->
+                      <!--alt=""/>-->
                     </div>
                   </div>
                 </div>
@@ -1081,7 +1093,7 @@
                   </div>
                 </div>
 
-                <div class="brr panel panel-default" style="height: 350px">
+                <div class="brr panel panel-default" style="height: 300px">
                   <div class="panel-heading">คอร์สแนะนำ</div>
                   <div class="media br">
                     <div class="media-body">
@@ -1094,9 +1106,9 @@
 
               <div class="col-sm-8">
                 <div class="panel panel-default">
-                  <div class="panel-heading">Course Name: {{courses.name}}
+                  <div class="panel-heading">{{courses.name}}
                   </div>
-                  <div class="panel-body"><label>Description</label><br>{{courses.description}}</div>
+                  <div class="panel-body">{{courses.description}}</div>
                 </div>
 
                 <div class="panel panel-default">
@@ -1128,6 +1140,7 @@
                         <tr>
                           <th></th>
                           <th></th>
+                          <th>Time</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -1238,7 +1251,9 @@
                           </td>
                           <td>
                             <span *ngIf="course.canPreview != truePreview" class="glyphicon glyphicon-lock"></span>
+                            {{course.videoTime}}
                           </td>
+                          <td>{{course.videoTime}}</td>
                         </tr>
                         </tbody>
                       </table>

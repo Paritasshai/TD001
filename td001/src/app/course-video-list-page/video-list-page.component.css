@@ -34,4 +34,6 @@ hr.style1 {
   margin-top: 5%;
 }
 
-
+textarea{
+  height: 250px;
+}

@@ -9,6 +9,7 @@ import {Video} from "../models/Video";
 import {CourseItem} from "app/models/CourseItem";
 
 const URL = 'http://localhost:8080/';
+
 //const URL = 'http://103.76.180.120:8080/tamdai-service/';
 
 @Injectable()
@@ -43,8 +44,8 @@ export class CourseService {
     //return this.http.post('http://' + this.url + ':8080/create/courseImageItem/' + "?courseId=" + id, course).map((response: Response) => response.json());
   }
 
-  updateItemDetails(id, name, description, canPreview, course: Course, videoPath: any, courseText:any) {
-    return this.http.put(URL + 'update/ItemDetails/' + id + "?name=" + name + "&" + "description=" + description + "&" + "canPreview=" + canPreview + "&" + "videoPath=" + videoPath + "&" + "courseText=" + courseText, course).map((response: Response) => response.json());
+  updateItemDetails(id, name, description, canPreview, course: Course, videoPath: any, courseText: any, videoTime: any) {
+    return this.http.put(URL + 'update/ItemDetails/' + id + "?name=" + name + "&" + "description=" + description + "&" + "canPreview=" + canPreview + "&" + "videoPath=" + videoPath + "&" + "courseText=" + courseText + "&" + "videoTime=" + videoTime, course).map((response: Response) => response.json());
     //return this.http.put('http://103.76.180.120:8080/tamdai-service/update/ItemDetails/' + id + "?name=" + name + "&" + "description=" + description + "&" + "canPreview=" + canPreview, course).map((response: Response) => response.json());
     //return this.http.put('http://' + this.url + ':8080/update/ItemDetails/' + id + "?name=" + name + "&" + "description=" + description + "&" + "canPreview=" + canPreview + "&" + "videoPath=" + videoPath, course).map((response: Response) => response.json());
   }
@@ -184,7 +185,7 @@ export class CourseService {
     let options = new RequestOptions({headers: headers});
 
     // get users from api
-    return this.http.get(URL + 'coursePurchased/' + "?userId=" + userIdPurchase+ "&" + "courseId=" + id, options).map((response: Response) => response.json());
+    return this.http.get(URL + 'coursePurchased/' + "?userId=" + userIdPurchase + "&" + "courseId=" + id, options).map((response: Response) => response.json());
     //return this.http.get('http://103.76.180.120:8080/tamdai-service/coursePurchased/' + "?userId=" + userIdPurchase+ "&" + "courseId=" + id, options).map((response: Response) => response.json());
     //return this.http.get('http://' + this.url + ':8080/coursePurchased/' + "?userId=" + userIdPurchase + "&" + "courseId=" + id, options).map((response: Response) => response.json());
   }
@@ -199,8 +200,8 @@ export class CourseService {
     //return this.http.get('http://' + this.url + ':8080/courseItem/' + id, options).map((response: Response) => response.json());
   }
 
-  updateCourse(id, name, description, price, publicCourse, linkCourse, course: Course) {
-    return this.http.put(URL + 'update/course/' + id + "?name=" + name + "&" + "description=" + description + "&" + "price=" + price + "&" + "publicCourse=" + publicCourse + "&" + "linkCourse=" + linkCourse, course).map((response: Response) => response.json());
+  updateCourse(id, name, description, price, publicCourse, linkCourse, course: Course, courseType: any, catagory: any) {
+    return this.http.put(URL + 'update/course/' + id + "?name=" + name + "&" + "description=" + description + "&" + "price=" + price + "&" + "publicCourse=" + publicCourse + "&" + "linkCourse=" + linkCourse + "&" + "courseType=" + courseType + "&" + "catagory=" + catagory, course).map((response: Response) => response.json());
     //return this.http.put('http://103.76.180.120:8080/tamdai-service/update/course/' + id + "?name=" + name + "&" + "description=" + description + "&" + "price=" + price + "&" + "publicCourse=" + publicCourse + "&" + "linkCourse=" + linkCourse, course).map((response: Response) => response.json());
     //return this.http.put('http://' + this.url + ':8080/update/course/' + id + "?name=" + name + "&" + "description=" + description + "&" + "price=" + price + "&" + "publicCourse=" + publicCourse + "&" + "linkCourse=" + linkCourse, course).map((response: Response) => response.json());
   }

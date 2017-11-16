@@ -7,7 +7,10 @@
         <span style="background-color: #bf2b2a" class="icon icon-bar"></span>
         <span style="background-color: #bf2b2a" class="icon icon-bar"></span>
       </button>
-      <img disabled title="Logo" [src]="ImgLogo" routerLink="/home" style="cursor: pointer; margin-top: 10%">
+      <!--<img disabled title="Logo" [src]="ImgLogo" routerLink="/home" style="cursor: pointer; margin-top: 7%">-->
+      <img disabled title="Logo"
+           src="https://firebasestorage.googleapis.com/v0/b/makehappen-cc730.appspot.com/o/tamdai.png?alt=media&token=29dbd30f-dcf1-4dbb-a6f7-74314612665f"
+           routerLink="/home" style="cursor: pointer; margin-top: 2%; height: 40px">
       <!--<a style="color: #bf2b2a; margin-top: 3%; cursor: hand" class="navbar-brand"><span routerLink="/home">Website-->
       <!--LOGO</span></a>-->
     </div>
@@ -18,15 +21,18 @@
         <li data-toggle="modal" data-target="#squarespaceModalLogin"
             class="smoothScroll center-block"
             style="cursor: pointer"><a style="color: #bf2b2a">
-          <div title="Sign In" [hidden]="currentUser != null"><span class="glyphicon glyphicon-log-in" data-toggle="modal"
-                                                    data-target="#squarespaceModalLogin"></span> Sign In
+          <div title="Sign In" [hidden]="currentUser != null"><span class="glyphicon glyphicon-log-in"
+                                                                    data-toggle="modal"
+                                                                    data-target="#squarespaceModalLogin"></span> Sign In
           </div>
         </a></li>
         <li data-toggle="modal" data-target="#squarespaceModalSignUp"
             class="smoothScroll center-block"
             style="cursor: pointer"><a style="color: #bf2b2a">
-          <div title="Sign Up" [hidden]="currentUser != null"><span class="glyphicon glyphicon-log-in" data-toggle="modal"
-                                                    data-target="#squarespaceModalSignUp"></span> Sign Up
+          <div title="Sign Up" [hidden]="currentUser != null"><span class="glyphicon glyphicon-log-in"
+                                                                    data-toggle="modal"
+                                                                    data-target="#squarespaceModalSignUp"></span> Sign
+            Up
           </div>
         </a></li>
 

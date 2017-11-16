@@ -6,6 +6,7 @@ import {AlertService} from "../alertContent/AlertService";
 import {Video} from "../models/Video";
 
 const URL = 'http://localhost:8080/';
+
 //const URL = 'http://103.76.180.120:8080/tamdai-service/';
 
 @Component({
@@ -14,6 +15,10 @@ const URL = 'http://localhost:8080/';
   styleUrls: ['./edit-courst-id.component.css']
 })
 export class EditCourstIdComponent implements OnInit {
+
+  url = 'http://localhost:8080/';
+  //url = 'http://103.76.180.120:8080/tamdai-service/';
+
   Course: any = {};
   public CourseId;
   name: any;
@@ -27,6 +32,13 @@ export class EditCourstIdComponent implements OnInit {
   textTrue = "true";
   publicCourse: any;
   linkCourse: any;
+  courseType: any;
+  catagory: any;
+
+  TypeItems = 'new hot recommend'.split(' ');
+  CatagoriesItems = 'Lego Household Toy Garden IoT'.split(' ');
+  model = {options: ''};
+  models = {options: ''};
 
   constructor(private route: ActivatedRoute,
               private courseService: CourseService,
@@ -72,7 +84,12 @@ export class EditCourstIdComponent implements OnInit {
     this.linkCourse = this.Course.linkCourse;
     console.log(this.linkCourse);
 
-    this.courseService.updateCourse(id, this.name, this.description, this.price, this.publicCourse, this.linkCourse, this.Course)
+    this.courseType = this.model.options;
+    this.catagory = this.models.options;
+    console.log(this.courseType);
+    console.log(this.catagory);
+
+    this.courseService.updateCourse(id, this.name, this.description, this.price, this.publicCourse, this.linkCourse, this.Course, this.courseType, this.catagory)
       .subscribe(
         data => {
           this.alertService.success('Edit Successful', true);

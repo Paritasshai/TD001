@@ -32,6 +32,7 @@ export class AddVideoItemComponent implements OnInit {
   courseId: any;
   videoPath: any;
   courseText: any;
+  videoTime: any;
 
 
   constructor(private route: ActivatedRoute,
@@ -51,9 +52,10 @@ export class AddVideoItemComponent implements OnInit {
     this.canPreview = this.VideoItem.canPreview;
     this.videoPath = this.Course.videoPath;
     this.courseText = this.Course.courseText;
+    this.videoTime = this.Course.videoTime;
     // console.log(this.courseText);
 
-    this.courseService.updateItemDetails(id, this.name, this.description, this.canPreview, this.course, this.videoPath, this.courseText).subscribe(
+    this.courseService.updateItemDetails(id, this.name, this.description, this.canPreview, this.course, this.videoPath, this.courseText, this.videoTime).subscribe(
       data => {
         alert("Update Success");
         location.reload();
