@@ -17,6 +17,14 @@ import {CourselistComponent} from "./courselist/courselist.component";
 import {EditCourseComponent} from "./edit-course/edit-course.component";
 import {AddVideoItemComponent} from "./add-video-item/add-video-item.component";
 import {CourseHistoryComponent} from "./course-history/course-history.component";
+import {RobomindComponent} from "./robomind/robomind.component";
+import {CreateProfileComponent} from "./robomind/create-profile/create-profile.component";
+import {ReviewProfileComponent} from "./robomind/review-profile/review-profile.component";
+import {AddComentComponent} from "./robomind/add-coment/add-coment.component";
+import {CourseFavorComponent} from "./userProfile/course-favor/course-favor.component";
+import {EditProfileComponent} from "./robomind/create-profile/edit-profile/edit-profile.component";
+import {EditCommentComponent} from "./robomind/add-coment/edit-comment/edit-comment.component";
+import {CarouselComponent} from "./robomind/review-profile/carousel/carousel.component";
 
 const appRoutes: Routes = [
   {path: 'home', component: HomepageComponent},
@@ -36,6 +44,14 @@ const appRoutes: Routes = [
   {path: 'EditCourse', component: EditCourseComponent},
   {path: 'addItem/:id', component: AddVideoItemComponent},
   {path: 'CourseHistory', component: CourseHistoryComponent},
+  {path: 'RobomindHome', component: RobomindComponent},
+  {path: 'RobomindCreate', component: CreateProfileComponent},
+  {path: 'RobomindReview/:id', component: ReviewProfileComponent},
+  {path: 'RobomindContent', component: AddComentComponent},
+  {path: 'Favor', component: CourseFavorComponent},
+  {path: 'editProfile/:id', component: EditProfileComponent},
+  {path: 'editComment/:id', component: EditCommentComponent},
+  {path: 'Carousel/:id', component: CarouselComponent},
 
 
   // otherwise redirect to home

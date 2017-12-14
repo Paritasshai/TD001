@@ -2,6 +2,13 @@ body {
   font-family: 'Kanit', sans-serif;
 }
 
+.container-fluid{
+  width: 100%;
+  box-shadow: 0 0 4px 4px #cfcfcf; /*THIS does not work as expected*/
+  border-radius: 5px;
+  margin-top: -17px;
+}
+
 .boxes-design {
   border: solid 1px #818181;
   padding: 1%;
@@ -82,7 +89,7 @@ body {
 
 .img {
   width: 100%;
-  height: 145px;
+  height: 130px;
   /*border-radius: 10px;*/
   overflow: hidden;
 }
@@ -110,9 +117,9 @@ body {
   opacity: 1;
 }
 
-.list-group {
-  background-color: white;
-}
+/*.list-group {*/
+  /*background-color: #cfcfcf;*/
+/*}*/
 
 .well-height {
   height: 40px;
@@ -123,7 +130,6 @@ body {
 }
 
 .list-group {
-  border: none;
   width: 100%;
 }
 
@@ -253,3 +259,18 @@ h2 {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+#div11 {
+  white-space: nowrap;
+  width: 10em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*.stuck {*/
+  /*position: fixed;*/
+  /*!*max-height: 100%;*!*/
+  /*width: 320px;*/
+  /*background-color: #eee;*/
+  /*margin-top: -30px;*/
+/*}*/

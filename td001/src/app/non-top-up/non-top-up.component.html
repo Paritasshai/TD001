@@ -1,19 +1,21 @@
+<app-header></app-header>
 <div class="container-fluid">
 
   <div align="center">
     <div class="row content">
       <div class="col-sm-12">
         <div class="well">
-          <h4>Payment status</h4>
+          <h4>สถานะการชำระเงิน</h4>
+          <br>
           <table class="table table-striped">
             <thead>
             <tr>
-              <th><p>Order ID</p></th>
-              <th><p>Order Payment</p></th>
-              <th><p>Payment Date</p></th>
+              <th><p>ลำดับคำสั่งซื้อ</p></th>
+              <th><p>เลขคำสั่งซื้อ</p></th>
+              <th><p>วันชำระเงิน</p></th>
               <!--<th>User Email</th>-->
-              <th><p align="right">Amount</p></th>
-              <th><p>Status</p></th>
+              <th><p align="right">ยอดเงิน</p></th>
+              <th><p align="right">สถานะ</p></th>
               <th></th>
             </tr>
             </thead>
@@ -25,7 +27,9 @@
               <!--<td>{{orderPayment.users[0].email}}</td>-->
               <td align="right">{{orderPayment.transAmount}}</td>
               <td [hidden]="orderPayment.statusOrder == confirm">{{orderPayment.statusOrder}}</td>
-              <td *ngIf="orderPayment.statusOrder == confirm" style="color: green">{{orderPayment.statusOrder}}</td>
+              <td align="right" *ngIf="orderPayment.statusOrder == confirm" style="color: green">
+                {{orderPayment.statusOrder}}
+              </td>
               <td>
                 <div [hidden]="orderPayment.statusOrder == confirm">
                   <button class="btn btn-success btn-sm" (click)="Submit(orderPayment.id)">แจ้งชำระเงิน

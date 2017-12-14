@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="container-fluid design">
   <div class="container-default">
 
@@ -26,7 +27,7 @@
             </div>
             <div class="form-group">
               <p>Course Price: </p>
-              <input type="text" class="form-control" name="price" id="price" placeholder="Course Price.."
+              <input type="number" class="form-control" name="price" id="price" placeholder="Course Price.."
                      [(ngModel)]="Course.price"
                      #price="ngModel" required/>
             </div>

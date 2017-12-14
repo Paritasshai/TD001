@@ -53,10 +53,21 @@ import {VgCoreModule} from "videogular2/core";
 import {VgControlsModule} from "videogular2/controls";
 import {VgOverlayPlayModule} from "videogular2/overlay-play";
 import {VgBufferingModule} from "videogular2/buffering";
-import {VgTimeDisplay} from "videogular2/src/controls/vg-time-display/vg-time-display";
-import {VgTrackSelector} from "videogular2/src/controls/vg-track-selector/vg-track-selector";
-import { CourseSlideComponent } from './course-slide/course-slide.component';
 import { TrustAsResourceUrlPipe } from './pipes/trust-as-resource-url.pipe';
+import { RandomPipe } from './pipes/random.pipe';
+import { CourseCustomerComponent } from './course-lists/course-customer/course-customer.component';
+import { CourseMemberComponent } from './course-lists/course-member/course-member.component';
+import { CourseInsComponent } from './course-lists/course-ins/course-ins.component';
+import { CourseAdminComponent } from './course-lists/course-admin/course-admin.component';
+import { CourseFavorComponent } from './userProfile/course-favor/course-favor.component';
+import { RobomindComponent } from './robomind/robomind.component';
+import { CreateProfileComponent } from './robomind/create-profile/create-profile.component';
+import { ReviewProfileComponent } from './robomind/review-profile/review-profile.component';
+import { AddComentComponent } from './robomind/add-coment/add-coment.component';
+import {StudentService} from "./services/StudentService";
+import { EditProfileComponent } from './robomind/create-profile/edit-profile/edit-profile.component';
+import { CarouselComponent } from './robomind/review-profile/carousel/carousel.component';
+import { EditCommentComponent } from './robomind/add-coment/edit-comment/edit-comment.component';
 
 @NgModule({
   declarations: [
@@ -89,8 +100,20 @@ import { TrustAsResourceUrlPipe } from './pipes/trust-as-resource-url.pipe';
     SortObjectPipe,
     EditUserComponent,
     SafetyPipe,
-    CourseSlideComponent,
-    TrustAsResourceUrlPipe
+    TrustAsResourceUrlPipe,
+    RandomPipe,
+    CourseCustomerComponent,
+    CourseMemberComponent,
+    CourseInsComponent,
+    CourseAdminComponent,
+    CourseFavorComponent,
+    RobomindComponent,
+    CreateProfileComponent,
+    ReviewProfileComponent,
+    AddComentComponent,
+    EditProfileComponent,
+    CarouselComponent,
+    EditCommentComponent
   ],
   imports: [
     BrowserModule,
@@ -118,7 +141,8 @@ import { TrustAsResourceUrlPipe } from './pipes/trust-as-resource-url.pipe';
     BankStatementService,
     PaymentTransService,
     CourseService,
-    PurchaseCourseService
+    PurchaseCourseService,
+    StudentService
   ],
   bootstrap: [AppComponent],
   entryComponents: [AppComponent],

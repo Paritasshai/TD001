@@ -6,138 +6,119 @@
   <base href="/">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
-  <!-- or -->
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+  <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+  <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"-->
+  <!--integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+  <!--&lt;!&ndash;//&ndash;&gt;-->
+  <!--<link rel="stylesheet"-->
+  <!--href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">-->
+
+  <!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.8.10/themes/smoothness/jquery-ui.css" type="text/css">-->
+  <!--<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/jquery-ui.min.js"></script>-->
+
+  <!--<link href="http://vjs.zencdn.net/6.2.8/video-js.css" rel="stylesheet">-->
+
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
-  <!--//-->
-  <link rel="stylesheet"
-        href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.8.10/themes/smoothness/jquery-ui.css" type="text/css">
-  <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/jquery-ui.min.js"></script>
-
-  <link href="http://vjs.zencdn.net/6.2.8/video-js.css" rel="stylesheet">
-
-  <!-- If you'd like to support IE8 -->
-  <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
-
-  <!--&lt;!&ndash;userProfile&ndash;&gt;-->
-  <!--<link rel="stylesheet" href="../../td001/src/app/user-profile-page/design/css/normalize.css">-->
-  <!--<link rel="stylesheet" href="../../td001/src/app/user-profile-page/design/css/font-awesome.css">-->
-  <!--<link rel="stylesheet" href="../../td001/src/app/user-profile-page/design/css/bootstrap.min.css">-->
-  <!--<link rel="stylesheet" href="../../td001/src/app/user-profile-page/design/css/templatemo-style.css">-->
-  <!--<script src="../../td001/src/app/user-profile-page/design/js/vendor/modernizr-2.6.2.min.js"></script>-->
-
-  <!--<script src="../../td001/src/app/user-profile-page/design/js/vendor/jquery-1.10.2.min.js"></script>-->
-  <!--<script src="../../td001/src/app/user-profile-page/design/js/min/plugins.min.js"></script>-->
-  <!--<script src="../../td001/src/app/user-profile-page/design/js/min/main.min.js"></script>-->
-
 </head>
 <body>
-<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>
-<!--<script type="text/javascript" src="https://connect.facebook.net/en_US/sdk.js"></script>-->
 <app-root>Loading...</app-root>
-<script src="http://vjs.zencdn.net/6.2.8/video.js"></script>
 </body>
-
-<!--<script>-->
-<!--var isChrome = !!window.chrome;-->
-<!--var isIE = /*@cc_on!@*/false;-->
-
-<!--if( isChrome ) {-->
-<!--$("#videoId").replaceWith($('<video id="videoId" width="100%" autoplay loop><source src="video.webm" type="video/webm"></video>'));-->
-<!--}-->
-<!--if( isIE ) {-->
-<!--$("#videoId").replaceWith($('<img id="videoId" src="img/video.jpg" />'));-->
-<!--}-->
-<!--</script>-->
+<!--<script src="https://use.fontawesome.com/bfdd1d98a1.js"></script>-->
 
 <script>
-  $(function () {
-    var $refreshButton = $('#refresh');
-    var $results = $('#css_result');
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
 
-    function refresh() {
-      var css = $('style.cp-pen-styles').text();
-      $results.html(css);
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("myBtn").style.display = "block";
+    } else {
+      document.getElementById("myBtn").style.display = "none";
     }
+  }
 
-    refresh();
-    $refreshButton.click(refresh);
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+</script>
 
-    // Select all the contents when clicked
-    $results.click(function () {
-      $(this).select();
+<script>
+  $(document).ready(function () {
+    $('#myCarousel').carousel({
+      interval: 2000
+    })
+
+    $('#myCarousel').on('slid.bs.carousel', function () {
+      //alert("slid");
     });
   });
+</script>
 
+<script>
+  $(document).ready(function() {
+    $('#myCarousels').carousel({
+      interval: 2000
+    })
+  });
 </script>
 
 <!--<script>-->
+<!--$(function () {-->
+<!--var $refreshButton = $('#refresh');-->
+<!--var $results = $('#css_result');-->
 
-<!--$(document).ready(function () {-->
-<!--$('#list').click(function (event) {-->
-<!--event.preventDefault();-->
-<!--$('#products .item').addClass('list-group-item');-->
-<!--});-->
-<!--$('#grid').click(function (event) {-->
-<!--event.preventDefault();-->
-<!--$('#products .item').removeClass('list-group-item');-->
-<!--$('#products .item').addClass('grid-group-item');-->
-<!--});-->
-<!--});-->
-
-<!--function openCity(evt, cityName) {-->
-<!--var i, tabcontent, tablinks;-->
-<!--tabcontent = document.getElementsByClassName("tabcontent");-->
-<!--for (i = 0; i < tabcontent.length; i++) {-->
-<!--tabcontent[i].style.display = "none";-->
-<!--}-->
-<!--tablinks = document.getElementsByClassName("tablinks");-->
-<!--for (i = 0; i < tablinks.length; i++) {-->
-<!--tablinks[i].className = tablinks[i].className.replace(" active", "");-->
-<!--}-->
-<!--document.getElementById(cityName).style.display = "block";-->
-<!--evt.currentTarget.className += " active";-->
+<!--function refresh() {-->
+<!--var css = $('style.cp-pen-styles').text();-->
+<!--$results.html(css);-->
 <!--}-->
 
-<!--// Get the element with id="defaultOpen" and click on it-->
-<!--document.getElementById("defaultOpen").click();-->
+<!--refresh();-->
+<!--$refreshButton.click(refresh);-->
+
+<!--// Select all the contents when clicked-->
+<!--$results.click(function () {-->
+<!--$(this).select();-->
+<!--});-->
+<!--});-->
+
+<!--</script>-->
+<!--<script>-->
+<!--jQuery(document).ready(function ($) {-->
+
+<!--$('#myCarousel').carousel({-->
+<!--interval: 3000-->
+<!--});-->
+
+<!--//Handles the carousel thumbnails-->
+<!--$('[id^=carousel-selector-]').click(function () {-->
+<!--var id_selector = $(this).attr("id");-->
+<!--try {-->
+<!--var id = /-(\d+)$/.exec(id_selector)[1];-->
+<!--console.log(id_selector, id);-->
+<!--jQuery('#myCarousel').carousel(parseInt(id));-->
+<!--} catch (e) {-->
+<!--console.log('Regex failed!', e);-->
+<!--}-->
+<!--});-->
+<!--// When the carousel slides, auto update the text-->
+<!--$('#myCarousel').on('slid.bs.carousel', function (e) {-->
+<!--var id = $('.item.active').data('slide-number');-->
+<!--$('#carousel-text').html($('#slide-content-' + id).html());-->
+<!--});-->
+<!--});-->
 <!--</script>-->
 
-<script>
-  jQuery(document).ready(function ($) {
-
-    $('#myCarousel').carousel({
-      interval: 3000
-    });
-
-    //Handles the carousel thumbnails
-    $('[id^=carousel-selector-]').click(function () {
-      var id_selector = $(this).attr("id");
-      try {
-        var id = /-(\d+)$/.exec(id_selector)[1];
-        console.log(id_selector, id);
-        jQuery('#myCarousel').carousel(parseInt(id));
-      } catch (e) {
-        console.log('Regex failed!', e);
-      }
-    });
-    // When the carousel slides, auto update the text
-    $('#myCarousel').on('slid.bs.carousel', function (e) {
-      var id = $('.item.active').data('slide-number');
-      $('#carousel-text').html($('#slide-content-' + id).html());
-    });
-  });
-</script>
-
+<!--<script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>-->
+<!--<script src="http://vjs.zencdn.net/6.2.8/video.js"></script>-->
+<!--<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>-->
 </html>

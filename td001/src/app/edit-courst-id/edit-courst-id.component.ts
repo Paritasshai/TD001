@@ -4,10 +4,9 @@ import {CourseService} from "../services/CourseService";
 import {FileUploader} from "ng2-file-upload";
 import {AlertService} from "../alertContent/AlertService";
 import {Video} from "../models/Video";
+import {AppComponent} from "../app.component";
 
-const URL = 'http://localhost:8080/';
-
-//const URL = 'http://103.76.180.120:8080/tamdai-service/';
+const URL = AppComponent.API_URL;
 
 @Component({
   selector: 'app-edit-courst-id',
@@ -16,8 +15,7 @@ const URL = 'http://localhost:8080/';
 })
 export class EditCourstIdComponent implements OnInit {
 
-  url = 'http://localhost:8080/';
-  //url = 'http://103.76.180.120:8080/tamdai-service/';
+  url = AppComponent.API_URL;
 
   Course: any = {};
   public CourseId;

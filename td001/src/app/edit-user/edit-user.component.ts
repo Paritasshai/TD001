@@ -3,10 +3,9 @@ import {User} from "../models/User";
 import {UserService} from "../services/User.service";
 import {FileUploader} from "ng2-file-upload";
 import {Http, RequestOptions, Headers} from "@angular/http";
-import {Observable} from "rxjs/Observable";
+import {AppComponent} from "../app.component";
 
-const URL = 'http://localhost:8080/';
-//const URL = 'http://103.76.180.120:8080/tamdai-service/';
+const URL = AppComponent.API_URL;
 
 @Component({
   selector: 'app-edit-user',
@@ -14,11 +13,13 @@ const URL = 'http://localhost:8080/';
   styleUrls: ['./edit-user.component.css']
 })
 export class EditUserComponent implements OnInit {
+
   currentUser: User;
   users: User[] = [];
   getUserId: any;
   userId: any;
   @ViewChild('fileInput') fileInput;
+  User: any = {};
 
   constructor(private userService: UserService,
               private http: Http) {
@@ -80,6 +81,21 @@ export class EditUserComponent implements OnInit {
     this.userId = this.currentUser.id;
     console.log(this.userId);
     this.userService.deleteImage(id, this.userId).subscribe(
+      data => {
+        //alert("Delete Image Success");
+        location.reload();
+      },
+      error => {
+        alert("Error")
+      });
+  }
+
+  update(instructorBio, getUserId) {
+    console.log(getUserId);
+    // console.log(instructorBio);
+    this.User.instructorBio = instructorBio;
+    console.log(this.User.instructorBio);
+    this.userService.updateInstructorBio(getUserId, this.User.instructorBio, this.User).subscribe(
       data => {
         //alert("Delete Image Success");
         location.reload();

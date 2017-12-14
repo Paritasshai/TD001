@@ -1,10 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Course} from "../models/Course";
 import {CourseService} from "../services/CourseService";
 import {Router} from "@angular/router";
 import {User} from "../models/User";
 import {UserService} from "../services/User.service";
-import {isUndefined} from "util";
+import {AppComponent} from "../app.component";
 
 @Component({
   selector: 'app-courselist',
@@ -14,10 +13,10 @@ import {isUndefined} from "util";
 
 export class CourselistComponent implements OnInit {
 
-  url = 'http://localhost:8080/';
-//url = 'http://103.76.180.120:8080/tamdai-service/';
+  url = AppComponent.API_URL;
 
   Img1: string;
+  list: any = [];
   courses: any = [];
   coursesLego: any = [];
   coursesHousehold: any = [];
@@ -28,6 +27,7 @@ export class CourselistComponent implements OnInit {
   coursesRecommend: any = [];
   coursesHot: any = [];
   instructor = "instructor";
+  admin = "admin";
   currentUser: User;
   users: User[] = [];
   textTrue = "true";
@@ -45,6 +45,7 @@ export class CourselistComponent implements OnInit {
   IoTText = "IoT";
   query: any;
   myVar = true;
+  myVars = false;
   lego = false;
   household = false;
   toy = false;
@@ -53,6 +54,8 @@ export class CourselistComponent implements OnInit {
   querySearch = false;
   empty = "null";
   courseSearch: any = [];
+  UserId: any;
+  List: any = {};
 
   constructor(private courseService: CourseService,
               private router: Router,
@@ -77,6 +80,7 @@ export class CourselistComponent implements OnInit {
   public searchItem(query) {
     this.myVar = false;
     this.lego = false;
+    this.myVars = false;
     this.household = false;
     this.toy = false;
     this.garden = false;
@@ -88,8 +92,20 @@ export class CourselistComponent implements OnInit {
     });
   }
 
-  public All() {
+  public BAll(){
     this.myVar = true;
+    this.myVars = false;
+    this.lego = false;
+    this.household = false;
+    this.toy = false;
+    this.garden = false;
+    this.iot = false;
+    this.querySearch = false;
+  }
+
+  public All() {
+    this.myVar = false;
+    this.myVars = true;
     this.lego = false;
     this.household = false;
     this.toy = false;
@@ -99,6 +115,7 @@ export class CourselistComponent implements OnInit {
   }
 
   public Lego() {
+    this.myVars = false;
     this.myVar = false;
     this.lego = true;
     this.household = false;
@@ -113,6 +130,7 @@ export class CourselistComponent implements OnInit {
   }
 
   public Household() {
+    this.myVars = false;
     this.myVar = false;
     this.lego = false;
     this.household = true;
@@ -127,6 +145,7 @@ export class CourselistComponent implements OnInit {
   }
 
   public Toy() {
+    this.myVars = false;
     this.myVar = false;
     this.lego = false;
     this.household = false;
@@ -141,6 +160,7 @@ export class CourselistComponent implements OnInit {
   }
 
   public Garden() {
+    this.myVars = false;
     this.myVar = false;
     this.lego = false;
     this.household = false;
@@ -155,6 +175,7 @@ export class CourselistComponent implements OnInit {
   }
 
   public IoT() {
+    this.myVars = false;
     this.myVar = false;
     this.lego = false;
     this.household = false;
@@ -205,6 +226,45 @@ export class CourselistComponent implements OnInit {
     this.userService.getAll().subscribe(users => {
       this.users = users;
     });
+  }
+
+  // addToList(id) {
+  //   // console.log(this.currentUser);
+  //   // console.log(id);
+  //   if (this.currentUser == null) {
+  //     alert("เข้าสู่ระบบหรือสมัครสมาชิก");
+  //   } else {
+  //     this.UserId = this.currentUser.id;
+  //     // console.log("Course ID: " + id);
+  //     // console.log("User ID: " + this.UserId);
+  //     this.courseService.getFavorCourse(id, this.UserId, this.list).subscribe(
+  //       data => {
+  //         alert("Success");
+  //       },
+  //       error => {
+  //         alert("Error")
+  //       });
+  //   }
+  // }
+
+  addToList(id) {
+    if (this.currentUser == null) {
+      alert("เข้าสู่ระบบหรือสมัครสมาชิก");
+    } else if (this.currentUser.status == this.admin || this.currentUser.status == this.instructor) {
+      alert("คุณไม่สามารถใช้ฟังค์ชันนี้ได้");
+    } else {
+      this.UserId = this.currentUser.id;
+      console.log("Course ID: " + id);
+      console.log("User ID: " + this.UserId);
+      this.userService.createLists(id, this.UserId, this.List)
+        .subscribe(
+          data => {
+            alert("เพิ่มโปรเจคลงในลิสต์เรียบร้อยแล้ว");
+          },
+          error => {
+            alert("Failed");
+          });
+    }
   }
 
 }

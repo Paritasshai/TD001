@@ -5,9 +5,9 @@ import {CourseService} from "../services/CourseService";
 import {AlertService} from "../alertContent/AlertService";
 import {Router} from "@angular/router";
 import {User} from "../models/User";
+import {AppComponent} from "../app.component";
 
-const URL = 'http://localhost:8080/';
-//const URL = 'http://103.76.180.120:8080/tamdai-service/';
+const URL = AppComponent.API_URL;
 
 @Component({
   selector: 'app-video-list-page',
@@ -17,32 +17,10 @@ const URL = 'http://localhost:8080/';
 export class VideoListPageComponent implements OnInit {
   Course: any = {};
   currentUser: User;
-
-  // courseTypes = [
-  //   {id: 1, name: "New"},
-  //   {id: 2, name: "Hot"},
-  //   {id: 3, name: "Recommend"}
-  // ];
-  // selectedValueCourseType = null;
-  //
-  // catagories = [
-  //   {id: 1, name: "Lego Mindstrom"},
-  //   {id: 2, name: "Tech Household"},
-  //   {id: 3, name: "Tech Toy"},
-  //   {id: 4, name: "Tech Garden"},
-  //   {id: 5, name: "IoT"}
-  // ];
-  //
-  // selectedValueCatagory = null;
-
   TypeItems = 'new hot recommend'.split(' ');
   CatagoriesItems = 'Lego Household Toy Garden IoT'.split(' ');
   model = {options: ''};
   models = {options: ''};
-
-  // get debug() {
-  //   return JSON.stringify(this.model);
-  // }
 
   public uploader: FileUploader = new FileUploader({url: URL});
   public hasBaseDropZoneOver: boolean = false;

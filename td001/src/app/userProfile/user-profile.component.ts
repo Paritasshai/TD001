@@ -26,6 +26,9 @@ export class UserProfileComponent implements OnInit {
   statementAmount: any;
   confirm = "confirm";
 
+  fifty = 50;
+  hundred = 100;
+
   show1 = true;
   show2 = false;
   show3 = false;
@@ -37,17 +40,19 @@ export class UserProfileComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
-  public showU(){
+  public showU() {
     this.show1 = true;
     this.show2 = false;
     this.show3 = false;
   }
-  public showO(){
+
+  public showO() {
     this.show1 = false;
     this.show2 = true;
     this.show3 = false;
   }
-  public showC(){
+
+  public showC() {
     this.show1 = false;
     this.show2 = false;
     this.show3 = true;
@@ -75,11 +80,11 @@ export class UserProfileComponent implements OnInit {
   }
 
   ConfirmPayment(id, email, paymentId, statementAmount, balance, bankOrderId) {
-    //console.log(id);
-    //console.log(email);
-    //console.log(statementAmount);
+    // console.log(id);
+    // console.log(email);
+    // console.log(statementAmount);
     //console.log(balance);
-    //console.log(paymentId);
+    // console.log(paymentId);
 
     this.result = parseFloat(statementAmount) + parseFloat(balance);
     //console.log(this.result);

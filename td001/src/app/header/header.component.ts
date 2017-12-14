@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from "../services/Authentication.service";
 import {User} from "../models/User";
 import {UserService} from "../services/User.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -17,13 +18,14 @@ export class HeaderComponent implements OnInit {
   users: User[] = [];
 
   constructor(private authenticationService: AuthenticationService,
-              private userService: UserService) {
+              private userService: UserService,
+              private router: Router) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.ImgLogo = '../../assets/images/logo.png';
+    this.ImgLogo = '../../assets/images/tamdaiLogo.png';
   }
 
   ngOnInit() {
-      this.getUserList();
+    this.getUserList();
   }
 
   logOut() {
@@ -33,6 +35,7 @@ export class HeaderComponent implements OnInit {
       this.authenticationService.logout();
       window.location.reload();
     }, 1000);
+    this.router.navigate(['/home']);
   }
 
   private getUserList() {
@@ -41,6 +44,14 @@ export class HeaderComponent implements OnInit {
         this.users = users;
       }
     });
+  }
+
+  home() {
+    this.router.navigate(['/home']);
+  }
+
+  profile() {
+    this.router.navigate(['/userProfile']);
   }
 
 }

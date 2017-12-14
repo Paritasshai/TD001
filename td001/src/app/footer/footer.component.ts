@@ -7,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  ImgNIA: string;
+  ImgPOINTZ: string;
+  ImgTECH: string;
+
+  constructor() {
+    this.ImgNIA = '../../assets/images/NIA.png';
+    this.ImgPOINTZ = '../../assets/images/pointznet.png';
+    this.ImgTECH = '../../assets/images/TechDIY.png';
+  }
 
   ngOnInit() {
   }

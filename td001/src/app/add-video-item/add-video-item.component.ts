@@ -2,10 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FileUploader} from "ng2-file-upload";
 import {ActivatedRoute} from "@angular/router";
 import {CourseService} from "../services/CourseService";
-
-const URL = 'http://localhost:8080/';
-
-//const URL = 'http://103.76.180.120:8080/tamdai-service/';
+import {AppComponent} from "../app.component";
 
 @Component({
   selector: 'app-add-video-item',
@@ -65,8 +62,8 @@ export class AddVideoItemComponent implements OnInit {
       });
   }
 
-  public uploader: FileUploader = new FileUploader({url: URL + 'add/videoItem/' + "?id=" + this.route.snapshot.params['id']});
-  public uploaderImage: FileUploader = new FileUploader({url: URL + 'add/imageItem/' + "?id=" + this.route.snapshot.params['id']});
+  public uploader: FileUploader = new FileUploader({url: AppComponent.API_URL + 'add/videoItem/' + "?id=" + this.route.snapshot.params['id']});
+  public uploaderImage: FileUploader = new FileUploader({url: AppComponent.API_URL + 'add/imageItem/' + "?id=" + this.route.snapshot.params['id']});
   public hasBaseDropZoneOver: boolean = false;
   public hasAnotherDropZoneOver: boolean = false;
 

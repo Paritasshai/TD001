@@ -1,21 +1,15 @@
+<app-header></app-header>
+<hr style="border: solid 2px #dd1d0a; font-weight: 900">
 <div class="bg">
   <div class="container-fluid" *ngFor="let user of users">
     <div class="container" *ngIf="user.id == currentUser.id">
       <div style="margin-top: 5%" class="fb-profile">
-        <!--<img style="height: 450px" align="left" class="fb-image-lg" [src]="ImageUserCover"-->
-        <!--alt="Profile image example"/>-->
-        <!--<img align="left" class="fb-image-profile thumbnail" [src]="ImageUserProfile"-->
-        <!--alt="Profile image example"/>-->
-        <br>
-        <br>
-        <br>
-        <br>
         <br>
         <br>
         <div class="fb-profile-text">
           <!--<h2>{{currentUser.firstName}}</h2>-->
           <div [hidden]="user.status != active">
-            <h3><b>Your balance {{user.balance}} Bath.</b></h3>
+            <h3><b>ยอดเงินพร้อมใช้ {{user.balance}} บาท</b></h3>
           </div>
         </div>
         <br>
@@ -23,55 +17,12 @@
           <div class="container-fluid">
             <ul class="nav navbar-nav">
 
-              <!--<li>-->
-              <!--<div [hidden]="user.status != active"><p style="cursor: pointer; color: white;"-->
-              <!--[routerLink]="['/topUpOnline']">เติมเงิน &nbsp;&nbsp;&nbsp;</p>-->
-              <!--</div>-->
-              <!--</li>-->
-
-              <!--<li>-->
-              <!--<div [hidden]="user.status != active"><p style="cursor: pointer; color: white;"-->
-              <!--[routerLink]="['/nonTopUp']">รายการค้างชำระ-->
-              <!--&nbsp;&nbsp;&nbsp;</p></div>-->
-              <!--</li>-->
-
-              <!--<li>-->
-              <!--<div [hidden]="user.status != active"><p style="cursor: pointer; color: white;"-->
-              <!--[routerLink]="['/PaymentLists']">รายการบัญชีย้อนหลัง &nbsp;&nbsp;&nbsp;</p>-->
-              <!--</div>-->
-              <!--</li>-->
-
-              <!--<li>-->
-              <!--<div [hidden]="user.status != instructor"><p style="cursor: pointer; color: white;"-->
-              <!--[routerLink]="['/createCourse']">สร้างคอร์สเรียน &nbsp;&nbsp;&nbsp;</p>-->
-              <!--</div>-->
-              <!--</li>-->
-
-              <!--<li>-->
-              <!--<div [hidden]="user.status != instructor"><p style="cursor: pointer; color: white;"-->
-              <!--[routerLink]="['/EditCourse']">แก้ไขคอร์สเรียน &nbsp;&nbsp;&nbsp;</p>-->
-              <!--</div>-->
-              <!--</li>-->
-
-              <!--<li>-->
-              <!--<div [hidden]="user.status != admin"><p style="cursor: pointer; color: white;"-->
-              <!--[routerLink]="['/management']">จัดการระบบ &nbsp;&nbsp;&nbsp;</p>-->
-              <!--</div>-->
-              <!--</li>-->
-
               <div [hidden]="user.status != active">
                 <button class="btn btn-danger navbar-btn" [routerLink]="['/topUpOnline']">เติมเงิน</button>
-                <button class="btn btn-danger navbar-btn" [routerLink]="['/CourseHistory']">คอร์สที่ซื้อ</button>
-                <!--<button class="btn btn-danger navbar-btn" [routerLink]="['/nonTopUp']">รายการค้างชำระ</button>-->
-                <!--<button class="btn btn-danger navbar-btn" [routerLink]="['/PaymentLists']">รายการบัญชีย้อนหลัง</button>-->
-                <!--<button class="btn btn-danger navbar-btn" [routerLink]="['/purchaseCart']">คอร์สเรียนที่ซื้อ</button>-->
+                <button class="btn btn-danger navbar-btn" [routerLink]="['/CourseHistory']">โปรเจคของฉัน</button>
+                <button class="btn btn-danger navbar-btn" [routerLink]="['/Favor']">โปรเจคที่ชื่นชอบ</button>
               </div>
-              <!--<div [hidden]="user.status != instructor">-->
-              <!--<button class="btn btn-danger navbar-btn" [routerLink]="['/createCourse']">สร้างคอร์สเรียน</button>-->
-              <!--<button class="btn btn-danger navbar-btn" [routerLink]="['/EditCourse']">แก้ไขคอร์สเรียน</button>-->
-              <!--</div>-->
               <div [hidden]="user.status != admin">
-                <!--<button class="btn btn-danger navbar-btn" [routerLink]="['/management']" disabled>จัดการระบบ</button>-->
                 <button class="btn btn-danger navbar-btn" (click)="showU()">User Management</button>
                 <button class="btn btn-danger navbar-btn" (click)="showO()">Order Management</button>
                 <button class="btn btn-danger navbar-btn" (click)="showC()">Confirm Management</button>
@@ -81,19 +32,17 @@
           </div>
         </nav>
         <div [hidden]="user.status != active">
+          <!--<app-course-favor></app-course-favor>-->
           <app-non-top-up></app-non-top-up>
           <app-payment-history-list></app-payment-history-list>
         </div>
         <div [hidden]="user.status != instructor">
           <div class="row">
             <div>
-              <div class="col-lg-12">
+              <div class="col-sm-4">
                 <app-edit-user></app-edit-user>
               </div>
-              <!--<div class="col-lg-6">-->
-              <!--<app-video-list-page></app-video-list-page>-->
-              <!--</div>-->
-              <div class="col-lg-12">
+              <div class="col-sm-8">
                 <app-edit-course></app-edit-course>
               </div>
             </div>

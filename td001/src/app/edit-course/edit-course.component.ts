@@ -18,8 +18,6 @@ export class EditCourseComponent implements OnInit {
   constructor(private courseService: CourseService,
               private router: Router) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    //console.log(this.currentUser.id);
-    //this.id = this.currentUser.id;
   }
 
   ngOnInit() {
@@ -42,12 +40,6 @@ export class EditCourseComponent implements OnInit {
     });
   }
 
-  // private getUserList() {
-  //   this.userService.getAll().subscribe(users => {
-  //     this.users = users[this.currentUser.id].courses;
-  //   });
-  // }
-
   EditCourse(id) {
     console.log("Edit");
     this.router.navigate(['/EditCourse', id])
@@ -63,6 +55,10 @@ export class EditCourseComponent implements OnInit {
       error => {
         alert("Error");
       });
+  }
+
+  click(id) {
+    this.router.navigate(['/CourseLists', id]);
   }
 
 }

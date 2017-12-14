@@ -1,19 +1,20 @@
+<app-header></app-header>
 <div class="container-fluid">
   <div align="center">
     <div class="row content">
       <div class="col-sm-12">
         <div class="well">
-          <h4>Transaction</h4>
+          <h4>ประวัติการชำระเงิน</h4>
           <table class="table table-striped">
             <thead>
             <tr>
               <!--<th></th>-->
-              <th>Payment Date</th>
-              <th>Payment Time</th>
-              <th>Type</th>
-              <th>Remark</th>
-              <th>Amount</th>
-              <th>Balance</th>
+              <th>วันที่ชำระเงิน</th>
+              <th>เวลาชำระเงิน</th>
+              <th>ชนิด</th>
+              <th>หมายเหตุ</th>
+              <th><p align="right">จำนวน</p></th>
+              <th><p align="right">คงเหลือ</p></th>
             </tr>
             </thead>
             <tbody *ngFor="let paymentTran of paymentTrans| sortObject:'id'">

@@ -1,5 +1,6 @@
+<app-header></app-header>
+<hr style="border: solid 2px #dd1d0a; font-weight: 900">
 <div class="container-fluid">
-
   <div align="center">
     <div class="row content">
       <div class="col-sm-12">
@@ -13,10 +14,14 @@
                 <div class="form-group" style="width: 70%">
                   <label>ระบุจำนวนเงินที่ต้องการเติม</label>
                   <div class="form-group has-feedback">
-                    <input #box (keyup)="onKey(box.value)" type="number" (keypress)="keyPress($event)" class="form-control" name="transAmount"
-                           id="transAmount"
-                           [(ngModel)]="Order.transAmount"
-                           #transAmount="ngModel"/>
+                    <p><select class="btn btn-danger btn-lg" style="width: 250px" [ngModel]="selectedDeviceObj"
+                               (ngModelChange)="onChangeObj($event)" name="sel3">
+                      <option [ngValue]="i" *ngFor="let i of deviceObjects">{{i.name}} บาท</option>
+                    </select>
+                      <!--<input #box (keyup)="onKey(box.value)" type="number" (keypress)="keyPress($event)" class="form-control" name="transAmount"-->
+                      <!--id="transAmount"-->
+                      <!--[(ngModel)]="Order.transAmount"-->
+                      <!--#transAmount="ngModel"/>-->
                   </div>
                 </div>
                 <div class="form-group">
@@ -26,13 +31,13 @@
                     <thead>
                     <tr>
                       <th>ยอดเงินคงเหลือ</th>
-                      <th>จำนวนเงินที่ต้องการเติม</th>
+                      <!--<th>จำนวนเงินที่ต้องการเติม</th>-->
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
                       <td><p>{{user.balance}} Bath.</p></td>
-                      <td><p [hidden]="!values" style="color: red; font-size: 14px">+ {{values}} Bath.</p></td>
+                      <!--<td><p [hidden]="!values" style="color: red; font-size: 14px">+ {{values}} Bath.</p></td>-->
                     </tr>
                     </tbody>
                   </table>

@@ -35,7 +35,8 @@ export class SignuppageComponent implements OnInit {
       .subscribe(
         data => {
           // this.alertService.success('Registration successful', true);
-          alert("Please Activate Your Email Account");
+          // alert("Please Activate Your Email Account");
+          alert("Success");
           location.reload();
           this.router.navigate(['/home']);
           this.loading = false;

@@ -1,5 +1,11 @@
+
+
 .center {
   margin-top: 50px;
+}
+
+.container{
+  width: 95%;
 }
 
 .modal-header {
